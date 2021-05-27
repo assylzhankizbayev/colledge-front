@@ -19,6 +19,12 @@ body {
   line-height: $font-height;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 // typography
 
 h1 {
