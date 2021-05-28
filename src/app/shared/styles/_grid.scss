@@ -1,7 +1,9 @@
 
-@import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic);
+@import '~src/assets/fonts/Roboto/roboto';
+@import '~src/assets/fonts/Rubik/rubik';
 
-$font-family: 'Lato', Helvetica, sans-serif;
+
+$font-family: 'Roboto', sans-serif;
 $font-weight-light: 300;
 $font-weight-regular: 400;
 $font-weight-heavy: 700;
@@ -13,7 +15,7 @@ $dark-grey: #333447;
 body {
   margin: 0;
   padding: 0;
-  font-size: 100%;
+  font-size: 16px;
   font-family: $font-family;
   color: $dark-grey;
   line-height: $font-height;
@@ -96,29 +98,33 @@ $breakpoint-med: 45em; // 720px
 $breakpoint-large: 60em; // 960px
 
 .container {
+  border: 1px solid tomato;
+  max-width: 1200px;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
 
-  @media only screen and (min-width: $breakpoint-small) {
+/*   @media only screen and (min-width: $breakpoint-small) {
     width: 80%;
-  }
+  } */
 
-  @media only screen and (min-width: $breakpoint-large) {
-    width: 75%;
-    max-width: 60rem;
-  }
+  // @media only screen and (min-width: $breakpoint-large) {
+  //   width: 75%;
+  //   max-width: 60rem;
+  // }
 }
 
 .row {
   position: relative;
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .row [class^="col"] {
-  float: left;
+/*   float: left;
   margin: 0.5rem 2%;
-  min-height: 0.125rem;
+  min-height: 0.125rem; */
 }
 
 .row::after {
@@ -139,8 +145,16 @@ $breakpoint-large: 60em; // 960px
 .col-10,
 .col-11,
 .col-12 {
+  position: relative;
   width: $width;
 }
+
+
+@mixin make-col($size, $columns: $grid-columns) {
+  flex: 0 0 percentage($size / $columns);
+  max-width: percentage($size / $columns);
+}
+
 
 .col-1-sm { width:($width / 12) - ($gutter * 11 / 12); }
 .col-2-sm { width: ($width / 6) - ($gutter * 10 / 12); }
@@ -159,7 +173,7 @@ $breakpoint-large: 60em; // 960px
   .col-1 { width:($width / 12) - ($gutter * 11 / 12); }
   .col-2 { width: ($width / 6) - ($gutter * 10 / 12); }
   .col-3 { width: ($width / 4) - ($gutter * 9 / 12); }
-  .col-4 { width: ($width / 3) - ($gutter * 8 / 12); }
+  .col-4 { @include make-col(4, 12); }
   .col-5 { width: ($width / (12 / 5)) - ($gutter * 7 / 12); }
   .col-6 { width: ($width / 2) - ($gutter * 6 / 12); }
   .col-7 { width: ($width / (12 / 7)) - ($gutter * 5 / 12); }

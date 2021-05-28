@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar {
+  &-nav {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    .nav-item {
+      margin-right: 30px;
+      &:last-of-type {
+        margin-right: 0;
+      }
+      .nav-link {
+        text-decoration: none;
+        padding: 10px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0.2px;
+        color: #333;
+        &.active {
+          color: red;
+        }
+      }
+    }
+  }
+}

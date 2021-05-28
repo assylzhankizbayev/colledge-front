@@ -1,4 +1,40 @@
+<div class="section-1">
 <app-header></app-header>
-<div class="container">
-  <p>layout works!</p>
+  <div class="container">
+
+    <h1 class="title">Лаборатории коллективного пользования Satbayev University</h1>
+
+    <div class="search-block">
+      <input type="text" class="search-input" placeholder="Введите название лаборатории, оборудования, исследования....">
+      <button type="button" class="search-elem"></button>
+    </div>
+
+    <div class="labs">
+      <button class="lab" *ngFor="let lab of labs;" [innerHtml]="lab?.name" (click)="selectLab(lab)"
+      [class.active]="lab?.id === selectedLabId">
+      </button>
+    </div>
+
+    <h2 class="sub-title">Исследования по нефти и газу</h2>
+
+    
+  </div>
+</div>
+
+<div class="section-2">
+  <div class="container">
+    <div class="row research-cards">
+      <div class="col-4" *ngFor="let item of research; let i = index;">
+        <div class="research-card-wrapper">
+          <div class="research-card">
+            <h4 class="research-title">{{item?.name}}</h4>
+            <div class="research-picture">
+              <img [src]="'./assets/research/'+item?.id+'.png'" alt="картинка">
+            </div>
+            <button type="button" class="research-detail"> Подробнее </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
