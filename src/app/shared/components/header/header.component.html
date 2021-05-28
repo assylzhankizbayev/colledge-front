@@ -5,7 +5,7 @@
     </a>
     <ul class="navbar-nav">
       <li *ngFor="let m of menu;" class="nav-item">
-        <a class="nav-link" [routerLink]="['/'+m?.router]" routerLinkActive>
+        <a class="nav-link" [routerLink]="['/'+m?.router]" routerLinkActive="active">
           {{m?.name}}
         </a>
       </li>

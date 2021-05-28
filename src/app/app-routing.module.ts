@@ -6,6 +6,22 @@ const routes: Routes = [
   {
     path: 'main',
     loadChildren: () => import('./modules/landing/landing.module').then(m => m.LandingModule)
+  },
+  {
+    path: 'research',
+    loadChildren: () => import('./modules/research/research.module').then(m => m.ResearchModule)
+  },
+  {
+    path: 'labs',
+    loadChildren: () => import('./modules/labs/labs.module').then(m => m.LabsModule)
+  },
+  {
+    path: 'experts',
+    loadChildren: () => import('./modules/experts/experts.module').then(m => m.ExpertsModule)
+  },
+  {
+    path: 'equipment',
+    loadChildren: () => import('./modules/equipment/equipment.module').then(m => m.EquipmentModule)
   }
 ];
 

@@ -10,11 +10,11 @@ export class LayoutComponent implements OnInit {
 
   labs: ILab[] = [
     { id: 1, name: 'Все' },
-    { id: 2, name: 'Нефтегаз' },
-    { id: 3, name: 'Металлургия' },
-    { id: 4, name: 'Промышленная&nbsp;автоматизация' },
-    { id: 5, name: 'Прикладная&nbsp;математика' },
-    { id: 6, name: 'Инженерная&nbsp;графика' },
+    { id: 2, name: 'Горнодобывающая' },
+    { id: 3, name: 'Нефтегаз' },
+    { id: 4, name: 'Геодезия&nbsp;картография' },
+    { id: 5, name: 'Горно&nbsp;-&nbsp;металлургическая' },
+    { id: 6, name: 'Прикладная&nbsp;механика' },
   ];
   selectedLabId = this.labs[0].id;
 
