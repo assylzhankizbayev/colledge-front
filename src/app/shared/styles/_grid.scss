@@ -98,7 +98,6 @@ $breakpoint-med: 45em; // 720px
 $breakpoint-large: 60em; // 960px
 
 .container {
-  border: 1px solid tomato;
   max-width: 1200px;
   width: 90%;
   margin-left: auto;
@@ -186,4 +185,9 @@ $breakpoint-large: 60em; // 960px
   .hidden-sm {
     display: block;
   }
+}
+
+p, ul {
+  padding: 0;
+  margin: 0;
 }
