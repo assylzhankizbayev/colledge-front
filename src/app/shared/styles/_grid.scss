@@ -11,6 +11,9 @@ $font-height: 1.5;
 
 $dark-grey: #333447;
 
+html, body {
+  height: 100%;
+}
 
 body {
   margin: 0;
@@ -20,6 +23,8 @@ body {
   color: $dark-grey;
   // line-height: $font-height;
   background: #FBFBFB;
+  background: linear-gradient(180deg, #E5EFFF 0%, rgba(229, 239, 255, 0.262661) 83.7%, rgba(229, 239, 255, 0) 100%);
+  background-repeat: no-repeat;
 }
 
 *,
