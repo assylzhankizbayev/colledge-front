@@ -4,7 +4,7 @@ export interface IMenu {
   router: string;
 }
 
-export interface ILab {
+export interface IIndustry {
   id: number;
   name: string;
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ILab } from '../interface';
+import { CommonService } from 'src/app/core/services/common.service';
+import { IIndustry } from '../interface';
 
 @Component({
   selector: 'app-layout',
@@ -8,15 +9,8 @@ import { ILab } from '../interface';
 })
 export class LayoutComponent implements OnInit {
 
-  labs: ILab[] = [
-    { id: 1, name: 'Все' },
-    { id: 2, name: 'Горнодобывающая' },
-    { id: 3, name: 'Нефтегаз' },
-    { id: 4, name: 'Геодезия&nbsp;картография' },
-    { id: 5, name: 'Горно&nbsp;-&nbsp;металлургическая' },
-    { id: 6, name: 'Прикладная&nbsp;механика' },
-  ];
-  selectedLabId = this.labs[0].id;
+  industries: IIndustry[] = [];
+  selectedLabId: number = 0;
 
   research = [
     { id: 1, name: 'Минералогические исследования' },
@@ -27,13 +21,20 @@ export class LayoutComponent implements OnInit {
     { id: 6, name: 'Петрофизический анализ керна' },
   ];
 
-  constructor() { }
+  constructor(
+    private service: CommonService,
+  ) { }
 
   ngOnInit(): void {
+    this.service.getIndustries().subscribe(res => {
+      this.industries = res;
+      this.industries.unshift({ id: 0, name: 'Все' });
+      console.log(res);
+    });
   }
 
   
-  selectLab(lab: ILab) {
+  selectLab(lab: IIndustry) {
     this.selectedLabId = lab.id;
   }
 
