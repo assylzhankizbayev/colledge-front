@@ -9,7 +9,17 @@ const routes: Routes = [
   },
   {
     path: 'research',
-    loadChildren: () => import('./modules/research/research.module').then(m => m.ResearchModule)
+    loadChildren: () => import('./modules/research/research.module').then(m => m.ResearchModule),
+    data: {
+      breadcrumb: 'research'
+    }
+  },
+  {
+    path: 'research/:id',
+    loadChildren: () => import('./modules/research/research.module').then(m => m.ResearchModule),
+    data: {
+      breadcrumb: 'research'
+    }
   },
   {
     path: 'labs',

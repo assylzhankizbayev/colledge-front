@@ -37,4 +37,8 @@ export class LayoutComponent implements OnInit {
     this.selectedLabId = lab.id;
   }
 
+  goResearch(item: any) {
+    
+  }
+
 }

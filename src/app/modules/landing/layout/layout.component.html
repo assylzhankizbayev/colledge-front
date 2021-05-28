@@ -29,7 +29,7 @@
             <div class="research-picture">
               <img [src]="'./assets/research/'+item?.id+'.png'" alt="картинка">
             </div>
-            <button type="button" class="research-detail"> Подробнее </button>
+            <button type="button" class="research-detail" [routerLink]="['/research', item.id]" [queryParams]="{title: item.name}"> Подробнее </button>
           </div>
         </div>
       </div>
