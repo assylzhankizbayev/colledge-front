@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './layout/layout.component';
 import { RouterModule, Routes } from '@angular/router';
-import { FooterComponent } from './components/footer/footer.component';
 
 
 const routes: Routes = [
@@ -13,7 +12,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     LayoutComponent,
-    FooterComponent
   ],
   imports: [
     CommonModule,

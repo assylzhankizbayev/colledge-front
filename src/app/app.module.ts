@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
     HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
