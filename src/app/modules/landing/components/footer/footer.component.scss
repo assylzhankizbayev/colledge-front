@@ -1,7 +1,8 @@
 .footer {
   background: #272D4E;
   color: #fff;
-  padding: 50px 0; 
+  padding: 50px 0;
+
   &-list-title {
     font-weight: bold;
     font-size: 20px;
@@ -19,10 +20,12 @@
   display: flex;
   align-items: flex-start;
   margin-bottom: 15px;
+
   .icon {
     margin-top: 12px;
   }
 }
+
 .icon {
   margin-right: 15px;
 }
@@ -40,11 +43,14 @@
 
 .quick-links {
   list-style-type: none;
+
   li {
     margin-bottom: 9px;
+
     &:last-of-type {
       margin-bottom: 0;
     }
+
     a {
       text-decoration: none;
       color: #fff;
@@ -59,10 +65,24 @@
   list-style-type: none;
   display: flex;
   margin-top: 36px;
+
   li {
     margin-right: 24px;
+
     &:last-of-type {
       margin-right: 0;
     }
   }
+}
+
+.container {
+  position: relative;
+}
+
+.top-icon {
+  cursor: pointer;
+  position: absolute;
+  top: -75px;
+  right: 0;
+  z-index: 1;
 }
