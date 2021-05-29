@@ -4,4 +4,5 @@ export interface ILab {
     "desc": string;
     "researchIds": string;
     "miniResearchIds": string;
+    "equipmentIds": string;
 }

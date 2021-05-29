@@ -41,7 +41,8 @@ import { LabsListComponent } from './expansion-panels/labs-list/labs-list.compon
     EquipmentCardComponent,
     GeneralCarouselComponent,
     ExpertsListComponent,
-    ExpertComponent
+    ExpertComponent,
+    LabsListComponent,
   ]
 })
 export class ComponentsModule { }
