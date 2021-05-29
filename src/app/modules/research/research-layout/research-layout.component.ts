@@ -30,7 +30,6 @@ export class ResearchLayoutComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$),
         switchMap(params => {
           const id = params.get('id');
-          console.log(params, id);
 
           return id 
             ? combineLatest([
@@ -41,15 +40,12 @@ export class ResearchLayoutComponent implements OnInit, OnDestroy {
         })
       )
       .subscribe(response => {
-        console.log('result', response);
         if (Array.isArray(response)) {
           this.research = response[0];
           this.miniResearches = response[1];
           this.loading = false;
         }        
       });
-    
-    // this.title = this.route.snapshot.queryParamMap.get('title') || '';
   }
 
   ngOnDestroy() {
