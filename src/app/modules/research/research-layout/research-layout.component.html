@@ -2,7 +2,7 @@
   <div class="container">
     <div class="breadcrumb-wrapper">
       <p class="breadcrumb">
-        Исследования {{title?'/':''}} {{title}}
+        Исследования {{ research?.name ? '/' : '' }} {{ research?.name }}
       </p>
       <div class="search-block">
         <input type="text" class="search-input" placeholder="Введите название лаборатории, оборудования, исследования....">
@@ -12,10 +12,6 @@
   </div>
 
   <div class="container">
-    <!-- <div class="filter">
-      <p>Все исследования 
-        в горнодобывающей отрасли</p>
-    </div> -->
     <h1 class="title">{{ research?.name }}</h1>
     <p class="desc">{{ research?.desc }}</p>
 

@@ -1,3 +1,7 @@
 <mat-accordion>
-  <app-expansion-panel class="panels" *ngFor="let research of researches" [miniResearch]="research"></app-expansion-panel>
+  <app-expansion-panel 
+    class="panels" 
+    *ngFor="let miniResearch of researches" 
+    [miniResearch]="miniResearch"
+  ></app-expansion-panel>
 </mat-accordion>

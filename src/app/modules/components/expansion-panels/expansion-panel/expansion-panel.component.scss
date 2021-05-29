@@ -140,11 +140,16 @@
     line-height: 30px;
     letter-spacing: 0.2px;
     margin: 10px 0 24px;
-    padding: 0 20px;
+    padding: 0 34px;
+  }
+
+  &__carousel {
+    margin-bottom: 28px;
   }
 
   &__experts {
-    padding: 0 20px;
+    margin-bottom: 28px;
+    padding: 0 34px;
     width: 100%;
   }
 }

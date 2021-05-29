@@ -1,18 +1,21 @@
-<div class="equipments-wrapper">
-  <div class="arrow arrow-left" (click)="toLeft()">
-    <img class="left" src="./assets/pics/slider/left.svg">
-  </div>
-
-  <div class="arrow arrow-right" (click)="toRight()">
-    <img src="./assets/pics/slider/right.svg">
-  </div>
-
-  <div class="equipments" #equipmentsElm>
-    <div class="equipments-inner">
-        <div class="col-4"*ngFor="let item of data">
-          <app-equipment-card [equipment]="item">
-          </app-equipment-card>
-        </div>
+<div class="carousel">
+  <h2 class="carousel__header">Что используется</h2>
+  <div class="equipments-wrapper">
+    <div class="arrow arrow-left" (click)="toLeft()">
+      <img class="left" src="./assets/pics/slider/left.svg">
+    </div>
+  
+    <div class="arrow arrow-right" (click)="toRight()">
+      <img src="./assets/pics/slider/right.svg">
+    </div>
+  
+    <div class="equipments" #equipmentsElm>
+      <div class="equipments-inner">
+          <div class="col-4"*ngFor="let item of data">
+            <app-equipment-card [equipment]="item">
+            </app-equipment-card>
+          </div>
+      </div>
     </div>
   </div>
 </div>

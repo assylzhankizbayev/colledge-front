@@ -12,8 +12,6 @@ import { ResearchService } from 'src/app/core/services/research.service';
   styleUrls: ['./research-layout.component.scss']
 })
 export class ResearchLayoutComponent implements OnInit, OnDestroy {
-
-  title = '';
   research!: IResearch;
   miniResearches: IMiniResearch[] = [];
 
