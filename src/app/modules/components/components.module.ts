@@ -8,6 +8,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { EquipmentCardsComponent } from './equipment-cards/equipment-cards.component';
 import { EquipmentCardComponent } from './equipment-cards/equipment-card/equipment-card.component';
 import { GeneralCarouselComponent } from './general-carousel/general-carousel.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { GeneralCarouselComponent } from './general-carousel/general-carousel.co
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
+    RouterModule,
   ],
   exports: [
     ExpansionPanelsComponent,
