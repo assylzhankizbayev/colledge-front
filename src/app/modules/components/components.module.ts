@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { MiniCarouselComponent } from './mini-carousel/mini-carousel.component';
 import { ExpertsListComponent } from './experts-list/experts-list.component';
 import { ExpertComponent } from './experts-list/expert/expert.component';
+import { LabsListComponent } from './expansion-panels/labs-list/labs-list.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ExpertComponent } from './experts-list/expert/expert.component';
     GeneralCarouselComponent,
     MiniCarouselComponent,
     ExpertsListComponent,
-    ExpertComponent
+    ExpertComponent,
+    LabsListComponent
   ],
   imports: [
     CommonModule,
