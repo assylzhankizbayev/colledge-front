@@ -4,13 +4,14 @@
   border-radius: 8px;
   padding: 25px;
   display: flex;
-  justify-content: space-between;
+  
   &-img {
     width: 310px;
     height: 376px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    margin-right: 50px;
   }
 
   &-info {
@@ -59,7 +60,7 @@
 
   &-dev {
     margin-top: 13px;
-    
+    margin-left: auto;
     .dev {
       font-weight: normal;
       font-size: 20px;
@@ -68,6 +69,13 @@
       justify-content: space-between;
       margin-bottom: 24px;
       color: #333333;
+      &:first-of-type {
+        font-weight: normal;
+        font-size: 22px;
+        line-height: 26px;
+        letter-spacing: 0.428026px;
+        color: #219653 !important;
+      }
 
       &-value {
         margin-left: 20px;
@@ -76,14 +84,6 @@
   }
 }
 
-
-.green {
-  font-weight: normal;
-  font-size: 22px;
-  line-height: 26px;
-  letter-spacing: 0.428026px;
-  color: #219653 !important;
-}
 
 .title {
   font-weight: 500;
@@ -100,4 +100,8 @@
     margin-top: 20px;
     border: 2px solid #2F80ED;
   }
+}
+
+.labs-list {
+  padding: 24px;
 }

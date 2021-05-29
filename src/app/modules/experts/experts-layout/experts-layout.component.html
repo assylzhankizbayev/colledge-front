@@ -14,9 +14,13 @@
       <button type="button" class="cons-btn">Получить консультацию</button>
     </div>
     <div class="expert-dev">
+      <div class="dev">
+        <div class="dev-key">Проведено исследований</div>
+        <div class="dev-vaue">313</div>
+      </div>
       <div class="dev" *ngFor="let dev of expert?.researchList; let idx = index">
-        <div class="dev-key" [class.green]="idx === 0">{{dev?.name}}</div>
-        <div class="dev-value" [class.green]="idx === 0">{{dev?.count}}</div>
+        <div class="dev-key">{{dev?.name}}</div>
+        <div class="dev-value">{{dev?.count}}</div>
       </div>
     </div>
   </div>
@@ -24,7 +28,9 @@
   <app-expansion-panels [researches]="miniResearches" class="app-expansion-panels"></app-expansion-panels>
 
   <h3 class="title">В каких лабораториях проводит исследования</h3>
-  <app-labs-list [labs]="labs" [showTitle]="false"></app-labs-list>
+  <div class="labs-list">
+    <app-labs-list [labs]="labs" [showTitle]="false"></app-labs-list>
+  </div>
 
   <h3 class="title">Какое оборудование использует</h3>
   <app-equipment-cards [equipments]="equipments"></app-equipment-cards>

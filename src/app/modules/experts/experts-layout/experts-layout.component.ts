@@ -37,6 +37,8 @@ export class ExpertsLayoutComponent implements OnInit {
       if (id) {
         this.expertService.getExpert(+id).subscribe(res => {
           this.expert = res;
+          console.log(this.expert);
+          
           this.getData(+id);
         });
       }

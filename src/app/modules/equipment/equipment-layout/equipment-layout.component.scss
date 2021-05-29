@@ -105,6 +105,9 @@
         letter-spacing: 0.2px;
         color: #031D5B;
         width: 50%;
+        &::first-letter {
+          text-transform: uppercase;
+        }
       }
     }
 
@@ -118,4 +121,8 @@
 .section-researches,
 .section-labs {
   margin-bottom: 60px;
+}
+
+.research-details__labs {
+  padding-right: 24px;
 }
