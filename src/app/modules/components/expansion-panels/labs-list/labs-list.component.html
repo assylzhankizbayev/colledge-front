@@ -4,7 +4,7 @@
   <div class="labs__list">
     <div class="lab" *ngFor="let lab of labs">
       <div class="lab__info">
-        <div class="lab-title">{{ lab.name }}</div>
+        <div class="lab-title">Лаборатория "{{ lab.name }}"</div>
         <div class="lab-desc">{{ lab.desc }}</div>
       </div>
       <button class="btn-more" (click)="openLab(lab.id)">Подробнее</button>

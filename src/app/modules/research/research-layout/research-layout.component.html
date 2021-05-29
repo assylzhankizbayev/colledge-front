@@ -1,5 +1,9 @@
 <section class="research">
   <div class="container">
+    <div class="no-data flex-start" *ngIf="loading">
+      <mat-progress-bar mode="indeterminate" ></mat-progress-bar>
+    </div> 
+    
     <div class="breadcrumb-wrapper">
       <p class="breadcrumb">
         Исследования {{ research?.name ? '/' : '' }} {{ research?.name }}
