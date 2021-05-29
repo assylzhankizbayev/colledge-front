@@ -17,14 +17,16 @@
   <div class="container">
     <div class="row">
       <div class="col-6">
-        <div class="left">
-          <img *ngIf="isPhotoExist('1')" [src]="'./assets/pics/equipments/equipment-'+equipmentInfo?.id+'/'+'1.png'" alt="">
+        <div class="main-pic-wrap">
+          <div class="main-pic"
+            [style.background-image]="'url('+'./assets/pics/equipments/equipment-'+equipmentInfo?.id+'/'+'1.png)'">
+          </div>
         </div>
       </div>
-      <div class="col-6 col-6-margin">
-        <div class="right ">
-          <div class="photo" *ngFor="let item of [2,3,4,5]">
-            <img [src]="'./assets/pics/equipments/equipment-'+equipmentInfo?.id+'/'+ item + '.png'" alt="">
+      <div class="col-6">
+        <div class="right">
+          <div class="photo" *ngFor="let item of [2,3,4,5]"
+            [style.background-image]="'url('+'./assets/pics/equipments/equipment-'+equipmentInfo?.id+'/'+ item + '.png)'">
           </div>
         </div>
       </div>
