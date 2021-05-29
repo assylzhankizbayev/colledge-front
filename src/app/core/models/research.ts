@@ -4,6 +4,7 @@ export interface IResearch {
   industrieId: number;
   labId: number;
   miniResearchIds: string;
+  hide?: boolean;
 }
 
 export interface IMiniResearch {

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { forkJoin } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 import { IResearch } from 'src/app/core/models/research';
 import { CommonService } from 'src/app/core/services/common.service';
 import { ResearchService } from 'src/app/core/services/research.service';
@@ -12,12 +14,13 @@ import { IIndustry } from '../interface';
 })
 export class LayoutComponent implements OnInit {
 
+  searchControl = new FormControl();
+
   industries: IIndustry[] = [];
   selectedIndustrie: IIndustry = { id: -1, name: 'Все' };
-
   research: IResearch[] = [];
-
   industriesEx: IIndustryEx[] = [];
+  noData = false;
 
   constructor(
     private service: CommonService,
@@ -25,6 +28,21 @@ export class LayoutComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    this.searchControl.valueChanges
+    .pipe(
+      debounceTime(500)
+    )
+    .subscribe(res => {
+      let searchText = res.toLocaleLowerCase();
+      this.industriesEx.forEach(ind => {
+        ind.research.forEach(res2 => {
+          res2.hide = !res2.name.toLocaleLowerCase().includes(searchText);
+        });
+        ind['hide'] = ind.research.length === ind.research.filter(f => f.hide).length ? true : false;
+      });
+      this.noData = this.industriesEx.length === this.industriesEx.filter(f => f.hide).length ? true : false;
+    });
 
     forkJoin([
       this.service.getIndustries(),
@@ -73,4 +91,5 @@ export class LayoutComponent implements OnInit {
 
 interface IIndustryEx extends IIndustry {
   research: IResearch[];
+  hide?: boolean;
 }

@@ -2,7 +2,9 @@
   <h1 class="title">Лаборатории коллективного пользования Satbayev University</h1>
 
   <div class="search-block">
-    <input type="text" class="search-input" placeholder="Введите название лаборатории, оборудования, исследования....">
+    <!-- лаборатории, оборудования,  -->
+    <input type="text" class="search-input" placeholder="Введите название исследования...."
+    [formControl]="searchControl">
     <button type="button" class="search-elem"></button>
   </div>
 
@@ -12,27 +14,34 @@
     </button>
   </div>
 
-  <ng-container *ngFor="let ind of industriesEx;">
-    <ng-container *ngIf="ind?.id !== -1">
+  <ng-container *ngFor="let ind of industriesEx">
+    <ng-container *ngIf="ind?.id !== -1 && !ind?.hide">
       <h2 class="sub-title" [innerHtml]="ind?.name"></h2>
     
       <div class="row research-cards">
-        <div class="col-4" *ngFor="let item of ind?.research; let i = index;">
-          <div class="research-card-wrapper">
-            <div class="research-card">
-              <h4 class="research-title">{{item?.name}}</h4>
-              <div class="research-picture">
-                <img [src]="'./assets/pics/research/'+item?.id+'.png'" alt="картинка">
+        <ng-container *ngFor="let item of ind?.research; let i = index;">
+          <div class="col-4" *ngIf="!item?.hide">
+            <div class="research-card-wrapper">
+              <div class="research-card">
+                <h4 class="research-title">{{item?.name}}</h4>
+                <div class="research-picture">
+                  <img [src]="'./assets/pics/research/'+item?.id+'.png'" alt="картинка">
+                </div>
+                <button type="button" class="research-detail" [routerLink]="['/research', item.id]"
+                  [queryParams]="{title: item.name}"> Подробнее </button>
               </div>
-              <button type="button" class="research-detail" [routerLink]="['/research', item.id]"
-                [queryParams]="{title: item.name}"> Подробнее </button>
             </div>
           </div>
-        </div>
+        </ng-container>
+        
       </div>
     </ng-container>
     
   </ng-container>
+
+  <div class="no-data" *ngIf="noData">
+    Нет данных по вашему запросу
+  </div>
   
 
 
