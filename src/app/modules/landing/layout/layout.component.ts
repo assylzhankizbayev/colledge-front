@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { forkJoin } from 'rxjs';
 import { IResearch } from 'src/app/core/models/research';
 import { CommonService } from 'src/app/core/services/common.service';
 import { ResearchService } from 'src/app/core/services/research.service';
@@ -12,7 +13,7 @@ import { IIndustry } from '../interface';
 export class LayoutComponent implements OnInit {
 
   industries: IIndustry[] = [];
-  selectedIndustrieId: number = 0;
+  selectedIndustrie: IIndustry = { id: -1, name: 'Все' };
 
   research: IResearch[] = [];
 
@@ -22,23 +23,24 @@ export class LayoutComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.service.getIndustries().subscribe(res => {
-      this.industries = res;
-      this.industries.unshift({ id: -1, name: 'Все' });
-      console.log(res);
-    });
 
-    this.researchService.getResearch().subscribe(res => {
-      this.research = res;
-      console.log(this.research);
+    forkJoin([
+      this.service.getIndustries(),
+      this.researchService.getResearch()
+    ])
+    .subscribe(res => {
+      this.industries = res[0];
+      this.industries.unshift(this.selectedIndustrie);
+      this.research = res[1];
     });
   }
 
   
   selectIndustrie(ind: IIndustry) {
-    this.selectedIndustrieId = ind.id;
+    this.selectedIndustrie = ind;
+    console.log(this.selectedIndustrie);
     this.researchService.getResearchByIndId(ind.id).subscribe(res => {
-      console.log(res);
+      this.research = res;
     });
   }
 

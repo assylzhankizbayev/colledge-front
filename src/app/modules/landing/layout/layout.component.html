@@ -9,11 +9,11 @@
 
     <div class="labs">
       <button class="lab" *ngFor="let ind of industries;" [innerHtml]="ind?.name" (click)="selectIndustrie(ind)"
-      [class.active]="ind?.id === selectedIndustrieId">
+      [class.active]="ind?.id === selectedIndustrie?.id">
       </button>
     </div>
 
-    <h2 class="sub-title">Исследования по нефти и газу</h2>
+    <h2 class="sub-title" [innerHtml]="selectedIndustrie?.name"></h2>
 
     
   </div>
