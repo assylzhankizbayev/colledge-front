@@ -1,8 +1,8 @@
-<section class="research">
+<div class="no-data flex-start" *ngIf="loading">
+  <mat-progress-bar mode="indeterminate" ></mat-progress-bar>
+</div> 
+<section class="research" *ngIf="!loading">
   <div class="container">
-    <div class="no-data flex-start" *ngIf="loading">
-      <mat-progress-bar mode="indeterminate" ></mat-progress-bar>
-    </div> 
 
     <div class="breadcrumb-wrapper">
       <p class="breadcrumb">
@@ -16,6 +16,34 @@
   </div>
 
   <div class="container">
+    <div class="filter">
+      <div class="filter__industry" (click)="toggleIndustry()">
+        {{ chosenIndustry?.name }}
+        <img class="industry__arrow" [class.toggled]="isMenuToggled" src="assets/icons/menu-arrow.svg" alt="" />
+      </div>
+
+      <div class="filter__industry-list" *ngIf="isMenuToggled">
+        <div 
+          class="list-item" 
+          [class.active]="industry.id === chosenIndustry?.id"
+          *ngFor="let industry of industries"
+          (click)="updateResearchList(industry)"
+        >{{ industry.name }}</div>
+      </div>
+
+      <div class="filter__research" *ngIf="!isMenuToggled">
+        <div 
+          class="list-item" 
+          [class.disabled]="!research?.miniResearchIds"
+          [class.active]="research?.active" 
+          *ngFor="let research of chosenResearchList"
+          (click)="changeResearch(research)"
+        >
+          {{ research.name }}
+          <img class="list-item__arrow" src="assets/icons/menu-arrow.svg" alt="" />
+        </div>
+      </div>
+    </div>
     <h1 class="title">{{ research?.name }}</h1>
     <p class="desc">{{ research?.desc }}</p>
 

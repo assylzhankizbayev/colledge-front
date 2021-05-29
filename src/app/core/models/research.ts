@@ -6,6 +6,7 @@ export interface IResearch {
   miniResearchIds: string;
   desc?: string;
   hide?: boolean;
+  active?: boolean;
 }
 
 export interface IMiniResearch {

@@ -16,21 +16,25 @@ import { IIndustry, IIndustryEx } from '../../landing/interface';
 export class ResearchLayoutComponent implements OnInit, OnDestroy {
   research!: IResearch;
   miniResearches: IMiniResearch[] = [];
-  loading = true;
-
+  loading = false;
+  isMenuToggled = false;
   researchList: IResearch[] = [];
+  chosenResearchList: IResearch[] = [];
   industries: IIndustry[] = [];
-  industriesEx: IIndustryEx[] = [];
+  chosenIndustry?: IIndustry;
   destroy$ = new Subject();
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private service: CommonService,
     private researchService: ResearchService,
     private miniResearchService: MiniResearchService,
   ) { }
 
   ngOnInit(): void {
+    this.loadData();
+
     this.route.paramMap
       .pipe(
         debounceTime(500),
@@ -51,38 +55,54 @@ export class ResearchLayoutComponent implements OnInit, OnDestroy {
           this.research = response[0];
           this.miniResearches = response[1];
           this.loading = false;
-        } else {
-
-        }    
+        }   
       });
   }
 
   loadData() {
     this.loading = true;
+
     forkJoin([
       this.service.getIndustries(),
       this.researchService.getResearch()
     ])
     .subscribe(res => {
       this.industries = res[0];
-      // this.industries.unshift(this.selectedIndustrie);
       this.researchList = res[1];
-      this.transformData(this.researchList);
+      const research = this.researchList.find(r => r.miniResearchIds);
+
+      if (research) {
+        this.chosenIndustry = this.industries.find(i => i.id === research.industrieId);
+        this.chosenResearchList = this.researchList.filter(r => {
+          if (r.industrieId === research.industrieId) {
+            if (r.id === research.id) {
+              r.active = true;
+            }
+            return true;
+          }
+          return false;
+        });
+        this.router.navigate(['/research', research.id]);
+      }
       setTimeout(() => {
         this.loading = false;
       }, 500);
     });
   }
 
-  transformData(research: IResearch[]) {
-    this.industriesEx = this.industries.map(r => {
-      let data = research.filter(f => f.industrieId === r.id);
-      return {
-        id:r.id,
-        name:r.name,
-        research: data
-      }
-    });
+  toggleIndustry() {
+    this.isMenuToggled = !this.isMenuToggled;
+  }
+
+  updateResearchList(industry: IIndustry) {
+    this.chosenResearchList = this.researchList.filter(r => r.industrieId === industry.id);
+    this.toggleIndustry();
+  }
+
+  changeResearch(research: IResearch) {
+    this.chosenResearchList.forEach(r => (r.active = false));
+    research.active = true;
+    this.router.navigate(['/research', research.id]);
   }
 
   ngOnDestroy() {
