@@ -32,7 +32,12 @@
                   <div class="research-picture">
                     <img [src]="'./assets/pics/research/'+item?.id+'.png'" alt="картинка">
                   </div>
-                  <button type="button" class="research-detail" [routerLink]="['/research', item.id]"> Подробнее </button>
+                  <button 
+                    type="button" 
+                    class="research-detail" 
+                    [routerLink]="['/research', item.id]"
+                    [disabled]="!item?.miniResearchIds"
+                  > Подробнее </button>
                 </div>
               </div>
             </div>
