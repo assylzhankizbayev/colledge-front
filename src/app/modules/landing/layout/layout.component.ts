@@ -38,7 +38,6 @@ export class LayoutComponent implements OnInit {
   
   selectIndustrie(ind: IIndustry) {
     this.selectedIndustrie = ind;
-    console.log(this.selectedIndustrie);
     this.researchService.getResearchByIndId(ind.id).subscribe(res => {
       this.research = res;
     });
