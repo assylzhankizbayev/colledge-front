@@ -9,10 +9,10 @@
 
   <div class="equipments" #equipmentsElm>
     <div class="equipments-inner">
-      <div class="item" *ngFor="let item of data">
-        <app-equipment-card [equipment]="item">
-        </app-equipment-card>
-      </div>
+        <div class="col-4"*ngFor="let item of data">
+          <app-equipment-card [equipment]="item">
+          </app-equipment-card>
+        </div>
     </div>
   </div>
 </div>
