@@ -8,8 +8,8 @@
     </div>
 
     <div class="labs">
-      <button class="lab" *ngFor="let lab of industries;" [innerHtml]="lab?.name" (click)="selectLab(lab)"
-      [class.active]="lab?.id === selectedLabId">
+      <button class="lab" *ngFor="let ind of industries;" [innerHtml]="ind?.name" (click)="selectIndustrie(ind)"
+      [class.active]="ind?.id === selectedIndustrieId">
       </button>
     </div>
 
