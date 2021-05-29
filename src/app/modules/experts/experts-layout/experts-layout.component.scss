@@ -1,0 +1,57 @@
+.expert {
+  background: rgb(255 255 255 / 50%);
+  box-shadow: 0px 1px 2px rgba(58, 58, 68, 0.24), 0px 2px 4px rgba(90, 91, 106, 0.24);
+  border-radius: 8px;
+  padding: 25px;
+  display: flex;
+
+  &-img {
+    width: 310px;
+    height: 376px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  &-info {
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 0.303614px;
+
+    .fio {
+      font-weight: 500;
+      font-size: 36.4337px;
+      line-height: 43px;
+      margin-bottom: 5px;
+    }
+
+    .position {
+      font-weight: 300;
+      font-size: 27.3253px;
+      line-height: 32px;
+      margin-bottom: 20px;
+    }
+
+    .experiense {
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 23px;
+      letter-spacing: 0.303614px;
+      color: #4F4F4F;
+    }
+
+    .cons-btn {
+      margin-top: auto;
+      width: 312px;
+      height: 63px;
+      background: #2F80ED;
+      box-shadow: 0px 5.14286px 5.14286px rgba(0, 0, 0, 0.25);
+      border-radius: 6.42857px;
+      font-weight: 500;
+      font-size: 21.8571px;
+      line-height: 26px;
+      letter-spacing: 0.257143px;
+      color: #fff;
+      border: none;
+    }
+  }
+}
