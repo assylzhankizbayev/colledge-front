@@ -1,0 +1,15 @@
+<div class="scientist">
+  <div class="scientist__img">
+    <img class="img" src="assets/pics/experts/{{ expert.id }}.png" alt="" />
+  </div>
+  <div class="scientist__name">{{ expert.name }}</div>
+  <div class="scientist__position">{{ expert.position }}</div>
+  <div class="scientist__researchList" *ngIf="expert?.researchList">
+    <div class="research-statistics" *ngFor="let research of expert.researchList">
+      <span>{{research.name}}</span>
+      <span>{{research.count}}</span>
+    </div>
+  </div>
+  <button class="btn btn-primary">Получить консультацию</button>
+  <span class="show-profile">Посмотреть профиль</span>
+</div>
