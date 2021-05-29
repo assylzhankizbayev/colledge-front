@@ -64,6 +64,20 @@ export class MiniResearchService {
     );
   }
 
-
+  getMiniResearchByExpertId(id: number): Observable<IMiniResearch | any> {
+    return this.http.get<IMiniResearch[]>('assets/mock-data/mini-research.json').pipe(
+      map(res => {
+        let result: IMiniResearch[] = [];
+        let expertIds_: number[] = [];
+        res.forEach(r => {
+          expertIds_ = r.expertIds  ? r.expertIds.split('|').map(r => +r) : [];
+          if (expertIds_.findIndex(f => f === id) != -1) {
+            result.push(r);
+          }
+        });
+        return result;
+      })
+    );
+  }
 
 }

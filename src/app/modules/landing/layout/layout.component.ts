@@ -5,7 +5,7 @@ import { debounceTime, tap } from 'rxjs/operators';
 import { IResearch } from 'src/app/core/models/research';
 import { CommonService } from 'src/app/core/services/common.service';
 import { ResearchService } from 'src/app/core/services/research.service';
-import { IIndustry } from '../interface';
+import { IIndustry, IIndustryEx } from '../interface';
 
 @Component({
   selector: 'app-layout',
@@ -28,6 +28,7 @@ export class LayoutComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    window.scroll(0,0);
 
     this.searchControl.valueChanges
     .pipe(
@@ -107,7 +108,3 @@ export class LayoutComponent implements OnInit {
 
 }
 
-interface IIndustryEx extends IIndustry {
-  research: IResearch[];
-  hide?: boolean;
-}

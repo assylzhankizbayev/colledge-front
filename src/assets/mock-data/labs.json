@@ -5,6 +5,7 @@
     "desc": "Проведено 25 000 минералогических исследований",
     "researchIds": "11|12|13",
     "miniResearchIds": "3",
-    "equipmentIds": "3"
+    "equipmentIds": "3",
+    "expertIds": "1|2|3"
   }
 ]

@@ -72,6 +72,10 @@
   font-weight: 500;
   line-height: 20px;
   margin-bottom: 16px;
+
+  &:disabled {
+    background: #82b7ff;
+  }
 }
 
 .show-profile {
@@ -81,6 +85,12 @@
   line-height: 14px;
   text-decoration: underline;
   cursor: pointer;
+
+  &.disabled {
+    color: #82b7ff;
+    cursor: default;
+    text-decoration: none;
+  }
 }
 
 .img {
