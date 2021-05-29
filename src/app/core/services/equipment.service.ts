@@ -23,4 +23,20 @@ export class EquipmentService {
     );
   }
 
+  getEquipmentsByLabId(id: number): Observable<IEquipment[]> {
+    return this.http.get<IEquipment[]>('assets/mock-data/equipments.json').pipe(
+      map(res => {
+        let result: IEquipment[] = [];
+        let labIds_: number[] = [];
+        res.forEach(r => {
+          labIds_ = r.labIds  ? r.labIds.split('|').map(r => +r) : [];
+          if (labIds_.findIndex(f => f === id) != -1) {
+            result.push(r);
+          }
+        });
+        return result;
+      })
+    );
+  }
+
 }

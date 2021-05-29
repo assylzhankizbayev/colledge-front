@@ -9,18 +9,12 @@ import { EquipmentService } from 'src/app/core/services/equipment.service';
 })
 export class EquipmentCardsComponent implements OnInit {
   
-  equipments: IEquipment[] = [];
-
-  @Input() public withoutSlider: boolean = false;
+  @Input() equipments: IEquipment[] = [];
   @Input() public isHeader: boolean = false;
 
-  constructor(private readonly equipmentService: EquipmentService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.equipmentService.getEquipments().subscribe((result) => {
-      if(result) {
-        this.equipments = result;
-      }
-    });
+    
   }
 }

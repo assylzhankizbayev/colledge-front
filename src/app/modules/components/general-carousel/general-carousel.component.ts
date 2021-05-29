@@ -17,7 +17,7 @@ export class GeneralCarouselComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    console.log(this.data);
+    // console.log(this.data);
   }
 
   toRight() {
