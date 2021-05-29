@@ -21,6 +21,7 @@ export class EquipmentLayoutComponent implements OnInit {
   public researchIds: number[] = [];
   public miniResearches: IMiniResearch[] = [];
   public labs: ILab[] = [];
+  public loading: boolean = true;
 
   constructor(
     private readonly route: ActivatedRoute, 
@@ -36,17 +37,15 @@ export class EquipmentLayoutComponent implements OnInit {
       })
     )
     .subscribe((result:IEquipment) => {
-      console.log(result);
       this.equipmentInfo = result;
-      console.log(this.equipmentInfo, 'equipmentInfo');
-      
       this.galleryPhotos = result.gallery.split('|');
       this.researchIds = result.researchIds.split('|').map(r => +r);
-      // this.labs = result.labIds.split('|');
-      // console.log(this.labs);
-      // this.getResearches();
       this.getMiniResearches(result.id);
     });
+
+    setTimeout(() => {
+      this.loading = false;
+    }, 500)
   }
 
   getMiniResearches(id: number) {
