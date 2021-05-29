@@ -2,7 +2,13 @@
   <h3 class="form-title">{{title}}</h3>
   <p class="form-text">Оставьте свой контактный номер телефона и наши специалисты свяжутся с Вами в течении дня</p>
   <div class="contact-form">
-    <input type="text" class="contact-form-control" [formControl]="contact" placeholder="Введите номер телефона">
+    <input 
+          type="text" 
+          class="contact-form-control" 
+          [formControl]="contact" 
+          placeholder="Введите номер телефона"
+          prefix="+7" mask="(000) 000 00 00"
+          >
     <button type="button" class="contact-form-btn" (click)="sendContact()">Отправить</button>
   </div>
 </div>
