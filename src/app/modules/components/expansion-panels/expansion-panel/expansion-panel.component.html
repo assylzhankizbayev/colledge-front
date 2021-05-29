@@ -24,6 +24,8 @@
     <app-mini-carousel *ngIf="miniResearch?.gallery" [miniResearchId]="miniResearch.id" [gallery]="miniResearch.gallery"></app-mini-carousel>
   
     <p class="research-details__desc">{{ miniResearch?.desc }}</p>
+
+    <app-general-carousel [data]="equipments"></app-general-carousel>
   
     <app-experts-list class="research-details__experts" [researchId]="miniResearch.id"></app-experts-list>
   </div>
