@@ -28,7 +28,7 @@ export class LayoutComponent implements OnInit {
   ngOnInit(): void {
     this.service.getIndustries().subscribe(res => {
       this.industries = res;
-      this.industries.unshift({ id: 0, name: 'Все' });
+      this.industries.unshift({ id: -1, name: 'Все' });
       console.log(res);
     });
   }
