@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ILab } from 'src/app/core/models/lab';
 
 @Component({
@@ -9,9 +10,13 @@ import { ILab } from 'src/app/core/models/lab';
 export class LabsListComponent implements OnInit {
   @Input() labs: ILab[] = [];
   
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  openLab(id: number) {
+    this.router.navigate(['/labs', id]);
   }
 
 }
