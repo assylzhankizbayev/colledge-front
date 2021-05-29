@@ -11,9 +11,6 @@ export class LabsLayoutComponent implements OnInit {
   
   equipments: IEquipment[] = [];
 
-  @Input() public withoutSlider: boolean = false;
-  @Input() public isHeader: boolean = false;
-
   constructor(private readonly equipmentService: EquipmentService) { }
 
   ngOnInit(): void {
