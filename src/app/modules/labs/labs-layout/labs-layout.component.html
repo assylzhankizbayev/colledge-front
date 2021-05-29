@@ -1,39 +1,47 @@
-<div class="section-2"> 
-  <div class="container">
+<div class="no-data flex-start" *ngIf="loading">
+  <mat-progress-bar mode="indeterminate" ></mat-progress-bar>
+</div> 
 
-    <p class="breadcrumb">
-      Лаборатории {{title?'/':''}} {{title}}
-    </p>
-
-    <h1 class="title">
-      {{lab?.name}}
-    </h1>
-
-    <p class="desc">
-      {{lab?.desc}}
-    </p>
-
-    <div class="menu">
-      <button type="button" *ngFor="let m of menu; let i = index;" [class.active]="i === 0">
-        {{m?.name}}
-      </button>
+<ng-container *ngIf="!loading">
+  <div class="section-2"> 
+    <div class="container">
+  
+      <p class="breadcrumb">
+        Лаборатории {{title?'/':''}} {{title}}
+      </p>
+  
+      <h1 class="title">
+        {{lab?.name}}
+      </h1>
+  
+      <p class="desc">
+        {{lab?.desc}}
+      </p>
+  
+      <div class="menu">
+        <button type="button" *ngFor="let m of menu; let i = index;" [class.active]="i === 0">
+          {{m?.name}}
+        </button>
+      </div>
+  
+      <h2 class="quote">
+        Какие исследования проводятся в нашей лаборатории
+      </h2>
+  
+      <app-expansion-panels [researches]="miniResearches"></app-expansion-panels>
     </div>
-
-    <h2 class="quote">
-      Какие исследования проводятся в нашей лаборатории
-    </h2>
-
-    <app-expansion-panels [researches]="miniResearches"></app-expansion-panels>
   </div>
-</div>
+  
+  <section class="equipments-section">
+    <div class="container">
+      <app-equipment-cards [isHeader]="true" [equipments]="equipments">
+      </app-equipment-cards>
+  
+      <div class="margin-bottom"></div>
+  
+      <app-contact-form></app-contact-form>
+    </div>
+  </section>
+</ng-container>
 
-<section class="equipments-section">
-  <div class="container">
-    <app-equipment-cards [isHeader]="true" [equipments]="equipments">
-    </app-equipment-cards>
 
-    <div class="margin-bottom"></div>
-
-    <app-contact-form></app-contact-form>
-  </div>
-</section>

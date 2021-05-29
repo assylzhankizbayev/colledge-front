@@ -22,6 +22,7 @@ export class ExpertsLayoutComponent implements OnInit {
   miniResearches: IMiniResearch[] = [];
   labs: ILab[] = [];
   equipments: IEquipment[] = [];
+  loading = false;
 
   constructor(private route: ActivatedRoute,
     private expertService: ExpertService,
@@ -43,6 +44,7 @@ export class ExpertsLayoutComponent implements OnInit {
   }
 
   getData(id: number) {
+    this.loading = true;
     forkJoin([
       this.miniReserachService.getMiniResearchByExpertId(id),
       this.labService.getLabsByExpertId(id),
@@ -51,6 +53,9 @@ export class ExpertsLayoutComponent implements OnInit {
       this.miniResearches = res[0];
       this.labs = res[1];
       this.equipments = res[2];
+      setTimeout(() => {
+        this.loading = false;
+      }, 500);
     });
   }
 

@@ -28,6 +28,7 @@ export class LabsLayoutComponent implements OnInit {
   labId: number;
   equipments: IEquipment[] = [];
   miniResearches: IMiniResearch[] = [];
+  loading = false;
 
 
   constructor(
@@ -66,6 +67,7 @@ export class LabsLayoutComponent implements OnInit {
   }
 
   loadEquipments(id: number) {
+    this.loading = true;
     forkJoin([
       this.equipmentService.getEquipmentsByLabId(id),
       this.miniResearchService.getMiniResearchByLabId(id)
@@ -73,6 +75,9 @@ export class LabsLayoutComponent implements OnInit {
     .subscribe(res => {
       this.equipments = res[0];
       this.miniResearches = res[1];
+      setTimeout(() => {
+        this.loading = false;
+      }, 500);
     });
   }
 
