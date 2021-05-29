@@ -18,7 +18,7 @@
   <div class="container">
     <div class="filter">
       <div class="filter__industry" (click)="toggleIndustry()">
-        {{ chosenIndustry?.name }}
+        <span [innerHtml]="chosenIndustry?.name"></span>
         <img class="industry__arrow" [class.toggled]="isMenuToggled" src="assets/icons/menu-arrow.svg" alt="" />
       </div>
 
@@ -28,7 +28,8 @@
           [class.active]="industry.id === chosenIndustry?.id"
           *ngFor="let industry of industries"
           (click)="updateResearchList(industry)"
-        >{{ industry.name }}</div>
+          [innerHtml]="industry?.name"
+        ></div>
       </div>
 
       <div class="filter__research" *ngIf="!isMenuToggled">

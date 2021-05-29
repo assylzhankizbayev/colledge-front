@@ -13,6 +13,7 @@ import { MiniCarouselComponent } from './mini-carousel/mini-carousel.component';
 import { ExpertsListComponent } from './experts-list/experts-list.component';
 import { ExpertComponent } from './experts-list/expert/expert.component';
 import { LabsListComponent } from './expansion-panels/labs-list/labs-list.component';
+import { SeparatorPipe } from 'src/app/shared/pipes/separator.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { LabsListComponent } from './expansion-panels/labs-list/labs-list.compon
     MiniCarouselComponent,
     ExpertsListComponent,
     ExpertComponent,
-    LabsListComponent
+    LabsListComponent,
+    SeparatorPipe
   ],
   imports: [
     CommonModule,

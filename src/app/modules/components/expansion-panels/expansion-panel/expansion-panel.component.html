@@ -24,7 +24,7 @@
           class="btn btn-more" 
           [disabled]="!miniResearch?.equipmentIds && !miniResearch?.expertIds && !miniResearch?.gallery"
         >Подробнее</button>
-        <span class="min-price" *ngIf="panelOpenState && miniResearch?.minPrice">От {{ miniResearch?.minPrice }} тг</span>
+        <span class="min-price" *ngIf="panelOpenState && miniResearch?.minPrice">От {{ miniResearch?.minPrice | separator }} тг</span>
       </div>
     </div>
   </mat-expansion-panel-header>
