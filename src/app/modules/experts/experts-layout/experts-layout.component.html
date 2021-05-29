@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="expert">
+    <div class="expert-img" [style.background-image]="'url('+'./assets/pics/experts/'+expert?.id+'.png'+')'">
+    </div>
+    <div class="expert-info">
+      <h2 class="fio">{{expert?.name}}</h2>
+      <p class="position">{{expert?.position}}</p>
+      <p class="experiense">Стаж работы: {{expert?.experiense}}</p>
+      <button type="button" class="cons-btn">Получить консультацию</button>
+    </div>
+    <div class="expert-dev">
+      <div class="dev" *ngFor="let dev of expert?.researchList;">
+        <div class="dev-key">{{dev?.name}}</div>
+        <div class="dev-key">{{dev?.count}}</div>
+      </div>
+    </div>
+  </div>
+  <p>experts-layout works!</p>
+</div>
