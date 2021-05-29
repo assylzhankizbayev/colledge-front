@@ -28,5 +28,7 @@
     <app-general-carousel *ngIf="equipments?.length" class="research-details__carousel" [data]="equipments"></app-general-carousel>
   
     <app-experts-list class="research-details__experts" [researchId]="miniResearch.id"></app-experts-list>
+
+    <app-labs-list class="research-details__labs" *ngIf="labs?.length" [labs]="labs"></app-labs-list>
   </div>
 </mat-expansion-panel>

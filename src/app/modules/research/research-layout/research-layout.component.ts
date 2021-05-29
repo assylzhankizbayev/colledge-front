@@ -20,7 +20,7 @@ export class ResearchLayoutComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private researchService: ResearchService,
-    private miniResearchService: MiniResearchService
+    private miniResearchService: MiniResearchService,
   ) { }
 
   ngOnInit(): void {

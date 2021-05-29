@@ -1,11 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { combineLatest, of, Subject } from 'rxjs';
+import { combineLatest, forkJoin, of, Subject } from 'rxjs';
 import { switchMap, takeUntil } from 'rxjs/operators';
 import { IEquipment } from 'src/app/core/models/equipment';
 import { ILab } from 'src/app/core/models/lab';
+import { IMiniResearch } from 'src/app/core/models/research';
 import { EquipmentService } from 'src/app/core/services/equipment.service';
 import { LabService } from 'src/app/core/services/lab.service';
+import { MiniResearchService } from 'src/app/core/services/mini-research.service';
 
 @Component({
   selector: 'app-labs-layout',
@@ -13,9 +15,9 @@ import { LabService } from 'src/app/core/services/lab.service';
   styleUrls: ['./labs-layout.component.scss']
 })
 export class LabsLayoutComponent implements OnInit {
-  
+
   destroy$ = new Subject();
-  lab:ILab;
+  lab: ILab;
   title = '';
   menu = [
     { name: "Исследования" },
@@ -25,46 +27,51 @@ export class LabsLayoutComponent implements OnInit {
   ];
   labId: number;
   equipments: IEquipment[] = [];
+  miniResearches: IMiniResearch[] = [];
 
 
   constructor(
     private route: ActivatedRoute,
     private labService: LabService,
-    private equipmentService: EquipmentService) { }
+    private equipmentService: EquipmentService,
+    private miniResearchService: MiniResearchService) { }
 
   ngOnInit(): void {
 
     this.route.paramMap
-    .pipe(
-      takeUntil(this.destroy$),
-      switchMap(params => {
-        const id = params.get('id');
-        this.labId = id ? +id : 0;
-        return id 
-          ? combineLatest([
-            this.labService.getLab(+id),
-            // this.miniResearchService.getOneMiniResearchByResearchId(+id)
-          ])
-          : of(null);
-      })
-    )
-    .subscribe(res => {
-      if (Array.isArray(res)) {
-        this.lab = res[0];
-        this.title = this.lab.name;
-        if (this.labId)  {
-          this.loadEquipments(this.labId)
+      .pipe(
+        takeUntil(this.destroy$),
+        switchMap(params => {
+          const id = params.get('id');
+          this.labId = id ? +id : 0;
+          return id
+            ? combineLatest([
+              this.labService.getLab(+id),
+            ])
+            : of(null);
+        })
+      )
+      .subscribe(res => {
+        if (Array.isArray(res)) {
+          this.lab = res[0];
+          this.title = this.lab.name;
+          if (this.labId) {
+            this.loadEquipments(this.labId);
+          }
         }
-      }
-    });
+      });
 
 
   }
 
   loadEquipments(id: number) {
-    this.equipmentService.getEquipmentsByLabId(id).subscribe(res => {
-      console.log(res);
-      this.equipments = res;
+    forkJoin([
+      this.equipmentService.getEquipmentsByLabId(id),
+      this.miniResearchService.getMiniResearchByLabId(id)
+    ])
+    .subscribe(res => {
+      this.equipments = res[0];
+      this.miniResearches = res[1];
     });
   }
 

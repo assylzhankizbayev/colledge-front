@@ -1,19 +1,29 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { combineLatest, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { IEquipment } from 'src/app/core/models/equipment';
+import { ILab } from 'src/app/core/models/lab';
 import { IMiniResearch } from 'src/app/core/models/research';
 import { EquipmentService } from 'src/app/core/services/equipment.service';
+import { LabService } from 'src/app/core/services/lab.service';
 
 @Component({
   selector: 'app-expansion-panel',
   templateUrl: './expansion-panel.component.html',
   styleUrls: ['./expansion-panel.component.scss']
 })
-export class ExpansionPanelComponent implements OnInit {
+export class ExpansionPanelComponent implements OnInit, OnDestroy {
   @Input() miniResearch!: IMiniResearch;
   panelOpenState = false;
   equipments: IEquipment[] = [];
-  
-  constructor(private equipmentService: EquipmentService) { }
+  labs: ILab[] = [];
+  isToggled = false;
+  destroy$ = new Subject();
+
+  constructor(
+    private equipmentService: EquipmentService,
+    private labService: LabService
+  ) {}
 
   ngOnInit(): void {    
   }
@@ -21,19 +31,32 @@ export class ExpansionPanelComponent implements OnInit {
   togglePanelState() {
     this.panelOpenState = !this.panelOpenState;
 
-    if (this.panelOpenState && !this.equipments?.length) {
-      this.getEquipments();
+    if (this.panelOpenState && !this.isToggled) {
+      this.getMiniResearchData();
+    }
+
+    if (!this.isToggled) {
+      this.isToggled = true;
     }
   }
 
-  getEquipments() {
-    const subs = this.equipmentService.getEquipmentsByMinResearchId(this.miniResearch.id).subscribe(res => {
-      this.equipments = res;
+  getMiniResearchData() {
+    combineLatest([
+      this.equipmentService.getEquipmentsByMinResearchId(this.miniResearch.id),
+      this.labService.getLabsByMiniResearchId(this.miniResearch.id)  
+    ])
+    .pipe(takeUntil(this.destroy$))
+    .subscribe(([equipments, labs]) => {
+      this.equipments = equipments;
+      this.labs = labs;
 
-      if (subs) {
-        subs.unsubscribe();
-      }
+      console.log('labs', labs);
+      
     });
   }
 
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
 }

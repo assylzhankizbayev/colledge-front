@@ -23,4 +23,20 @@ export class LabService {
     );
   }
 
+  getLabsByMiniResearchId(id: number): Observable<ILab[]> {
+    return this.http.get<ILab[]>('assets/mock-data/labs.json').pipe(
+      map(res => {
+        let result: ILab[] = [];
+        let miniResearchIds_: number[] = [];
+        res.forEach(r => {
+          miniResearchIds_ = r.miniResearchIds  ? r.miniResearchIds.split('|').map(r => +r) : [];
+          if (miniResearchIds_.findIndex(f => f === id) != -1) {
+            result.push(r);
+          }
+        });
+        return result;
+      })
+    );
+  }
+
 }
