@@ -15,9 +15,24 @@ export class ExpansionPanelComponent implements OnInit {
   
   constructor(private equipmentService: EquipmentService) { }
 
-  ngOnInit(): void {
-    this.equipmentService.getEquipmentsByMinResearchId(this.miniResearch.id).subscribe(res => {
+  ngOnInit(): void {    
+  }
+
+  togglePanelState() {
+    this.panelOpenState = !this.panelOpenState;
+
+    if (this.panelOpenState && !this.equipments?.length) {
+      this.getEquipments();
+    }
+  }
+
+  getEquipments() {
+    const subs = this.equipmentService.getEquipmentsByMinResearchId(this.miniResearch.id).subscribe(res => {
       this.equipments = res;
+
+      if (subs) {
+        subs.unsubscribe();
+      }
     });
   }
 
