@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { combineLatest, of, Subject } from 'rxjs';
-import { switchMap, takeUntil } from 'rxjs/operators';
+import { debounceTime, switchMap, takeUntil } from 'rxjs/operators';
 import { IMiniResearch, IResearch } from 'src/app/core/models/research';
 import { MiniResearchService } from 'src/app/core/services/mini-research.service';
 import { ResearchService } from 'src/app/core/services/research.service';
@@ -14,7 +14,7 @@ import { ResearchService } from 'src/app/core/services/research.service';
 export class ResearchLayoutComponent implements OnInit, OnDestroy {
   research!: IResearch;
   miniResearches: IMiniResearch[] = [];
-
+  loading = true;
   destroy$ = new Subject();
 
   constructor(
@@ -26,6 +26,7 @@ export class ResearchLayoutComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.route.paramMap
       .pipe(
+        debounceTime(500),
         takeUntil(this.destroy$),
         switchMap(params => {
           const id = params.get('id');
@@ -44,6 +45,7 @@ export class ResearchLayoutComponent implements OnInit, OnDestroy {
         if (Array.isArray(response)) {
           this.research = response[0];
           this.miniResearches = response[1];
+          this.loading = false;
         }        
       });
     
