@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { forkJoin } from 'rxjs';
-import { debounceTime } from 'rxjs/operators';
+import { debounceTime, tap } from 'rxjs/operators';
 import { IResearch } from 'src/app/core/models/research';
 import { CommonService } from 'src/app/core/services/common.service';
 import { ResearchService } from 'src/app/core/services/research.service';
@@ -15,12 +15,12 @@ import { IIndustry } from '../interface';
 export class LayoutComponent implements OnInit {
 
   searchControl = new FormControl();
-
   industries: IIndustry[] = [];
   selectedIndustrie: IIndustry = { id: -1, name: 'Все' };
   research: IResearch[] = [];
   industriesEx: IIndustryEx[] = [];
   noData = false;
+  loading = false;
 
   constructor(
     private service: CommonService,
@@ -31,6 +31,9 @@ export class LayoutComponent implements OnInit {
 
     this.searchControl.valueChanges
     .pipe(
+      tap(_ => {
+        this.loading = true;
+      }),
       debounceTime(500)
     )
     .subscribe(res => {
@@ -42,8 +45,16 @@ export class LayoutComponent implements OnInit {
         ind['hide'] = ind.research.length === ind.research.filter(f => f.hide).length ? true : false;
       });
       this.noData = this.industriesEx.length === this.industriesEx.filter(f => f.hide).length ? true : false;
+      this.loading = false;
     });
 
+    this.loadData();
+
+    
+  }
+
+  loadData() {
+    this.loading = true;
     forkJoin([
       this.service.getIndustries(),
       this.researchService.getResearch()
@@ -53,6 +64,9 @@ export class LayoutComponent implements OnInit {
       this.industries.unshift(this.selectedIndustrie);
       this.research = res[1];
       this.transformData(this.research);
+      setTimeout(() => {
+        this.loading = false;
+      }, 500);
     });
   }
 
