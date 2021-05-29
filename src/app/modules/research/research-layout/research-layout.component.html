@@ -3,15 +3,15 @@
     <div class="no-data flex-start" *ngIf="loading">
       <mat-progress-bar mode="indeterminate" ></mat-progress-bar>
     </div> 
-    
+
     <div class="breadcrumb-wrapper">
       <p class="breadcrumb">
         Исследования {{ research?.name ? '/' : '' }} {{ research?.name }}
       </p>
-      <div class="search-block">
+      <!-- <div class="search-block">
         <input type="text" class="search-input" placeholder="Введите название лаборатории, оборудования, исследования....">
         <img src="./assets/icons/search.svg" alt="search-icon" class="search-icon">
-      </div>
+      </div> -->
     </div>
   </div>
 

@@ -7,7 +7,7 @@
         <div class="lab-title">Лаборатория "{{ lab.name }}"</div>
         <div class="lab-desc">{{ lab.desc }}</div>
       </div>
-      <button class="btn-more" (click)="openLab(lab.id)">Подробнее</button>
+      <button class="btn-more" [class.disabled]="!lab?.researchIds" (click)="openLab(lab.id)">Подробнее</button>
     </div>
   </div>
 </div>
