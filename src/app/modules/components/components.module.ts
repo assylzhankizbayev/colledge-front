@@ -8,6 +8,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { EquipmentCardsComponent } from './equipment-cards/equipment-cards.component';
 import { EquipmentCardComponent } from './equipment-cards/equipment-card/equipment-card.component';
 import { GeneralCarouselComponent } from './general-carousel/general-carousel.component';
+import { ExpertsComponent } from './experts/experts.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { GeneralCarouselComponent } from './general-carousel/general-carousel.co
     EquipmentCardsComponent,
     EquipmentCardComponent,
     GeneralCarouselComponent,
+    ExpertsComponent
   ],
   imports: [
     CommonModule,
@@ -30,6 +32,7 @@ import { GeneralCarouselComponent } from './general-carousel/general-carousel.co
     EquipmentCardsComponent,
     EquipmentCardComponent,
     GeneralCarouselComponent,
+    ExpertsComponent
   ]
 })
 export class ComponentsModule { }
