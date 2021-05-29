@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IEquipment } from 'src/app/core/models/equipment';
 
 @Component({
   selector: 'app-equipment-card',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class EquipmentCardComponent implements OnInit {
 
-  @Input() equipment: any;
+  @Input() equipment: IEquipment;
 
   constructor() { }
 
