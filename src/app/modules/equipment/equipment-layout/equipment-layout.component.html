@@ -13,25 +13,25 @@
 
         <div class="gallery">
           <div class="left">
-            <img *ngIf="isPhotoExist('1')" src="./assets/pics/equipments/1.png" alt="">
+            <img *ngIf="isPhotoExist('1')" [src]="'./assets/pics/equipments/equipment-'+equipmentInfo.id+'/'+'1.png'" alt="">
           </div>
           <div class="right">
 
             <div class="row row-bottom">
               <div class="photo">
-                <img *ngIf="isPhotoExist('2')" src="./assets/pics/equipments/1.png">
+                <img *ngIf="isPhotoExist('2')" [src]="'./assets/pics/equipments/equipment-'+equipmentInfo.id+'/'+'2.png'">
               </div>
               <div class="photo photo-left">
-                <img *ngIf="isPhotoExist('3')" src="./assets/pics/equipments/1.png">
+                <img *ngIf="isPhotoExist('3')" [src]="'./assets/pics/equipments/equipment-'+equipmentInfo.id+'/'+'3.png'">
               </div>
             </div>
 
             <div class="row">
               <div class="photo">
-                <img *ngIf="isPhotoExist('4')" src="./assets/pics/equipments/1.png">
+                <img *ngIf="isPhotoExist('4')" [src]="'./assets/pics/equipments/equipment-'+equipmentInfo.id+'/'+'4.png'">
               </div>
               <div class="photo photo-left">
-                <img *ngIf="isPhotoExist('5')" src="./assets/pics/equipments/1.png">
+                <img *ngIf="isPhotoExist('5')" [src]="'./assets/pics/equipments/equipment-'+equipmentInfo.id+'/'+'5.png'">
               </div>
             </div>
 
@@ -57,7 +57,7 @@
         <p class="title">В каких исследованиях участвует </p>
         <div class="line">
         </div>
-        <app-expansion-panels [researches]="researchIds"></app-expansion-panels>
+        <app-expansion-panels [researches]="miniResearches"></app-expansion-panels>
 
         <p class="title">В каких лабораториях присутствует</p>
         <div class="line">

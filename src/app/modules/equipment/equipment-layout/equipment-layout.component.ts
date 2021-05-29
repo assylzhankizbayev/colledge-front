@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { IEquipment } from 'src/app/core/models/equipment';
+import { IMiniResearch } from 'src/app/core/models/research';
 import { EquipmentService } from 'src/app/core/services/equipment.service';
 import { MiniResearchService } from 'src/app/core/services/mini-research.service';
 
@@ -14,8 +16,8 @@ export class EquipmentLayoutComponent implements OnInit {
 
   public equipmentInfo: any;
   public galleryPhotos: string[] = [];
-  public researchIds: any[] = [];
-  public researches: any[] = [];
+  public researchIds: number[] = [];
+  public miniResearches: IMiniResearch[] = [];
   public labs: any[] = [];
 
   constructor(
@@ -30,23 +32,22 @@ export class EquipmentLayoutComponent implements OnInit {
         return id ? this.equipmentService.getEquipment(Number(id)) : of(null) 
       })
     )
-    .subscribe((result) => {
+    .subscribe((result:IEquipment) => {
       console.log(result);
       this.equipmentInfo = result;
       this.galleryPhotos = result.gallery.split('|');
-      this.researchIds = result.researchIds.split('|');
-      this.labs = result.labIds.split('|');
-      console.log(this.labs);
-      this.getResearches();
+      this.researchIds = result.researchIds.split('|').map(r => +r);
+      // this.labs = result.labIds.split('|');
+      // console.log(this.labs);
+      // this.getResearches();
+      this.getMiniResearches(result.id);
     });
   }
 
-  getResearches() {
-    this.researchIds.forEach((id) => {
-      this.miniResearch.getOneMiniResearchByResearchId(id).subscribe((result) => {
-        this.researches.push(result);
-      });
-    })
+  getMiniResearches(id: number) {
+    this.miniResearch.getMiniResearchByEquipmentId(id).subscribe(result => {
+      this.miniResearches = result;
+    });
   }
 
   isPhotoExist(id: string) {
