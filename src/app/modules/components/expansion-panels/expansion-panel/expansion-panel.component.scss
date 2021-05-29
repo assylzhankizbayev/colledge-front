@@ -50,16 +50,22 @@
 }
 
 .title {
+  color: #031D5B;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 32px;
+
+  &.active {
+    color: #fff;
+    font-size: 35px;
+    line-height: 42px;
+  }
+
   &-wrapper {
     flex: 1;
     display: flex;
     align-items: center;
   }
-
-  color: #031D5B;
-  font-size: 28px;
-  font-weight: 500;
-  line-height: 32px;
 }
 
 .total-projects {
@@ -67,6 +73,10 @@
   font-size: 18px;
   font-weight: 500;
   line-height: 22px;
+
+  &.active {
+    color: #fff;
+  }
 
   strong {
     font-size: 25px;
@@ -88,6 +98,11 @@
     line-height: 32px;
     margin-bottom: 11px;
     height: 49px;
+
+    &.active {
+      background: #fff;
+      color: #2F80ED;
+    }
   }
 
   &-more {
@@ -100,4 +115,12 @@
     line-height: 18px;
     height: 45px;
   }
+}
+
+.min-price {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 30px;
+  text-align: center;
 }
