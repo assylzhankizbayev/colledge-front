@@ -9,7 +9,7 @@ import { IMenu } from '../../../modules/landing/interface';
 export class HeaderComponent implements OnInit {
 
   menu: IMenu[] = [
-    { id: 1, name: 'Главная', router: 'main' },
+    { id: 1, name: 'Главная', router: 'main', isClick: true },
     { id: 2, name: 'Исследования', router: 'research' },
     { id: 3, name: 'Лаборатории', router: 'labs' },
     { id: 4, name: 'Специалисты', router: 'experts' },
