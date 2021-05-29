@@ -8,8 +8,8 @@
   </div>
   <div class="car" #carElem>
     <div class="car-inner">
-      <div class="img" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">
-        <img [src]="'./assets/pics/research/research-12/gallery/3-'+i+'.png'" alt="">
+      <div class="img" *ngFor="let i of galleryList">
+        <img [src]="'./assets/pics/research/research-12/gallery/'+miniResearchId+'-'+i+'.png'" alt="">
       </div>
     </div>
   </div>

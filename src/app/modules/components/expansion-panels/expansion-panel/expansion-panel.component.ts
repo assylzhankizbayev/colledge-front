@@ -7,7 +7,7 @@ import { IMiniResearch } from 'src/app/core/models/research';
   styleUrls: ['./expansion-panel.component.scss']
 })
 export class ExpansionPanelComponent implements OnInit {
-  @Input() research!: IMiniResearch;
+  @Input() miniResearch!: IMiniResearch;
   panelOpenState = false;
   
   constructor() { }

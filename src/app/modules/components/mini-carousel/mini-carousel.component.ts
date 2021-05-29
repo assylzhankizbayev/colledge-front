@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { IResearch } from 'src/app/core/models/research';
 
 @Component({
   selector: 'app-mini-carousel',
@@ -7,12 +8,17 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 })
 export class MiniCarouselComponent implements OnInit {
 
+  @Input() miniResearchId: number;
+  @Input() gallery: string;
+  galleryList: number[] = [];
+
   
   @ViewChild('carElem', { static: false }) equipmentsElm: ElementRef;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.galleryList = this.gallery.split("|").map(r => +r);
   }
 
   toRight() {
