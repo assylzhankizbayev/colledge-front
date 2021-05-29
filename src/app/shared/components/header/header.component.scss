@@ -26,6 +26,10 @@
         color: #333;
         transition: all 0.5s ease-in;
         position: relative;
+        pointer-events: none;
+        &.click {
+          pointer-events: auto;
+        }
         &::after {
           display:block;
           content: '';
