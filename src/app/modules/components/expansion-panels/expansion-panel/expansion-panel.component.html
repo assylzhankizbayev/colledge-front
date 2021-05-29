@@ -1,29 +1,20 @@
-<!-- <p matRipple>hello</p> -->
-<!-- <mat-accordion> -->
-  <mat-expansion-panel hideToggle>
-    <mat-expansion-panel-header>
-      <!-- <mat-panel-title>
-        Определение фазового (минерального) состава
-      </mat-panel-title>
-      <mat-panel-description>
-        This is a summary of the content
-      </mat-panel-description> -->
-      <div class="header-content">
-        <div class="header-content__img"></div>
-        <div class="header-content__main">
-          <div class="title-wrapper">
-            <h2 class="title">Определение текстурно-структурных характеристик горных пород, руд, почв, грунтов, донных осадков</h2>
-          </div>
-          <div class="total-projects">
-            Выполнено <strong>28</strong>
-          </div>
+<mat-expansion-panel hideToggle>
+  <mat-expansion-panel-header>
+    <div class="header-content">
+      <div class="header-content__img"></div>
+      <div class="header-content__main">
+        <div class="title-wrapper">
+          <h2 class="title" *ngIf="research?.name as name">{{ name }}</h2>
         </div>
-        <div class="header-content__controls">
-          <button class="btn btn-order">Заказать</button>
-          <button class="btn btn-more">Подробнее</button>
+        <div class="total-projects">
+          Выполнено <strong>{{ 0 }}</strong>
         </div>
       </div>
-    </mat-expansion-panel-header>
-    <p>This is the primary content of the panel.</p>
-  </mat-expansion-panel>
-<!-- </mat-accordion> -->
+      <div class="header-content__controls">
+        <button class="btn btn-order">Заказать</button>
+        <button class="btn btn-more">Подробнее</button>
+      </div>
+    </div>
+  </mat-expansion-panel-header>
+  <p>This is the primary content of the panel.</p>
+</mat-expansion-panel>

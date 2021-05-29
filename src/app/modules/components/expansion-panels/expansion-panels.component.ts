@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IResearch } from 'src/app/core/models/research';
 
 @Component({
   selector: 'app-expansion-panels',
@@ -6,7 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./expansion-panels.component.scss']
 })
 export class ExpansionPanelsComponent implements OnInit {
-
+  @Input() researches: IResearch[] = [];
+  
   constructor() { }
 
   ngOnInit(): void {
