@@ -1,5 +1,5 @@
 <div class="labs">
-  <h2 class="labs__header">Где проводят исследование</h2>
+  <h2 class="labs__header" *ngIf="showTitle">Где проводят исследование</h2>
 
   <div class="labs__list">
     <div class="lab" *ngFor="let lab of labs">
