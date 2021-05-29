@@ -30,6 +30,7 @@ export class ExpertsLayoutComponent implements OnInit {
     private equipmentService: EquipmentService) { }
 
   ngOnInit(): void {
+    window.scroll(0,0);
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
       if (id) {

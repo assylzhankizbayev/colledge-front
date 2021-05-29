@@ -31,6 +31,7 @@ export class ResearchLayoutComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    window.scroll(0,0);
     this.route.paramMap
       .pipe(
         debounceTime(500),

@@ -37,6 +37,7 @@ export class LabsLayoutComponent implements OnInit {
     private miniResearchService: MiniResearchService) { }
 
   ngOnInit(): void {
+    window.scroll(0,0);
 
     this.route.paramMap
       .pipe(
