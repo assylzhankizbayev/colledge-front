@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { IMenu } from '../../../modules/landing/interface';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
 
@@ -19,6 +19,18 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(e: any) {
+     if (window.pageYOffset > 350) {
+       let element = document.getElementById('navbar');
+       if (element) element.classList.add('sticky');
+     } else {
+      let element = document.getElementById('navbar');
+      if (element) element.classList.remove('sticky'); 
+     }
   }
 
 }

@@ -7,6 +7,20 @@
 .navbar {
   padding-top: 30px;
   padding-bottom: 25px;
+  transition: all 0.6s ease-in;
+  position: sticky;
+  top: 0;
+  background-color: #E6F0FF;
+  z-index: 999;
+
+  &.sticky {
+    background-color: #fff;
+    box-shadow: 0 3px 12px 0 rgba(0,0,0,.08);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: all 0.3s ease-in;
+  }
   &-nav {
     display: flex;
     flex-wrap: wrap;
