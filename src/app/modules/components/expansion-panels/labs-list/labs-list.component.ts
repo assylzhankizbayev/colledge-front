@@ -12,8 +12,6 @@ export class LabsListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('************', this.labs);
-    
   }
 
 }
