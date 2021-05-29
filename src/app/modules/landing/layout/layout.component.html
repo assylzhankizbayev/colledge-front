@@ -27,7 +27,7 @@
           <div class="research-card">
             <h4 class="research-title">{{item?.name}}</h4>
             <div class="research-picture">
-              <img [src]="'./assets/research/'+item?.id+'.png'" alt="картинка">
+              <img [src]="'./assets/pics/research/'+item?.id+'.png'" alt="картинка">
             </div>
             <button type="button" class="research-detail" [routerLink]="['/research', item.id]" [queryParams]="{title: item.name}"> Подробнее </button>
           </div>
