@@ -4,6 +4,8 @@ import { ExpansionPanelComponent } from './expansion-panel/expansion-panel.compo
 import { MaterialModule } from '../material/material.module';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EquipmentCardsComponent } from './equipment-cards/equipment-cards.component';
+import { EquipmentCardComponent } from './equipment-cards/equipment-card/equipment-card.component';
 
 
 
@@ -11,6 +13,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     ExpansionPanelComponent,
     ContactFormComponent,
+    EquipmentCardsComponent,
+    EquipmentCardComponent,
   ],
   imports: [
     CommonModule,
@@ -20,6 +24,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   exports: [
     ExpansionPanelComponent,
     ContactFormComponent,
+    EquipmentCardsComponent,
+    EquipmentCardComponent,
   ]
 })
 export class ComponentsModule { }
