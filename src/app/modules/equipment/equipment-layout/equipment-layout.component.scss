@@ -1,4 +1,3 @@
-
 .debbug {
   border: 1px solid red;
 }
@@ -47,21 +46,25 @@
   flex-wrap: wrap;
   justify-content: flex-end;
 
-  .photo {
-    width: calc(50% - 1px);
-    height: 272px;
-    background-size: contain;
-    background-repeat: no-repeat;
+  .photo-wrap {
+    width: 50%;
+    height: 273px;
+    position: relative;
 
+    &:nth-child(3),
+    &:nth-child(4) {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+    }
+  }
+
+  .photo {
+    height: 260px;
+    width: auto;
     border: 1px solid #E0E0E0;
-    box-sizing: border-box;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     border-radius: 5px;
-    
-    &:first-child {
-      margin-bottom: 1px;
-      margin-left: 1px;
-    }
   }
 }
 
@@ -73,6 +76,7 @@
   letter-spacing: 0.2px;
   color: #031D5B;
   margin-bottom: 50px;
+
   &::after {
     display: block;
     content: "";
@@ -88,12 +92,13 @@
   & .specifications__list {
     width: 700px;
     list-style: none;
-    
+
     &--item {
       height: 50px;
       display: flex;
 
-      & .name, & .value {
+      & .name,
+      & .value {
         font-weight: 500;
         font-size: 22px;
         line-height: 26px;
@@ -110,6 +115,7 @@
   margin-bottom: 40px;
 }
 
-.section-researches, .section-labs {
+.section-researches,
+.section-labs {
   margin-bottom: 60px;
 }
