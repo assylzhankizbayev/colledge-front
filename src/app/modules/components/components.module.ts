@@ -6,6 +6,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EquipmentCardsComponent } from './equipment-cards/equipment-cards.component';
 import { EquipmentCardComponent } from './equipment-cards/equipment-card/equipment-card.component';
+import { GeneralCarouselComponent } from './general-carousel/general-carousel.component';
 
 
 
@@ -15,6 +16,7 @@ import { EquipmentCardComponent } from './equipment-cards/equipment-card/equipme
     ContactFormComponent,
     EquipmentCardsComponent,
     EquipmentCardComponent,
+    GeneralCarouselComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +28,7 @@ import { EquipmentCardComponent } from './equipment-cards/equipment-card/equipme
     ContactFormComponent,
     EquipmentCardsComponent,
     EquipmentCardComponent,
+    GeneralCarouselComponent,
   ]
 })
 export class ComponentsModule { }

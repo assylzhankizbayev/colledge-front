@@ -1,15 +1,15 @@
 
-<p class="equipment-cards-title">Какое оборудование используется</p>
+<p class="equipment-cards-title" *ngIf="isHeader">Какое оборудование используется</p>
       
-<ng-container *ngIf="withoutSlider; else withslider">
+<ng-container *ngIf="withoutSlider; else carousel">
   <div class="row equipment-cards">
-    <div class="col-4" *ngFor="let item of mockData">
-      <app-equipment-card [equipment]="item">
+    <div class="col-4" *ngFor="let equipment of equipments">
+      <app-equipment-card [equipment]="equipment">
       </app-equipment-card>
     </div>
   </div>
 </ng-container>
 
-<ng-template #withslider>
-  <p>Пока слайдер</p>
+<ng-template #carousel>
+
 </ng-template>

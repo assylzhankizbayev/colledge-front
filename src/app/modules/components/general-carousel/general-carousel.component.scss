@@ -1,0 +1,60 @@
+.equipments-wrapper {
+  width: 100%;
+  position: relative;
+  padding: 0 20px;
+
+
+  .arrow {
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    width: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    top: 0;
+
+    img {
+      position: absolute;
+      width: 10px;
+      height: 20px;
+    }
+
+    &-left {
+      left: 0;
+      transform: rotate(180deg);
+
+      & .left {
+        transform: rotate(-180deg);
+      }
+    }
+
+    &-right {
+      right: 0;
+    }
+  }
+
+}
+
+.equipments {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  height: 500px;
+
+
+  &-inner {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
+
+}
+
+.item {
+  min-width: 380px;
+  height: max-content;
+}
