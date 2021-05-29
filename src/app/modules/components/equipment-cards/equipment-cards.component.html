@@ -1,15 +1,8 @@
-
 <p class="equipment-cards-title" *ngIf="isHeader">Какое оборудование используется</p>
-      
-<ng-container *ngIf="withoutSlider; else carousel">
-  <div class="row equipment-cards">
-    <div class="col-4" *ngFor="let equipment of equipments">
-      <app-equipment-card [equipment]="equipment">
-      </app-equipment-card>
-    </div>
+
+<div class="row equipment-cards">
+  <div class="col-4" *ngFor="let equipment of equipments">
+    <app-equipment-card [equipment]="equipment">
+    </app-equipment-card>
   </div>
-</ng-container>
-
-<ng-template #carousel>
-
-</ng-template>
+</div>

@@ -7,4 +7,5 @@ export interface IEquipment {
   "labIds": string;
   "researchIds": string;
   "gallery": string;
+  "miniResearchIds": string;
 }

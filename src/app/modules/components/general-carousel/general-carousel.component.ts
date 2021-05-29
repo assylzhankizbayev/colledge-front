@@ -1,11 +1,11 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-general-carousel',
   templateUrl: './general-carousel.component.html',
   styleUrls: ['./general-carousel.component.scss']
 })
-export class GeneralCarouselComponent implements OnInit {
+export class GeneralCarouselComponent implements OnInit, OnChanges {
 
   @ViewChild('equipmentsElm', { static: false }) equipmentsElm: ElementRef;
 
@@ -14,7 +14,10 @@ export class GeneralCarouselComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
 
+  ngOnChanges() {
+    // console.log(this.data);
   }
 
   toRight() {

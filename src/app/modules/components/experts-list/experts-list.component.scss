@@ -1,0 +1,20 @@
+.experts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  &__title {
+    border-bottom: 2px solid #2F80ED;;
+    color: #031D5B;
+    font-size: 19px;
+    line-height: 22px;
+    margin-bottom: 32px;
+    padding-bottom: 8px;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+}

@@ -9,6 +9,9 @@ import { EquipmentCardsComponent } from './equipment-cards/equipment-cards.compo
 import { EquipmentCardComponent } from './equipment-cards/equipment-card/equipment-card.component';
 import { GeneralCarouselComponent } from './general-carousel/general-carousel.component';
 import { RouterModule } from '@angular/router';
+import { MiniCarouselComponent } from './mini-carousel/mini-carousel.component';
+import { ExpertsListComponent } from './experts-list/experts-list.component';
+import { ExpertComponent } from './experts-list/expert/expert.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,9 @@ import { RouterModule } from '@angular/router';
     EquipmentCardsComponent,
     EquipmentCardComponent,
     GeneralCarouselComponent,
+    MiniCarouselComponent,
+    ExpertsListComponent,
+    ExpertComponent
   ],
   imports: [
     CommonModule,
@@ -32,6 +38,8 @@ import { RouterModule } from '@angular/router';
     EquipmentCardsComponent,
     EquipmentCardComponent,
     GeneralCarouselComponent,
+    ExpertsListComponent,
+    ExpertComponent
   ]
 })
 export class ComponentsModule { }

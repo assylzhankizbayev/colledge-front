@@ -1,21 +1,37 @@
 <div class="section-2"> 
   <div class="container">
-    <app-equipment-cards [withoutSlider]="true">
-    </app-equipment-cards>
-  </div>
-</div>
 
-<div class="section-3">
+    <p class="breadcrumb">
+      Лаборатории {{title?'/':''}} {{title}}
+    </p>
 
-</div>
+    <h1 class="title">
+      {{lab?.name}}
+    </h1>
 
-<div class="section-4">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <app-general-carousel [data]="equipments">
-        </app-general-carousel>
-      </div>
+    <p class="desc">
+      {{lab?.desc}}
+    </p>
+
+    <div class="menu">
+      <button type="button" *ngFor="let m of menu; let i = index;" [class.active]="i === 0">
+        {{m?.name}}
+      </button>
     </div>
+
+    <h2 class="quote">
+      Какие исследования проводятся в нашей лаборатории
+    </h2>
   </div>
 </div>
+
+<section class="equipments-section">
+  <div class="container">
+    <app-equipment-cards [isHeader]="true" [equipments]="equipments">
+    </app-equipment-cards>
+
+    <div class="margin-bottom"></div>
+
+    <app-contact-form></app-contact-form>
+  </div>
+</section>
