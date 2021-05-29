@@ -45,8 +45,24 @@ export class LabService {
         let result: ILab[] = [];
         let equipmentIds_: number[] = [];
         res.forEach(r => {
-          equipmentIds_ = r.equipmentIds  ? r.equipmentIds.split('|').map(r => +r) : [];
+          equipmentIds_ = r.expertIds  ? r.equipmentIds.split('|').map(r => +r) : [];
           if (equipmentIds_.findIndex(f => f === id) != -1) {
+            result.push(r);
+          }
+        });
+        return result;
+      })
+    );
+  }
+
+  getLabsByExpertId(id: number): Observable<ILab[]> {
+    return this.http.get<ILab[]>('assets/mock-data/labs.json').pipe(
+      map(res => {
+        let result: ILab[] = [];
+        let expertIds_: number[] = [];
+        res.forEach(r => {
+          expertIds_ = r.expertIds  ? r.expertIds.split('|').map(r => +r) : [];
+          if (expertIds_.findIndex(f => f === id) != -1) {
             result.push(r);
           }
         });

@@ -16,7 +16,14 @@
     </div>
   </div>
   <h3 class="title">Какие исследования проводит</h3>
-  <app-expansion-panels [researches]="miniResearches"></app-expansion-panels>
+  <app-expansion-panels [researches]="miniResearches" class="app-expansion-panels"></app-expansion-panels>
 
   <h3 class="title">В каких лабораториях проводит исследования</h3>
+  <app-labs-list [labs]="labs" [showTitle]="false"></app-labs-list>
+
+  <h3 class="title">Какое оборудование использует</h3>
+  <app-equipment-cards [equipments]="equipments"></app-equipment-cards>
+
+  <app-contact-form [title]="'Хотите заказать исследование?'"></app-contact-form>
+
 </div>

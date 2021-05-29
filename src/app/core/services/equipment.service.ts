@@ -55,4 +55,20 @@ export class EquipmentService {
     );
   }
 
+  getEquipmentsByExpertId(id: number): Observable<IEquipment[]> {
+    return this.http.get<IEquipment[]>('assets/mock-data/equipments.json').pipe(
+      map(res => {
+        let result: IEquipment[] = [];
+        let expertIds_: number[] = [];
+        res.forEach(r => {
+          expertIds_ = r.expertIds  ? r.expertIds.split('|').map(r => +r) : [];
+          if (expertIds_.findIndex(f => f === id) != -1) {
+            result.push(r);
+          }
+        });
+        return result;
+      })
+    );
+  }
+
 }
