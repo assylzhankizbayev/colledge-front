@@ -1,0 +1,16 @@
+
+<div class="car-wrapper">
+  <div class="arrow arrow-left" (click)="toLeft()">
+    <img class="left" src="./assets/pics/slider/left.svg">
+  </div>
+  <div class="arrow arrow-right" (click)="toRight()">
+    <img src="./assets/pics/slider/right.svg">
+  </div>
+  <div class="car" #carElem>
+    <div class="car-inner">
+      <div class="img" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">
+        <img [src]="'./assets/pics/research/research-12/gallery/3-'+i+'.png'" alt="">
+      </div>
+    </div>
+  </div>
+</div>
