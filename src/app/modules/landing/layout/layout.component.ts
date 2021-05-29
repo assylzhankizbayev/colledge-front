@@ -73,6 +73,7 @@ export class LayoutComponent implements OnInit {
   
   selectIndustrie(ind: IIndustry) {
     this.selectedIndustrie = ind;
+    this.loading = true;
     this.researchService.getResearchByIndId(ind.id).subscribe(res => {
       if (ind.id === -1) {
         this.transformData(res);
@@ -83,6 +84,9 @@ export class LayoutComponent implements OnInit {
             research: res
         }];
       }
+      setTimeout(() => {
+        this.loading = false;
+      }, 300);
     });
   }
 
