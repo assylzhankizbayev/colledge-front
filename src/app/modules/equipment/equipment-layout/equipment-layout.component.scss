@@ -1,49 +1,6 @@
-.container {
-  border: 1px solid red;
-}
 
 .debbug {
   border: 1px solid red;
-}
-
-.gallery {
-  display: flex;
-  margin-bottom: 42px;
-
-  .left {
-    width: 618px;
-    height: 546px;
-  }
-
-  .right {
-    width: 750px;
-    height: 546px;
-    margin-left: 34px;
-
-    & .row {
-      height: auto;
-      display: flex;
-
-      &-bottom {
-        margin-bottom: 42px;
-      }
-
-      .photo {
-        height: 252px;
-        width: 259px;
-      }
-
-      .photo-left {
-        margin-left: 34px;
-      }
-    }
-  }
-
-  img {
-    width: 100%;
-    height: auto;
-  }
-
 }
 
 .equipment-name {
@@ -71,6 +28,39 @@
   margin-bottom: 50px;
 }
 
+.left {
+  width: 100%;
+  height: 100%;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.right {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+
+  .photo {
+    width: 259px;
+    height: 252px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+}
+
+.col-6-margin {
+  margin-left: auto;
+}
+
 .title {
   display: flex;
   justify-content: start;
@@ -84,12 +74,6 @@
 
 .technical-characteristics {
   margin-bottom: 115px;
-  & .line {
-    border: 2px solid #2F80ED;
-    width: 500px;
-    background: #2F80ED;
-    margin-bottom: 40px;
-  }
 
   & .specifications__list {
     width: 700px;
@@ -110,4 +94,19 @@
     }
 
   }
+}
+
+.line {
+  border: 2px solid #2F80ED;
+  width: 500px;
+  background: #2F80ED;
+  margin-bottom: 40px;
+}
+
+.section-gallery {
+  margin-bottom: 40px;
+}
+
+.section-researches {
+  margin-bottom: 60px;
 }

@@ -2,42 +2,40 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-
         <h1 class="equipment-name">
           {{equipmentInfo?.name}}
         </h1>
-
         <p class="description">
           {{equipmentInfo?.desc}}
         </p>
+      </div>
+    </div>
+  </div>
+</div>
 
-        <div class="gallery">
-          <div class="left">
-            <img *ngIf="isPhotoExist('1')" [src]="'./assets/pics/equipments/equipment-'+equipmentInfo.id+'/'+'1.png'" alt="">
-          </div>
-          <div class="right">
-
-            <div class="row row-bottom">
-              <div class="photo">
-                <img *ngIf="isPhotoExist('2')" [src]="'./assets/pics/equipments/equipment-'+equipmentInfo.id+'/'+'2.png'">
-              </div>
-              <div class="photo photo-left">
-                <img *ngIf="isPhotoExist('3')" [src]="'./assets/pics/equipments/equipment-'+equipmentInfo.id+'/'+'3.png'">
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="photo">
-                <img *ngIf="isPhotoExist('4')" [src]="'./assets/pics/equipments/equipment-'+equipmentInfo.id+'/'+'4.png'">
-              </div>
-              <div class="photo photo-left">
-                <img *ngIf="isPhotoExist('5')" [src]="'./assets/pics/equipments/equipment-'+equipmentInfo.id+'/'+'5.png'">
-              </div>
-            </div>
-
-          </div>   
+<div class="section-gallery">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div class="left">
+          <img *ngIf="isPhotoExist('1')" [src]="'./assets/pics/equipments/equipment-'+equipmentInfo.id+'/'+'1.png'" alt="">
         </div>
+      </div>
+      <div class="col-6 col-6-margin">
+        <div class="right ">
+          <div class="photo" *ngFor="let item of [2,3,4,5]">
+            <img [src]="'./assets/pics/equipments/equipment-'+equipmentInfo.id+'/'+ item + '.png'" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<div class="section-performance">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
         <div class="technical-characteristics">
           <p class="title">Технические характеристики</p>
           <div class="line">
@@ -53,22 +51,32 @@
             </li>
           </ul>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<div class="section-researches">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
         <p class="title">В каких исследованиях участвует </p>
         <div class="line">
         </div>
         <app-expansion-panels [researches]="miniResearches"></app-expansion-panels>
+      </div>
+    </div>
+  </div>
+</div>
 
+
+<div class="section-labs">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
         <p class="title">В каких лабораториях присутствует</p>
         <div class="line">
         </div>
-        
-        <div class="labs">
-          <div class="labs" *ngFor="let data of labs">
-
-          </div>
-        </div>
-
       </div>
     </div>
   </div>
