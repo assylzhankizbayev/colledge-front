@@ -47,4 +47,23 @@ export class MiniResearchService {
     );
   }
 
+
+  getMiniResearchByLabId(id: number): Observable<IMiniResearch | any> {
+    return this.http.get<IMiniResearch[]>('assets/mock-data/mini-research.json').pipe(
+      map(res => {
+        let result: IMiniResearch[] = [];
+        let labIds_: number[] = [];
+        res.forEach(r => {
+          labIds_ = r.labIds  ? r.labIds.split('|').map(r => +r) : [];
+          if (labIds_.findIndex(f => f === id) != -1) {
+            result.push(r);
+          }
+        });
+        return result;
+      })
+    );
+  }
+
+
+
 }
