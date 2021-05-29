@@ -11,18 +11,15 @@
     </div>
   </div>
 
-
   <div class="container">
     <!-- <div class="filter">
       <p>Все исследования 
         в горнодобывающей отрасли</p>
     </div> -->
-    <h1 class="title">Минералогические исследования</h1>
-    <p class="desc">
-      Минералогический отдел является одним из старейших подразделений Института и ведущим в отрасли по минералогическому изучению минерального сырья.
-    </p>
+    <h1 class="title">{{ research?.name }}</h1>
+    <p class="desc">{{ research?.desc }}</p>
 
-    <!-- <app-expansion-panel></app-expansion-panel> -->
+    <app-expansion-panels class="researches-list" [researches]="miniResearches"></app-expansion-panels>
 
     <app-contact-form></app-contact-form>
 

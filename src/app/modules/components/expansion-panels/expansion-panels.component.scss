@@ -1,0 +1,8 @@
+.panels {
+  display: block;
+  margin-bottom: 12px;
+
+  &:last-child {
+    margin: 0;
+  }
+}

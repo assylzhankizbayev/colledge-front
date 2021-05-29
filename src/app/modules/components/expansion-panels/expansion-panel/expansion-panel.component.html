@@ -1,0 +1,23 @@
+<mat-expansion-panel hideToggle (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+  <mat-expansion-panel-header>
+    <div class="header-content">
+      <div class="header-content__img">
+        <img class="img" src="assets/pics/research/research-12/{{research.id}}.png" alt="" />
+      </div>
+      <div class="header-content__main">
+        <div class="title-wrapper">
+          <h2 class="title" [class.active]="panelOpenState" *ngIf="research?.name as name">{{ name }}</h2>
+        </div>
+        <div class="total-projects" [class.active]="panelOpenState">
+          Выполнено <strong>{{ research?.done }}</strong>
+        </div>
+      </div>
+      <div class="header-content__controls">
+        <button class="btn btn-order" [class.active]="panelOpenState">Заказать</button>
+        <button class="btn btn-more" *ngIf="!panelOpenState">Подробнее</button>
+        <span class="min-price" *ngIf="panelOpenState && research.minPrice">От {{ research.minPrice }} тг</span>
+      </div>
+    </div>
+  </mat-expansion-panel-header>
+  <p>{{ research?.desc }}</p>
+</mat-expansion-panel>
