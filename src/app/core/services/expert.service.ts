@@ -23,4 +23,17 @@ export class ExpertService {
     );
   }
 
+  getExpertByResearchId(id: number): Observable<IExpert | any> {
+    return this.http.get<IExpert[]>('assets/mock-data/experts.json').pipe(
+      map(res => {
+        return res.filter(f => {
+          f.researchCount = f.researchList.reduce((s, r) => s + r.count, 0);
+          
+          const ids = f.miniResearchIds ? f.miniResearchIds.split('|') : [];
+          return ids?.length ? ids.map(id => +id).includes(id) : false;
+        })
+      })
+    );
+  }
+
 }

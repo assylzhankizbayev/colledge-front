@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { IExpert } from 'src/app/core/models/expert';
 
 @Component({
-  selector: 'app-experts',
-  templateUrl: './experts.component.html',
-  styleUrls: ['./experts.component.scss']
+  selector: 'app-expert',
+  templateUrl: './expert.component.html',
+  styleUrls: ['./expert.component.scss']
 })
-export class ExpertsComponent implements OnInit {
+export class ExpertComponent implements OnInit {
   @Input() expert!: IExpert;
   
   constructor() { }

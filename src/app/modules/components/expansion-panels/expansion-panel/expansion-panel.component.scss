@@ -19,6 +19,10 @@
   .mat-expansion-panel-header.mat-expanded:hover {
     background: linear-gradient(180deg, #2B51A1 0%, #3470CD 100%) !important;
   }
+
+  .mat-expansion-panel-body {
+    padding: 0 !important;
+  }
 }
 
 
@@ -123,4 +127,24 @@
   font-weight: 700;
   line-height: 30px;
   text-align: center;
+}
+
+.research-details {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 16px;
+
+  &__desc {
+    color: #031D5B;
+    font-size: 25px;
+    line-height: 30px;
+    letter-spacing: 0.2px;
+    margin: 10px 0 24px;
+    padding: 0 20px;
+  }
+
+  &__experts {
+    padding: 0 20px;
+    width: 100%;
+  }
 }

@@ -5,6 +5,10 @@
   <div class="scientist__name">{{ expert.name }}</div>
   <div class="scientist__position">{{ expert.position }}</div>
   <div class="scientist__researchList" *ngIf="expert?.researchList">
+    <div class="research-total">
+      <span>Проведено исследований </span>
+      <span>{{ expert.researchCount }}</span>
+    </div>
     <div class="research-statistics" *ngFor="let research of expert.researchList">
       <span>{{research.name}}</span>
       <span>{{research.count}}</span>

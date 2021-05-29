@@ -19,8 +19,12 @@
       </div>
     </div>
   </mat-expansion-panel-header>
-  <p>{{ research?.desc }}</p>
 
-  <app-mini-carousel></app-mini-carousel>
-  <!-- <app-experts></app-experts> -->
+  <div class="research-details">
+    <app-mini-carousel></app-mini-carousel>
+  
+    <p class="research-details__desc">{{ research?.desc }}</p>
+  
+    <app-experts-list class="research-details__experts" *ngIf="research.id" [researchId]="research.id"></app-experts-list>
+  </div>
 </mat-expansion-panel>
