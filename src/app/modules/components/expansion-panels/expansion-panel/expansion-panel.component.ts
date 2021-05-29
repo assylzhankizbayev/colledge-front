@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { IEquipment } from 'src/app/core/models/equipment';
 import { IMiniResearch } from 'src/app/core/models/research';
 import { EquipmentService } from 'src/app/core/services/equipment.service';
+import { LabService } from 'src/app/core/services/lab.service';
 
 @Component({
   selector: 'app-expansion-panel',
@@ -13,7 +14,8 @@ export class ExpansionPanelComponent implements OnInit {
   panelOpenState = false;
   equipments: IEquipment[] = [];
   
-  constructor(private equipmentService: EquipmentService) { }
+  constructor(private equipmentService: EquipmentService,
+    private labService: LabService) { }
 
   ngOnInit(): void {    
   }
@@ -33,6 +35,9 @@ export class ExpansionPanelComponent implements OnInit {
       if (subs) {
         subs.unsubscribe();
       }
+    });
+    this.labService.getLabsByMiniResearchId(this.miniResearch.id).subscribe(res => {
+      console.log(res, '-----------');
     });
   }
 
