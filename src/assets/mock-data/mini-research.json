@@ -20,6 +20,7 @@
     "equipmentIds": "1|2|3",
     "expertIds":"1|2|3|4",
     "labIds":"1",
-    "researchId": 12
+    "researchId": 12,
+    "minPrice": 20000
   }
 ]

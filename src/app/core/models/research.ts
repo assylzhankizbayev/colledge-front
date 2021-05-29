@@ -18,4 +18,5 @@ export interface IMiniResearch {
   expertIds: string;
   labIds: string;
   researchId: number;
+  minPrice: number;
 }
