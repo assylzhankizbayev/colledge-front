@@ -17,6 +17,8 @@ export class LayoutComponent implements OnInit {
 
   research: IResearch[] = [];
 
+  industriesEx: IIndustryEx[] = [];
+
   constructor(
     private service: CommonService,
     private researchService: ResearchService,
@@ -32,6 +34,7 @@ export class LayoutComponent implements OnInit {
       this.industries = res[0];
       this.industries.unshift(this.selectedIndustrie);
       this.research = res[1];
+      this.transformData(this.research);
     });
   }
 
@@ -39,7 +42,26 @@ export class LayoutComponent implements OnInit {
   selectIndustrie(ind: IIndustry) {
     this.selectedIndustrie = ind;
     this.researchService.getResearchByIndId(ind.id).subscribe(res => {
-      this.research = res;
+      if (ind.id === -1) {
+        this.transformData(res);
+      } else {
+        this.industriesEx = [{
+            id: ind.id,
+            name: ind.name,
+            research: res
+        }];
+      }
+    });
+  }
+
+  transformData(research: IResearch[]) {
+    this.industriesEx = this.industries.map(r => {
+      let data = research.filter(f => f.industrieId === r.id);
+      return {
+        id:r.id,
+        name:r.name,
+        research: data
+      }
     });
   }
 
@@ -47,4 +69,8 @@ export class LayoutComponent implements OnInit {
     
   }
 
+}
+
+interface IIndustryEx extends IIndustry {
+  research: IResearch[];
 }

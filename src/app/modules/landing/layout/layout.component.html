@@ -1,43 +1,43 @@
-<div class="section-1">
-  <div class="container">
-    <h1 class="title">Лаборатории коллективного пользования Satbayev University</h1>
+<div class="container">
+  <h1 class="title">Лаборатории коллективного пользования Satbayev University</h1>
 
-    <div class="search-block">
-      <input type="text" class="search-input" placeholder="Введите название лаборатории, оборудования, исследования....">
-      <button type="button" class="search-elem"></button>
-    </div>
-
-    <div class="labs">
-      <button class="lab" *ngFor="let ind of industries;" [innerHtml]="ind?.name" (click)="selectIndustrie(ind)"
-      [class.active]="ind?.id === selectedIndustrie?.id">
-      </button>
-    </div>
-
-    <h2 class="sub-title" [innerHtml]="selectedIndustrie?.name"></h2>
-
-    
+  <div class="search-block">
+    <input type="text" class="search-input" placeholder="Введите название лаборатории, оборудования, исследования....">
+    <button type="button" class="search-elem"></button>
   </div>
-</div>
 
-<div class="section-2">
-  <div class="container">
-    <div class="row research-cards">
-      <div class="col-4" *ngFor="let item of research; let i = index;">
-        <div class="research-card-wrapper">
-          <div class="research-card">
-            <h4 class="research-title">{{item?.name}}</h4>
-            <div class="research-picture">
-              <img [src]="'./assets/pics/research/'+item?.id+'.png'" alt="картинка">
+  <div class="labs">
+    <button class="lab" *ngFor="let ind of industries;" [innerHtml]="ind?.name" (click)="selectIndustrie(ind)"
+      [class.active]="ind?.id === selectedIndustrie?.id">
+    </button>
+  </div>
+
+  <ng-container *ngFor="let ind of industriesEx;">
+    <ng-container *ngIf="ind?.id !== -1">
+      <h2 class="sub-title" [innerHtml]="ind?.name"></h2>
+    
+      <div class="row research-cards">
+        <div class="col-4" *ngFor="let item of ind?.research; let i = index;">
+          <div class="research-card-wrapper">
+            <div class="research-card">
+              <h4 class="research-title">{{item?.name}}</h4>
+              <div class="research-picture">
+                <img [src]="'./assets/pics/research/'+item?.id+'.png'" alt="картинка">
+              </div>
+              <button type="button" class="research-detail" [routerLink]="['/research', item.id]"
+                [queryParams]="{title: item.name}"> Подробнее </button>
             </div>
-            <button type="button" class="research-detail" [routerLink]="['/research', item.id]" [queryParams]="{title: item.name}"> Подробнее </button>
           </div>
         </div>
       </div>
-    </div>
+    </ng-container>
+    
+  </ng-container>
+  
 
-    <div class="load-more-wrapper">
-      <button type="button" class="load-more">Загрузить еще</button>
-    </div>
 
-  </div>
+<!--   <div class="load-more-wrapper">
+    <button type="button" class="load-more">Загрузить еще</button>
+  </div> -->
+
 </div>
