@@ -8,6 +8,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { EquipmentCardsComponent } from './equipment-cards/equipment-cards.component';
 import { EquipmentCardComponent } from './equipment-cards/equipment-card/equipment-card.component';
 import { GeneralCarouselComponent } from './general-carousel/general-carousel.component';
+import { RouterModule } from '@angular/router';
 import { MiniCarouselComponent } from './mini-carousel/mini-carousel.component';
 import { ExpertsListComponent } from './experts-list/experts-list.component';
 import { ExpertComponent } from './experts-list/expert/expert.component';
@@ -28,6 +29,7 @@ import { ExpertComponent } from './experts-list/expert/expert.component';
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
+    RouterModule,
   ],
   exports: [
     ExpansionPanelsComponent,

@@ -1,0 +1,113 @@
+.container {
+  border: 1px solid red;
+}
+
+.debbug {
+  border: 1px solid red;
+}
+
+.gallery {
+  display: flex;
+  margin-bottom: 42px;
+
+  .left {
+    width: 618px;
+    height: 546px;
+  }
+
+  .right {
+    width: 750px;
+    height: 546px;
+    margin-left: 34px;
+
+    & .row {
+      height: auto;
+      display: flex;
+
+      &-bottom {
+        margin-bottom: 42px;
+      }
+
+      .photo {
+        height: 252px;
+        width: 259px;
+      }
+
+      .photo-left {
+        margin-left: 34px;
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+}
+
+.equipment-name {
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 41px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #031D5B;
+  margin-bottom: 50px;
+}
+
+.description {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+  letter-spacing: 0.2px;
+  color: #272D4E;
+  margin-bottom: 50px;
+}
+
+.title {
+  display: flex;
+  justify-content: start;
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 41px;
+  letter-spacing: 0.2px;
+  color: #031D5B;
+  margin-bottom: 30px;
+}
+
+.technical-characteristics {
+  margin-bottom: 115px;
+  & .line {
+    border: 2px solid #2F80ED;
+    width: 500px;
+    background: #2F80ED;
+    margin-bottom: 40px;
+  }
+
+  & .specifications__list {
+    width: 700px;
+    list-style: none;
+    
+    &--item {
+      height: 50px;
+      display: flex;
+
+      & .name, & .value {
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 26px;
+        letter-spacing: 0.2px;
+        color: #031D5B;
+        width: 50%;
+      }
+    }
+
+  }
+}
