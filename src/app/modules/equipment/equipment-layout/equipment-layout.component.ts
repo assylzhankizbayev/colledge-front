@@ -30,6 +30,7 @@ export class EquipmentLayoutComponent implements OnInit {
     private labService: LabService) { }
 
   ngOnInit(): void {
+    window.scroll(0,0);
     this.route.paramMap.pipe(
       switchMap(params => {
         const id = params.get('id');

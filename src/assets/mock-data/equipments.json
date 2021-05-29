@@ -22,7 +22,8 @@
     "labIds": "1|2|3",
     "researchIds": "10|11|12|13",
     "gallery": "1|2|3|4|5",
-    "miniResearchIds": "3"
+    "miniResearchIds": "3",
+    "expertIds": "1"
   },
   {
     "id": 4,
@@ -31,7 +32,6 @@
   },
   {
     "id": 5,
-    "name": "Рефлектометры оптические",
-    "labIds": "1"
+    "name": "Рефлектометры оптические"
   }
 ]

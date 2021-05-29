@@ -6,7 +6,7 @@ import { IMiniResearch, IResearch } from 'src/app/core/models/research';
 import { CommonService } from 'src/app/core/services/common.service';
 import { MiniResearchService } from 'src/app/core/services/mini-research.service';
 import { ResearchService } from 'src/app/core/services/research.service';
-import { IIndustry, IIndustryEx } from '../../landing/interface';
+import { IIndustry } from '../../landing/interface';
 
 @Component({
   selector: 'app-research-layout',
@@ -34,6 +34,7 @@ export class ResearchLayoutComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.loadData();
+    window.scroll(0,0);
 
     this.route.paramMap
       .pipe(

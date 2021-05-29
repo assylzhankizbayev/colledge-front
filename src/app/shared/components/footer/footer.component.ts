@@ -13,7 +13,6 @@ export class FooterComponent implements OnInit {
   }
 
   toTop() {
-    console.log('click');
     window.scrollTo({
       top: 0,
       behavior: "smooth"

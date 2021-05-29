@@ -8,4 +8,5 @@ export interface IEquipment {
   "researchIds": string;
   "gallery": string;
   "miniResearchIds": string;
+  "expertIds": string;
 }

@@ -18,7 +18,6 @@ export class ContactFormComponent implements OnInit {
   }
 
   sendContact() {
-    console.log(this.contact.value);
   }
 
 }

@@ -5,7 +5,6 @@
   padding: 25px;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 40px;
   &-img {
     width: 310px;
     height: 376px;
@@ -94,6 +93,7 @@
   color: #031D5B;
   display: inline-block;
   margin-bottom: 20px;
+  margin-top: 40px;
   &::after {
     display: block;
     content: "";
