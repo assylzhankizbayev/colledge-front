@@ -4,7 +4,7 @@
   border-radius: 8px;
   padding: 25px;
   display: flex;
-
+  justify-content: space-between;
   &-img {
     width: 310px;
     height: 376px;
@@ -12,6 +12,7 @@
     background-repeat: no-repeat;
     background-position: center;
   }
+
   &-info {
     display: flex;
     flex-direction: column;
@@ -54,4 +55,30 @@
       border: none;
     }
   }
+
+  &-dev {
+    
+    .dev {
+      font-weight: normal;
+      font-size: 20px;
+      line-height: 23px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      color: #333333;
+
+      &-value {
+        margin-left: 20px;
+      }
+    }
+  }
+}
+
+
+.green {
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 26px;
+  letter-spacing: 0.428026px;
+  color: #219653 !important;
 }

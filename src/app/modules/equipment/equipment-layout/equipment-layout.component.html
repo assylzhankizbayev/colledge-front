@@ -65,13 +65,12 @@
   </div>
 </div>
 
-
 <div class="section-labs">
   <div class="container">
     <div class="row">
       <div class="col-12">
         <p class="title">В каких лабораториях присутствует</p>
-          <app-labs-list class="research-details__labs" *ngIf="labs?.length" [labs]="labs"></app-labs-list>
+          <app-labs-list class="research-details__labs" *ngIf="labs?.length" [labs]="labs" [showTitle]="false"></app-labs-list>
       </div>
     </div>
   </div>
