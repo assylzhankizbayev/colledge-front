@@ -23,4 +23,12 @@ export class MiniResearchService {
     );
   }
 
+  getOneMiniResearchByResearchId(id: number): Observable<IMiniResearch | any> {
+    return this.http.get<IMiniResearch[]>('assets/mock-data/mini-research.json').pipe(
+      map(res => {
+        return res.filter(f => f.researchId === id)
+      })
+    );
+  }
+
 }

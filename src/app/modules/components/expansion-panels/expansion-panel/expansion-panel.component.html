@@ -1,13 +1,15 @@
-<mat-expansion-panel hideToggle>
+<mat-expansion-panel hideToggle (opened)="panelOpenState = true" (closed)="panelOpenState = false">
   <mat-expansion-panel-header>
     <div class="header-content">
-      <div class="header-content__img"></div>
+      <div class="header-content__img">
+        <img class="img" src="assets/pics/research/research-12/{{research.id}}.png" alt="" />
+      </div>
       <div class="header-content__main">
         <div class="title-wrapper">
           <h2 class="title" *ngIf="research?.name as name">{{ name }}</h2>
         </div>
         <div class="total-projects">
-          Выполнено <strong>{{ 0 }}</strong>
+          Выполнено <strong>{{ research?.done }}</strong>
         </div>
       </div>
       <div class="header-content__controls">

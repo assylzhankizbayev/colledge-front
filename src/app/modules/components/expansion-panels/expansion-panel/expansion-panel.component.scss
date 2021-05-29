@@ -4,13 +4,20 @@
     box-shadow: 0px 1px 2px rgba(58, 58, 68, 0.24), 0px 2px 4px rgba(90, 91, 106, 0.24);
   }
 
-  .mat-expansion-panel-header {
+  .mat-expansion-panel-header,
+  .mat-expansion-panel-header.mat-expanded {
     padding: 18px 26px;
     height: 142px;
     
     .mat-content {
       overflow: initial;
     }
+  }
+
+  .mat-expansion-panel-header.mat-expanded,
+  .mat-expansion-panel-header.mat-expanded:focus, 
+  .mat-expansion-panel-header.mat-expanded:hover {
+    background: linear-gradient(180deg, #2B51A1 0%, #3470CD 100%) !important;
   }
 }
 
@@ -27,12 +34,19 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 0 18px;
   }
   &__controls {
     flex: 0;
     display: flex;
     flex-direction: column;
   }
+}
+
+.img {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
 }
 
 .title {

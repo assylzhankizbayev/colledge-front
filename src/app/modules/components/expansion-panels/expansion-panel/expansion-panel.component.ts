@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IResearch } from 'src/app/core/models/research';
+import { IMiniResearch } from 'src/app/core/models/research';
 
 @Component({
   selector: 'app-expansion-panel',
@@ -7,7 +7,7 @@ import { IResearch } from 'src/app/core/models/research';
   styleUrls: ['./expansion-panel.component.scss']
 })
 export class ExpansionPanelComponent implements OnInit {
-  @Input() research!: IResearch;
+  @Input() research!: IMiniResearch;
   panelOpenState = false;
   
   constructor() { }

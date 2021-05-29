@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { of, Subject } from 'rxjs';
+import { combineLatest, of, Subject } from 'rxjs';
 import { switchMap, takeUntil } from 'rxjs/operators';
-import { IResearch } from 'src/app/core/models/research';
+import { IMiniResearch, IResearch } from 'src/app/core/models/research';
+import { MiniResearchService } from 'src/app/core/services/mini-research.service';
 import { ResearchService } from 'src/app/core/services/research.service';
 
 @Component({
@@ -13,12 +14,15 @@ import { ResearchService } from 'src/app/core/services/research.service';
 export class ResearchLayoutComponent implements OnInit, OnDestroy {
 
   title = '';
-  researches: IResearch[] = [];
+  research!: IResearch;
+  miniResearches: IMiniResearch[] = [];
+
   destroy$ = new Subject();
 
   constructor(
     private route: ActivatedRoute,
-    private researchService: ResearchService
+    private researchService: ResearchService,
+    private miniResearchService: MiniResearchService
   ) { }
 
   ngOnInit(): void {
@@ -29,17 +33,23 @@ export class ResearchLayoutComponent implements OnInit, OnDestroy {
           const id = params.get('id');
           console.log(params, id);
 
-          return id ? this.researchService.getOneResearch(+id) : of(null)
+          return id 
+            ? combineLatest([
+              this.researchService.getOneResearch(+id),
+              this.miniResearchService.getOneMiniResearchByResearchId(+id)
+            ])
+            : of(null);
         })
       )
       .subscribe(response => {
         console.log('result', response);
-        
+        if (Array.isArray(response)) {
+          this.research = response[0];
+          this.miniResearches = response[1];
+        }        
       });
     
-    this.title = this.route.snapshot.queryParamMap.get('title') || '';
-
-    // this.researchService.getOneResearch(10).subscribe(response => (this.researches = response));
+    // this.title = this.route.snapshot.queryParamMap.get('title') || '';
   }
 
   ngOnDestroy() {

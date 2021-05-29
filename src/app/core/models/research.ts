@@ -4,6 +4,7 @@ export interface IResearch {
   industrieId: number;
   labId: number;
   miniResearchIds: string;
+  desc?: string;
 }
 
 export interface IMiniResearch {
@@ -15,4 +16,5 @@ export interface IMiniResearch {
   equipmentIds: string;
   expertIds: string;
   labIds: string;
+  researchId: number;
 }

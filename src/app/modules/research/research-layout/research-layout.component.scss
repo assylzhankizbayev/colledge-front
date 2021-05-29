@@ -55,6 +55,8 @@
   line-height: 30px;
   text-align: center;
   letter-spacing: 0.2px;
+  margin: 0 auto;
+  width: 70%;
 }
 
 .container {
@@ -64,4 +66,9 @@
 .filter {
   position: absolute;
   right: 101%;
+}
+
+.researches-list {
+  display: block;
+  margin: 24px 0;
 }
