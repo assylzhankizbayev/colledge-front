@@ -18,8 +18,6 @@
     <mat-progress-bar mode="indeterminate" ></mat-progress-bar>
   </div>  
 
-
-
   <ng-container *ngIf="!loading">
     <ng-container *ngFor="let ind of industriesEx">
       <ng-container *ngIf="ind?.id !== -1 && !ind?.hide">
@@ -34,8 +32,12 @@
                   <div class="research-picture">
                     <img [src]="'./assets/pics/research/'+item?.id+'.png'" alt="картинка">
                   </div>
-                  <button type="button" class="research-detail" [routerLink]="['/research', item.id]"
-                    [queryParams]="{title: item.name}"> Подробнее </button>
+                  <button 
+                    type="button" 
+                    class="research-detail" 
+                    [routerLink]="['/research', item.id]"
+                    [disabled]="!item?.miniResearchIds"
+                  > Подробнее </button>
                 </div>
               </div>
             </div>

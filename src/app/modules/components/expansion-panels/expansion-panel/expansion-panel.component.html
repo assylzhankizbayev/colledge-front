@@ -6,7 +6,7 @@
 >
   <mat-expansion-panel-header>
     <div class="header-content">
-      <div class="header-content__img">
+      <div class="header-content__img" *ngIf="!panelOpenState">
         <img class="img" src="assets/pics/research/research-12/{{miniResearch.id}}.png" alt="" />
       </div>
       <div class="header-content__main">

@@ -9,6 +9,7 @@ import { ILab } from 'src/app/core/models/lab';
 })
 export class LabsListComponent implements OnInit {
   @Input() labs: ILab[] = [];
+  @Input() showTitle: boolean = true;
   
   constructor(private router: Router) { }
 

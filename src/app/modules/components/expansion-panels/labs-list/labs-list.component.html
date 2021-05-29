@@ -1,10 +1,10 @@
 <div class="labs">
-  <h2 class="labs__header">Где проводят исследование</h2>
+  <h2 class="labs__header" *ngIf="showTitle">Где проводят исследование</h2>
 
   <div class="labs__list">
     <div class="lab" *ngFor="let lab of labs">
       <div class="lab__info">
-        <div class="lab-title">{{ lab.name }}</div>
+        <div class="lab-title">Лаборатория "{{ lab.name }}"</div>
         <div class="lab-desc">{{ lab.desc }}</div>
       </div>
       <button class="btn-more" (click)="openLab(lab.id)">Подробнее</button>
