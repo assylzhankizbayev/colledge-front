@@ -16,6 +16,7 @@ import { LabsListComponent } from './expansion-panels/labs-list/labs-list.compon
 import { SeparatorPipe } from 'src/app/shared/pipes/separator.pipe';
 import { NgxMaskModule } from 'ngx-mask';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { ConsultationFormComponent } from './consultation-form/consultation-form.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     ExpertComponent,
     LabsListComponent,
     SeparatorPipe,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    ConsultationFormComponent
   ],
   imports: [
     CommonModule,

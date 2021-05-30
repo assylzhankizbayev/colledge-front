@@ -1,8 +1,18 @@
 .confirm {
-  padding: 24px;
-  background: linear-gradient(180deg, #E5EFFF 0%, rgba(229, 239, 255, 0.262661) 83.7%, rgba(229, 239, 255, 0) 100%);
+  padding: 30px 40px;
+  background: rgba(255, 255, 255, 0.5);
   color: #272D4E;
-  height: 220px;
+  &-title {
+    font-size: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    &::after {
+      display: block;
+      content: "";
+      margin-top: 20px;
+      border: 2px solid #2F80ED;
+    }
+  }
 }
 
 button {

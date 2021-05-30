@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { forkJoin } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
@@ -10,6 +11,7 @@ import { EquipmentService } from 'src/app/core/services/equipment.service';
 import { ExpertService } from 'src/app/core/services/expert.service';
 import { LabService } from 'src/app/core/services/lab.service';
 import { MiniResearchService } from 'src/app/core/services/mini-research.service';
+import { ConsultationFormComponent } from '../../components/consultation-form/consultation-form.component';
 
 @Component({
   selector: 'app-experts-layout',
@@ -28,7 +30,8 @@ export class ExpertsLayoutComponent implements OnInit {
     private expertService: ExpertService,
     private miniReserachService: MiniResearchService,
     private labService: LabService,
-    private equipmentService: EquipmentService) { }
+    private equipmentService: EquipmentService,
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
     window.scroll(0,0);
@@ -58,6 +61,13 @@ export class ExpertsLayoutComponent implements OnInit {
       setTimeout(() => {
         this.loading = false;
       }, 500);
+    });
+  }
+
+  openDialog() {
+    this.dialog.open(ConsultationFormComponent, {
+      panelClass:'custom-dialog-container',
+      data: {hedTitle: 'Получить консультацию'}
     });
   }
 

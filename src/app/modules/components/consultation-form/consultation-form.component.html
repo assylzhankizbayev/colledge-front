@@ -1,0 +1,64 @@
+<div class="dia-wrap">
+  <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-header">
+      {{data?.hedTitle}}
+    </div>
+    <div class="form-body">
+      <div class="loader" *ngIf="isSubmit && !form.invalid">
+        <mat-spinner></mat-spinner>
+      </div>
+      <ng-container *ngIf="!isSend">
+        <div class="row">
+          <div class="row-title">ФИО</div>
+          <div class="row-input">
+            <input type="text" formControlName="fio">
+          </div>
+        </div>
+        <div class="row">
+          <div class="row-title">Телефон</div>
+          <div class="row-input" [class.error]="getPhoneErrorMessage()">
+            <input type="text" formControlName="phone" prefix="+7" mask="(000) 000 00 00">
+            <div class="error">
+              {{getPhoneErrorMessage()}}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row-title">Почта</div>
+          <div class="row-input" [class.error]="getEmailErrorMessage()">
+            <input type="email" formControlName="email" >
+            <div class="error">
+              {{getEmailErrorMessage()}}
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="isSend">
+        <h1 mat-dialog-title>Спасибо за ваше обращение</h1>
+        <div>Мы Вам обязательно перезвоним в ближайшее время</div>
+      </ng-container>
+
+    </div>
+
+
+    <div class="form-actions">
+
+      <ng-container *ngIf="!isSend">
+        <button type="submit">Отправить</button>
+        <button type="button" mat-dialog-close class="cancel">Отмена</button>
+      </ng-container>
+
+      <ng-container *ngIf="isSend">
+        <button type="button" mat-dialog-close>Хорошо</button>
+      </ng-container>
+      
+
+
+
+    </div>
+
+  </form>
+
+
+</div>

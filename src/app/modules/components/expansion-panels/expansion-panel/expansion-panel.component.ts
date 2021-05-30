@@ -1,4 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { combineLatest, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { IEquipment } from 'src/app/core/models/equipment';
@@ -8,6 +9,7 @@ import { IMiniResearch } from 'src/app/core/models/research';
 import { EquipmentService } from 'src/app/core/services/equipment.service';
 import { ExpertService } from 'src/app/core/services/expert.service';
 import { LabService } from 'src/app/core/services/lab.service';
+import { ConsultationFormComponent } from '../../consultation-form/consultation-form.component';
 
 @Component({
   selector: 'app-expansion-panel',
@@ -26,7 +28,8 @@ export class ExpansionPanelComponent implements OnInit, OnDestroy {
   constructor(
     private expertsService: ExpertService,
     private equipmentService: EquipmentService,
-    private labService: LabService
+    private labService: LabService,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {    
@@ -55,6 +58,13 @@ export class ExpansionPanelComponent implements OnInit, OnDestroy {
       this.experts = experts;
       this.equipments = equipments;
       this.labs = labs;
+    });
+  }
+
+  openDialog() {
+    this.dialog.open(ConsultationFormComponent, {
+      panelClass:'custom-dialog-container',
+      data: {hedTitle: 'Заказать'}
     });
   }
 

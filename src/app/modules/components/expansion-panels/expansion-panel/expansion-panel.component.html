@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="header-content__controls">
-        <button class="btn btn-order" [class.active]="panelOpenState">Заказать</button>
+        <button class="btn btn-order" [class.active]="panelOpenState" (click)="openDialog(); $event.stopPropagation();">Заказать</button>
         <button 
           *ngIf="!panelOpenState"
           class="btn btn-more" 
