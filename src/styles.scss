@@ -2,9 +2,6 @@
 @import '~src/app/shared/styles/reset';
 
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
 .no-data {
   min-height: 600px;
   display: flex;
@@ -13,4 +10,22 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   &.flex-start {
     align-items: flex-start;
   }
+}
+
+html {
+  position: initial !important;
+  overflow-y: initial !important;
+}
+
+html.cdk-global-scrollblock body {
+  overflow: hidden;
+}
+
+.cdk-overlay-container {
+  overflow: auto;
+}
+
+.custom-dialog-container .mat-dialog-container {
+  padding: 0;
+  overflow: hidden;
 }

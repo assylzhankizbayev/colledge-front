@@ -15,6 +15,7 @@ import { ExpertComponent } from './experts-list/expert/expert.component';
 import { LabsListComponent } from './expansion-panels/labs-list/labs-list.component';
 import { SeparatorPipe } from 'src/app/shared/pipes/separator.pipe';
 import { NgxMaskModule } from 'ngx-mask';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NgxMaskModule } from 'ngx-mask';
     ExpertsListComponent,
     ExpertComponent,
     LabsListComponent,
-    SeparatorPipe
+    SeparatorPipe,
+    ConfirmDialogComponent
   ],
   imports: [
     CommonModule,

@@ -8,7 +8,17 @@
           [formControl]="contact" 
           placeholder="Введите номер телефона"
           prefix="+7" mask="(000) 000 00 00"
+          [class.error]="getErrorMessage()"
+          (keyup.enter)="sendContact()"
           >
-    <button type="button" class="contact-form-btn" (click)="sendContact()">Отправить</button>
+          <div class="contact-form-error">
+            {{getErrorMessage()}}
+          </div>
+    <button type="submit" class="contact-form-btn" (click)="sendContact()">Отправить</button>
   </div>
 </div>
+
+<ng-template #confirmDialog>
+  <h2>Hello</h2>
+</ng-template>
+
