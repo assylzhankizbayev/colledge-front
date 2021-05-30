@@ -24,6 +24,9 @@ export class ResearchLayoutComponent implements OnInit, OnDestroy {
   chosenIndustry?: IIndustry;
   destroy$ = new Subject();
 
+  industrieId: number;
+  researchId: number;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -33,15 +36,19 @@ export class ResearchLayoutComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.loadData();
     window.scroll(0,0);
+    this.loading = true;
+
 
     this.route.paramMap
       .pipe(
         debounceTime(500),
         takeUntil(this.destroy$),
         switchMap(params => {
+          console.log(params);
+
           const id = params.get('id');
+          if (id) this.researchId = +id;
 
           return id 
             ? combineLatest([
@@ -55,13 +62,12 @@ export class ResearchLayoutComponent implements OnInit, OnDestroy {
         if (Array.isArray(response)) {
           this.research = response[0];
           this.miniResearches = response[1];
-          this.loading = false;
+          this.loadData();
         }   
       });
   }
 
   loadData() {
-    this.loading = true;
 
     forkJoin([
       this.service.getIndustries(),
@@ -70,21 +76,8 @@ export class ResearchLayoutComponent implements OnInit, OnDestroy {
     .subscribe(res => {
       this.industries = res[0];
       this.researchList = res[1];
-      const research = this.researchList.find(r => r.miniResearchIds);
-
-      if (research) {
-        this.chosenIndustry = this.industries.find(i => i.id === research.industrieId);
-        this.chosenResearchList = this.researchList.filter(r => {
-          if (r.industrieId === research.industrieId) {
-            if (r.id === research.id) {
-              r.active = true;
-            }
-            return true;
-          }
-          return false;
-        });
-        this.router.navigate(['/research', research.id]);
-      }
+      this.industrieId = this.researchList.find(f => f.id === this.researchId)?.industrieId || 0;
+      this.chosenResearchList = this.researchList.filter(f => f.industrieId === this.industrieId);
       setTimeout(() => {
         this.loading = false;
       }, 500);

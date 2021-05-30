@@ -4,6 +4,7 @@ import { ResearchLayoutComponent } from './research-layout/research-layout.compo
 import { RouterModule, Routes } from '@angular/router';
 import { ComponentsModule } from '../components/components.module';
 import { MaterialModule } from '../material/material.module';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', component: ResearchLayoutComponent }
@@ -17,7 +18,8 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     MaterialModule,
-    ComponentsModule
+    ComponentsModule,
+    FormsModule,
   ]
 })
 export class ResearchModule { }

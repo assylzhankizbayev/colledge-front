@@ -1,59 +1,29 @@
 <div class="no-data flex-start" *ngIf="loading">
-  <mat-progress-bar mode="indeterminate" ></mat-progress-bar>
-</div> 
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
 <section class="research" *ngIf="!loading">
   <div class="container">
-
     <div class="breadcrumb-wrapper">
       <p class="breadcrumb">
         Исследования {{ research?.name ? '/' : '' }} {{ research?.name }}
       </p>
-      <!-- <div class="search-block">
-        <input type="text" class="search-input" placeholder="Введите название лаборатории, оборудования, исследования....">
-        <img src="./assets/icons/search.svg" alt="search-icon" class="search-icon">
-      </div> -->
     </div>
-  </div>
-
-  <div class="container">
     <div class="filter">
-      <div class="filter__industry" (click)="toggleIndustry()">
-        <span [innerHtml]="chosenIndustry?.name"></span>
-        <img class="industry__arrow" [class.toggled]="isMenuToggled" src="assets/icons/menu-arrow.svg" alt="" />
-      </div>
+      <mat-select class="my-select" disableOptionCentering [(ngModel)]="industrieId">
+        <mat-option *ngFor="let ind of industries" [value]="ind.id" [disabled]="ind.id != industrieId">
+          <span [innerHtml]="ind.name"></span>
+        </mat-option>
+      </mat-select>
 
-      <div class="filter__industry-list" *ngIf="isMenuToggled">
-        <div 
-          class="list-item" 
-          [class.active]="industry.id === chosenIndustry?.id"
-          *ngFor="let industry of industries"
-          (click)="updateResearchList(industry)"
-          [innerHtml]="industry?.name"
-        ></div>
-      </div>
-
-      <div class="filter__research" *ngIf="!isMenuToggled">
-        <div 
-          class="list-item" 
-          [class.disabled]="!research?.miniResearchIds"
-          [class.active]="research?.active" 
-          *ngFor="let research of chosenResearchList"
-          (click)="changeResearch(research)"
-        >
-          {{ research.name }}
-          <img class="list-item__arrow" src="assets/icons/menu-arrow.svg" alt="" />
-        </div>
-      </div>
+      <mat-select class="my-select" disableOptionCentering [(ngModel)]="researchId">
+        <mat-option *ngFor="let res of chosenResearchList" [value]="res.id" [disabled]="res.id != researchId">
+          <span [innerHtml]="res.name"></span>
+        </mat-option>
+      </mat-select>
     </div>
     <h1 class="title">{{ research?.name }}</h1>
     <p class="desc">{{ research?.desc }}</p>
-
     <app-expansion-panels class="researches-list" [researches]="miniResearches"></app-expansion-panels>
-
     <app-contact-form></app-contact-form>
-
   </div>
-
-
 </section>
-

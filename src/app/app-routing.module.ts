@@ -8,13 +8,6 @@ const routes: Routes = [
     loadChildren: () => import('./modules/landing/landing.module').then(m => m.LandingModule)
   },
   {
-    path: 'research',
-    loadChildren: () => import('./modules/research/research.module').then(m => m.ResearchModule),
-    data: {
-      breadcrumb: 'research'
-    }
-  },
-  {
     path: 'research/:id',
     loadChildren: () => import('./modules/research/research.module').then(m => m.ResearchModule),
     data: {

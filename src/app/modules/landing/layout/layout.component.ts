@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
 import { debounceTime, tap } from 'rxjs/operators';
 import { IResearch } from 'src/app/core/models/research';
@@ -25,6 +26,7 @@ export class LayoutComponent implements OnInit {
   constructor(
     private service: CommonService,
     private researchService: ResearchService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -100,10 +102,6 @@ export class LayoutComponent implements OnInit {
         research: data
       }
     });
-  }
-
-  goResearch(item: any) {
-    
   }
 
 }
