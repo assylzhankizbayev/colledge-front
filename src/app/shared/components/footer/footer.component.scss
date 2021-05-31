@@ -1,3 +1,5 @@
+@import "../../styles/variables";
+
 .footer {
   background: #272D4E;
   color: #fff;
@@ -9,17 +11,44 @@
     line-height: 28px;
     letter-spacing: 0.1px;
     margin-bottom: 20px;
+
+    @include breakpoint(ipad) {
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+
+    @include breakpoint(tablet) {
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+
+    @include breakpoint(mobile) {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
   }
 }
 
 .col-4 {
   padding: 0 4%;
+
+  @include breakpoint(mobile) {
+    margin-bottom: 32px;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
 }
 
 .address {
   display: flex;
   align-items: flex-start;
   margin-bottom: 15px;
+
+  @include breakpoint(mobile) {
+    margin-bottom: 8px;
+  }
 }
 
 .icon {
@@ -37,6 +66,10 @@
   line-height: 27px;
   color: #fff;
   text-decoration: none;
+
+  @include breakpoint(tablet) {
+    font-size: 14px;
+  }
 }
 
 .quick-links {
@@ -44,6 +77,10 @@
 
   li {
     margin-bottom: 9px;
+
+    @include breakpoint(mobile) {
+      margin-bottom: 5px;
+    }
 
     &:last-of-type {
       margin-bottom: 0;
@@ -63,6 +100,10 @@
   list-style-type: none;
   display: flex;
   margin-top: 36px;
+
+  @include breakpoint(mobile) {
+    margin-top: 16px;
+  }
 
   li {
     margin-right: 24px;

@@ -1,3 +1,5 @@
+@import "../../../shared/styles/variables";
+
 .research {}
 
 .breadcrumb {}
@@ -48,6 +50,24 @@
   text-transform: uppercase;
   color: #031D5B;
   margin-bottom: 24px;
+
+  @include breakpoint(ipad) {
+    font-size: 28px;
+    line-height: 32px;
+    margin-bottom: 16px;
+  }
+
+  @include breakpoint(tablet) {
+    font-size: 26px;
+    line-height: 30px;
+    margin-bottom: 12px;
+  }
+
+  @include breakpoint(mobile) {
+    font-size: 22px;
+    line-height: 26px;
+    margin-bottom: 8px;
+  }
 }
 
 .desc {
@@ -57,6 +77,24 @@
   letter-spacing: 0.2px;
   margin: 0 auto;
   width: 70%;
+
+  @include breakpoint(ipad) {
+    font-size: 18px;
+    line-height: 28px;
+    width: 85%;
+  }
+  
+  @include breakpoint(tablet) {
+    font-size: 18px;
+    line-height: 28px;
+    width: 85%;
+  }
+
+  @include breakpoint(mobile) {
+    font-size: 16px;
+    line-height: 24px;
+    width: 95%;
+  }
 }
 
 .container {
@@ -70,6 +108,10 @@
 .researches-list {
   display: block;
   margin: 24px 0;
+
+  @include breakpoint(mobile) {
+    margin: 20px 0;
+  }
 }
 
 :host {

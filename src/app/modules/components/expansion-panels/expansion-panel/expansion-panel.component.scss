@@ -10,6 +10,11 @@
   .mat-expansion-panel-header.mat-expanded {
     padding: 18px 26px;
     height: 142px;
+
+    @include breakpoint(mobile) {
+      padding: 16px !important;
+      height: auto;
+    }
     
     .mat-content {
       overflow: initial;
@@ -32,8 +37,18 @@
   display: flex;
   width: 100%;
 
+  @include breakpoint(mobile) {
+    flex-wrap: wrap;
+  }
+
   &__img {
     flex: 0;
+    @include breakpoint(tablet) {
+      margin-right: 12px;
+    }
+    @include breakpoint(mobile) {
+      margin-right: 12px;
+    }
   }
   &__main {
     flex: 1;
@@ -41,11 +56,31 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 0 18px;
+
+    @include breakpoint(tablet) {
+      padding: 0 16px 0 0;
+    }
+
+    @include breakpoint(mobile) {
+      padding: 0 12px 0 0;
+    }
   }
   &__controls {
     flex: 0;
     display: flex;
     flex-direction: column;
+    
+    @include breakpoint(tablet) {
+      justify-content: space-around;
+    } 
+
+    @include breakpoint(mobile) {
+      flex: 1 0 100%;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 12px;
+    } 
   }
 }
 
@@ -63,13 +98,36 @@
 
   @include breakpoint(ipad) {
     font-size: 22px;
+    line-height: 26px;
+    margin-bottom: 5px;
+  } 
+  
+  @include breakpoint(tablet) {
+    font-size: 20px;
     line-height: 24px;
-  }  
+    margin-bottom: 5px;
+  } 
+
+  @include breakpoint(mobile) {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 5px;
+  } 
 
   &.active {
     color: #fff;
     font-size: 35px;
     line-height: 42px;
+
+    @include breakpoint(tablet) {
+      font-size: 28px;
+      line-height: 32px;
+    } 
+
+    @include breakpoint(mobile) {
+      font-size: 24px;
+      line-height: 30px;
+    } 
   }
 
   &-wrapper {
@@ -99,6 +157,18 @@
       line-height: 24px;
       margin-left: 5px;
     }
+
+    @include breakpoint(tablet) {
+      font-size: 20px;
+      line-height: 24px;
+      margin-left: 5px;
+    }
+
+    @include breakpoint(mobile) {
+      font-size: 18px;
+      line-height: 24px;
+      margin-left: 5px;
+    } 
   }
 }
 
@@ -122,6 +192,19 @@
       height: 44px;
     }
 
+    @include breakpoint(tablet) {
+      font-size: 16px;
+      line-height: 22px;
+      height: 42px;
+    }
+
+    @include breakpoint(mobile) {
+      font-size: 14px;
+      line-height: 18px;
+      margin: 0;
+      height: 36px;
+    }
+
     &.active {
       background: #fff;
       color: #2F80ED;
@@ -142,6 +225,17 @@
       height: 42px;
     }
 
+    @include breakpoint(tablet) {
+      font-size: 14px;
+      height: 40px;
+    }
+
+    @include breakpoint(mobile) {
+      box-shadow: none;
+      font-size: 14px;
+      height: 36px;
+    }
+
     &:disabled {
       background: #f1f1f1;
       color: #989898;
@@ -155,6 +249,16 @@
   font-weight: 700;
   line-height: 30px;
   text-align: center;
+
+  @include breakpoint(tablet) {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  @include breakpoint(mobile) {
+    font-size: 20px;
+    line-height: 24px;
+  }
 }
 
 .research-details {

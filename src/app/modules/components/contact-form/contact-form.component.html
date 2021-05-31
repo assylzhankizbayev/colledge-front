@@ -3,17 +3,17 @@
   <p class="form-text">Оставьте свой контактный номер телефона и наши специалисты свяжутся с Вами в течении дня</p>
   <div class="contact-form">
     <input 
-          type="text" 
-          class="contact-form-control" 
-          [formControl]="contact" 
-          placeholder="Введите номер телефона"
-          prefix="+7" mask="(000) 000 00 00"
-          [class.error]="getErrorMessage()"
-          (keyup.enter)="sendContact()"
-          >
-          <div class="contact-form-error">
-            {{getErrorMessage()}}
-          </div>
+      type="text" 
+      class="contact-form-control" 
+      [formControl]="contact" 
+      placeholder="Введите номер телефона"
+      prefix="+7" mask="(000) 000 00 00"
+      [class.error]="getErrorMessage()"
+      (keyup.enter)="sendContact()"
+    />
+    <div class="contact-form-error">
+      {{getErrorMessage()}}
+    </div>
     <button type="submit" class="contact-form-btn" (click)="sendContact()">Отправить</button>
   </div>
 </div>
