@@ -30,9 +30,11 @@
   </mat-expansion-panel-header>
 
   <div class="research-details" *ngIf="panelOpenState">
+    <p *ngIf="miniResearch?.desc" class="research-details__desc">Примеры исследования</p>
+
     <app-mini-carousel *ngIf="miniResearch?.gallery" [miniResearchId]="miniResearch.id" [gallery]="miniResearch.gallery"></app-mini-carousel>
   
-    <p *ngIf="miniResearch?.desc" class="research-details__desc">{{ miniResearch.desc }}</p>
+    <!-- <p *ngIf="miniResearch?.desc" class="research-details__desc">{{ miniResearch.desc }}</p> -->
 
     <app-general-carousel *ngIf="equipments?.length" class="research-details__carousel" [data]="equipments"></app-general-carousel>
   
