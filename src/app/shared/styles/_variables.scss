@@ -21,12 +21,12 @@
   }
   @if $point == pixel2 {
     @media screen and (min-width: 411px) {
-      @content
+      @content;
     }
   }
   @if $point == iphone678 {
     @media screen and (min-width: 375px) {
-      @content
+      @content;
     }
   }
   @if $point == iphone678plus {
@@ -35,13 +35,13 @@
     }
   }
   @if $point == ipadpro {
-    @media (min-width: 1024px) and (orientation: $orientation) {
-      @content
+    @media (min-width: 1024px) and (max-width: 1366px) and (orientation: $orientation) {
+      @content;
     }
   }
   @if $point == ipad {
-    @media (min-width: 768px) and (orientation: $orientation) {
-      @content
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: $orientation) {
+      @content;
     }
   }
 }
