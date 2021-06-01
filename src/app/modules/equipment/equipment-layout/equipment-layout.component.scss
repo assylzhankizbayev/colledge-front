@@ -24,6 +24,10 @@
   @include breakpoint(mobile) {
     font-size: 16px;
   }
+
+  @include breakpoint(tablet) {
+    font-size: 22px;
+  }
 }
 
 .description {
@@ -44,6 +48,10 @@
   @include breakpoint(mobile) {
     font-size: 16px;
   }
+
+  @include breakpoint(tablet) {
+    font-size: 18px;
+  }
 }
 
 .main-pic-wrap {
@@ -61,9 +69,25 @@
     width: 406px;
   }
 
+  @include breakpoint (ipadpro) {
+    height: 370px;
+  }
+
   @include breakpoint(mobile) {
-    width: 100%;
+    // width: 100%;
     height: 250px;
+    margin-bottom: 10px;
+  }
+  
+  @include breakpoint(tablet) {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 10px;
+  }
+
+  @include breakpoint (tablet) {
+    width: 100%;
+    height: 300px;
   }
 }
 
@@ -83,10 +107,19 @@
     width: 406px;
   }
 
+  @include breakpoint (ipadpro) {
+    height: 370px;
+  }
+
   @include breakpoint(mobile) {
     width: 100%;
     height: 250px;
   }
+
+  @include breakpoint(tablet) {
+    height: 100%;
+  }
+
 }
 
 .right {
@@ -105,11 +138,21 @@
     height: 390px;
   }
 
+  @include breakpoint (ipadpro) {
+    height: 370px;
+  }
+
   @include breakpoint(mobile) {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     width: 100%;
-    height: 250px;
+  }
+
+  @include breakpoint(tablet) {
+    display: flex;
+    justify-content: start;
+    height: auto;
   }
 
   .photo-wrap {
@@ -132,11 +175,27 @@
       height: 195px;
     }
 
+    @include breakpoint (ipadpro) {
+      height: 180px;
+      width: 200px;
+    }
+
     @include breakpoint(mobile) {
-      width: 210px;
-      height: 110px;
-      margin-left: 0;
-      margin-right: 0;
+      width: 47%;
+      height: 130px;
+      margin-bottom: 15px;
+    }
+
+    @include breakpoint(tablet) {
+      width: 47%;
+      height: 50%;
+      margin-bottom: 10px;
+
+      &:nth-child(1),
+      &:nth-child(3) {
+        margin-right: 20px;
+      }
+
     }
 
     position: relative;
@@ -165,8 +224,18 @@
     }
 
     @include breakpoint(mobile) {
-      width: 50%;
-      height: 110px;
+      width: 100%;
+      height: 130px;
+    }
+
+    @include breakpoint (ipadpro) {
+      height: 170px;
+      width: 200px;
+    }
+
+    @include breakpoint(tablet) {
+      width: 100%;
+      height: 100%;
     }
 
   }
@@ -196,6 +265,10 @@
   @include breakpoint(mobile) {
     font-size: 16px;
   }
+
+  @include breakpoint(tablet) {
+    font-size: 24px;
+  } 
 }
 
 .technical-characteristics {
@@ -206,12 +279,22 @@
     list-style: none;
 
     @include breakpoint(mobile) {
-      width: 425px;
+      width: 100%;
+    }
+
+    @include breakpoint(tablet) {
+      width: 100%;
     }
 
     &--item {
       height: 50px;
       display: flex;
+
+      & .value {
+        @include breakpoint(mobile) {
+          padding-left: 10px;
+        }
+      }
 
       & .name,
       & .value {
@@ -230,9 +313,17 @@
           font-size: 20px;
         }
 
+        @include breakpoint (tablet) {
+          font-size: 15px;
+        }
+
         @include breakpoint(mobile) {
           font-size: 12px;
         }
+
+        @include breakpoint(tablet) {
+          font-size: 15px;
+        } 
 
       }
     }
@@ -244,11 +335,22 @@
   margin-bottom: 40px;
 }
 
-.section-researches,
-.section-labs {
+.section-researches, .section-labs {
   margin-bottom: 60px;
 }
 
 .research-details__labs {
   padding-right: 24px;
+
+  @include breakpoint(mobile) {
+    display: flex;
+    justify-content: center;
+    padding-right: 0;
+  }
+}
+
+.col-12 {
+  @include breakpoint(mobile) {
+    padding: 0;
+  }
 }

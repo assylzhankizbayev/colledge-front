@@ -1,6 +1,5 @@
 <div class="no-data flex-start" *ngIf="loading">
-  <mat-progress-bar mode="indeterminate">
-  </mat-progress-bar>
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </div>
 
 <ng-container *ngIf="!loading">
@@ -24,8 +23,7 @@
       <div class="row">
         <div class="col-6">
           <div class="main-pic-wrap">
-            <div class="main-pic"
-              [style.background-image]="'url('+'./assets/pics/equipments/equipment-'+equipmentInfo?.id+'/'+'1.png)'">
+            <div class="main-pic" [style.background-image]="'url('+'./assets/pics/equipments/equipment-'+equipmentInfo?.id+'/'+'1.png)'">
             </div>
           </div>
         </div>
@@ -78,9 +76,9 @@
       <div class="row">
         <div class="col-12">
           <p class="title">В каких лабораториях присутствует</p>
-            <div class="research-details__labs">
-              <app-labs-list  *ngIf="labs?.length" [labs]="labs" [showTitle]="false"></app-labs-list>
-            </div>
+          <div class="research-details__labs">
+            <app-labs-list  *ngIf="labs?.length" [labs]="labs" [showTitle]="false"></app-labs-list>
+          </div>
         </div>
       </div>
     </div>
