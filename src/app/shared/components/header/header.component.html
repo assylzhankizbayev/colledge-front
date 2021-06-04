@@ -1,15 +1,26 @@
-<nav class="navbar" id="navbar">
+<div class="navbar" id="navbar">  
   <div class="container">
+    <input id="toggle" type="checkbox">
+  
+    <label class="toggle-container" for="toggle">
+      <span class="button button-toggle"></span>
+    </label>
+
     <a href="https://satbayev.university/ru" target="_blank" class="navbar-brand">
       <img src="./assets/logo.svg" alt="logo">
     </a>
-    <ul class="navbar-nav">
-      <li *ngFor="let m of menu;" class="nav-item">
-        <a class="nav-link" [routerLink]="['/'+m?.router]" routerLinkActive="active" [class.click]="m?.isClick">
-          {{m?.name}}
-        </a>
-      </li>
-    </ul>
+    
+    <nav class="navbar-nav">
+      <a 
+        class="nav-item" 
+        [class.click]="m?.isClick"
+        *ngFor="let m of menu" 
+        [routerLink]="['/'+m?.router]" 
+        routerLinkActive="active" 
+      >
+        {{m?.name}}
+      </a>
+    </nav>
 
   </div>
-</nav>
+</div>
