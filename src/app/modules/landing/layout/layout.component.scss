@@ -1,3 +1,38 @@
+@import '../../../shared/styles/variables';
+
+.debbug {
+  border: 1px solid red;
+}
+
+.card-col {
+  flex-basis: 33.3%;
+
+  @include breakpoint(ipad) {
+    flex-basis: 50% !important;
+  }
+
+  // @include breakpoint(ipad, landscape) {
+  //   flex-basis: 50% !important;
+  // }
+
+  @include breakpoint(iphoneX) {
+    flex-basis: 100%;
+  }
+  
+  @include breakpoint(iphoneX, landscape) {
+    flex-basis: 50%;
+  }
+
+
+  // @include breakpoint(ipadpro) {
+
+  // }
+
+  // @include breakpoint(ipad, landscape) {
+  //   flex-basis: 50% !important;
+  // }
+
+}
 
 .title {
   font-weight: 500;
@@ -7,6 +42,31 @@
   letter-spacing: 0.2px;
   color: #272D4E;
   margin-bottom: 15px;
+
+  @include breakpoint(mobile) {
+    font-size: 17px;
+    line-height: 1;
+  }
+
+  @include breakpoint(iphoneX) {
+    font-size: 21px;
+    line-height: 1;
+  }
+
+  @include breakpoint(iphoneX, landscape) {
+    font-size: 37px;
+    line-height: 1;
+  }
+
+  @include breakpoint(ipad) {
+    font-size: 30px;
+    line-height: 1;
+  }
+
+  @include breakpoint(ipad, landscape) {
+   font-size: 30px;
+   line-height: 1;
+  }
 }
 
 .search-block {
@@ -16,6 +76,10 @@
   border-radius: 6px;
   position: relative;
   margin-bottom: 30px;
+  
+  @include breakpoint(mobile) {
+    margin-bottom: 20px;
+  }
 
   .search-input {
     padding: 0 28px;
@@ -23,6 +87,10 @@
     height: 100%;
     border: none;
     border-radius: 6px;
+
+    @include breakpoint(mobile) {
+      font-size: 13px;
+    }
   }
 
   .search-elem {
@@ -36,6 +104,12 @@
     background-size: cover;
     background-color: transparent;
     border: none;
+
+    @include breakpoint(iphoneX) {
+      width: 20px;
+      height: 20px;
+    }
+    
   }
 }
 
@@ -90,6 +164,21 @@
   text-transform: uppercase;
   color: #031D5B;
   margin: 37px 0 41px;
+
+  @include breakpoint(mobile) {
+    font-size: 18px;
+    line-height: 1;
+    margin: 30px 0 15px;
+  }
+
+  @include breakpoint(iphoneX) {
+    font-size: 17px;
+  }
+
+  @include breakpoint(ipad) {
+    font-size: 26px;
+    margin: 20px 0 15px;
+  }
 }
 
 .col-4 {
@@ -112,9 +201,39 @@
 .research {
   &-cards {
     margin-bottom: 43px;
+
+    @include breakpoint(ipad) {
+      margin-bottom: 0;
+    }
   }
+
   &-card-wrapper {
     padding: 15px;
+
+    @include breakpoint(mobile) {
+      padding: 0 !important;
+      margin-bottom: 15px;
+    }
+
+    @include breakpoint(iphoneX) {
+      padding: 0 !important;
+      margin-bottom: 15px;
+    }
+
+    @include breakpoint(iphoneX, landscape) {
+      padding: 0 15px !important;
+      margin-bottom: 15px;
+    }
+
+    @include breakpoint(ipad) {
+      padding: 0 5px !important;
+      margin-bottom: 15px;
+    }
+
+    @include breakpoint(ipad, landscape) {
+      padding: 0 15px !important;
+      margin-bottom: 15px;
+    }
   }
   &-card {
     display: flex;
@@ -139,6 +258,18 @@
     color: #272D4E;
     margin-bottom: 20px;
     height: 55px;
+
+    @include breakpoint(iphoneX) {
+      margin-bottom: 25px;
+    }
+
+    @include breakpoint(iphoneX, landscape) {
+      font-size: 16px;
+    }
+
+    @include breakpoint(ipad) {
+      font-size: 17px;
+    }
   }
 
   &-picture {

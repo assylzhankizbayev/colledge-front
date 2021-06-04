@@ -1,4 +1,10 @@
 @mixin breakpoint($point, $orientation: portrait) {
+
+  @if $point == iphoneX {
+    @media (min-width: 375px) and (max-width: 812px) and (orientation: $orientation) {
+      @content;
+    }
+  }
   @if $point == mobile {
     @media (max-width: 425px) and (orientation: $orientation) {
       @content;

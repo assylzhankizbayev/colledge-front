@@ -25,7 +25,7 @@
       
         <div class="row research-cards">
           <ng-container *ngFor="let item of ind?.research; let i = index;">
-            <div class="col-4" *ngIf="!item?.hide">
+            <div class="card-col" *ngIf="!item?.hide">
               <div class="research-card-wrapper">
                 <div class="research-card">
                   <h4 class="research-title">{{item?.name}}</h4>

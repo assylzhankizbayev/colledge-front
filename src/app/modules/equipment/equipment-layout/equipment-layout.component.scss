@@ -315,6 +315,7 @@
 
         @include breakpoint (tablet) {
           font-size: 15px;
+          line-height: 1;
         }
 
         @include breakpoint(mobile) {
