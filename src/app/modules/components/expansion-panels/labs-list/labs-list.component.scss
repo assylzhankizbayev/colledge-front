@@ -12,6 +12,11 @@
     line-height: 22px;
     margin: 0 0 16px;
     padding-bottom: 8px;
+
+    @include breakpoint(mobile) {
+      font-size: 18px;
+      padding-bottom: 3px;      
+    }
   }
 
   &__list {
@@ -53,14 +58,15 @@
     font-weight: 500;
     line-height: 26px;
 
-    @include breakpoint(mobile) {
-      font-size: 18px;
-    }
-    
-    @include breakpoint(mobile) {
+    @include breakpoint(tablet) {
       font-size: 20px;
     }
 
+    @include breakpoint(mobile) {
+      font-size: 16px;
+      line-height: 20px;
+      margin-bottom: 7px;
+    }
   }
 
   &-desc {
@@ -71,17 +77,17 @@
     margin-right: 15px;
     text-align: justify;
     
-    @include breakpoint(mobile) {
-      font-size: 15px;
-      text-align: justify;
-      margin-bottom: 10px;
-    }
-
     @include breakpoint(tablet) {
       font-size: 16px;
-      margin-bottom: 10px;
+      margin-bottom: 16px;
       text-align: justify;
     }
+    
+    @include breakpoint(mobile) {
+      font-size: 14px;
+      margin: 0 0 16px;
+      text-align: justify;
+    }    
   }
 }
 
@@ -96,13 +102,13 @@
   font-size: 16px;
   line-height: 19px;
 
-  @include breakpoint(mobile) {
+  @include breakpoint(tablet) {
     font-size: 15px;
     height: 40px;
   }
 
-  @include breakpoint(tablet) {
-    font-size: 15px;
+  @include breakpoint(mobile) {
+    font-size: 14px;
     height: 40px;
   }
 
