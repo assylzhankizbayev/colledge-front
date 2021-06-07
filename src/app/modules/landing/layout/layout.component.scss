@@ -7,21 +7,25 @@
 .card-col {
   flex-basis: 33.3%;
 
-  @include breakpoint(ipad) {
-    flex-basis: 50% !important;
+  @include breakpoint(mobile) {
+    flex-basis: 100%;
   }
+
+  // @include breakpoint(ipad) {
+  //   flex-basis: 50% !important;
+  // }
 
   // @include breakpoint(ipad, landscape) {
   //   flex-basis: 50% !important;
   // }
 
-  @include breakpoint(iphoneX) {
-    flex-basis: 100%;
-  }
+  // @include breakpoint(iphoneX) {
+  //   flex-basis: 100%;
+  // }
   
-  @include breakpoint(iphoneX, landscape) {
-    flex-basis: 50%;
-  }
+  // @include breakpoint(iphoneX, landscape) {
+  //   flex-basis: 50%;
+  // }
 
 
   // @include breakpoint(ipadpro) {
@@ -32,6 +36,23 @@
   //   flex-basis: 50% !important;
   // }
 
+}
+
+.col-4 {
+  &:nth-child(3n+1) {
+    .research {
+      &-card-wrapper {
+        padding-left: 0;
+      }
+    }
+  }
+  &:nth-child(3n+3) {
+    .research {
+      &-card-wrapper {
+        padding-right: 0;
+      }
+    }
+  }
 }
 
 .title {
@@ -48,32 +69,32 @@
     line-height: 1;
   }
 
-  @include breakpoint(iphoneX) {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
-    text-align: center;
-    text-transform: uppercase;
-    color: #031D5B;
-    margin-top: 24px;
-    margin-bottom: 16px;
-  }
+  // @include breakpoint(iphoneX) {
+  //   font-style: normal;
+  //   font-weight: 500;
+  //   font-size: 16px;
+  //   line-height: 19px;
+  //   text-align: center;
+  //   text-transform: uppercase;
+  //   color: #031D5B;
+  //   margin-top: 24px;
+  //   margin-bottom: 16px;
+  // }
 
-  @include breakpoint(iphoneX, landscape) {
-    font-size: 37px;
-    line-height: 1;
-  }
+  // @include breakpoint(iphoneX, landscape) {
+  //   font-size: 37px;
+  //   line-height: 1;
+  // }
 
-  @include breakpoint(ipad) {
-    font-size: 30px;
-    line-height: 1;
-  }
+  // @include breakpoint(ipad) {
+  //   font-size: 30px;
+  //   line-height: 1;
+  // }
 
-  @include breakpoint(ipad, landscape) {
-   font-size: 30px;
-   line-height: 1;
-  }
+  // @include breakpoint(ipad, landscape) {
+  //  font-size: 30px;
+  //  line-height: 1;
+  // }
 }
 
 .search-block {
@@ -84,17 +105,19 @@
   position: relative;
   margin-bottom: 30px;
 
-  @include breakpoint(iphoneX) {
+  @include breakpoint(mobile) {
     display: none;
   }
 
-  @include breakpoint(mobile) {
-    display: none;
-  }
+  // @include breakpoint(iphoneX) {
+  //   display: none;
+  // }
+
+
     
-  @include breakpoint(mobile) {
-    margin-bottom: 20px;
-  }
+  // @include breakpoint(mobile) {
+  //   margin-bottom: 20px;
+  // }
 
   .search-input {
     padding: 0 28px;
@@ -103,9 +126,9 @@
     border: none;
     border-radius: 6px;
 
-    @include breakpoint(mobile) {
-      font-size: 13px;
-    }
+    // @include breakpoint(mobile) {
+    //   font-size: 13px;
+    // }
   }
 
   .search-elem {
@@ -120,12 +143,16 @@
     background-color: transparent;
     border: none;
 
-    @include breakpoint(iphoneX) {
-      width: 20px;
-      height: 20px;
-    }
+    // @include breakpoint(iphoneX) {
+    //   width: 20px;
+    //   height: 20px;
+    // }
     
   }
+}
+
+.no-data {
+  margin-top: 10px;
 }
 
 .labs {
@@ -133,7 +160,7 @@
   flex-wrap: wrap;
   margin-bottom: 10px;
 
-  @include breakpoint(iphoneX) {
+  @include breakpoint(mobile) {
     display: none;
   }
 
@@ -173,19 +200,19 @@
   }
 }
 
-.debbug {
-  border: 1px solid red;
-}
-
 .labs-select {
-  background: #F2F2F2;
-  height: 60px;
-  border-top: 1px solid #9EA4BC;
-  border-bottom: 1px solid #9EA4BC;
-  padding: 6px 16px;
+  display: none;
 
-  display: flex;
-  justify-content: center;
+  @include breakpoint(mobile) {
+    background: #F2F2F2;
+    height: 60px;
+    border-top: 1px solid #9EA4BC;
+    border-bottom: 1px solid #9EA4BC;
+    padding: 6px 16px;
+  
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .sub-title {
@@ -197,77 +224,60 @@
   text-align: center;
   text-transform: uppercase;
   color: #031D5B;
-  margin: 37px 0 41px;
+  // margin: 37px 0 41px;
 
   @include breakpoint(mobile) {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1;
     margin: 30px 0 15px;
   }
 
-  @include breakpoint(iphoneX) {
-    font-size: 17px;
-  }
+  // @include breakpoint(iphoneX) {
+  //   font-size: 17px;
+  // }
 
-  @include breakpoint(ipad) {
-    font-size: 26px;
-    margin: 20px 0 15px;
-  }
-}
-
-.col-4 {
-  &:nth-child(3n+1) {
-    .research {
-      &-card-wrapper {
-        padding-left: 0;
-      }
-    }
-  }
-  &:nth-child(3n+3) {
-    .research {
-      &-card-wrapper {
-        padding-right: 0;
-      }
-    }
-  }
+  // @include breakpoint(ipad) {
+  //   font-size: 26px;
+  //   margin: 20px 0 15px;
+  // }
 }
 
 .research {
   &-cards {
     margin-bottom: 43px;
 
-    @include breakpoint(ipad) {
-      margin-bottom: 0;
-    }
+    // @include breakpoint(ipad) {
+    //   margin-bottom: 0;
+    // }
   }
 
   &-card-wrapper {
     padding: 15px;
 
-    @include breakpoint(mobile) {
-      padding: 0 !important;
-      margin-bottom: 15px;
-    }
+    // @include breakpoint(mobile) {
+    //   padding: 0 !important;
+    //   margin-bottom: 15px;
+    // }
 
-    @include breakpoint(iphoneX) {
-      padding: 0 !important;
-      margin-bottom: 15px;
-    }
+    // @include breakpoint(iphoneX) {
+    //   padding: 0 !important;
+    //   margin-bottom: 15px;
+    // }
 
-    @include breakpoint(iphoneX, landscape) {
-      padding: 0 15px !important;
-      margin-bottom: 15px;
-    }
+    // @include breakpoint(iphoneX, landscape) {
+    //   padding: 0 15px !important;
+    //   margin-bottom: 15px;
+    // }
 
-    @include breakpoint(ipad) {
-      padding: 0 5px !important;
-      margin-bottom: 15px;
-    }
+    // @include breakpoint(ipad) {
+    //   padding: 0 5px !important;
+    //   margin-bottom: 15px;
+    // }
 
-    @include breakpoint(ipad, landscape) {
-      padding: 0 15px !important;
-      margin-bottom: 15px;
-    }
+    // @include breakpoint(ipad, landscape) {
+    //   padding: 0 15px !important;
+    //   margin-bottom: 15px;
+    // }
   }
   &-card {
     display: flex;
@@ -293,17 +303,17 @@
     margin-bottom: 20px;
     height: 55px;
 
-    @include breakpoint(iphoneX) {
-      margin-bottom: 25px;
-    }
+    // @include breakpoint(iphoneX) {
+    //   margin-bottom: 25px;
+    // }
 
-    @include breakpoint(iphoneX, landscape) {
-      font-size: 16px;
-    }
+    // @include breakpoint(iphoneX, landscape) {
+    //   font-size: 16px;
+    // }
 
-    @include breakpoint(ipad) {
-      font-size: 17px;
-    }
+    // @include breakpoint(ipad) {
+    //   font-size: 17px;
+    // }
   }
 
   &-picture {
@@ -355,46 +365,46 @@
 }
 
 ::ng-deep {
-  .cdk-overlay-container .cdk-overlay-pane{
-    min-width: 309px !important;
-    margin-top: 8px !important;
+  .cdk-overlay-container .cdk-overlay-pane .mat-select-panel-wrap .mat-select-panel{
+    width: 100%;
+    margin-top: 10px !important;
   }
 }
-
 :host {
   ::ng-deep {
 
     .custom-select {
       
-      width: 290px;
+      width: 100%;
       height: 48px;
+      border: 1px solid #9DC2FF;
 
-      // background: #fff;
 
       box-sizing: border-box;
-
       border-radius: 8px;
 
       font-weight: bold;
       font-size: 14px;
       line-height: 150%;
 
-      padding-top: 13px;
       padding-left: 16px;
+      padding-top: 13px;
       padding-right: 22px;
 
       @include breakpoint(mobile) {
         margin: 0 0 10px;
-        // margin-bottom: 20px;
         width: 100%;
       }
       
       .mat-select-panel-wrap .mat-select-panel {
-        margin-top: 10px !important;
+        width: 100%;
+        // margin-top: 10px !important;
       }
 
       .mat-select-value {
         color: #2F80ED !important;
+        max-width: 100%;       
+        min-width: 100%;
       }
 
       .mat-select-arrow {
@@ -423,10 +433,6 @@
         }
       }
 
-    }
-
-    .isClicked {
-      border: 1px solid #9DC2FF;
     }
   }
 }

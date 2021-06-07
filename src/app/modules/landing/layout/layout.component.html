@@ -20,8 +20,16 @@
 </div>
 
 <div class="labs-select">
-  <mat-select [class.isClicked]="isClicked" (click)="hide()" class="custom-select" disableOptionCentering >
-    <mat-option *ngFor="let ind of industries" [value]="ind.id" (click)="closeList()">
+  <mat-select 
+    class="custom-select" 
+    disableOptionCentering
+    [(ngModel)]="industrieId" 
+  >
+    <mat-option 
+      *ngFor="let ind of industries" 
+      [value]="ind.id" 
+      (click)="selectIndustrie(ind)"
+    >
       <span [innerHtml]="ind.name"></span>
     </mat-option>
   </mat-select>
