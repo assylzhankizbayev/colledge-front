@@ -187,10 +187,12 @@
   display: none;
 
   @include breakpoint(mobile) {
-    background: #F2F2F2;
+
     height: 60px;
-    border-top: 1px solid #9EA4BC;
-    border-bottom: 1px solid #9EA4BC;
+    
+    border-top: 1px solid rgba(#9EA4BC, 0.2);
+    border-bottom: 1px solid rgba(#9EA4BC, 0.2);
+
     padding: 6px 16px;
   
     display: flex;
