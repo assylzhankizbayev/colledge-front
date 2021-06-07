@@ -16,7 +16,7 @@
   margin-bottom: 50px;
 
   @include breakpoint(mobile) {
-    margin: 24px 0 32px;
+    margin: 0 0 24px;
   }
 }
 
@@ -116,7 +116,7 @@
   @include breakpoint(mobile) {
     display: flex;
     flex-direction: column;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
 }
 
