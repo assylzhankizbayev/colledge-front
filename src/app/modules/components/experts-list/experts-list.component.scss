@@ -13,6 +13,11 @@
     margin-bottom: 32px;
     padding-bottom: 8px;
     
+    @include breakpoint(tablet) {
+      margin-bottom: 24px;
+      padding-bottom: 5px;
+    }
+
     @include breakpoint(mobile) {
       font-size: 18px;
       line-height: 22px;

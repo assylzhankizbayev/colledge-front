@@ -282,6 +282,13 @@
     margin: 10px 0 24px;
     padding: 0 20px;
 
+    @include breakpoint(tablet) {
+      font-size: 22px;
+      line-height: 28px;
+      letter-spacing: 0.2px;
+      margin: 7px 0 14px;
+    }
+
     @include breakpoint(mobile) {
       font-size: 18px;
       line-height: 24px;
@@ -300,6 +307,11 @@
     padding: 0 34px;
     width: 100%;
 
+    @include breakpoint(tablet) {
+      margin-bottom: 24px;
+      padding: 0 20px;
+    }
+
     @include breakpoint(mobile) {
       margin-bottom: 24px;
       padding: 0 20px;
@@ -310,6 +322,11 @@
     margin-bottom: 32px;
     padding: 0 34px;
     width: 100%;
+
+    @include breakpoint(tablet) {
+      margin-bottom: 24px;
+      padding: 0 20px;
+    }
 
     @include breakpoint(mobile) {
       margin-bottom: 20px;
