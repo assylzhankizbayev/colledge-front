@@ -78,7 +78,6 @@ $transition-delay: 0.05s;
       padding: 10px;
       position: relative;
       pointer-events: none;
-      width: 100%;
       &.click {
         pointer-events: auto;
       }
@@ -112,6 +111,8 @@ $transition-delay: 0.05s;
         transform: scaleY(0.2);
         transition: $transition-duration, opacity 1s;
         padding: 2px 0;
+        width: 100%;
+
 
         // Setting delays for the nav items in close transition
         @for $i from 1 through $items {
