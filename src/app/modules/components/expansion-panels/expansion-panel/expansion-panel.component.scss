@@ -304,17 +304,14 @@
 
   &__experts {
     margin-bottom: 32px;
-    // padding: 0 34px;
     width: 100%;
 
     @include breakpoint(tablet) {
       margin-bottom: 24px;
-      // padding: 0;
     }
 
     @include breakpoint(mobile) {
       margin-bottom: 24px;
-      // padding: 0;
     }
   }
 

@@ -11,6 +11,10 @@
     height: 640px;
   }
 
+  @include breakpoint(mobile) {
+    height: 560px;
+  }
+
   &-inner {
     display: flex;
     padding: 2px;
