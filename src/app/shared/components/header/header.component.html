@@ -1,6 +1,6 @@
 <div class="navbar" id="navbar">  
   <div class="container">
-    <input id="toggle" type="checkbox">
+    <input id="toggle" type="checkbox" #toggler>
   
     <label class="toggle-container" for="toggle">
       <span class="button button-toggle"></span>
@@ -17,6 +17,7 @@
         *ngFor="let m of menu" 
         [routerLink]="['/'+m?.router]" 
         routerLinkActive="active" 
+        (click)="toggler.checked = false"
       >
         {{m?.name}}
       </a>
