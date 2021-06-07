@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { IExpert } from 'src/app/core/models/expert';
 
 @Component({
@@ -7,6 +7,8 @@ import { IExpert } from 'src/app/core/models/expert';
   styleUrls: ['./experts-list.component.scss']
 })
 export class ExpertsListComponent implements OnInit {
+  @ViewChild('expertsElm', { static: false }) expertsElm: ElementRef;
+
   @Input() experts: IExpert[] = [];
 
   constructor() { }
@@ -14,4 +16,13 @@ export class ExpertsListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  toRight() {
+    let elem = this.expertsElm.nativeElement;
+    elem.scrollTo({ left: (elem.scrollLeft + 320), behavior: 'smooth' });
+  }
+
+  toLeft() {
+    let elem = this.expertsElm.nativeElement;
+    elem.scrollTo({ left: (elem.scrollLeft - 320), behavior: 'smooth' });
+  }
 }

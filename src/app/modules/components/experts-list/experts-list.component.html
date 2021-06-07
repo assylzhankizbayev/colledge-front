@@ -1,6 +1,18 @@
 <div class="experts">
   <h2 class="experts__title">Кто может помочь с исследованием</h2>
-  <div class="experts__list">
-    <app-expert [expert]="expert" *ngFor="let expert of experts"></app-expert>
+  <div class="experts-wrapper">
+    <div class="arrow arrow-left" (click)="toLeft()">
+      <img class="left" src="./assets/pics/slider/left.svg">
+    </div>
+  
+    <div class="arrow arrow-right" (click)="toRight()">
+      <img src="./assets/pics/slider/right.svg">
+    </div>
+
+    <div class="experts__list" #expertsElm>
+      <div class="experts-inner">
+        <app-expert [expert]="expert" *ngFor="let expert of experts"></app-expert>
+      </div>
+    </div>
   </div>
 </div>
