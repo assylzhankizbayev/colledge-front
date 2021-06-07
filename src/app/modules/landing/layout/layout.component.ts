@@ -15,6 +15,9 @@ import { IIndustry, IIndustryEx } from '../interface';
 })
 export class LayoutComponent implements OnInit {
 
+  public isClicked: boolean = false;
+  public choose: string = 'Выберите отрасль';
+
   searchControl = new FormControl();
   industries: IIndustry[] = [];
   selectedIndustrie: IIndustry = { id: -1, name: 'Все' };
@@ -28,6 +31,14 @@ export class LayoutComponent implements OnInit {
     private researchService: ResearchService,
     private router: Router
   ) { }
+
+  hide(): void {
+    this.isClicked = !this.isClicked;
+  }
+
+  closeList(): void {
+    this.isClicked = false;
+  }
 
   ngOnInit(): void {
     window.scroll(0,0);

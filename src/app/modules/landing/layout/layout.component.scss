@@ -56,6 +56,8 @@
     text-align: center;
     text-transform: uppercase;
     color: #031D5B;
+    margin-top: 24px;
+    margin-bottom: 16px;
   }
 
   @include breakpoint(iphoneX, landscape) {
@@ -131,6 +133,10 @@
   flex-wrap: wrap;
   margin-bottom: 10px;
 
+  @include breakpoint(iphoneX) {
+    display: none;
+  }
+
   .lab {
     flex: 1;
     height: 36px;
@@ -165,6 +171,21 @@
       background: #272D4E;
     }
   }
+}
+
+.debbug {
+  border: 1px solid red;
+}
+
+.labs-select {
+  background: #F2F2F2;
+  height: 60px;
+  border-top: 1px solid #9EA4BC;
+  border-bottom: 1px solid #9EA4BC;
+  padding: 6px 16px;
+
+  display: flex;
+  justify-content: center;
 }
 
 .sub-title {
@@ -332,3 +353,81 @@
     font-weight: 500;
   }
 }
+
+::ng-deep {
+  .cdk-overlay-container .cdk-overlay-pane{
+    min-width: 309px !important;
+    margin-top: 8px !important;
+  }
+}
+
+:host {
+  ::ng-deep {
+
+    .custom-select {
+      
+      width: 290px;
+      height: 48px;
+
+      // background: #fff;
+
+      box-sizing: border-box;
+
+      border-radius: 8px;
+
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 150%;
+
+      padding-top: 13px;
+      padding-left: 16px;
+      padding-right: 22px;
+
+      @include breakpoint(mobile) {
+        margin: 0 0 10px;
+        // margin-bottom: 20px;
+        width: 100%;
+      }
+      
+      .mat-select-panel-wrap .mat-select-panel {
+        margin-top: 10px !important;
+      }
+
+      .mat-select-value {
+        color: #2F80ED !important;
+      }
+
+      .mat-select-arrow {
+        position: relative;
+        border: none;
+        width: 9px;
+        height: 9px;
+
+        &::after {
+          display: block;
+          content: "";
+          position: absolute;
+
+          top: -2px;
+          left: 0px;
+          z-index: 11;
+
+          
+          width: 9px;
+          height: 9px;
+
+          transform: rotate(225deg);
+
+          border-top: 2px solid #2264D1;
+          border-left: 2px solid #2264D1;
+        }
+      }
+
+    }
+
+    .isClicked {
+      border: 1px solid #9DC2FF;
+    }
+  }
+}
+
