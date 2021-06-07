@@ -270,6 +270,10 @@
   flex-direction: column;
   padding: 10px 16px;
 
+  @include breakpoint(mobile) {
+    padding: 5px 8px;
+  }
+
   &__desc {
     color: #031D5B;
     font-size: 25px;
@@ -277,6 +281,13 @@
     letter-spacing: 0.2px;
     margin: 10px 0 24px;
     padding: 0 20px;
+
+    @include breakpoint(mobile) {
+      font-size: 18px;
+      line-height: 24px;
+      letter-spacing: 0.2px;
+      margin: 5px 0 10px;
+    }
   }
 
   &__carousel {
@@ -288,11 +299,21 @@
     margin-bottom: 32px;
     padding: 0 34px;
     width: 100%;
+
+    @include breakpoint(mobile) {
+      margin-bottom: 24px;
+      padding: 0 20px;
+    }
   }
 
   &__labs {
     margin-bottom: 32px;
     padding: 0 34px;
     width: 100%;
+
+    @include breakpoint(mobile) {
+      margin-bottom: 20px;
+      padding: 0 20px;
+    }
   }
 }

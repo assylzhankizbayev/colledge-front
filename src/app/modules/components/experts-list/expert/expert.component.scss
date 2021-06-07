@@ -1,6 +1,8 @@
+@import "../../../../shared/styles/variables";
+
 .scientist {
   width: 253px;
-  height: 620px;
+  // height: 620px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,11 +11,21 @@
   border-radius: 8px;
   padding: 26px 16px;
 
+  @include breakpoint(mobile) {
+    margin-right: 12px;
+    padding: 12px;
+    width: 323px;
+  }
+
   &__img {
     width: 177px;
     height: 235px;
     border-radius: 5px;
     margin-bottom: 10px;
+
+    @include breakpoint(mobile) {
+      height: 190px;
+    }
   }
 
   &__name {
@@ -23,6 +35,11 @@
     line-height: 28px;
     letter-spacing: 0.2px;
     margin-bottom: 4px;
+
+    @include breakpoint(mobile) {
+      font-size: 18px;
+      line-height: 22px;
+    }
   }
 
   &__position {
@@ -31,6 +48,12 @@
     line-height: 22px;
     letter-spacing: 0.2px;
     margin-bottom: 24px;
+
+    @include breakpoint(mobile) {
+      font-size: 14px;
+      line-height: 18px;
+      margin-bottom: 12px;
+    }
   }
 
   &__researchList {
@@ -38,6 +61,10 @@
     flex-direction: column;
     margin-bottom: 16px;
     width: 100%;
+
+    @include breakpoint(mobile) {
+      margin-bottom: 12px;
+    }
   }
 }
 
@@ -48,6 +75,12 @@
   font-size: 15px;
   line-height: 18px;
   margin-bottom: 8px;
+
+  @include breakpoint(mobile) {
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 5px;
+  }
 }
 
 .research-statistics {
@@ -68,7 +101,6 @@
   font-weight: 500;
   margin-bottom: 16px;
   font-size: 18px;
-  line-height: 18px;
   letter-spacing: 0.2px;
   color: #fff;
   padding: 9px 0;
@@ -77,6 +109,13 @@
 
   &:disabled {
     background: #82b7ff;
+  }
+
+  @include breakpoint(mobile) {
+    font-size: 14px;
+    margin-bottom: 12px;
+    padding: 9px 18px;
+    width: auto;
   }
 }
 
