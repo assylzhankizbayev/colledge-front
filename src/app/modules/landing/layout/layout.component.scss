@@ -8,7 +8,11 @@
   flex-basis: 33.3%;
 
   @include breakpoint(mobile) {
-    flex-basis: 100%;
+    flex-basis: 100% !important;
+  }
+
+  @include breakpoint(tablet) {
+    flex-basis: 50%;
   }
 
   // @include breakpoint(ipad) {
@@ -56,45 +60,38 @@
 }
 
 .title {
+  font-style: normal;
   font-weight: 500;
   font-size: 40px;
-  line-height: 70px;
-  text-align: center;
+
   letter-spacing: 0.2px;
-  color: #272D4E;
+  line-height: 70px;
+  
+  text-align: center;
+  text-transform: uppercase;
+
   margin-bottom: 15px;
+  color: #272D4E;
 
   @include breakpoint(mobile) {
     font-size: 17px;
     line-height: 1;
   }
 
-  // @include breakpoint(iphoneX) {
-  //   font-style: normal;
-  //   font-weight: 500;
-  //   font-size: 16px;
-  //   line-height: 19px;
-  //   text-align: center;
-  //   text-transform: uppercase;
-  //   color: #031D5B;
-  //   margin-top: 24px;
-  //   margin-bottom: 16px;
-  // }
+  @include breakpoint(ipad) {
+    font-size: 30px;
+    line-height: 1;
+  }
 
-  // @include breakpoint(iphoneX, landscape) {
-  //   font-size: 37px;
-  //   line-height: 1;
-  // }
+  @include breakpoint(ipad, landscape) {
+   font-size: 30px;
+   line-height: 1;
+  }
 
-  // @include breakpoint(ipad) {
-  //   font-size: 30px;
-  //   line-height: 1;
-  // }
-
-  // @include breakpoint(ipad, landscape) {
-  //  font-size: 30px;
-  //  line-height: 1;
-  // }
+  @include breakpoint(iphoneSE) {
+    font-size: 15px !important;
+    line-height: 1;
+  }
 }
 
 .search-block {
@@ -109,26 +106,12 @@
     display: none;
   }
 
-  // @include breakpoint(iphoneX) {
-  //   display: none;
-  // }
-
-
-    
-  // @include breakpoint(mobile) {
-  //   margin-bottom: 20px;
-  // }
-
   .search-input {
     padding: 0 28px;
     width: 100%;
     height: 100%;
     border: none;
     border-radius: 6px;
-
-    // @include breakpoint(mobile) {
-    //   font-size: 13px;
-    // }
   }
 
   .search-elem {
@@ -224,7 +207,6 @@
   text-align: center;
   text-transform: uppercase;
   color: #031D5B;
-  // margin: 37px 0 41px;
 
   @include breakpoint(mobile) {
     font-size: 16px;
@@ -232,14 +214,10 @@
     margin: 30px 0 15px;
   }
 
-  // @include breakpoint(iphoneX) {
-  //   font-size: 17px;
-  // }
-
-  // @include breakpoint(ipad) {
-  //   font-size: 26px;
-  //   margin: 20px 0 15px;
-  // }
+  @include breakpoint(ipad) {
+    font-size: 26px;
+    margin: 20px 0 15px;
+  }
 }
 
 .research {
@@ -254,30 +232,26 @@
   &-card-wrapper {
     padding: 15px;
 
-    // @include breakpoint(mobile) {
-    //   padding: 0 !important;
-    //   margin-bottom: 15px;
-    // }
-
-    // @include breakpoint(iphoneX) {
-    //   padding: 0 !important;
-    //   margin-bottom: 15px;
-    // }
+    @include breakpoint(mobile) {
+      padding: 0 !important;
+      margin-bottom: 15px;
+    }
 
     // @include breakpoint(iphoneX, landscape) {
     //   padding: 0 15px !important;
     //   margin-bottom: 15px;
     // }
 
-    // @include breakpoint(ipad) {
-    //   padding: 0 5px !important;
-    //   margin-bottom: 15px;
-    // }
+    @include breakpoint(ipad) {
+      padding: 0 5px !important;
+      margin-bottom: 15px;
+    }
 
-    // @include breakpoint(ipad, landscape) {
-    //   padding: 0 15px !important;
-    //   margin-bottom: 15px;
-    // }
+    @include breakpoint(ipad, landscape) {
+      padding: 0 15px !important;
+      margin-bottom: 15px;
+    }
+
   }
   &-card {
     display: flex;
@@ -303,17 +277,10 @@
     margin-bottom: 20px;
     height: 55px;
 
-    // @include breakpoint(iphoneX) {
-    //   margin-bottom: 25px;
-    // }
-
-    // @include breakpoint(iphoneX, landscape) {
-    //   font-size: 16px;
-    // }
-
-    // @include breakpoint(ipad) {
-    //   font-size: 17px;
-    // }
+    @include breakpoint(iphoneSE) {
+      font-size: 18px !important;
+      line-height: 1;
+    }
   }
 
   &-picture {
