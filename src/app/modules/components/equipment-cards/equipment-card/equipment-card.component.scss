@@ -11,12 +11,12 @@
     @include breakpoint(ipad, landscape) {
       height: auto;
       padding: 2px;
-      margin: 0 10px 0 0;
+      margin: 5px;
     }
     @include breakpoint(tablet) {
       height: auto;
       padding: 2px;
-      margin: 0 10px 0 0;
+      margin: 5px;
     }
     @include breakpoint(mobile) {
       height: auto;

@@ -1,4 +1,4 @@
-
+@import "../../../shared/styles/variables";
 
 .equipment-cards-title {
   text-align: center;
@@ -8,8 +8,14 @@
   letter-spacing: 0.2px;
   color: #031D5B;
   margin-bottom: 30px;
+
+  @include breakpoint(ipad, landscape) {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+  @include breakpoint(tablet) {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
 }
 
-.equipment-cards {
-  padding: 10px 50px;
-}
