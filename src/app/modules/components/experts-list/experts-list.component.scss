@@ -7,10 +7,12 @@
   position: relative;
   height: 695px;
 
-  @include breakpoint(tablet) {
-    height: 640px;
+  @include breakpoint(ipad, landscape) {
+    height: 670px;
   }
-
+  @include breakpoint(tablet) {
+    height: 660px;
+  }
   @include breakpoint(mobile) {
     height: 560px;
   }

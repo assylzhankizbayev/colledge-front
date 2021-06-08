@@ -11,12 +11,16 @@
   padding: 26px 16px;
   margin-right: 26px;
 
+  @include breakpoint(ipad, landscape) {
+    margin-right: 20px;
+    padding: 16px;
+    width: 295px;
+  }
   @include breakpoint(tablet) {
     margin-right: 20px;
     padding: 16px;
     width: 295px;
   }
-
   @include breakpoint(mobile) {
     margin-right: 16px;
     padding: 12px;
@@ -42,11 +46,14 @@
     letter-spacing: 0.2px;
     margin-bottom: 4px;
 
+    @include breakpoint(ipad, landscape) {
+      font-size: 20px;
+      line-height: 24px;
+    }
     @include breakpoint(tablet) {
       font-size: 20px;
       line-height: 24px;
     }
-
     @include breakpoint(mobile) {
       font-size: 18px;
       line-height: 22px;
@@ -60,12 +67,16 @@
     letter-spacing: 0.2px;
     margin-bottom: 24px;
 
+    @include breakpoint(ipad, landscape) {
+      font-size: 16px;
+      line-height: 20px;
+      margin-bottom: 16px;
+    }
     @include breakpoint(tablet) {
       font-size: 16px;
       line-height: 20px;
       margin-bottom: 16px;
     }
-
     @include breakpoint(mobile) {
       font-size: 14px;
       line-height: 18px;
@@ -79,10 +90,12 @@
     margin-bottom: 16px;
     width: 100%;
 
+    @include breakpoint(ipad, landscape) {
+      margin-bottom: 16px;
+    }
     @include breakpoint(tablet) {
       margin-bottom: 16px;
     }
-
     @include breakpoint(mobile) {
       margin-bottom: 12px;
     }
@@ -112,6 +125,15 @@
   line-height: 14px;
   margin-bottom: 8px;
   padding-left: 8px;
+
+  @include breakpoint(ipad, landscape) {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  @include breakpoint(tablet) {
+    font-size: 14px;
+    line-height: 18px;
+  }
 }
 
 .btn-primary {
@@ -132,13 +154,18 @@
     background: #82b7ff;
   }
 
+  @include breakpoint(ipad, landscape) {
+    font-size: 16px;
+    margin-bottom: 12px;
+    padding: 9px 18px;
+    width: auto;
+  }
   @include breakpoint(tablet) {
     font-size: 16px;
     margin-bottom: 12px;
     padding: 9px 18px;
     width: auto;
   }
-
   @include breakpoint(mobile) {
     font-size: 14px;
     margin-bottom: 12px;
