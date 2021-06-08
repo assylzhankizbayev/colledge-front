@@ -17,6 +17,7 @@ import { SeparatorPipe } from 'src/app/shared/pipes/separator.pipe';
 import { NgxMaskModule } from 'ngx-mask';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { ConsultationFormComponent } from './consultation-form/consultation-form.component';
+import { TitleComponent } from './title/title.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ConsultationFormComponent } from './consultation-form/consultation-form
     LabsListComponent,
     SeparatorPipe,
     ConfirmDialogComponent,
-    ConsultationFormComponent
+    ConsultationFormComponent,
+    TitleComponent
   ],
   imports: [
     CommonModule,
