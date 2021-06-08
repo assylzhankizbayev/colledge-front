@@ -15,6 +15,10 @@
     flex-basis: 50%;
   }
 
+  @include breakpoint(iphone678plus, landscape) {
+    flex-basis: 50%;
+  }
+
   // @include breakpoint(ipad) {
   //   flex-basis: 50% !important;
   // }

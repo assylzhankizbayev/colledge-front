@@ -127,11 +127,11 @@
   flex-wrap: wrap;
   justify-content: flex-end;
 
-  @include breakpoint(ipad) {
+  @include breakpoint(tablet) {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end !important;
-    height: 273px;
+    height: 292px;
   }
 
   @include breakpoint(ipad, landscape) {
@@ -149,27 +149,27 @@
     width: 100%;
   }
 
-  @include breakpoint(tablet) {
-    display: flex;
-    justify-content: start;
-    height: auto;
-  }
+  // @include breakpoint(tablet) {
+  //   display: flex;
+  //   justify-content: start;
+  //   height: auto;
+  // }
 
   .photo-wrap {
     width: 50%;
     height: 273px;
 
-    @include breakpoint(ipad) {
-      width: max-content;
-      height: 135px;
-      margin-bottom: 5px;
-      margin-left: 5px;
+    // @include breakpoint(ipad) {
+    //   width: max-content;
+    //   height: 135px;
+    //   margin-bottom: 5px;
+    //   margin-left: 5px;
 
-      &:nth-child(1),
-      &:nth-child(3) {
-        margin-right: 20px;
-      }
-    }
+    //   &:nth-child(1),
+    //   &:nth-child(3) {
+    //     margin-right: 20px;
+    //   }
+    // }
 
     @include breakpoint(ipad, landscape) {
       height: 195px;
@@ -193,7 +193,7 @@
 
       &:nth-child(1),
       &:nth-child(3) {
-        margin-right: 20px;
+        margin-right: 5px;
       }
 
     }
