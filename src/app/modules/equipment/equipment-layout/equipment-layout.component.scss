@@ -23,6 +23,8 @@
 
   @include breakpoint(mobile) {
     font-size: 16px;
+    line-height: 1;
+    margin-bottom: 12px;
   }
 
   @include breakpoint(tablet) {
@@ -47,6 +49,8 @@
 
   @include breakpoint(mobile) {
     font-size: 16px;
+    line-height: 1;
+    margin-bottom: 17px;
   }
 
   @include breakpoint(tablet) {
@@ -265,6 +269,8 @@
 
   @include breakpoint(mobile) {
     font-size: 16px;
+    line-height: 1;
+    margin-bottom: 20px;
   }
 
   @include breakpoint(tablet) {
@@ -274,6 +280,10 @@
 
 .technical-characteristics {
   margin-bottom: 70px;
+
+  @include breakpoint(mobile) {
+    margin-bottom: 0;
+  }
 
   & .specifications__list {
     width: 700px;
@@ -339,6 +349,10 @@
 
 .section-researches, .section-labs {
   margin-bottom: 60px;
+
+  @include breakpoint(mobile) {
+    margin-bottom: 30px;
+  }
 }
 
 .research-details__labs {
