@@ -28,24 +28,26 @@
   }
 
   &__title {
-    border-bottom: 2px solid #2F80ED;;
-    color: #031D5B;
-    font-size: 19px;
-    line-height: 22px;
-    margin: 0 34px 20px;
-    padding-bottom: 8px;
+    display: block;
+    padding: 0 34px 20px;;
+  // border-bottom: 2px solid #2F80ED;
+  //   color: #031D5B;
+  //   font-size: 19px;
+  //   line-height: 22px;
+  //   margin: 0 34px 20px;
+  //   padding-bottom: 8px;
     
-    @include breakpoint(tablet) {
-      margin: 0 24px 16px;
-      padding-bottom: 5px;
-    }
+  //   @include breakpoint(tablet) {
+  //     margin: 0 24px 16px;
+  //     padding-bottom: 5px;
+  //   }
 
-    @include breakpoint(mobile) {
-      font-size: 18px;
-      line-height: 22px;
-      padding-bottom: 3px;
-      margin: 0 20px 16px;
-    }
+  //   @include breakpoint(mobile) {
+  //     font-size: 18px;
+  //     line-height: 22px;
+  //     padding-bottom: 3px;
+  //     margin: 0 20px 16px;
+  //   }
   }
 
   &__list {

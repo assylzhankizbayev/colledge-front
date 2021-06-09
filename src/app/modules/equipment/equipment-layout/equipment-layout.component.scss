@@ -247,35 +247,30 @@
 }
 
 .title {
-  display: inline-block;
-  font-weight: 500;
-  font-size: 35px;
-  line-height: 41px;
-  letter-spacing: 0.2px;
-  color: #031D5B;
+  display: block;
   margin-bottom: 50px;
 
-  &::after {
-    display: block;
-    content: "";
-    border: 2px solid #2F80ED;
-    margin-top: 20px;
-    // background: #2F80ED;
-  }
+  // &::after {
+  //   display: block;
+  //   content: "";
+  //   border: 2px solid #2F80ED;
+  //   margin-top: 20px;
+  //   // background: #2F80ED;
+  // }
 
-  @include breakpoint(ipad) {
-    font-size: 26px;
-  }
+  // @include breakpoint(ipad) {
+  //   font-size: 26px;
+  // }
 
-  @include breakpoint(mobile) {
-    font-size: 16px;
-    line-height: 1;
-    margin-bottom: 20px;
-  }
+  // @include breakpoint(mobile) {
+  //   font-size: 16px;
+  //   line-height: 1;
+  //   margin-bottom: 20px;
+  // }
 
-  @include breakpoint(tablet) {
-    font-size: 24px;
-  } 
+  // @include breakpoint(tablet) {
+  //   font-size: 24px;
+  // } 
 }
 
 .technical-characteristics {

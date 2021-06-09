@@ -6,17 +6,17 @@
   align-items: flex-start;
 
   &__header {
-    border-bottom: 2px solid #2F80ED;;
-    color: #031D5B;
-    font-size: 19px;
-    line-height: 22px;
+    // border-bottom: 2px solid #2F80ED;;
+    // color: #031D5B;
+    // font-size: 19px;
+    // line-height: 22px;
     margin: 0 0 16px;
-    padding-bottom: 8px;
+    // padding-bottom: 8px;
 
-    @include breakpoint(mobile) {
-      font-size: 18px;
-      padding-bottom: 3px;      
-    }
+    // @include breakpoint(mobile) {
+    //   font-size: 18px;
+    //   padding-bottom: 3px;      
+    // }
   }
 
   &__list {

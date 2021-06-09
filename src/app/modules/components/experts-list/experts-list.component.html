@@ -1,5 +1,8 @@
 <div class="experts">
-  <h2 class="experts__title">Кто может помочь с исследованием</h2>
+  <!-- <h2 class="experts__title">Кто может помочь с исследованием</h2> -->
+  <app-title class="experts__title" [text]="'Кто может помочь с исследованием'" [verySmall]="true">
+
+  </app-title>
   <div class="experts-wrapper">
     <div class="arrow arrow-left" (click)="toLeft()">
       <img class="left" src="./assets/pics/slider/left.svg">

@@ -1,5 +1,13 @@
 <div class="labs">
-  <h2 class="labs__header" *ngIf="showTitle">Где проводят исследование</h2>
+  <!-- <h2 class="labs__header" *ngIf="showTitle">Где проводят исследование</h2> -->
+
+  <app-title 
+    class="labs__header" 
+    *ngIf="showTitle" 
+    [text]="'Где проводят исследование'"
+    [verySmall]="true"
+  >
+  </app-title>
 
   <div class="labs__list">
     <div class="lab" *ngFor="let lab of labs">

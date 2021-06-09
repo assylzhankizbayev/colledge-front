@@ -6,24 +6,24 @@
   align-items: flex-start;
 
   &__header {
-    border-bottom: 2px solid #2F80ED;;
-    color: #031D5B;
-    font-size: 19px;
-    line-height: 22px;
-    margin: 0 34px 16px;
-    padding-bottom: 8px;
+    // border-bottom: 2px solid #2F80ED;;
+    // color: #031D5B;
+    // font-size: 19px;
+    // line-height: 22px;
+    padding: 0 34px 16px;
+    // padding-bottom: 8px;
 
-    @include breakpoint(tablet) {
-      margin: 0 20px 5px;
-      padding-bottom: 3px;
-    }
+    // @include breakpoint(tablet) {
+    //   margin: 0 20px 5px;
+    //   padding-bottom: 3px;
+    // }
 
-    @include breakpoint(mobile) {
-      font-size: 18px;
-      line-height: 22px;
-      margin: 0 20px 5px;
-      padding-bottom: 3px;
-    }
+    // @include breakpoint(mobile) {
+    //   font-size: 18px;
+    //   line-height: 22px;
+    //   margin: 0 20px 5px;
+    //   padding-bottom: 3px;
+    // }
   }
 }
 
