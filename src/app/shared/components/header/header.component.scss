@@ -9,7 +9,7 @@ $transition-delay: 0.05s;
   justify-content: space-between;
   position: relative;
 
-  @include breakpoint(mobile) {
+  @include breakpoint(tablet) {
     display: block;
     width: 100%;
     margin: 0;
@@ -28,18 +28,25 @@ $transition-delay: 0.05s;
     box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
   }
   
-  @include breakpoint(mobile) {
+  @include breakpoint(tablet) {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    padding: 32px 20px 16px;
-    min-height: 80px;
+    padding: 42px 20px 16px;
+    min-height: 100px;
     width: 100%;
+  }
 
-    &-brand {
+  @include breakpoint(mobile) {
+    padding: 32px 20px 16px;
+    min-height: 80px; 
+  }
+
+  &-brand {
+    @include breakpoint(tablet) {
       position: absolute;
-      top: -10px;
+      top: -16px;
       left: 50%;
       transform: translateX(-50%);
       height: 40px;
@@ -48,6 +55,9 @@ $transition-delay: 0.05s;
         width: 100%;
         height: auto;
       }
+    }
+    @include breakpoint(mobile) {
+      top: -10px;
     }
   }
 
@@ -69,7 +79,7 @@ $transition-delay: 0.05s;
       display: none;
     }
 
-    @include breakpoint(mobile) {
+    @include breakpoint(tablet) {
       flex-direction: column;
       align-items: flex-start;
       pointer-events: none;
@@ -115,11 +125,14 @@ $transition-delay: 0.05s;
         margin-right: 0;
       }
 
-      @include breakpoint(mobile) {
+      @include breakpoint(ipad, landscape) {
+        margin: 0;
+      }
+      @include breakpoint(tablet) {
         position: relative;
         display: flex;
         color: transparent;
-        font-size: 14px;
+        font-size: 18px;
         letter-spacing: -6.2px;
         height: 7px;
         line-height: 7px;
@@ -130,7 +143,7 @@ $transition-delay: 0.05s;
         transition: $transition-duration, opacity 1s;
         padding: 2px 0;
         width: 100%;
-
+        
 
         // Setting delays for the nav items in close transition
         @for $i from 1 through $items {
@@ -162,7 +175,9 @@ $transition-delay: 0.05s;
           transition: $transition-duration;
         }
       }
-
+      @include breakpoint(mobile) {
+        font-size: 14px;
+      }
     }
   }  
 }
@@ -198,6 +213,11 @@ $transition-delay: 0.05s;
       transform: scaleY(1);
       transition: $transition-duration, opacity 0.1s;
       width: auto;
+
+      @include breakpoint(tablet) {
+        height: 50px;
+        line-height: 50px;
+      }
 
       // Setting delays for the nav items in open transition
       @for $i from 1 through $items {
@@ -257,7 +277,7 @@ $transition-delay: 0.05s;
   }
 }
 
-@include breakpoint(mobile) {
+@include breakpoint(tablet) {
   .toggle-container {
     order: 3;
   }
