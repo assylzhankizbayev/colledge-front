@@ -1,18 +1,8 @@
 @import "../../../shared/styles/variables";
 
-// .section-2 {
-//   // background: linear-gradient(180deg, #F5F8FC 0%, rgba(255, 255, 255, 0) 100%);
-// }
-
 .section-4 {
   margin-bottom: 100px;
 }
-
-/* 
-.container {
-  border: 1px solid red;
-}
- */
 
 .breadcrumb {
   font-size: 14px;
@@ -33,6 +23,10 @@
   }
   @include breakpoint(tablet) {
     font-size: 28px;
+    margin-bottom: 16px;
+  }
+  @include breakpoint(mobile) {
+    font-size: 24px;
     margin-bottom: 16px;
   }
 }
@@ -81,10 +75,42 @@
   //   font-size: 28px;
   //   margin-bottom: 24px;
   // }
+  // display: inline-block;
+
+  // &::after {
+  //   display: block;
+  //   content: "";
+  //   margin-top: 10px;
+  //   border: 2px solid #2F80ED;
+
+  //   @include breakpoint(ipad, landscape) {
+  //     margin-top: 8px;
+  //   }
+  //   @include breakpoint(tablet) {
+  //     margin-top: 8px;
+  //   }
+  //   @include breakpoint(mobile) {
+  //     margin-top: 5px;
+  //   }
+  // }
+
+  // @include breakpoint(ipad, landscape) {
+  //   font-size: 28px;
+  //   margin-bottom: 24px;
+  // }
+  // @include breakpoint(tablet) {
+  //   font-size: 28px;
+  //   margin-bottom: 24px;
+  // }
+  // @include breakpoint(mobile) {
+  //   font-size: 24px;
+  //   margin-bottom: 16px;
+  // }
 }
 
 .menu {
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 45px;
   
   @include breakpoint(ipad, landscape) {
@@ -92,6 +118,9 @@
   }
   @include breakpoint(tablet) {
     margin-bottom: 32px;
+  }
+  @include breakpoint(mobile) {
+    margin-bottom: 16px;
   }
 
   button {
@@ -107,6 +136,11 @@
     &.active {
       color: #fff;
       background: #272D4E;
+    }
+
+    @include breakpoint(mobile) {
+      margin-right: 12px;
+      margin-bottom: 12px;
     }
   }
 }

@@ -11,8 +11,6 @@ $transition-delay: 0.05s;
 
   @include breakpoint(mobile) {
     display: block;
-    // display: flex;
-    // align-items: flex-start;
     width: 100%;
     margin: 0;
   }
@@ -25,8 +23,16 @@ $transition-delay: 0.05s;
   top: 0;
   background-color: #E6F0FF;
   z-index: 999;
+
+  &.checked {
+    box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
+  }
   
   @include breakpoint(mobile) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     padding: 32px 20px 16px;
     min-height: 80px;
     width: 100%;
@@ -59,12 +65,24 @@ $transition-delay: 0.05s;
     flex-wrap: wrap;
     list-style-type: none;
 
+    &--mobile {
+      display: none;
+    }
+
     @include breakpoint(mobile) {
       flex-direction: column;
       align-items: flex-start;
       pointer-events: none;
       transition: $transition-duration;
       width: 20px;
+
+      &--desktop {
+        display: none;
+      }
+
+      &--mobile {
+        display: flex;
+      }
     }
 
     .nav-item {
@@ -125,17 +143,6 @@ $transition-delay: 0.05s;
           }
         }
 
-        // // Adjusting width for the first line
-        // &:nth-child(1) {
-        //   letter-spacing: -5px;
-        // }
-
-        // // Adjusting width for the second line
-        // &:nth-child(2) {
-        //   letter-spacing: -5px;
-        // }
-
-        // Adjusting from the fourth element onwards
         &:nth-child(n + 4) {
           letter-spacing: -5px;
           margin-top: -7px;
@@ -160,21 +167,9 @@ $transition-delay: 0.05s;
   }  
 }
 
-/* Toggle functionality */
 
-// To hide the checkbox
-#toggle {
-  position: absolute;
-  left: -100%;
-  top: -100%;
-}
-
-// Styles for the 'open' state, if the checkbox is checked
-#toggle:checked {
-  // Any element you need to change the style if menu is open goes here, using the sibling selector (~) as follows
-
-  // Making the "X" icon using `:before` and `:after` pseudo-elements
-  & ~ .toggle-container .button-toggle {
+.navbar.checked {
+  .toggle-container .button-toggle {
     &:before {
       transform: translateY(-50%) rotate(45deg) scale(1);
     }
@@ -185,7 +180,7 @@ $transition-delay: 0.05s;
   }
 
   // Open nav
-  & ~ .navbar-nav {
+  .navbar-nav {
     pointer-events: auto;
     transform: translate(30px, 50px);
     margin: 0 0 50px;

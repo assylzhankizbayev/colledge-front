@@ -10,9 +10,12 @@
   @include breakpoint(ipad, landscape) {
     padding: 16px;
   }
-
   @include breakpoint(tablet) {
     padding: 16px;
+  }
+  @include breakpoint(mobile) {
+    flex-wrap: wrap;
+    padding: 12px;
   }
   
   &-img {
@@ -29,12 +32,17 @@
       height: auto;
       width: 180px;
     }
-
     @include breakpoint(tablet) {
       flex: 0 0 150px;
       margin-right: 16px;
       height: auto;
-      width: 190px;
+      width: 150px;
+    }
+    @include breakpoint(mobile) {
+      flex: 0 0 115px;
+      margin-right: 12px;
+      height: 140px;
+      width: 115px;
     }
   }
 
@@ -49,10 +57,13 @@
       flex: 1 0 180px;
       margin-right: 24px;
     }
-
     @include breakpoint(tablet) {
       flex: 1 0 180px;
       margin-right: 16px;
+    }
+    @include breakpoint(tablet) {
+      flex: 1 0 170px;
+      margin: 0;
     }
 
     .fio {
@@ -65,10 +76,13 @@
         font-size: 26px;
         line-height: 32px;
       }
-
       @include breakpoint(tablet) {
         font-size: 22px;
         line-height: 28px;
+      }
+      @include breakpoint(mobile) {
+        font-size: 18px;
+        line-height: 24px;
       }
     }
 
@@ -83,11 +97,15 @@
         line-height: 28px;
         margin-bottom: 12px;
       }
-
       @include breakpoint(tablet) {
         font-size: 18px;
         line-height: 24px;
         margin-bottom: 12px;
+      }
+      @include breakpoint(mobile) {
+        font-size: 15px;
+        line-height: 24px;
+        margin-bottom: 8px;
       }
     }
 
@@ -102,9 +120,12 @@
         font-size: 18px;
         line-height: 26px;
       }
-
       @include breakpoint(tablet) {
         font-size: 16px;
+        line-height: 24px;
+      }
+      @include breakpoint(mobile) {
+        font-size: 15px;
         line-height: 24px;
       }
     }
@@ -129,12 +150,17 @@
         font-size: 16px;
         padding: 8px 16px;
       }
-
       @include breakpoint(tablet) {
         width: auto;
         height: auto;
         font-size: 14px;
         padding: 6px 12px;
+      }
+      @include breakpoint(mobile) {
+        width: auto;
+        height: auto;
+        font-size: 14px;
+        padding: 4px 12px;
       }
     }
   }
@@ -146,9 +172,11 @@
     @include breakpoint(ipad, landscape) {
       flex: 1 0 235px;
     }
-
     @include breakpoint(tablet) {
       flex: 1 0 235px;
+    }
+    @include breakpoint(mobile) {
+      margin-top: 16px;
     }
     
     .dev {
@@ -237,4 +265,8 @@
 
 .labs-list {
   padding: 24px;
+
+  @include breakpoint(mobile) {
+    padding: 0;
+  }
 }

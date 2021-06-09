@@ -7,6 +7,7 @@ import { IMenu } from '../../../modules/landing/interface';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  isChecked = false;
 
   menu: IMenu[] = [
     { id: 1, name: 'Главная', router: 'main', isClick: true },
@@ -16,11 +17,9 @@ export class HeaderComponent implements OnInit {
     { id: 5, name: 'Оборудование', router: 'equipment' },
   ];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(e: any) {
@@ -33,4 +32,7 @@ export class HeaderComponent implements OnInit {
      }
   }
 
+  toggle() {
+    this.isChecked = !this.isChecked;
+  }
 }
