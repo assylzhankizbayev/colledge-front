@@ -1,0 +1,7 @@
+@import "./shared/styles/variables";
+
+.page-outlet {
+  @include breakpoint(mobile) {
+    margin-top: 80px;
+  }
+}
