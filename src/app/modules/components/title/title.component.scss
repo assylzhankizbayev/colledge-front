@@ -18,17 +18,13 @@
 .verysmall {
   font-size: 19px;
   line-height: 22px;
-  padding-bottom: 8px;
 
   &::after { 
     border: 1px solid #2F80ED;
   }
 
   @include breakpoint(tablet) {
-    margin: 0 20px 5px;
-    margin-bottom: 24px;
-    padding-bottom: 3px;
-    font-size: 28px;
+    font-size: 18px;
   } 
 
   // @include breakpoint(ipad, landscape) {
@@ -37,50 +33,11 @@
   // }
 
   @include breakpoint(mobile) {
-    font-size: 18px;
-    line-height: 22px;
-    margin: 0 20px 5px;
-    padding-bottom: 3px;
+    font-size: 16px;
+    line-height: 1;
   }
 
 }
-
-// .small {
-//   font-size: 15px;
-//   font-size: 35px;
-//   margin: 0 0 16px;
-//   margin-bottom: 32px;
-//   border-bottom: 2px solid #2F80ED;
-//   padding-bottom: 8px;
-
-
-
-//   // @include breakpoint(ipad) {
-
-//   // }
-
-
-
-
-
-
-
-//   &::after {
-//     display: block;
-//     content: "";
-//     margin-top: 10px;
-//     border: 2px solid #2F80ED;
-
-//     @include breakpoint(ipad, landscape) {
-//       margin-top: 8px;
-//     }
-//     @include breakpoint(tablet) {
-//       margin-top: 8px;
-//     }
-//   }
-
-// }
-
 
 .big {
   line-height: 41px;
