@@ -53,6 +53,7 @@ import { TitleComponent } from './title/title.component';
     ExpertsListComponent,
     ExpertComponent,
     LabsListComponent,
+    TitleComponent
   ]
 })
 export class ComponentsModule { }

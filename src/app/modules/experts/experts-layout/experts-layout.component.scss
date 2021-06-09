@@ -199,44 +199,40 @@
 
 
 .title {
-  font-weight: 500;
-  font-size: 35px;
-  line-height: 41px;
-  letter-spacing: 0.2px;
-  color: #031D5B;
-  display: inline-block;
+  display: block;
   margin-bottom: 20px;
   margin-top: 40px;
-  &::after {
-    display: block;
-    content: "";
-    margin-top: 20px;
-    border: 2px solid #2F80ED;
 
-    @include breakpoint(ipad, landscape) {
-      margin-top: 4px;
-    }
+  // &::after {
+  //   display: block;
+  //   content: "";
+  //   margin-top: 20px;
+  //   border: 2px solid #2F80ED;
 
-    @include breakpoint(tablet) {
-      margin-top: 4px;
-    }
-  }
+  //   @include breakpoint(ipad, landscape) {
+  //     margin-top: 4px;
+  //   }
 
-  @include breakpoint(ipad, landscape) {
-    font-size: 22px;
-    line-height: 24px;
-    letter-spacing: 0.2px;
-    margin-bottom: 16px;
-    margin-top: 20px;
-  }
+  //   @include breakpoint(tablet) {
+  //     margin-top: 4px;
+  //   }
+  // }
 
-  @include breakpoint(tablet) {
-    font-size: 22px;
-    line-height: 24px;
-    letter-spacing: 0.2px;
-    margin-bottom: 16px;
-    margin-top: 20px;
-  }
+  // @include breakpoint(ipad, landscape) {
+  //   font-size: 22px;
+  //   line-height: 24px;
+  //   letter-spacing: 0.2px;
+  //   margin-bottom: 16px;
+  //   margin-top: 20px;
+  // }
+
+  // @include breakpoint(tablet) {
+  //   font-size: 22px;
+  //   line-height: 24px;
+  //   letter-spacing: 0.2px;
+  //   margin-bottom: 16px;
+  //   margin-top: 20px;
+  // }
 }
 
 .labs-list {

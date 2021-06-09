@@ -85,37 +85,37 @@
 
   line-height: 41px;
   font-size: 35px;
-  margin-bottom: 20px;
-  margin-top: 40px;
-  margin-bottom: 50px;
+  // margin-bottom: 20px;
+  // margin-top: 40px;
+  // margin-bottom: 50px;
 
 
-  @include breakpoint(ipad, landscape) {
-    font-size: 22px;
-    line-height: 24px;
-    letter-spacing: 0.2px;
-    margin-bottom: 16px;
-    margin-top: 20px;
-  }
+  // @include breakpoint(ipad, landscape) {
+  //   font-size: 22px;
+  //   line-height: 24px;
+  //   letter-spacing: 0.2px;
+  //   margin-bottom: 16px;
+  //   margin-top: 20px;
+  // }
 
-  @include breakpoint(ipad) {
-    font-size: 26px;
-  }
+  // @include breakpoint(ipad) {
+  //   font-size: 26px;
+  // }
 
-  @include breakpoint(mobile) {
-    font-size: 16px;
-    line-height: 1;
-    margin-bottom: 20px;
-  }
+  // @include breakpoint(mobile) {
+  //   font-size: 16px;
+  //   line-height: 1;
+  //   margin-bottom: 20px;
+  // }
 
-  @include breakpoint(tablet) {
-    font-size: 22px;
-    line-height: 24px;
-    letter-spacing: 0.2px;
-    margin-bottom: 16px;
-    margin-top: 20px;
-    font-size: 24px;
-  } 
+  // @include breakpoint(tablet) {
+  //   font-size: 22px;
+  //   line-height: 24px;
+  //   letter-spacing: 0.2px;
+  //   margin-bottom: 16px;
+  //   margin-top: 20px;
+  //   font-size: 24px;
+  // } 
 
   &::after {
     display: block;

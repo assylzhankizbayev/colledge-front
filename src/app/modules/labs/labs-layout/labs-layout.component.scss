@@ -52,34 +52,35 @@
 }
 
 .quote {
-  font-weight: 500;
-  font-size: 35px;
-  letter-spacing: 0.2px;
+  display: block;
+  // font-weight: 500;
+  // font-size: 35px;
+  // letter-spacing: 0.2px;
   margin-bottom: 32px;
-  display: inline-block;
+  // display: inline-block;
 
-  &::after {
-    display: block;
-    content: "";
-    margin-top: 10px;
-    border: 2px solid #2F80ED;
+  // &::after {
+  //   display: block;
+  //   content: "";
+  //   margin-top: 10px;
+  //   border: 2px solid #2F80ED;
 
-    @include breakpoint(ipad, landscape) {
-      margin-top: 8px;
-    }
-    @include breakpoint(tablet) {
-      margin-top: 8px;
-    }
-  }
+  //   @include breakpoint(ipad, landscape) {
+  //     margin-top: 8px;
+  //   }
+  //   @include breakpoint(tablet) {
+  //     margin-top: 8px;
+  //   }
+  // }
 
-  @include breakpoint(ipad, landscape) {
-    font-size: 28px;
-    margin-bottom: 24px;
-  }
-  @include breakpoint(tablet) {
-    font-size: 28px;
-    margin-bottom: 24px;
-  }
+  // @include breakpoint(ipad, landscape) {
+  //   font-size: 28px;
+  //   margin-bottom: 24px;
+  // }
+  // @include breakpoint(tablet) {
+  //   font-size: 28px;
+  //   margin-bottom: 24px;
+  // }
 }
 
 .menu {

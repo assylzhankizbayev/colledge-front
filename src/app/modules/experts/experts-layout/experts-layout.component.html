@@ -24,15 +24,25 @@
       </div>
     </div>
   </div>
-  <h3 class="title">Какие исследования проводит</h3>
+  <!-- <h3 class="title">Какие исследования проводит</h3> -->
+  
+  <app-title class="title" [text]="'Какие исследования проводит'" [big]="true">
+  </app-title>
+  
   <app-expansion-panels [researches]="miniResearches" class="app-expansion-panels"></app-expansion-panels>
 
-  <h3 class="title">В каких лабораториях проводит исследования</h3>
+  <!-- <h3 class="title">В каких лабораториях проводит исследования</h3> -->
+  <app-title class="title" [text]="'В каких лабораториях проводит исследования'" [big]="true">
+  </app-title>
+
   <div class="labs-list">
     <app-labs-list [labs]="labs" [showTitle]="false"></app-labs-list>
   </div>
 
-  <h3 class="title">Какое оборудование использует</h3>
+  <!-- <h3 class="title">Какое оборудование использует</h3> -->
+  <app-title class="title" [text]="'В каких лабораториях проводит исследования'" [big]="true">
+  </app-title>
+  
   <app-equipment-cards [equipments]="equipments"></app-equipment-cards>
 
   <app-contact-form [title]="'Хотите заказать исследование?'"></app-contact-form>
