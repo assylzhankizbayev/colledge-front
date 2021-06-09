@@ -23,35 +23,6 @@
   &::after { 
     border: 1px solid #2F80ED;
   }
-}
-
-.small {
-  font-size: 15px;
-  font-size: 35px;
-  margin: 0 0 16px;
-  margin-bottom: 32px;
-  border-bottom: 2px solid #2F80ED;
-  padding-bottom: 8px;
-
-
-
-  // @include breakpoint(ipad) {
-
-  // }
-
-  @include breakpoint(ipad, landscape) {
-    font-size: 28px;
-    margin-bottom: 24px;
-  }
-
-  @include breakpoint(mobile) {
-    font-size: 18px;
-
-    line-height: 22px;
-    margin: 0 20px 5px;
-    
-    padding-bottom: 3px;
-  }
 
   @include breakpoint(tablet) {
     margin: 0 20px 5px;
@@ -60,31 +31,68 @@
     font-size: 28px;
   } 
 
-  &::after {
-    display: block;
-    content: "";
-    margin-top: 10px;
-    border: 2px solid #2F80ED;
+  // @include breakpoint(ipad, landscape) {
+  //   font-size: 28px;
+  //   margin-bottom: 24px;
+  // }
 
-    @include breakpoint(ipad, landscape) {
-      margin-top: 8px;
-    }
-    @include breakpoint(tablet) {
-      margin-top: 8px;
-    }
+  @include breakpoint(mobile) {
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0 20px 5px;
+    padding-bottom: 3px;
   }
 
 }
 
+// .small {
+//   font-size: 15px;
+//   font-size: 35px;
+//   margin: 0 0 16px;
+//   margin-bottom: 32px;
+//   border-bottom: 2px solid #2F80ED;
+//   padding-bottom: 8px;
+
+
+
+//   // @include breakpoint(ipad) {
+
+//   // }
+
+
+
+
+
+
+
+//   &::after {
+//     display: block;
+//     content: "";
+//     margin-top: 10px;
+//     border: 2px solid #2F80ED;
+
+//     @include breakpoint(ipad, landscape) {
+//       margin-top: 8px;
+//     }
+//     @include breakpoint(tablet) {
+//       margin-top: 8px;
+//     }
+//   }
+
+// }
+
 
 .big {
-
   line-height: 41px;
   font-size: 35px;
-  // margin-bottom: 20px;
-  // margin-top: 40px;
-  // margin-bottom: 50px;
 
+  @include breakpoint(tablet) {
+    font-size: 22px;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+    margin-bottom: 16px;
+    margin-top: 20px;
+  } 
 
   // @include breakpoint(ipad, landscape) {
   //   font-size: 22px;
@@ -94,24 +102,11 @@
   //   margin-top: 20px;
   // }
 
-  // @include breakpoint(ipad) {
-  //   font-size: 26px;
-  // }
-
-  // @include breakpoint(mobile) {
-  //   font-size: 16px;
-  //   line-height: 1;
-  //   margin-bottom: 20px;
-  // }
-
-  // @include breakpoint(tablet) {
-  //   font-size: 22px;
-  //   line-height: 24px;
-  //   letter-spacing: 0.2px;
-  //   margin-bottom: 16px;
-  //   margin-top: 20px;
-  //   font-size: 24px;
-  // } 
+  @include breakpoint(mobile) {
+    font-size: 16px;
+    line-height: 1;
+    margin-bottom: 20px;
+  }
 
   &::after {
     display: block;

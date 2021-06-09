@@ -250,6 +250,14 @@
   display: block;
   margin-bottom: 50px;
 
+  @include breakpoint(mobile) {
+    margin-bottom: 0;
+  }
+
+  @include breakpoint(tablet) {
+    margin-bottom: 0;
+  }
+
   // &::after {
   //   display: block;
   //   content: "";
@@ -277,6 +285,10 @@
   margin-bottom: 70px;
 
   @include breakpoint(mobile) {
+    margin-bottom: 0;
+  }
+
+  @include breakpoint(tablet) {
     margin-bottom: 0;
   }
 
