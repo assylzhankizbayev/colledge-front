@@ -142,8 +142,11 @@
 .labs {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 10px;
+  margin-bottom: 42px;
 
+  @include breakpoint(tablet) {
+    margin-bottom: 32px;
+  }
   @include breakpoint(mobile) {
     display: none;
   }
@@ -210,21 +213,20 @@
   text-align: center;
   text-transform: uppercase;
   color: #031D5B;
-
-  @include breakpoint(mobile) {
-    font-size: 16px;
-    line-height: 1;
-    margin: 30px 0 15px;
-  }
-
-  @include breakpoint(ipad) {
-    font-size: 26px !important;
-    margin: 20px 0 15px !important;
-  }
+  margin-bottom: 27px;
 
   @include breakpoint(ipad, landscape) {
-    font-size: 26px !important;
-    margin: 20px 0 15px !important;
+    font-size: 26px;
+    margin: 20px 0 15px;
+  }
+  @include breakpoint(tablet) {
+    font-size: 26px;
+    margin: 20px 0 15px;
+  }  
+  @include breakpoint(mobile) {
+    font-size: 24px;
+    line-height: 1;
+    margin: 30px 0 20px;
   }
 }
 
@@ -232,9 +234,9 @@
   &-cards {
     margin-bottom: 43px;
 
-    // @include breakpoint(ipad) {
-    //   margin-bottom: 0;
-    // }
+    @include breakpoint(tablet) {
+      margin-bottom: 0;
+    }
   }
 
   &-card-wrapper {
