@@ -1,22 +1,23 @@
 @import "../../../shared/styles/variables";
 
-.research {}
-
 .breadcrumb {
   @include breakpoint(mobile) {
     font-size: 14px;
     line-height: 20px;
   }
-}
 
-.breadcrumb-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 42px;
-
-  @include breakpoint(mobile) {
-    margin: 0 0 24px;
+  &-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 42px;
+  
+    @include breakpoint(tablet) {
+      margin: 0 0 24px;
+    }
+    @include breakpoint(mobile) {
+      margin: 0 0 24px;
+    }
   }
 }
 
@@ -60,23 +61,21 @@
   color: #031D5B;
   margin-bottom: 24px;
 
-  @include breakpoint(ipad) {
-    font-size: 28px;
-    line-height: 32px;
-    margin-bottom: 16px;
-  }
-
-  @include breakpoint(tablet) {
-    font-size: 26px;
-    line-height: 30px;
-    margin-bottom: 12px;
-  }
-
   @include breakpoint(mobile) {
     font-size: 22px;
     line-height: 26px;
     margin-bottom: 8px;
   }
+  @include breakpoint(tablet) {
+    font-size: 26px;
+    line-height: 30px;
+    margin-bottom: 12px;
+  }
+  @include breakpoint(ipad, landscape) {
+    font-size: 28px;
+    line-height: 32px;
+    margin-bottom: 16px;
+  }  
 }
 
 .desc {
@@ -113,6 +112,9 @@
 .filter {
   margin-bottom: 40px;
 
+  @include breakpoint(tablet) {
+    margin-bottom: 32px;
+  }
   @include breakpoint(mobile) {
     display: flex;
     flex-direction: column;
@@ -122,8 +124,11 @@
 
 .researches-list {
   display: block;
-  margin: 24px 0;
+  margin: 24px 0 42px;
 
+  @include breakpoint(tablet) {
+    margin: 24px 0 32px;
+  }
   @include breakpoint(mobile) {
     margin: 20px 0;
   }
