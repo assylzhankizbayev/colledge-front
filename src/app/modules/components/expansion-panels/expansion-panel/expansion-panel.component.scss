@@ -11,16 +11,11 @@
     padding: 18px 26px;
     height: 142px;
 
-    @include breakpoint(ipad, landscape) {
-      padding: 0 16px !important;
-    }
-
     @include breakpoint(tablet) {
       padding: 0 16px !important;
     }
-
     @include breakpoint(mobile) {
-      padding: 16px !important;
+      padding: 12px !important;
       height: auto;
     }
     
@@ -51,13 +46,8 @@
 
   &__img {
     flex: 0;
-    @include breakpoint(ipad, landscape) {
-      margin-right: 12px;
-    }
+    
     @include breakpoint(tablet) {
-      margin-right: 12px;
-    }
-    @include breakpoint(mobile) {
       margin-right: 12px;
     }
   }
@@ -69,9 +59,6 @@
     justify-content: space-between;
     padding: 0 18px;
 
-    @include breakpoint(ipad, landscape) {
-      padding: 0 16px 0 0;
-    }
     @include breakpoint(tablet) {
       padding: 0 16px 0 0;
     }
@@ -85,9 +72,6 @@
     display: flex;
     flex-direction: column;
     
-    @include breakpoint(ipad, landscape) {
-      justify-content: space-around;
-    } 
     @include breakpoint(tablet) {
       justify-content: space-around;
     } 
@@ -113,20 +97,18 @@
   font-weight: 500;
   line-height: 32px;
 
-  @include breakpoint(ipad, landscape) {
-    font-size: 22px;
-    line-height: 26px;
-    margin-bottom: 5px;
-  }  
   @include breakpoint(tablet) {
     font-size: 20px;
     line-height: 24px;
     margin-bottom: 5px;
   }
+  @include breakpoint(ipad, landscape) {
+    font-size: 22px;
+    line-height: 26px;
+  }  
   @include breakpoint(mobile) {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 24px;
-    margin-bottom: 5px;
   } 
 
   &.active {
@@ -134,20 +116,15 @@
     font-size: 35px;
     line-height: 42px;
     
-    @include breakpoint(ipad, landscape) {
-      font-size: 24px;
-      line-height: 28px;
-      margin-bottom: 16px;
-    }
     @include breakpoint(tablet) {
       font-size: 24px;
       line-height: 28px;
       margin-bottom: 16px;
     }
     @include breakpoint(mobile) {
-      font-size: 24px;
-      line-height: 28px;
-      margin-bottom: 16px;
+      font-size: 18px;
+      line-height: 24px;
+      margin-bottom: 8px;
     } 
   }
 
@@ -161,8 +138,12 @@
 .total-projects {
   color: #2F80ED;
   font-size: 18px;
+  line-height: 24px;
   font-weight: 500;
-  line-height: 22px;
+
+  @include breakpoint(mobile) {
+    font-size: 16px;
+  } 
 
   &.active {
     color: #fff;
@@ -173,18 +154,19 @@
     line-height: 30px;
     margin-left: 20px;
 
-    @include breakpoint(ipad, landscape) {
-      font-size: 22px;
+    @include breakpoint(tablet) {
+      font-size: 18px;
+      font-weight: 500;
       line-height: 24px;
       margin-left: 5px;
     }
-    @include breakpoint(tablet) {
+    @include breakpoint(ipad, landscape) {
       font-size: 20px;
       line-height: 24px;
       margin-left: 5px;
     }
     @include breakpoint(mobile) {
-      font-size: 18px;
+      font-size: 16px;
       line-height: 24px;
       margin-left: 5px;
     } 
@@ -205,15 +187,15 @@
     margin-bottom: 11px;
     height: 49px;
 
-    @include breakpoint(ipad, landscape) {
-      font-size: 18px;
-      line-height: 24px;
-      height: 44px;
-    }
     @include breakpoint(tablet) {
       font-size: 16px;
       line-height: 22px;
       height: 42px;
+    }
+    @include breakpoint(ipad, landscape) {
+      font-size: 18px;
+      line-height: 24px;
+      height: 44px;
     }
     @include breakpoint(mobile) {
       flex: 1;
@@ -240,12 +222,11 @@
     line-height: 18px;
     height: 45px;
 
+    @include breakpoint(tablet) {
+      height: 40px;
+    }
     @include breakpoint(ipad, landscape) {
       height: 42px;
-    }
-    @include breakpoint(tablet) {
-      font-size: 14px;
-      height: 40px;
     }
     @include breakpoint(mobile) {
       flex: 1;
@@ -269,17 +250,15 @@
   line-height: 30px;
   text-align: center;
 
-  @include breakpoint(ipad, landscape) {
-    font-size: 22px;
-    line-height: 28px;
-  }
   @include breakpoint(tablet) {
     font-size: 22px;
     line-height: 28px;
   }
   @include breakpoint(mobile) {
-    font-size: 20px;
+    flex: 1;
+    font-size: 18px;
     line-height: 24px;
+    text-align: right;
   }
 }
 
@@ -300,12 +279,6 @@
     margin: 10px 0 24px;
     padding: 0 20px;
 
-    @include breakpoint(ipad, landscape) {
-      font-size: 22px;
-      line-height: 28px;
-      letter-spacing: 0.2px;
-      margin: 7px 0 14px;
-    }
     @include breakpoint(tablet) {
       font-size: 22px;
       line-height: 28px;
@@ -315,7 +288,6 @@
     @include breakpoint(mobile) {
       font-size: 18px;
       line-height: 24px;
-      letter-spacing: 0.2px;
       margin: 5px 0 10px;
     }
   }
@@ -329,13 +301,7 @@
     margin-bottom: 32px;
     width: 100%;
 
-    @include breakpoint(ipad, landscape) {
-      margin-bottom: 24px;
-    }
     @include breakpoint(tablet) {
-      margin-bottom: 24px;
-    }
-    @include breakpoint(mobile) {
       margin-bottom: 24px;
     }
   }
@@ -345,17 +311,12 @@
     padding: 0 34px;
     width: 100%;
 
-    @include breakpoint(ipad, landscape) {
-      margin-bottom: 24px;
-      padding: 0 20px;
-    }
     @include breakpoint(tablet) {
       margin-bottom: 24px;
       padding: 0 20px;
     }
     @include breakpoint(mobile) {
       margin-bottom: 20px;
-      padding: 0 20px;
     }
   }
 }
