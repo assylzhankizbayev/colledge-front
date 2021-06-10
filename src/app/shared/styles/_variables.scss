@@ -1,7 +1,11 @@
 @mixin breakpoint($point, $orientation: portrait) {
-
-  @if $point == iphoneX {
-    @media (min-width: 375px) and (max-width: 812px) and (orientation: $orientation) {
+  @if $point == desktop {
+    @media screen and (min-width: 1200px) {
+      @content;
+    }
+  }
+  @if $point == tablet {
+    @media screen and (max-width: 1024px) and (orientation: $orientation) {
       @content;
     }
   }
@@ -10,28 +14,15 @@
       @content;
     }
   }
-  @if $point == desktop {
-    @media screen and (min-width: 1200px) {
-      @content;
-    }
-  }
-  @if $point == tablet {
-    @media screen and (max-width: 768px) and (orientation: $orientation) {
+
+  // specific styles for devices
+  @if $point == iphoneX {
+    @media (min-width: 375px) and (max-width: 812px) and (orientation: $orientation) {
       @content;
     }
   }
   @if $point == iphoneSE {
     @media screen and (max-width: 320px) {
-      @content;
-    }
-  }
-  @if $point == galaxyS5 {
-    @media screen and (min-width: 350px) and (max-width: 360px) {
-      @content;
-    }
-  }
-  @if $point == pixel2 {
-    @media screen and (min-width: 411px) {
       @content;
     }
   }
@@ -45,13 +36,23 @@
       @content;
     }
   }
+  @if $point == ipad {
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: $orientation) {
+      @content;
+    }
+  }
   @if $point == ipadpro {
     @media (min-width: 1024px) and (max-width: 1366px) and (orientation: $orientation) {
       @content;
     }
   }
-  @if $point == ipad {
-    @media (min-width: 768px) and (max-width: 1024px) and (orientation: $orientation) {
+  @if $point == galaxyS5 {
+    @media screen and (min-width: 350px) and (max-width: 360px) {
+      @content;
+    }
+  }
+  @if $point == pixel2 {
+    @media screen and (min-width: 411px) {
       @content;
     }
   }

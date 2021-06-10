@@ -277,8 +277,11 @@ $transition-delay: 0.05s;
   }
 }
 
-@include breakpoint(tablet) {
-  .toggle-container {
+.toggle-container {
+  display: none;
+
+  @include breakpoint(tablet) {
+    display: block;
     order: 3;
   }
 }
