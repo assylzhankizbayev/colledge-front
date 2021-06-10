@@ -86,7 +86,11 @@
   }
 
   @include breakpoint(ipad, landscape) {
-    height: 390px;
+    height: 400px;
+  }
+
+  @include breakpoint(ipadpro) {
+    height: 381px;
   }
 
   @include breakpoint(mobile) {
