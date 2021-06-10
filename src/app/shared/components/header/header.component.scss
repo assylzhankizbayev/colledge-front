@@ -248,6 +248,11 @@ $transition-delay: 0.05s;
     height: auto;
     line-height: 24px;
     margin-right: 16px;
+  }   
+  @include breakpoint(ipadpro) {
+    height: auto;
+    line-height: 24px;
+    margin-right: 16px;
   }      
   @include breakpoint(mobile) {
     font-size: 14px;

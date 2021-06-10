@@ -14,15 +14,12 @@
 
   @include breakpoint(tablet) {
     font-size: 22px;
-    margin-bottom: 5px;
+    margin-bottom: 16px;
     line-height: 1;
-  }
-  
+  }  
   @include breakpoint(ipad, landscape) {
     font-size: 24px;
-    margin-bottom: 14px;
   }
-
   @include breakpoint(mobile) {
     font-size: 18px;
     line-height: 1;
@@ -40,19 +37,11 @@
   letter-spacing: 0.2px;
   color: #272D4E;
   margin-bottom: 42px;
-
-
-
-  @include breakpoint(ipad) {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-
+  
   @include breakpoint(tablet) {
     font-size: 18px;
-    margin-bottom: 10px;
+    margin-bottom: 24px;
   }
-
   @include breakpoint(mobile) {
     font-size: 16px;
     line-height: 1;
@@ -225,23 +214,15 @@
 
 .title {
   display: block;
-  margin-bottom: 50px;
-
-  @include breakpoint(mobile) {
-    margin-bottom: 0;
-  }
-
+  margin-bottom: 32px;
+  
   @include breakpoint(tablet) {
-    margin-bottom: 0;
-  } 
+    margin-bottom: 24px;
+  }
 }
 
 .technical-characteristics {
   margin-bottom: 70px;
-
-  @include breakpoint(mobile) {
-    margin-bottom: 0;
-  }
 
   @include breakpoint(tablet) {
     margin-bottom: 0;
@@ -250,10 +231,6 @@
   & .specifications__list {
     width: 700px;
     list-style: none;
-
-    @include breakpoint(mobile) {
-      width: 100%;
-    }
 
     @include breakpoint(tablet) {
       width: 100%;
@@ -282,23 +259,16 @@
           text-transform: uppercase;
         }
 
-        @include breakpoint(ipad) {
-          font-size: 20px;
-        }
-
         @include breakpoint (tablet) {
           font-size: 15px;
           line-height: 1;
         }
-
+        @include breakpoint(ipad) {
+          font-size: 20px;
+        }
         @include breakpoint(mobile) {
           font-size: 12px;
         }
-
-        @include breakpoint(tablet) {
-          font-size: 15px;
-        } 
-
       }
     }
 
@@ -316,16 +286,8 @@
 .section-researches, .section-labs {
   margin-bottom: 60px;
 
-  @include breakpoint(mobile) {
-    margin-bottom: 30px;
-  }
-
-  @include breakpoint(ipad) {
-    margin-bottom: 30px;
-  }
-
-  @include breakpoint(ipad, landscape) {
-    margin-bottom: 30px;
+  @include breakpoint(tablet) {
+    margin-bottom: 33px;
   }
 }
 

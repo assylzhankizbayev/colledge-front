@@ -181,14 +181,10 @@
   color: #031D5B;
   margin-bottom: 27px;
 
-  @include breakpoint(ipad, landscape) {
-    font-size: 26px;
-    margin: 20px 0 15px;
-  }
   @include breakpoint(tablet) {
     font-size: 26px;
-    margin: 20px 0 15px;
-  }  
+    margin: 32px 0 24px;
+  }
   @include breakpoint(mobile) {
     font-size: 17px;
     line-height: 1;
@@ -208,23 +204,22 @@
   &-card-wrapper {
     padding: 15px;
 
-
-    @include breakpoint(ipad) {
-      padding: 0 5px !important;
+    @include breakpoint(tablet) {
+      padding: 0 5px;
       margin-bottom: 15px;
     }
 
     @include breakpoint(ipad, landscape) {
-      padding: 0 15px !important;
-      margin-bottom: 15px;
+      padding: 14px 16px;
+      margin: 0;
     }
 
     @include breakpoint(mobile) {
-      padding: 0 !important;
-      margin-bottom: 15px;
+      padding: 0;
+      margin-bottom: 16px;
     }
-
   }
+
   &-card {
     display: flex;
     flex-direction: column;

@@ -5,7 +5,7 @@
   flex-direction: column;
   align-items: flex-start;
   position: relative;
-  height: 695px;
+  height: 700px;
 
   @include breakpoint(ipad, landscape) {
     height: 670px;
