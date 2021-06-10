@@ -14,11 +14,21 @@ $transition-delay: 0.05s;
     width: 100%;
     margin: 0;
   }
+  @include breakpoint(ipad, landscape) {
+    display: flex;
+    margin: 0 auto;
+    width: 95%;
+  }
+  @include breakpoint(ipadpro) {
+    display: flex;
+    margin: 0 auto;
+    width: 95%;
+  }
 }
 
 .navbar {
   padding: 30px 0 25px;
-  transition: all 0.6s ease-in;
+  transition: all $transition-duration ease-in;
   position: sticky;
   top: 0;
   background-color: #E6F0FF;
@@ -26,6 +36,21 @@ $transition-delay: 0.05s;
 
   &.checked {
     box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
+
+    .toggle-container .button-toggle {
+      &:before {
+        transform: translateY(-50%) rotate(45deg) scale(1);
+      }
+  
+      &:after {
+        transform: translateY(-50%) rotate(-45deg) scale(1);
+      }
+    }
+  
+    .navbar-nav {
+      pointer-events: auto;
+      transform: translateX(0);
+    }
   }
   
   @include breakpoint(tablet) {
@@ -37,10 +62,24 @@ $transition-delay: 0.05s;
     min-height: 100px;
     width: 100%;
   }
-
+  @include breakpoint(ipad, landscape) {
+    padding: 20px 0;
+  }
+  @include breakpoint(ipadpro) {
+    padding: 24px 0 20px;
+  }
   @include breakpoint(mobile) {
     padding: 32px 20px 16px;
     min-height: 80px; 
+  }
+
+  &.sticky {
+    background-color: #fff;
+    box-shadow: 0 3px 12px 0 rgba(0,0,0,.08);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: all 0.3s ease-in;
   }
 
   &-brand {
@@ -56,35 +95,65 @@ $transition-delay: 0.05s;
         height: auto;
       }
     }
+    @include breakpoint(ipad, landscape) {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translateX(0);
+      height: auto;
+
+      img {
+        width: auto;
+        height: auto;
+      }
+    }
+    @include breakpoint(ipadpro) {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translateX(0);
+      height: auto;
+      
+      img {
+        width: auto;
+        height: auto;
+      }
+    }
     @include breakpoint(mobile) {
       top: -10px;
     }
-  }
-
-  &.sticky {
-    background-color: #fff;
-    box-shadow: 0 3px 12px 0 rgba(0,0,0,.08);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    transition: all 0.3s ease-in;
-  }
+  } 
 
   &-nav {
     display: flex;
     flex-wrap: wrap;
     list-style-type: none;
+    position: relative;
+    overflow: hidden;
 
     &--mobile {
       display: none;
+      background-color: #E6F0FF;
+      border-top: 1px solid #c1d6f3;
+      padding: 0 16px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &.change-bg {
+      background-color: #fff;
     }
 
     @include breakpoint(tablet) {
-      flex-direction: column;
-      align-items: flex-start;
       pointer-events: none;
-      transition: $transition-duration;
-      width: 20px;
+      transition: all $transition-duration ease-in;
+
+      position: fixed;
+      top: 100px;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      transform: translateX(-100%);
 
       &--desktop {
         display: none;
@@ -94,168 +163,130 @@ $transition-delay: 0.05s;
         display: flex;
       }
     }
-
-    .nav-item {
-      text-decoration: none;
-      font-weight: 500;
-      line-height: 24px;
-      letter-spacing: 0.2px;
-      color: #333;
-      transition: all 0.5s ease-in;
-      margin-right: 30px;
-      padding: 10px;
+    @include breakpoint(ipad, landscape) {
       position: relative;
-      pointer-events: none;
-      &.click {
-        pointer-events: auto;
-      }
-      &::after {
-        display:block;
-        content: '';
-        border-bottom: 2px solid #2F80ED;  
-        transform: scale(0);  
-        transition: all 0.3s ease-in-out;
-      }
-      &.active::after,
-      &:hover::after {
-        transform: scale(1);
-        transform-origin: left bottom;
-      }
-      &:last-of-type {
-        margin-right: 0;
-      }
+      top: 0;
+      bottom: 0;
+      left: auto;
+      width: auto;
+      transform: translateX(0);
 
-      @include breakpoint(ipad, landscape) {
-        margin: 0;
-      }
-      @include breakpoint(tablet) {
-        position: relative;
+      &--desktop {
         display: flex;
-        color: transparent;
-        font-size: 18px;
-        letter-spacing: -6.2px;
-        height: 7px;
-        line-height: 7px;
-        margin: 0;
-        padding: 0;
-        white-space: nowrap;
-        transform: scaleY(0.2);
-        transition: $transition-duration, opacity 1s;
-        padding: 2px 0;
-        width: 100%;
-        
-
-        // Setting delays for the nav items in close transition
-        @for $i from 1 through $items {
-          &:nth-child(#{$i}) {
-            $delay: ($i - 1) * $transition-delay;
-            transition-delay: $delay;
-            &:before {
-              transition-delay: $delay;
-            }
-          }
-        }
-
-        &:nth-child(n + 4) {
-          letter-spacing: -5px;
-          margin-top: -7px;
-          opacity: 0;
-        }
-
-        // Getting the lines for the hamburger menu icon
-        &:before {
-          position: absolute;
-          content: '';
-          top: 50%;
-          left: 0;
-          width: 100%;
-          height: 2px;
-          background-color: #272D4E;
-          transform: translateY(-50%) scaleY(5);
-          transition: $transition-duration;
-        }
       }
-      @include breakpoint(mobile) {
-        font-size: 14px;
+
+      &--mobile {
+        display: none;
       }
+    }
+    @include breakpoint(ipadpro) {
+      position: relative;
+      top: 0;
+      bottom: 0;
+      left: auto;
+      width: auto;
+      transform: translateX(0);
+
+      &--desktop {
+        display: flex;
+      }
+
+      &--mobile {
+        display: none;
+      }
+    }
+    @include breakpoint(mobile) {
+      top: 80px;
     }
   }  
 }
 
+.nav-item {
+  text-decoration: none;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.2px;
+  color: #333;
+  transition: all 0.5s ease-in;
+  margin-right: 30px;
+  padding: 10px;
+  position: relative;
+  pointer-events: none;
 
-.navbar.checked {
-  .toggle-container .button-toggle {
-    &:before {
-      transform: translateY(-50%) rotate(45deg) scale(1);
-    }
-
-    &:after {
-      transform: translateY(-50%) rotate(-45deg) scale(1);
-    }
+  &.click {
+    pointer-events: auto;
   }
 
-  // Open nav
-  .navbar-nav {
-    pointer-events: auto;
-    transform: translate(30px, 50px);
-    margin: 0 0 50px;
-    width: calc(100% - 60px);
+  &::after {
+    display: block;
+    content: '';
+    border-bottom: 2px solid #2F80ED;  
+    transform: scale(0);  
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    left: 0;
+    width: 100%;
+  }
+
+  &.active::after,
+  &:hover::after {
+    transform: scale(1);
+  }
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  @include breakpoint(tablet) {
+    height: 50px;
+    line-height: 50px;
+    margin-right: 16px;
+  }
+  @include breakpoint(ipad, landscape) {
     height: auto;
+    line-height: 24px;
+    margin-right: 16px;
+  }      
+  @include breakpoint(mobile) {
+    font-size: 14px;
+  }
+}
 
-    // Restoring nav items from "lines" in the menu icon
-    .nav-item {
-      color: #333;
-      letter-spacing: 0;
-      height: 40px;
-      line-height: 40px;
-      margin-top: 0;
-      opacity: 1;
-      transform: scaleY(1);
-      transition: $transition-duration, opacity 0.1s;
-      width: auto;
+.toggle-container {
+  position: relative;
+  display: none;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
 
-      @include breakpoint(tablet) {
-        height: 50px;
-        line-height: 50px;
-      }
-
-      // Setting delays for the nav items in open transition
-      @for $i from 1 through $items {
-        &:nth-child(#{$i}) {
-          $delay: ($items - $i) * $transition-delay;
-          transition-delay: $delay;
-          &:before {
-            transition-delay: $delay;
-          }
-        }
-      }
-
-      // Hiding the lines
-      &:before {
-        opacity: 0;
-      }
-    }
+  @include breakpoint(tablet) {
+    display: block;
+    order: 3;
+  }
+  @include breakpoint(ipad, landscape) {
+    display: none;
+  }
+  @include breakpoint(ipadpro) {
+    display: none;
   }
 }
 
 .button-toggle {
   position: absolute;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  border-radius: 100%;
-  transition: $transition-duration + 0.1;
+  top: 50%;
+  transform: translateY(-50%);
+  display: block;  
+  width: 100%;
+  height: 2px;
+  background-color: #272D4E;
+  border-radius: 5px;
 
-  // Shadow on hover
-  &:hover {
-    box-shadow: 0 0 0 8px rgba(0, 0, 0, 0.1), inset 0 0 0 20px rgba(0, 0, 0, 0.1);
+  &.transform {
+    background: transparent;
   }
-
-  // Making the "X" icon using `:before` and `:after` pseudo-elements
-  // Initially hidden because `scale(0)` transformation
+  
   &:before, &:after {
     position: absolute;
     content: '';
@@ -269,19 +300,11 @@ $transition-delay: 0.05s;
   }
 
   &:before {
-    transform: translateY(-50%) rotate(45deg) scale(0);
+    transform: translateY(-7px);
   }
 
   &:after {
-    transform: translateY(-50%) rotate(-45deg) scale(0);
+    transform: translateY(5px);
   }
 }
 
-.toggle-container {
-  display: none;
-
-  @include breakpoint(tablet) {
-    display: block;
-    order: 3;
-  }
-}

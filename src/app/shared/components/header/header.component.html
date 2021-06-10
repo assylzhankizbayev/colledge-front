@@ -1,7 +1,7 @@
 <div class="navbar" [class.checked]="isChecked" id="navbar">  
   <div class="container">
     <div class="toggle-container" (click)="toggle()">
-      <span class="button button-toggle"></span>
+      <span class="button button-toggle" [class.transform]="isChecked"></span>
     </div>
 
     <a href="https://satbayev.university/ru" target="_blank" class="navbar-brand">
@@ -11,11 +11,11 @@
     <nav class="navbar-nav navbar-nav--desktop">
       <ng-container *ngTemplateOutlet="navItemTemp"></ng-container>
     </nav>
-
-    <nav class="navbar-nav navbar-nav--mobile" (click)="toggle()">
-      <ng-container *ngTemplateOutlet="navItemTemp"></ng-container>
-    </nav>
   </div>
+
+  <nav id="nav-mobile" class="navbar-nav navbar-nav--mobile" (click)="toggle()">
+    <ng-container *ngTemplateOutlet="navItemTemp"></ng-container>
+  </nav>
 </div>
 
 <ng-template #navItemTemp>

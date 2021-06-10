@@ -25,10 +25,14 @@ export class HeaderComponent implements OnInit {
   onWindowScroll(e: any) {
      if (window.pageYOffset > 350) {
        let element = document.getElementById('navbar');
+       let navMenu = document.getElementById('nav-mobile');
        if (element) element.classList.add('sticky');
+       if (navMenu) navMenu.classList.add('change-bg');
      } else {
       let element = document.getElementById('navbar');
+      let navMenu = document.getElementById('nav-mobile');
       if (element) element.classList.remove('sticky'); 
+      if (navMenu) navMenu.classList.remove('change-bg');
      }
   }
 
