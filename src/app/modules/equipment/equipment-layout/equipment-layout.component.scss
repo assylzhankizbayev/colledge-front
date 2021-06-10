@@ -71,18 +71,14 @@
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   border-radius: 5px;
 
-  @include breakpoint(ipad) {
-    height: 278px;
-  }
+  // @include breakpoint(ipad) {
+  //   height: ;
+  // }
 
   @include breakpoint(tablet) {
     width: 100%;
     height: 300px;
     margin-bottom: 10px;
-  }
-
-  @include breakpoint (ipadpro) {
-    height: 370px;
   }
 
   @include breakpoint(ipad, landscape) {
@@ -93,8 +89,9 @@
     height: 381px;
   }
 
+
+
   @include breakpoint(mobile) {
-    // width: 100%;
     height: 250px;
     margin-bottom: 10px;
   }
@@ -106,7 +103,6 @@
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-
 
   @include breakpoint(ipad) {
     height: 278px;
@@ -130,6 +126,9 @@
     height: 100%;
   }
 
+  @include breakpoint(tablet, landscape) {
+    width: 100%;
+  }
 }
 
 .right {
@@ -358,6 +357,10 @@
 
 .section-gallery {
   margin-bottom: 40px;
+
+  @include breakpoint(ipad, landscape) {
+    margin-bottom: 32px;
+  }
 }
 
 .section-researches, .section-labs {
@@ -368,6 +371,10 @@
   }
 
   @include breakpoint(ipad) {
+    margin-bottom: 30px;
+  }
+
+  @include breakpoint(ipad, landscape) {
     margin-bottom: 30px;
   }
 }
