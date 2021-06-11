@@ -24,6 +24,15 @@ $transition-delay: 0.05s;
     margin: 0 auto;
     width: 95%;
   }
+  @include breakpoint(mobile) {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0 20px;
+    height: 80px;
+    width: 100%;
+    z-index: 1;
+  }
 }
 
 .navbar {
@@ -34,25 +43,6 @@ $transition-delay: 0.05s;
   background-color: #E6F0FF;
   z-index: 999;
 
-  &.checked {
-    box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
-
-    .toggle-container .button-toggle {
-      &:before {
-        transform: translateY(-50%) rotate(45deg) scale(1);
-      }
-  
-      &:after {
-        transform: translateY(-50%) rotate(-45deg) scale(1);
-      }
-    }
-  
-    .navbar-nav {
-      pointer-events: auto;
-      transform: translateX(0);
-    }
-  }
-  
   @include breakpoint(tablet) {
     position: fixed;
     top: 0;
@@ -69,8 +59,31 @@ $transition-delay: 0.05s;
     padding: 24px 0 20px;
   }
   @include breakpoint(mobile) {
-    padding: 32px 20px 16px;
+    padding: 0;
     min-height: 80px; 
+
+    &.checked {
+      box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
+  
+      .container {
+        box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
+      }
+  
+      .toggle-container .button-toggle {
+        &:before {
+          transform: translateY(-50%) rotate(45deg) scale(1);
+        }
+    
+        &:after {
+          transform: translateY(-50%) rotate(-45deg) scale(1);
+        }
+      }
+    
+      .navbar-nav {
+        pointer-events: auto;
+        transform: translateX(0);
+      }
+    }
   }
 
   &.sticky {
@@ -120,7 +133,11 @@ $transition-delay: 0.05s;
       }
     }
     @include breakpoint(mobile) {
-      top: -10px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 50px;
     }
   } 
 
@@ -134,7 +151,6 @@ $transition-delay: 0.05s;
     &--mobile {
       display: none;
       background-color: #E6F0FF;
-      border-top: 1px solid #c1d6f3;
       padding: 0 16px;
       flex-direction: column;
       align-items: flex-start;
@@ -197,6 +213,7 @@ $transition-delay: 0.05s;
     }
     @include breakpoint(mobile) {
       top: 80px;
+      padding-top: 16px;
     }
   }  
 }
@@ -228,6 +245,10 @@ $transition-delay: 0.05s;
     height: 2px;
     left: 0;
     width: 100%;
+
+    @include breakpoint(mobile) {
+      content: none;
+    }
   }
 
   &.active::after,
@@ -255,7 +276,12 @@ $transition-delay: 0.05s;
     margin-right: 16px;
   }      
   @include breakpoint(mobile) {
-    font-size: 14px;
+    border-bottom: 1px solid #e0e5ed;
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0 10px;
+    width: 100%;
   }
 }
 
