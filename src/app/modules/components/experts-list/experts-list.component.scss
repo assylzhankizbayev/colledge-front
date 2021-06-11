@@ -1,22 +1,6 @@
 @import "../../../shared/styles/variables";
 
 .experts {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  position: relative;
-  height: 700px;
-
-  @include breakpoint(ipad, landscape) {
-    height: 670px;
-  }
-  @include breakpoint(tablet) {
-    height: 660px;
-  }
-  @include breakpoint(mobile) {
-    height: 585px;
-  }
-
   &-inner {
     display: flex;
     padding: 2px;
@@ -27,19 +11,16 @@
     bottom: 0;
   }
 
-  &__title {
-    
+  &__title {    
     display: block;
-    padding: 0 34px 20px;
+    padding: 0 16px 16px;
 
     @include breakpoint(tablet) {
-      padding: 0 26px 10px;
+      padding: 0 7px 10px;
     }
-
     @include breakpoint(mobile) {
-      padding: 0 21px 5px;
+      padding: 0 0 5px;
     }
-
   }
 
   &__list {
@@ -61,7 +42,6 @@
   @include breakpoint(tablet) {
     padding: 0 24px;
   }
-
   @include breakpoint(mobile) {
     padding: 0 20px;
   }
@@ -96,5 +76,4 @@
       right: 0;
     }
   }
-
 }

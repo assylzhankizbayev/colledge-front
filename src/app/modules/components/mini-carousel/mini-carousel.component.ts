@@ -1,5 +1,7 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { IResearch } from 'src/app/core/models/research';
+import { Component, Input, OnInit } from '@angular/core';
+import SwiperCore, { Navigation } from "swiper/core";
+
+SwiperCore.use([Navigation]);
 
 @Component({
   selector: 'app-mini-carousel',
@@ -7,28 +9,13 @@ import { IResearch } from 'src/app/core/models/research';
   styleUrls: ['./mini-carousel.component.scss']
 })
 export class MiniCarouselComponent implements OnInit {
-
   @Input() miniResearchId: number;
   @Input() gallery: string;
   galleryList: number[] = [];
-
-  
-  @ViewChild('carElem', { static: false }) equipmentsElm: ElementRef;
 
   constructor() { }
 
   ngOnInit(): void {
     this.galleryList = this.gallery.split("|").map(r => +r);
   }
-
-  toRight() {
-    let elem = this.equipmentsElm.nativeElement;
-    elem.scrollTo({ left: (elem.scrollLeft + 350), behavior: 'smooth' });
-  }
-
-  toLeft() {
-    let elem = this.equipmentsElm.nativeElement;
-    elem.scrollTo({ left: (elem.scrollLeft - 350), behavior: 'smooth' });
-  }
-
 }

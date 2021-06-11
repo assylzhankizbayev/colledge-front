@@ -1,28 +1,16 @@
 @import "../../../../shared/styles/variables";
 
 .equipment {
-  max-width: 350px;
-  
   &-card-wrapper {
-    height: 380px;
     padding: 15px;
     margin-bottom: 24px;
 
-    @include breakpoint(ipad, landscape) {
-      height: auto;
-      padding: 2px;
-      margin: 5px;
-    }
     @include breakpoint(tablet) {
-      height: auto;
       padding: 2px;
       margin: 5px;
     }
     @include breakpoint(mobile) {
-      height: auto;
       padding: 2px;
-      margin: 0 auto 16px;
-      width: 326px;
     }
   }
 
@@ -35,10 +23,6 @@
     border-radius: 8px;
     padding: 20px;
 
-    @include breakpoint(ipad, landscape) {
-      border-radius: 4px;
-      padding: 12px;
-    }
     @include breakpoint(tablet) {
       border-radius: 4px;
       padding: 12px;
@@ -59,11 +43,6 @@
     margin-bottom: 25px;
     height: 55px;
 
-    @include breakpoint(ipad, landscape) {
-      font-size: 18px;
-      line-height: 22px;
-      margin-bottom: 20px;
-    }
     @include breakpoint(tablet) {
       font-size: 18px;
       line-height: 22px;
@@ -85,9 +64,6 @@
     background-repeat: no-repeat;
     background-position: center;
 
-    @include breakpoint(ipad, landscape) {
-      margin-bottom: 24px;
-    }
     @include breakpoint(tablet) {
       margin-bottom: 24px;
     }
@@ -109,10 +85,6 @@
     cursor: pointer;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-    @include breakpoint(ipad, landscape) {
-      font-size: 16px;
-      height: 44px;
-    }
     @include breakpoint(tablet) {
       font-size: 16px;
       height: 44px;

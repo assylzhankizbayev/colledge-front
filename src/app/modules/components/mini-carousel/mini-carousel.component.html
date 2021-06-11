@@ -1,16 +1,38 @@
-
-<div class="car-wrapper">
-  <div class="arrow arrow-left" (click)="toLeft()">
-    <img class="left" src="./assets/pics/slider/left.svg">
-  </div>
-  <div class="arrow arrow-right" (click)="toRight()">
-    <img src="./assets/pics/slider/right.svg">
-  </div>
-  <div class="car" #carElem>
-    <div class="car-inner">
-      <div class="img" *ngFor="let i of galleryList">
-        <img [src]="'./assets/pics/research/research-12/gallery/'+miniResearchId+'-'+i+'.png'" alt="">
-      </div>
-    </div>
-  </div>
-</div>
+<swiper
+  [slidesPerView]="5"
+  [spaceBetween]="16"
+  [navigation]="true"
+  [pagination]="{ clickable: true }"
+  [breakpoints]="{
+    '320': {
+      slidesPerView: 2,
+      spaceBetween: 0
+    },
+    '500': {
+      slidesPerView: 3,
+      spaceBetween: 0
+    },
+    '640': {
+      slidesPerView: 4,
+      spaceBetween: 5
+    },
+    '768': {
+      slidesPerView: 5,
+      spaceBetween: 5
+    },
+    '1024': {
+      slidesPerView: 6,
+      spaceBetween: 5
+    },
+    '1400': {
+      slidesPerView: 8,
+      spaceBetween: 5
+    }
+  }"
+>
+  <ng-container *ngFor="let i of galleryList">
+    <ng-template swiperSlide>
+      <img [src]="'./assets/pics/research/research-12/gallery/'+miniResearchId+'-'+i+'.png'" alt="">
+    </ng-template>
+  </ng-container>
+</swiper>

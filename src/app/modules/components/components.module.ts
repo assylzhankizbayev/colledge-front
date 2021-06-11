@@ -18,6 +18,7 @@ import { NgxMaskModule } from 'ngx-mask';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { ConsultationFormComponent } from './consultation-form/consultation-form.component';
 import { TitleComponent } from './title/title.component';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { TitleComponent } from './title/title.component';
     ReactiveFormsModule,
     RouterModule,
     NgxMaskModule.forRoot(),
+    SwiperModule
   ],
   exports: [
     ExpansionPanelsComponent,

@@ -1,21 +1,34 @@
 <div class="experts">
-  <!-- <h2 class="experts__title">Кто может помочь с исследованием</h2> -->
-  <app-title class="experts__title" [text]="'Кто может помочь с исследованием'" [verySmall]="true">
+  <app-title class="experts__title" [text]="'Кто может помочь с исследованием'" [verySmall]="true"></app-title>
 
-  </app-title>
-  <div class="experts-wrapper">
-    <div class="arrow arrow-left" (click)="toLeft()">
-      <img class="left" src="./assets/pics/slider/left.svg">
-    </div>
-  
-    <div class="arrow arrow-right" (click)="toRight()">
-      <img src="./assets/pics/slider/right.svg">
-    </div>
-
-    <div class="experts__list" #expertsElm>
-      <div class="experts-inner">
-        <app-expert [expert]="expert" *ngFor="let expert of experts"></app-expert>
-      </div>
-    </div>
-  </div>
+  <swiper
+    [slidesPerView]="2"
+    [spaceBetween]="5"
+    [navigation]="true"
+    [pagination]="{ clickable: true }"
+    [breakpoints]="{
+      '320': {
+        slidesPerView: 1,
+        spaceBetween: 5
+      },
+      '768': {
+        slidesPerView: 2,
+        spaceBetween: 5
+      },
+      '1024': {
+        slidesPerView: 3,
+        spaceBetween: 5
+      },
+      '1400': {
+        slidesPerView: 4,
+        spaceBetween: 5
+      }
+    }"
+  >
+    <ng-container *ngFor="let expert of experts">
+      <ng-template swiperSlide>
+        <app-expert [expert]="expert"></app-expert>
+      </ng-template>
+    </ng-container>
+  </swiper>
 </div>
