@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import SwiperCore, { Navigation, SwiperOptions, Zoom } from "swiper/core";
+import SwiperCore, { Navigation, SwiperOptions } from "swiper/core";
 
-SwiperCore.use([Zoom, Navigation]);
+SwiperCore.use([Navigation]);
 
 @Component({
   selector: 'app-mini-carousel',
@@ -17,8 +17,8 @@ export class MiniCarouselComponent implements OnInit {
     slidesPerView: 5,
     spaceBetween: 16,
     navigation: {
-      nextEl: '.button-next',
-      prevEl: '.button-prev'
+      nextEl: '.swiper__next',
+      prevEl: '.swiper__prev'
     },
     breakpoints: {
       '320': {

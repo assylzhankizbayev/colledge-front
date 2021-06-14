@@ -25,4 +25,24 @@
       display: none;
     }
   }
+
+  &__prev {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 5px 5px 0;
+    width: 24px;
+    height: 24px;
+    transform: rotate(180deg);
+  }
+  &__next {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 0 5px 5px;
+    width: 24px;
+    height: 24px;
+  }
 }

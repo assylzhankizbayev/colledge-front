@@ -17,14 +17,19 @@
 </div>
 
 <div class="swiper swiper--desktop">
-  <div class="button-prev">1</div>
-  <swiper [config]="swiperParams" >
+  <div class="swiper__prev">
+    <img src="assets/icons/arrow.svg" alt="" />
+  </div>
+
+  <swiper [config]="swiperParams">
     <ng-container *ngFor="let i of galleryList">
       <ng-template swiperSlide>
         <img [src]="'./assets/pics/research/research-12/gallery/'+miniResearchId+'-'+i+'.png'" alt="">
       </ng-template>
     </ng-container>
   </swiper>
-  <div class="button-next">2</div>
-
+  
+  <div class="swiper__next">
+    <img src="assets/icons/arrow.svg" alt="" />
+  </div>
 </div>

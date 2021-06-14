@@ -8,15 +8,17 @@
   }
 }
 .swiper {
+  align-items: center;
+
   &--mobile {
     display: none;
   }
   &--desktop {
-    display: block;
+    display: flex;
   }
   @include breakpoint(mobile) {
     &--mobile {
-      display: block;
+      display: flex;
     }
     &--desktop {
       display: none;
@@ -104,6 +106,27 @@
     right: 0;
     left: 0;
     bottom: 0;
+  }
+
+  &-prev {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 5px 5px 0;
+    width: 24px;
+    height: 24px;
+    transform: rotate(180deg);
+  }
+
+  &-next {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 0 5px 5px;
+    width: 24px;
+    height: 24px;
   }
 }
 

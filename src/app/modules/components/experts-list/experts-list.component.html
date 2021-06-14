@@ -18,35 +18,20 @@
   </div>
 
   <div class="swiper swiper--desktop">
-    <swiper
-      [slidesPerView]="2"
-      [spaceBetween]="5"
-      [navigation]="true"
-      [pagination]="{ clickable: true }"
-      [breakpoints]="{
-        '320': {
-          slidesPerView: 1,
-          spaceBetween: 5
-        },
-        '768': {
-          slidesPerView: 2,
-          spaceBetween: 5
-        },
-        '1024': {
-          slidesPerView: 3,
-          spaceBetween: 5
-        },
-        '1400': {
-          slidesPerView: 4,
-          spaceBetween: 5
-        }
-      }"
-    >
+    <div class="experts-prev">
+      <img src="assets/icons/arrow.svg" alt="" />
+    </div>
+
+    <swiper [config]="swiperParams">
       <ng-container *ngFor="let expert of experts">
         <ng-template swiperSlide>
           <app-expert [expert]="expert"></app-expert>
         </ng-template>
       </ng-container>
     </swiper>
+
+    <div class="experts-next">
+      <img src="assets/icons/arrow.svg" alt="" />
+    </div>
   </div>
 </div>
