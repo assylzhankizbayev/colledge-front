@@ -18,7 +18,7 @@ export class LabsListComponent implements OnInit {
   }
 
   openLab(id: number) {
-    this.router.navigate(['/lab', id]);
+    this.router.navigate(['/labs', id]);
   }
 
 }

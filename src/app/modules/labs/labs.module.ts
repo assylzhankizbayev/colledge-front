@@ -5,14 +5,17 @@ import { ComponentsModule } from '../components/components.module';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LabaratoryComponent } from './labaratory/labaratory.component';
 
 const routes: Routes = [
-  { path: '', component: LabsLayoutComponent }
+  { path: '', component: LabsLayoutComponent, pathMatch: 'full' },
+  { path: ':id', component: LabaratoryComponent }
 ];
 
 @NgModule({
   declarations: [
     LabsLayoutComponent,
+    LabaratoryComponent,
   ],
   imports: [
     CommonModule,

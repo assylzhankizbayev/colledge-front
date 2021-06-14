@@ -1,11 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+
+
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { combineLatest, forkJoin, of, Subject } from 'rxjs';
-import { debounceTime, switchMap, takeUntil, tap } from 'rxjs/operators';
-import { IEquipment } from 'src/app/core/models/equipment';
+import { debounceTime, tap } from 'rxjs/operators';
 import { ILab } from 'src/app/core/models/lab';
-import { IMiniResearch, IResearch } from 'src/app/core/models/research';
+import { IResearch } from 'src/app/core/models/research';
 import { CommonService } from 'src/app/core/services/common.service';
 import { EquipmentService } from 'src/app/core/services/equipment.service';
 import { LabService } from 'src/app/core/services/lab.service';
@@ -19,11 +18,13 @@ import { IIndustry, IIndustryEx } from '../../landing/interface';
   styleUrls: ['./labs-layout.component.scss']
 })
 export class LabsLayoutComponent implements OnInit {
+  loading = false;
 
   noData: boolean = false;
   type: string = '';
   industrieId: number = -1;
   searchControl = new FormControl();
+
   labs: ILab[] = [];
   labsCopy: ILab[] = [];
   industries: IIndustry[] = [];
@@ -33,70 +34,30 @@ export class LabsLayoutComponent implements OnInit {
     name: 'Все' 
   };
 
-  destroy$ = new Subject();
-  lab: ILab;
-  title = '';
-  menu = [
-    { name: "Исследования" },
-    { name: "Сотрудники" },
-    { name: "Оборудование" },
-    { name: "Контакты" },
-  ];
-  labId: number;
-  equipments: IEquipment[] = [];
-  miniResearches: IMiniResearch[] = [];
-  loading = false;
-
-
   constructor(
-    private route: ActivatedRoute,
     private labService: LabService,
     private equipmentService: EquipmentService,
     private miniResearchService: MiniResearchService,
     private researchService: ResearchService,
-    private service: CommonService,) { }
+    private service: CommonService,
+  ) { }
 
   ngOnInit(): void {
-    window.scroll(0,0);
     this.getIndustries();
 
-    this.route.paramMap
-      .pipe(
-        takeUntil(this.destroy$),
-        switchMap(params => {
-          const id = params.get('id');
-          this.labId = id ? +id : 0;
-          return id
-            ? combineLatest([
-              this.labService.getLab(+id),
-            ])
-            : of(null);
-        })
-      )
-      .subscribe(res => {
-        if(res === null) {
-          this.type = 'labs';
-          this.loading = true;
+    this.loading = true;
 
-          this.labService.getLabs().subscribe(res => {
-            console.log(res);
-            this.labs = res;
-            this.labsCopy = res;
-          });
+    this.labService.getLabs().subscribe(res => {
+      console.log(res);
+      this.labs = res;
+      this.labsCopy = res;
 
-          setTimeout(() => {
-            this.loading = false;
-          }, 500);
-        }
-        if (Array.isArray(res)) {
-          this.type = 'lab';
-          this.lab = res[0];
-          this.title = this.lab.name;
-          if (this.labId) {
-            this.loadEquipments(this.labId);
-          }
-        }
-      });
+      setTimeout(() => {
+        this.loading = false;
+      }, 500);
+    });
+
+
 
     this.searchControl.valueChanges
     .pipe(
@@ -116,22 +77,6 @@ export class LabsLayoutComponent implements OnInit {
         this.loading = false;
       }, 500);
     });
-
-  }
-
-  loadEquipments(id: number) {
-    this.loading = true;
-    forkJoin([
-      this.equipmentService.getEquipmentsByLabId(id),
-      this.miniResearchService.getMiniResearchByLabId(id)
-    ])
-    .subscribe(res => {
-      this.equipments = res[0];
-      this.miniResearches = res[1];
-      setTimeout(() => {
-        this.loading = false;
-      }, 500);
-    });
   }
 
   getIndustries() {
@@ -140,6 +85,9 @@ export class LabsLayoutComponent implements OnInit {
       this.industries.unshift(this.selectedIndustrie);
     })
   }
+
+
+
 
   selectIndustrie(ind: IIndustry) {
     // this.selectedIndustrie = ind;
