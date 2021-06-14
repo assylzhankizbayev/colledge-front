@@ -1,3 +1,5 @@
+@import "../../../shared/styles/variables";
+
 .dia-wrap {
   position: relative;
 }
@@ -6,27 +8,56 @@
   padding: 30px 40px;
   background: rgba(255, 255, 255, 0.5);
   color: #272D4E;
+
+  @include breakpoint(tablet) {
+    padding: 24px;
+  }  
+  @include breakpoint(mobile) {
+    padding: 16px ​24px 24px 24p;
+  }
+
   &-header {
     font-size: 20px;
     margin-bottom: 30px;
     padding-bottom: 20px;
     font-weight: 500;
+
+    @include breakpoint(mobile) {
+      margin-bottom: 24px;
+      padding: 0;
+    }
+
     &::after {
       display: block;
       content: "";
       margin-top: 20px;
       border: 2px solid #2F80ED;
+
+      @include breakpoint(mobile) {
+        margin-top: 10px;
+      }
     }
   }
+  
   &-body {
     width: 455px;
     height: 180px;
     position: relative;
+
+    @include breakpoint(mobile) {
+      width: auto;
+      height: auto;
+    }
   }
+  
   &-actions {
     margin-top: 50px;
     display: flex;
     justify-content: center;
+
+    @include breakpoint(mobile) {
+      margin-top: 24px;
+    }
   }
 
 }
@@ -41,10 +72,20 @@ button {
   border-radius: 4px;
   border: none;
   margin-right: 10px;
+
+  @include breakpoint(tablet) {
+    font-size: 16px;
+  }
+  @include breakpoint(mobile) {
+    font-size: 14px;
+    padding: 10px 24px;
+  }
+
   &.cancel {
     background-color: #ddd;
     color: #272D4E;
   }
+
   &:last-of-type {
     margin-right: 0;
   }
@@ -54,10 +95,16 @@ button {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+
   &-title {
     font-size: 14px;
     min-width: 100px;
+
+    @include breakpoint(mobile) {
+      margin-bottom: 5px;
+    }
   }
+
   &-input {
     width: 343px;
     height: 46px;
@@ -67,6 +114,11 @@ button {
     margin-right: 10px;
     padding: 0 15px;
     position: relative;
+
+    @include breakpoint(mobile) {
+      margin: 0;
+    }
+
     &.error {
       border-color: tomato;
     }

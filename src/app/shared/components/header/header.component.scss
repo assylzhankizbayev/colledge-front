@@ -64,7 +64,13 @@ $transition-delay: 0.05s;
     }
   }
   @include breakpoint(ipad, landscape) {
-    padding: 20px 0;
+    &.checked {
+      box-shadow: none;
+  
+      .container {
+        box-shadow: none;
+      }
+    }
   }
   @include breakpoint(ipadpro) {
     padding: 24px 0 20px;
