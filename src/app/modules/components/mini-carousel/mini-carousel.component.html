@@ -6,52 +6,25 @@
     [pagination]="{
       clickable: true
     }"
+    [zoom]="true"
   >
-    <ng-container *ngFor="let i of galleryList">
-      <ng-template swiperSlide>
-        <img [src]="'./assets/pics/research/research-12/gallery/'+miniResearchId+'-'+i+'.png'" alt="">
-      </ng-template>
-    </ng-container>
+  <ng-container *ngFor="let i of galleryList">
+    <ng-template swiperSlide>
+      <img [src]="'./assets/pics/research/research-12/gallery/'+miniResearchId+'-'+i+'.png'" alt="">
+    </ng-template>
+  </ng-container>
   </swiper>
 </div>
 
 <div class="swiper swiper--desktop">
-  <swiper
-    [slidesPerView]="5"
-    [spaceBetween]="16"
-    [navigation]="true"
-    [pagination]="{ clickable: true }"
-    [breakpoints]="{
-      '320': {
-        slidesPerView: 2,
-        spaceBetween: 0
-      },
-      '500': {
-        slidesPerView: 3,
-        spaceBetween: 0
-      },
-      '640': {
-        slidesPerView: 4,
-        spaceBetween: 5
-      },
-      '768': {
-        slidesPerView: 5,
-        spaceBetween: 5
-      },
-      '1024': {
-        slidesPerView: 6,
-        spaceBetween: 5
-      },
-      '1400': {
-        slidesPerView: 8,
-        spaceBetween: 5
-      }
-    }"
-  >
+  <div class="button-prev">1</div>
+  <swiper [config]="swiperParams" >
     <ng-container *ngFor="let i of galleryList">
       <ng-template swiperSlide>
         <img [src]="'./assets/pics/research/research-12/gallery/'+miniResearchId+'-'+i+'.png'" alt="">
       </ng-template>
     </ng-container>
   </swiper>
+  <div class="button-next">2</div>
+
 </div>

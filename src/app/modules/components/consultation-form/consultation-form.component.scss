@@ -13,18 +13,16 @@
     padding: 24px;
   }  
   @include breakpoint(mobile) {
-    padding: 16px ​24px 24px 24p;
+    padding: 16px 16px 24px;
   }
 
   &-header {
     font-size: 20px;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
+    margin-bottom: 32px;
     font-weight: 500;
 
     @include breakpoint(mobile) {
       margin-bottom: 24px;
-      padding: 0;
     }
 
     &::after {
@@ -33,7 +31,7 @@
       margin-top: 20px;
       border-bottom: 2px solid #2F80ED;
 
-      @include breakpoint(mobile) {
+      @include breakpoint(tablet) {
         margin-top: 10px;
       }
     }
@@ -56,14 +54,14 @@
     justify-content: center;
 
     @include breakpoint(mobile) {
-      margin-top: 24px;
+      margin-top: 32px;
     }
   }
 
 }
 
 button {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 21px;
   letter-spacing: 0.2px;
   color: #fff;
@@ -73,12 +71,9 @@ button {
   border: none;
   margin-right: 10px;
 
-  @include breakpoint(tablet) {
-    font-size: 16px;
-  }
   @include breakpoint(mobile) {
     font-size: 14px;
-    padding: 10px 24px;
+    padding: 9px 24px;
   }
 
   &.cancel {
@@ -94,7 +89,7 @@ button {
 .row {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 
   &-title {
     font-size: 14px;
@@ -127,6 +122,11 @@ button {
       height: 100%;
       width: 100%;
       border: none;
+    }
+    input[type='text'],
+    input[type='tel'],
+    input[type='email'] {
+      font-size: 14px;
     }
     .error {
       position: absolute;

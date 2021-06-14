@@ -63,20 +63,27 @@
     border-radius: 4px;
     margin-right: 10px;
     padding: 0 15px;
-    font-size: 16px;
 
     &.error {
       border-color: tomato;
     }
 
     @include breakpoint(tablet) {
-      font-size: 14px;
       height: 44px;
     }
     @include breakpoint(mobile) {
-      font-size: 12px;
       height: 32px;
       width: 100%;
+    }
+  }
+
+  input[type='tel'] {
+    font-size: 16px;
+    @include breakpoint(tablet) {
+      font-size: 14px;
+    }
+    @include breakpoint(mobile) {
+      font-size: 12px;
     }
   }
 
