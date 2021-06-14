@@ -1,8 +1,34 @@
 @import "../../../shared/styles/variables";
 
-.carousel {
-  display: flex;
-  flex-wrap: wrap;
+::ng-deep {
+  @include breakpoint(mobile) {
+    .swiper-slide {
+      max-width: 320px;
+    }
+  }
+}
+.swiper {
+  &--mobile {
+    display: none;
+  }
+  &--desktop {
+    display: block;
+  }
+  @include breakpoint(mobile) {
+    &--mobile {
+      display: block;
+    }
+    &--desktop {
+      display: none;
+    }
+  }
+}
+
+.carousel {  
+  @include breakpoint(desktop) {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
   &__header {
     padding: 0 16px 16px;

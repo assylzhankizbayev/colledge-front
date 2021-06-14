@@ -2,30 +2,48 @@
 
   <app-title class="carousel__header" [text]="'Что используется'" [verySmall]="true"></app-title>
 
-  <swiper
-    [slidesPerView]="3"
-    [spaceBetween]="5"
-    [navigation]="true"
-    [pagination]="{ clickable: true }"
-    [breakpoints]="{
-      '320': {
-        slidesPerView: 1,
-        spaceBetween: 5
-      },
-      '768': {
-        slidesPerView: 2,
-        spaceBetween: 5
-      },
-      '1024': {
-        slidesPerView: 3,
-        spaceBetween: 5
-      }
-    }"
-  >
-    <ng-container *ngFor="let item of data">
-      <ng-template swiperSlide>
-        <app-equipment-card [equipment]="item"></app-equipment-card>
-      </ng-template>
-    </ng-container>
-  </swiper>
+  <div class="swiper swiper--mobile">
+    <swiper
+      [slidesPerView]="'auto'"
+      [spaceBetween]="5"
+      [pagination]="{
+        clickable: true
+      }"
+    >
+      <ng-container *ngFor="let item of data">
+        <ng-template swiperSlide>
+          <app-equipment-card [equipment]="item"></app-equipment-card>
+        </ng-template>
+      </ng-container>
+    </swiper>
+  </div>
+
+  <div class="swiper swiper--desktop">
+    <swiper
+      [slidesPerView]="3"
+      [spaceBetween]="5"
+      [navigation]="true"
+      [pagination]="{ clickable: true }"
+      [breakpoints]="{
+        '320': {
+          slidesPerView: 1,
+          spaceBetween: 5
+        },
+        '768': {
+          slidesPerView: 2,
+          spaceBetween: 5
+        },
+        '1024': {
+          slidesPerView: 3,
+          spaceBetween: 5
+        }
+      }"
+    >
+      <ng-container *ngFor="let item of data">
+        <ng-template swiperSlide>
+          <app-equipment-card [equipment]="item"></app-equipment-card>
+        </ng-template>
+      </ng-container>
+    </swiper>
+  </div>
 </div>

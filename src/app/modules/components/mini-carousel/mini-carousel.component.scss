@@ -1,4 +1,26 @@
-img {
-  display: block;
-  margin: 0 auto;
+@import "../../../shared/styles/variables";
+
+::ng-deep {
+  @include breakpoint(mobile) {
+    .mini-carousel-swiper .swiper-slide {
+      max-width: 138px;
+    }
+  }
+}
+
+.swiper {
+  &--mobile {
+    display: none;
+  }
+  &--desktop {
+    display: block;
+  }
+  @include breakpoint(mobile) {
+    &--mobile {
+      display: block;
+    }
+    &--desktop {
+      display: none;
+    }
+  }
 }
