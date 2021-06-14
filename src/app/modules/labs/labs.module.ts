@@ -4,6 +4,7 @@ import { LabsLayoutComponent } from './labs-layout/labs-layout.component';
 import { ComponentsModule } from '../components/components.module';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', component: LabsLayoutComponent }
@@ -18,6 +19,8 @@ const routes: Routes = [
     ComponentsModule,
     MaterialModule,
     RouterModule.forChild(routes),
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class LabsModule { }

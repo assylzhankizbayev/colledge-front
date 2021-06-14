@@ -10,6 +10,7 @@ import { ILab } from 'src/app/core/models/lab';
 export class LabsListComponent implements OnInit {
   @Input() labs: ILab[] = [];
   @Input() showTitle: boolean = true;
+  @Input() downLine: boolean = false;
   
   constructor(private router: Router) { }
 
@@ -17,7 +18,7 @@ export class LabsListComponent implements OnInit {
   }
 
   openLab(id: number) {
-    this.router.navigate(['/labs', id]);
+    this.router.navigate(['/lab', id]);
   }
 
 }

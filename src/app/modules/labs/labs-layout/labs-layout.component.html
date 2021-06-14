@@ -1,54 +1,90 @@
-<div class="no-data flex-start" *ngIf="loading">
-  <mat-progress-bar mode="indeterminate" ></mat-progress-bar>
-</div> 
 
-<ng-container *ngIf="!loading">
-  <div class="section-2"> 
+
+
+  <ng-container *ngIf="type === 'lab'">
+    <div class="no-data flex-start" *ngIf="loading">
+      <mat-progress-bar mode="indeterminate" ></mat-progress-bar>
+    </div> 
+    <ng-container *ngIf="!loading">
+      <div class="section-2"> 
+        <div class="container">
+      
+          <p class="breadcrumb">
+            Лаборатории {{title?'/':''}} {{title}}
+          </p>
+      
+          <h1 class="title">
+            {{lab?.name}}
+          </h1>
+      
+          <p class="desc">
+            {{lab?.desc}}
+          </p>
+      
+          <div class="menu">
+            <button type="button" *ngFor="let m of menu; let i = index;" [class.active]="i === 0">
+              {{m?.name}}
+            </button>
+          </div>
+    
+          <app-title 
+            class="quote" 
+            [text]="'Какие исследования проводятся в нашей лаборатории'" 
+            [big]="true"
+          >
+          </app-title>
+      
+          <app-expansion-panels [researches]="miniResearches"></app-expansion-panels>
+        </div>
+      </div>
+      
+      <section class="equipments-section">
+        <div class="container">
+          <app-equipment-cards [isHeader]="true" [equipments]="equipments">
+          </app-equipment-cards>
+      
+          <div class="margin-bottom"></div>
+      
+          <app-contact-form></app-contact-form>
+        </div>
+      </section>
+    </ng-container>
+  </ng-container>
+
+
+  <ng-container *ngIf="type === 'labs'" >
     <div class="container">
-  
-      <p class="breadcrumb">
-        Лаборатории {{title?'/':''}} {{title}}
-      </p>
-  
-      <h1 class="title">
-        {{lab?.name}}
-      </h1>
-  
-      <p class="desc">
-        {{lab?.desc}}
-      </p>
-  
-      <div class="menu">
-        <button type="button" *ngFor="let m of menu; let i = index;" [class.active]="i === 0">
-          {{m?.name}}
+      <h1 class="title2">Лаборатории коллективного пользования</h1>
+
+      <div class="search-block">
+        <input type="text" class="search-input" placeholder="Поиск" [formControl]="searchControl">
+        <button type="button" class="search-elem"></button>
+      </div>
+
+      <div class="labs">
+        <button class="lab" *ngFor="let ind of industries;" [innerHtml]="ind?.name" 
+          [class.active]="ind?.id === selectedIndustrie?.id">
         </button>
       </div>
-  
-      <!-- <h2 class="quote">
-        Какие исследования проводятся в нашей лаборатории
-      </h2> -->
 
-      <app-title 
-        class="quote" 
-        [text]="'Какие исследования проводятся в нашей лаборатории'" 
-        [big]="true"
-      >
-      </app-title>
-  
-      <app-expansion-panels [researches]="miniResearches"></app-expansion-panels>
+      <div class="no-data flex-start" *ngIf="loading">
+        <mat-progress-bar mode="indeterminate" ></mat-progress-bar>
+      </div> 
+
+      <ng-container *ngIf="!loading">
+        <app-labs-list  
+          *ngIf="labs?.length" 
+          [labs]="labs" 
+          [showTitle]="false"
+          [downLine]="true"
+        >
+        </app-labs-list>
+
+        <div class="no-data" *ngIf="noData">
+          Нет данных по вашему запросу
+        </div>
+      </ng-container>
     </div>
-  </div>
-  
-  <section class="equipments-section">
-    <div class="container">
-      <app-equipment-cards [isHeader]="true" [equipments]="equipments">
-      </app-equipment-cards>
-  
-      <div class="margin-bottom"></div>
-  
-      <app-contact-form></app-contact-form>
-    </div>
-  </section>
-</ng-container>
+  </ng-container>
 
 

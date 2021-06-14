@@ -19,7 +19,7 @@ const routes: Routes = [
     loadChildren: () => import('./modules/labs/labs.module').then(m => m.LabsModule)
   },
   {
-    path: 'labs/:id',
+    path: 'lab/:id',
     loadChildren: () => import('./modules/labs/labs.module').then(m => m.LabsModule)
   },
   {

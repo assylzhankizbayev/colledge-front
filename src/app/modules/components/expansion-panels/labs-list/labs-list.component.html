@@ -10,7 +10,7 @@
   </app-title>
 
   <div class="labs__list">
-    <div class="lab" *ngFor="let lab of labs">
+    <div class="lab" [class.downline]="downLine" *ngFor="let lab of labs">
       <div class="lab__info">
         <div class="lab-title">Лаборатория "{{ lab.name }}"</div>
         <div class="lab-desc">{{ lab.desc }}</div>

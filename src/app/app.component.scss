@@ -1,6 +1,7 @@
 @import "./shared/styles/variables";
 
 .page-outlet {
+  min-height: calc(100vh - 387px);
   @include breakpoint(tablet) {
     margin-top: 100px;
   }

@@ -29,6 +29,8 @@
   display: flex;
   align-items: center;
   margin: 0 0 24px;
+  // margin-top: 10px;
+
 
   @include breakpoint(tablet) {
     display: flex;
@@ -114,6 +116,32 @@
   }
 }
 
-.debbug {
-  border: 1px solid red;
+.downline {
+
+  margin: 0 0 64px;
+  position: relative;
+
+  &:last-child {
+    margin-bottom: 65px;
+  }
+
+  &:not(:last-child)::after {
+    position: absolute;
+    display: block;
+    content: '';
+
+    right: 0;
+    left: 0;
+    bottom: -27px;
+    height: 1px;
+    max-height: 1px;
+
+    border: 1px solid #E0E0E0;
+    background: #E0E0E0;
+
+    @include breakpoint(tablet) {
+      margin-top: 8px;
+    }
+  }
+
 }
