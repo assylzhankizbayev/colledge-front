@@ -10,8 +10,8 @@
   margin-bottom: 40px;
 
   @include breakpoint(mobile) {
-    height: auto;
-    padding: 24px 12px;
+    height: 260px;
+    padding: 16px 12px 32px;
   }
 
   &-title {
@@ -106,9 +106,9 @@
   }
   &-error {
     position: absolute;
-    top: 110%;
+    top: 130%;
     color: tomato;
     font-size: 14px;
-    left: 15px;
+    left: 0;
   }
 }
