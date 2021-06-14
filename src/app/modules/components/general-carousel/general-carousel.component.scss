@@ -31,14 +31,15 @@
   }
 
   &__header {
-    padding: 0 16px 16px;
+    display: block;
+    margin: 0 16px 10px;
 
     @include breakpoint(tablet) {
-      padding: 0 7px 10px;
+      margin: 0 7px 10px;
     }
 
     @include breakpoint(mobile) {
-      padding: 0 0 5px;
+      margin: 0 0 10px 8px;
     }
   }
 }

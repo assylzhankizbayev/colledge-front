@@ -276,18 +276,18 @@
     font-size: 25px;
     line-height: 30px;
     letter-spacing: 0.2px;
-    margin: 10px 0 24px;
+    margin: 10px 0 20px 7px;
 
     @include breakpoint(tablet) {
       font-size: 22px;
       line-height: 28px;
       letter-spacing: 0.2px;
-      margin: 7px 0 14px;
+      margin: 7px 0 14px 5px;
     }
     @include breakpoint(mobile) {
       font-size: 18px;
       line-height: 24px;
-      margin: 5px 0 10px;
+      margin: 12px 0 12px 8px;
     }
   }
 
