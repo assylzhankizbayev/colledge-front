@@ -1,4 +1,4 @@
-<div class="navbar" [class.checked]="isChecked" id="navbar">  
+<div class="navbar" [class.checked]="isChecked" id="navbar" [pageYOffset]="'sticky'">  
   <div class="container">
     <div class="toggle-container" (click)="toggle()">
       <span class="button button-toggle" [class.transform]="isChecked"></span>
@@ -13,7 +13,7 @@
     </nav>
   </div>
 
-  <nav id="nav-mobile" class="navbar-nav navbar-nav--mobile" (click)="toggle()">
+  <nav id="nav-mobile" class="navbar-nav navbar-nav--mobile" (click)="toggle()" [pageYOffset]="'change-bg'">
     <ng-container *ngTemplateOutlet="navItemTemp"></ng-container>
   </nav>
 </div>
