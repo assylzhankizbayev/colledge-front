@@ -1,5 +1,9 @@
 @import '../../../shared/styles/variables';
 
+.debbug {
+  border: 1px solid red;
+}
+
 .equipment-name {
   text-align: center;
   font-family: 'Rubik', sans-serif;
@@ -240,6 +244,10 @@
       height: 50px;
       display: flex;
 
+      @include breakpoint(mobile) {
+        height: 35px;
+      }
+
       & .value {
         @include breakpoint(mobile) {
           padding-left: 10px;
@@ -267,7 +275,7 @@
           font-size: 20px;
         }
         @include breakpoint(mobile) {
-          font-size: 12px;
+          font-size: 13px;
         }
       }
     }
