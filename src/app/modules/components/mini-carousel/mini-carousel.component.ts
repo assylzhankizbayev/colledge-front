@@ -42,7 +42,7 @@ export class MiniCarouselComponent implements OnInit {
         spaceBetween: 5
       },
       '1400': {
-        slidesPerView: 8,
+        slidesPerView: 7,
         spaceBetween: 5
       }
     }
