@@ -10,28 +10,16 @@ $transition-delay: 0.05s;
   position: relative;
 
   @include breakpoint(tablet) {
-    display: block;
-    width: 100%;
-    margin: 0;
-  }
-  @include breakpoint(ipad, landscape) {
-    display: flex;
-    margin: 0 auto;
-    width: 95%;
-  }
-  @include breakpoint(ipadpro) {
-    display: flex;
-    margin: 0 auto;
-    width: 95%;
-  }
-  @include breakpoint(mobile) {
     display: flex;
     align-items: center;
     margin: 0;
     padding: 0 20px;
-    height: 80px;
+    height: 100px;
     width: 100%;
     z-index: 1;
+  }
+  @include breakpoint(mobile) {
+    height: 80px;
   }
 }
 
@@ -48,19 +36,9 @@ $transition-delay: 0.05s;
     top: 0;
     left: 0;
     right: 0;
-    padding: 42px 20px 16px;
+    padding: 0;
     min-height: 100px;
     width: 100%;
-  }
-  @include breakpoint(ipad, landscape) {
-    padding: 20px 0;
-  }
-  @include breakpoint(ipadpro) {
-    padding: 24px 0 20px;
-  }
-  @include breakpoint(mobile) {
-    padding: 0;
-    min-height: 80px; 
 
     &.checked {
       box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
@@ -85,6 +63,16 @@ $transition-delay: 0.05s;
       }
     }
   }
+  @include breakpoint(ipad, landscape) {
+    padding: 20px 0;
+  }
+  @include breakpoint(ipadpro) {
+    padding: 24px 0 20px;
+  }
+  @include breakpoint(mobile) {
+    padding: 0;
+    min-height: 80px;
+  }
 
   &.sticky {
     background-color: #fff;
@@ -98,15 +86,10 @@ $transition-delay: 0.05s;
   &-brand {
     @include breakpoint(tablet) {
       position: absolute;
-      top: -16px;
+      top: 50%;
       left: 50%;
-      transform: translateX(-50%);
-      height: 40px;
-
-      img {
-        width: 100%;
-        height: auto;
-      }
+      transform: translate(-50%, -50%);
+      height: 50px;
     }
     @include breakpoint(ipad, landscape) {
       position: relative;
@@ -131,13 +114,6 @@ $transition-delay: 0.05s;
         width: auto;
         height: auto;
       }
-    }
-    @include breakpoint(mobile) {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      height: 50px;
     }
   } 
 
