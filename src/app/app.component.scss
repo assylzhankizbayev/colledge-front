@@ -9,3 +9,9 @@
     margin-top: 80px;
   }
 }
+
+.top-offset {
+  @include breakpoint(desktop) {
+    margin-top: 111px;
+  }  
+}

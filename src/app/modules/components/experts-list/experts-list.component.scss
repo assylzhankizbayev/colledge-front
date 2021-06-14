@@ -1,5 +1,29 @@
 @import "../../../shared/styles/variables";
 
+::ng-deep {
+  @include breakpoint(mobile) {
+    .swiper-slide {
+      max-width: 320px;
+    }
+  }
+}
+.swiper {
+  &--mobile {
+    display: none;
+  }
+  &--desktop {
+    display: block;
+  }
+  @include breakpoint(mobile) {
+    &--mobile {
+      display: block;
+    }
+    &--desktop {
+      display: none;
+    }
+  }
+}
+
 .experts {
   &-inner {
     display: flex;
@@ -13,13 +37,13 @@
 
   &__title {    
     display: block;
-    padding: 0 16px 16px;
+    margin: 0 16px 16px;
 
     @include breakpoint(tablet) {
-      padding: 0 7px 10px;
+      margin: 0 7px 10px;
     }
     @include breakpoint(mobile) {
-      padding: 0 0 5px;
+      margin: 0 0 16px 8px;
     }
   }
 

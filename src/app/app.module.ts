@@ -9,8 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { MaterialModule } from './modules/material/material.module';
 import { HttpClientModule } from '@angular/common/http';
-import { SeparatorPipe } from './shared/pipes/separator.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PageYOffsetDirective } from './shared/directives/page-y-offset.directive';
 
 @NgModule({
   declarations: [
@@ -18,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PageNotFoundComponent,
     HeaderComponent,
     FooterComponent,
+    PageYOffsetDirective
   ],
   imports: [
     BrowserModule,
@@ -26,7 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
