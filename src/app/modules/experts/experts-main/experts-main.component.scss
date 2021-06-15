@@ -1,3 +1,5 @@
+@import "../../../shared/styles/variables";
+
 .page-title {
   color: #272D4E;
   font-size: 40px;
@@ -7,9 +9,28 @@
   margin-bottom: 32px;
   padding: 0 160px;
   text-align: center;
+
+  @include breakpoint(tablet) {
+    font-size: 32px;
+    line-height: 36px;
+    margin-bottom: 16px;
+    padding: 0;
+  }
+  @include breakpoint(mobile) {
+    font-size: 24px;
+    line-height: 28px;
+    padding: 0;
+  }
 }
 
 .lab-experts {
   display: block;
   margin-bottom: 42px;
+
+  @include breakpoint(tablet) {
+    margin-bottom: 32px;
+  }
+  @include breakpoint(mobile) {
+    margin-bottom: 24px;
+  }
 }
