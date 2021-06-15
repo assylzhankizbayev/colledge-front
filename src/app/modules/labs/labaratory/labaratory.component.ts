@@ -68,6 +68,9 @@ export class LabaratoryComponent implements OnInit {
             this.loadEquipments(this.labId);
           }
         }
+        console.log(res);
+        console.log(this.lab);
+
       });
   }
 
