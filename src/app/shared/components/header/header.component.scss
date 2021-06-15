@@ -72,11 +72,7 @@ $transition-delay: 0.05s;
       }
     }
   }
-  @include breakpoint(ipadpro) {
-    padding: 24px 0 20px;
-  }
   @include breakpoint(mobile) {
-    padding: 0;
     min-height: 80px;
   }
 

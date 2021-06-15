@@ -17,7 +17,7 @@
         <div class="row">
           <div class="row-title">Телефон</div>
           <div class="row-input" [class.error]="getPhoneErrorMessage()">
-            <input type="text" formControlName="phone" prefix="+7" mask="(000) 000 00 00">
+            <input type="tel" formControlName="phone" prefix="+7" mask="(000) 000 00 00">
             <div class="error">
               {{getPhoneErrorMessage()}}
             </div>
