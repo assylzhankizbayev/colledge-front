@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { IExpert } from 'src/app/core/models/expert';
-import { ConsultationFormComponent } from '../../consultation-form/consultation-form.component';
+import { ConsultationFormComponent } from '../consultation-form/consultation-form.component';
 
 @Component({
   selector: 'app-expert',
@@ -9,7 +9,7 @@ import { ConsultationFormComponent } from '../../consultation-form/consultation-
   styleUrls: ['./expert.component.scss']
 })
 export class ExpertComponent implements OnInit {
-  @Input() expert!: IExpert;
+  @Input() expert?: IExpert;
   
   constructor(private dialog: MatDialog) { }
 
@@ -22,5 +22,4 @@ export class ExpertComponent implements OnInit {
       data: {hedTitle: 'Получить консультацию'}
     });
   }
-
 }

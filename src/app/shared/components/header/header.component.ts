@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
     { id: 1, name: 'Главная', router: 'main', isClick: true },
     { id: 2, name: 'Исследования', router: 'research' },
     { id: 3, name: 'Лаборатории', router: 'labs', isClick: true },
-    { id: 4, name: 'Специалисты', router: 'experts' },
+    { id: 4, name: 'Специалисты', router: 'experts', isClick: true },
     { id: 5, name: 'Оборудование', router: 'equipment' },
   ];
 

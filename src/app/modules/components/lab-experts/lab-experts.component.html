@@ -1,0 +1,8 @@
+<section class="lab">
+  <h3 class="lab__name" [routerLink]="['/lab', lab?.id]">Лаборатория "{{ lab?.name }}"</h3>
+  <p class="lab__desc">{{ lab?.desc }}</p>
+  <div class="lab__experts">
+    <app-expert class="expert" [expert]="expert" *ngFor="let expert of lab?.experts"></app-expert>
+  </div>
+  <button class="lab__load-more">Загрузить еще</button>
+</section>

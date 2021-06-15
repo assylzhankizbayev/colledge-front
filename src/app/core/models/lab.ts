@@ -1,3 +1,5 @@
+import { IExpert } from "./expert";
+
 export interface ILab {
     "id": number;
     "name": string;
@@ -6,4 +8,7 @@ export interface ILab {
     "miniResearchIds": string;
     "equipmentIds": string;
     "expertIds": string;
+}
+export interface ILabExperts extends ILab {
+    experts: IExpert[];
 }

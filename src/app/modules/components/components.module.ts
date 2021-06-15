@@ -11,7 +11,7 @@ import { GeneralCarouselComponent } from './general-carousel/general-carousel.co
 import { RouterModule } from '@angular/router';
 import { MiniCarouselComponent } from './mini-carousel/mini-carousel.component';
 import { ExpertsListComponent } from './experts-list/experts-list.component';
-import { ExpertComponent } from './experts-list/expert/expert.component';
+import { ExpertComponent } from './expert/expert.component';
 import { LabsListComponent } from './expansion-panels/labs-list/labs-list.component';
 import { SeparatorPipe } from 'src/app/shared/pipes/separator.pipe';
 import { NgxMaskModule } from 'ngx-mask';
@@ -19,6 +19,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 import { ConsultationFormComponent } from './consultation-form/consultation-form.component';
 import { TitleComponent } from './title/title.component';
 import { SwiperModule } from 'swiper/angular';
+import { LabExpertsComponent } from './lab-experts/lab-experts.component';
 
 @NgModule({
   declarations: [
@@ -29,13 +30,14 @@ import { SwiperModule } from 'swiper/angular';
     EquipmentCardComponent,
     GeneralCarouselComponent,
     MiniCarouselComponent,
-    ExpertsListComponent,
     ExpertComponent,
+    ExpertsListComponent,
+    LabExpertsComponent,
     LabsListComponent,
     SeparatorPipe,
     ConfirmDialogComponent,
     ConsultationFormComponent,
-    TitleComponent
+    TitleComponent,
   ],
   imports: [
     CommonModule,
@@ -52,8 +54,9 @@ import { SwiperModule } from 'swiper/angular';
     EquipmentCardsComponent,
     EquipmentCardComponent,
     GeneralCarouselComponent,
-    ExpertsListComponent,
     ExpertComponent,
+    ExpertsListComponent,
+    LabExpertsComponent,
     LabsListComponent,
     TitleComponent
   ]

@@ -1,0 +1,9 @@
+<div class="flex-start" *ngIf="loading">
+  <mat-progress-bar mode="indeterminate" ></mat-progress-bar>
+</div> 
+
+<div class="container">
+  <h2 class="page-title">Специалисты всех лабораторий коллективного пользования</h2>
+
+  <app-lab-experts class="lab-experts" [lab]="lab" *ngFor="let lab of labExperts"></app-lab-experts>
+</div>
