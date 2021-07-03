@@ -1,86 +1,41 @@
-<!-- <div class="container">
-</div> -->
-
-<div class="container">
-  <h1 class="title">Лаборатории коллективного пользования</h1>
-
-  <div class="search-block">
-    <!-- лаборатории, оборудования,  -->
-    <input type="text" class="search-input" placeholder="Введите название исследования...."
-    [formControl]="searchControl">
-    <button type="button" class="search-elem"></button>
-  </div>
-
-  <div class="labs">
-    <button class="lab" *ngFor="let ind of industries;" [innerHtml]="ind?.name" (click)="selectIndustrie(ind)"
-      [class.active]="ind?.id === selectedIndustrie?.id">
-    </button>
-  </div>
-  
-</div>
-
-<div class="labs-select">
-  <mat-select 
-    class="custom-select" 
-    disableOptionCentering
-    [(ngModel)]="industrieId" 
-  >
-    <mat-option 
-      *ngFor="let ind of industries" 
-      [value]="ind.id" 
-      (click)="selectIndustrie(ind)"
-    >
-      <span [innerHtml]="ind.name"></span>
-    </mat-option>
-  </mat-select>
-</div>
-
-<div class="container">
-  <div class="no-data flex-start" *ngIf="loading">
-    <mat-progress-bar mode="indeterminate" ></mat-progress-bar>
-  </div>  
-
-  <ng-container *ngIf="!loading">
-    <ng-container *ngFor="let ind of industriesEx">
-      <ng-container *ngIf="ind?.id !== -1 && !ind?.hide">
-        <h2 class="sub-title" [innerHtml]="ind?.name"></h2>
-      
-        <div class="row research-cards">
-          <ng-container *ngFor="let item of ind?.research; let i = index;">
-            <div class="card-col" *ngIf="!item?.hide">
-              <div class="research-card-wrapper">
-                <div class="research-card">
-                  <h4 class="research-title">{{item?.name}}</h4>
-                  <div class="research-picture">
-                    <img [src]="'./assets/pics/research/'+item?.id+'.png'" alt="картинка">
-                  </div>
-                  <button 
-                    type="button" 
-                    class="research-detail" 
-                    [routerLink]="['/research', item.id]"
-                    [disabled]="!item?.miniResearchIds"
-                  > Подробнее </button>
-                </div>
-              </div>
-            </div>
-          </ng-container>
-          
+<div class="about">
+  <div class="container">
+    <div class="about__left">
+      <h1 class="title">Высшее образование в юридическом университете в Алматы</h1>
+      <div class="info"> 
+        <div class="info__item"> 
+          <app-icons class="info__icon" icon="building"></app-icons>
+          <p>12 этажное здание: со спортзалом, кабинетами, общежитием, столовой, Wi-Fi</p>
         </div>
-      </ng-container>
-      
-    </ng-container>
-  </ng-container>
-  
-
-
-  <div class="no-data" *ngIf="noData">
-    Нет данных по вашему запросу
+        <div class="info__item"> 
+          <app-icons class="info__icon" icon="diploma"></app-icons>
+          <p>24 года опыта в обучении юристов и финансистов</p>
+        </div>
+        <div class="info__item"> 
+          <app-icons class="info__icon" icon="master"></app-icons>
+          <p>100% трудоустройство после окончания</p>
+        </div>
+        <div class="info__item">
+          <app-icons class="info__icon" icon="analytics"></app-icons>
+          <p>Практика в МВД, КНБ, Суде, Юр. органах, ком. банках, фин. и страх. компаниях, департаменте гос. доходов, ЦОН, аппараты акимов.</p>
+        </div>
+      </div>
+    </div>
   </div>
-  
+</div>
 
 
-<!--   <div class="load-more-wrapper">
-    <button type="button" class="load-more">Загрузить еще</button>
-  </div> -->
-
+<div class="programs">
+  <div class="container">
+    <h2 class="programs-title">Программы</h2>
+    <div class="programs-list">
+      <div class="programs-list__item" *ngFor="let program of programs">
+        <span class="programs-list__title">{{ program.title }}</span>
+        <span class="programs-list__more">
+          Подробнее
+          <app-icons class="programs-list__icon" class="info__icon" icon="arrow"></app-icons>
+        </span>
+      </div>
+    </div>
+  </div>
 </div>

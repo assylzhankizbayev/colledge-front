@@ -29,6 +29,15 @@ export class LayoutComponent implements OnInit {
   noData = false;
   loading = false;
 
+  programs = [
+    { id: 1, title: 'Правоохранительная деятельность' },
+    { id: 2, title: 'Международное право' },
+    { id: 3, title: 'Финансы' },
+    { id: 4, title: 'Юриспруденция' },
+    { id: 5, title: 'Таможенное дело' },
+    { id: 6, title: 'Государственное и местное управление' },
+  ];
+
   constructor(
     private service: CommonService,
     private researchService: ResearchService,
