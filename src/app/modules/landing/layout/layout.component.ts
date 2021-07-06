@@ -7,6 +7,9 @@ import { IResearch } from 'src/app/core/models/research';
 import { CommonService } from 'src/app/core/services/common.service';
 import { ResearchService } from 'src/app/core/services/research.service';
 import { IIndustry, IIndustryEx } from '../interface';
+import SwiperCore, { Navigation, SwiperOptions } from 'swiper/core';
+
+SwiperCore.use([Navigation]);
 
 @Component({
   selector: 'app-layout',
@@ -30,13 +33,61 @@ export class LayoutComponent implements OnInit {
   loading = false;
 
   programs = [
-    { id: 1, title: 'Правоохранительная деятельность' },
-    { id: 2, title: 'Международное право' },
-    { id: 3, title: 'Финансы' },
-    { id: 4, title: 'Юриспруденция' },
-    { id: 5, title: 'Таможенное дело' },
-    { id: 6, title: 'Государственное и местное управление' },
+    { 
+      id: 1, 
+      title: 'Правоохранительная деятельность',
+      img: 'security.jpg'
+    },
+    { 
+      id: 2, 
+      title: 'Международное право',
+      img: 'international.jpg'
+    },
+    { 
+      id: 3, 
+      title: 'Финансы',
+      img: 'finance.jpg'
+    },
+    { 
+      id: 4, 
+      title: 'Юриспруденция',
+      img: 'law.jpg'
+    },
+    { 
+      id: 5, 
+      title: 'Таможенное дело',
+      img: 'express.jpg'
+    },
+    { 
+      id: 6, 
+      title: 'Государственное и местное управление',
+      img: 'team.jpg'
+    },
   ];
+
+  swiperParams: SwiperOptions = {
+    slidesPerView: 5,
+    spaceBetween: 16,
+    loop: true,
+    navigation: {
+      nextEl: '.slide-next',
+      prevEl: '.slide-prev'
+    },
+    breakpoints: {
+      '320': {
+        slidesPerView: 1,
+        spaceBetween: 0
+      },
+      '768': {
+        slidesPerView: 2,
+        spaceBetween: 16
+      },
+      '1024': {
+        slidesPerView: 3,
+        spaceBetween: 16
+      }
+    }
+  };
 
   constructor(
     private service: CommonService,

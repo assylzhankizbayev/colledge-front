@@ -411,16 +411,16 @@
       flex-direction: column;
       align-items: flex-start;
       justify-content: space-between;
-      background-image: url("../../../../assets/pics/finance.jpg");
       background-position: center;
       background-repeat: no-repeat;
+      background-size: cover;
       border-radius: 5px;
       overflow: hidden;
       margin: 0 0 30px;
       padding: 30px 20px 15px;
       transition: all 0.3s;
-      height: 170px;
-      width: 370px;
+      height: 180px;
+      width: 380px;
 
       &:hover {
         box-shadow: 0 6px 10px #0363926e;
@@ -467,8 +467,51 @@
 
     &__icon {
       fill: #ffda7d;
-      width: 12px;
-      height: 12px;
+      width: 16px;
+      height: 16px;
+      margin-left: 3px;
     }
+  }
+}
+
+
+.gallery {
+  margin-bottom: 40px;
+
+  &-title {
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0 0 40px;
+  }
+
+  &-slides {
+    display: flex;
+    align-items: center;
+    margin: 0 -35px;
+    width: calc(100% + 70px);
+  }
+}
+
+.swiper {
+  height: 220px;
+
+  &-img {
+    border-radius: 5px;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.slide {
+  &-icon {
+    cursor: pointer;
+    fill: #031d5b;
+    height: 35px;
+    width: 35px;
+  }
+
+  &-prev {
+    transform: rotate(180deg);
   }
 }

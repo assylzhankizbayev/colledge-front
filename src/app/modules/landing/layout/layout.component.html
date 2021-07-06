@@ -29,12 +29,40 @@
   <div class="container">
     <h2 class="programs-title">Программы</h2>
     <div class="programs-list">
-      <div class="programs-list__item" *ngFor="let program of programs">
+      <div 
+        class="programs-list__item" 
+        *ngFor="let program of programs"
+        [style.backgroundImage]="'url(../../../../assets/pics/' + (program.img ? program.img : 'finance.jpg') +  ')'"
+      >
         <span class="programs-list__title">{{ program.title }}</span>
         <span class="programs-list__more">
           Подробнее
-          <app-icons class="programs-list__icon" class="info__icon" icon="arrow"></app-icons>
+          <app-icons class="programs-list__icon" icon="arrow"></app-icons>
         </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="gallery">
+  <div class="container">
+    <h2 class="gallery-title">Студенческая жизнь</h2>
+  
+    <div class="gallery-slides">
+      <div class="slide-prev">
+        <app-icons class="slide-icon" icon="ctrl"></app-icons>
+      </div>
+  
+      <swiper class="swiper" [config]="swiperParams">
+        <ng-container *ngFor="let slide of [].constructor(8); index as i">
+          <ng-template swiperSlide>
+            <img class="swiper-img" src="assets/pics/students/{{ i + 1 }}.jpg" alt="" />
+          </ng-template>
+        </ng-container>
+      </swiper>
+  
+      <div class="slide-next">
+        <app-icons class="slide-icon" icon="ctrl"></app-icons>
       </div>
     </div>
   </div>

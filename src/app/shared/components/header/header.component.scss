@@ -324,7 +324,7 @@ $transition-delay: 0.05s;
   top: 0;
   width: 100%;
   height: 60px;
-  z-index: 1;
+  z-index: 1000;
 
   &.fixed {
     position: fixed;

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './layout/layout.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SwiperModule } from 'swiper/angular';
 import { MaterialModule } from '../material/material.module';
 import { SharedModule } from '../../shared/shared.module';
 
@@ -20,9 +21,10 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
+    SwiperModule,
     MaterialModule,
     FormsModule,
-    SharedModule
+    SharedModule,
   ],
   exports: [
     RouterModule
