@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
@@ -8,6 +8,8 @@ import { CommonService } from 'src/app/core/services/common.service';
 import { ResearchService } from 'src/app/core/services/research.service';
 import { IIndustry, IIndustryEx } from '../interface';
 import SwiperCore, { Navigation, SwiperOptions } from 'swiper/core';
+
+declare var ymaps: any;
 
 SwiperCore.use([Navigation]);
 
@@ -88,6 +90,8 @@ export class LayoutComponent implements OnInit {
       }
     }
   };
+  map: any;
+  @ViewChild('yaMap', {static: true}) yaMap: ElementRef;
 
   constructor(
     private service: CommonService,
@@ -97,6 +101,20 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit(): void {
     window.scroll(0,0);
+
+    ymaps.ready()
+      .then(() => {
+        this.map = new ymaps.Map(
+          this.yaMap.nativeElement,
+          {
+              center: [43.252188, 76.950253],
+              zoom: 15,
+              controls: []
+          },
+          {searchControlProvider: 'yandex#search'}
+      );
+      })
+      .catch(() => console.log('Failed to load Yandex Maps'));
 
     this.searchControl.valueChanges
     .pipe(
