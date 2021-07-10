@@ -68,6 +68,18 @@
   </div>
 </div>
 
+<div class="news">
+  <div class="container">
+    <h2 class="news-header">Новости</h2>
+    <div class="news-list">
+      <div class="news-list__item" *ngFor="let newsItem of news">
+        <img src="assets/pics/news/news-{{ newsItem.id }}.jpg" alt="" class="news-img">
+        <h4 class="news-title">{{ newsItem.title }}</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="contact">
   <div class="container">
     <div class="contact-map">

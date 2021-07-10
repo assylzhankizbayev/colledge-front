@@ -67,6 +67,25 @@ export class LayoutComponent implements OnInit {
     },
   ];
 
+  news = [
+    {
+      id: 1,
+      title: 'Колледж им. Д.А. Кунаева вошел в рейтинг The Times Higher Education',
+    },
+    {
+      id: 2,
+      title: 'Колледж им. Д.А. Кунаева продолжает расти в рейтинге QS World University Rankings',
+    },
+    {
+      id: 3,
+      title: 'Колледж им. Д.А. Кунаева предлагает дополнительные льготы для вакцинированных студентов и сотрудников',
+    },
+    {
+      id: 4,
+      title: 'Колледж им. Д.А. Кунаева – открытая дверь в мир новых возможностей',
+    }
+  ];
+
   swiperParams: SwiperOptions = {
     slidesPerView: 5,
     spaceBetween: 16,
@@ -82,11 +101,11 @@ export class LayoutComponent implements OnInit {
       },
       '768': {
         slidesPerView: 2,
-        spaceBetween: 16
+        spaceBetween: 24
       },
       '1024': {
         slidesPerView: 3,
-        spaceBetween: 16
+        spaceBetween: 30
       }
     }
   };
