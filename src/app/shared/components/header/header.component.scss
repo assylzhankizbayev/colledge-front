@@ -205,6 +205,7 @@ $transition-delay: 0.05s;
     padding: 10px;
     position: relative;
     pointer-events: none;
+    outline: none;
   
     &.click {
       pointer-events: auto;
@@ -348,6 +349,7 @@ $transition-delay: 0.05s;
       margin-right: 42px;
       text-decoration: none;
       cursor: pointer;
+      outline: none;
       height: 100%;
 
       &:last-of-type {
