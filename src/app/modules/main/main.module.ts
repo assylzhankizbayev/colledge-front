@@ -12,6 +12,7 @@ import { NewsMainComponent } from './news-main/news-main.component';
 import { ProgramsComponent } from './programs/programs.component';
 import { ContactsMainComponent } from './contacts-main/contacts-main.component';
 import { BenefitsComponent } from './benefits/benefits.component';
+import { FeedbackMainComponent } from './feedback-main/feedback-main.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
     ProgramsComponent,
     ContactsMainComponent,
     BenefitsComponent,
+    FeedbackMainComponent,
   ],
   imports: [
     CommonModule,
