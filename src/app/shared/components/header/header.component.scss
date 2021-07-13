@@ -356,14 +356,19 @@ $transition-delay: 0.05s;
         margin-right: 10px;
       }
 
-      &:hover::after {
-        background-color: #fff;
+      &::after {
         content: "";
         position: absolute;
         left: 0;
         bottom: 0;
         right: 0;
         height: 4px;
+        transition: 0.15s all;
+      }
+
+      &:hover::after {
+        background-color: #fff;
+        border-radius: 10px 10px 0 0;
       }
     }
   
