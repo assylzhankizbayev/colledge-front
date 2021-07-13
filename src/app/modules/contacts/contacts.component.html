@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="contacts">
+    <div class="contacts__item">
+      <h2 class="page-title">Контакты</h2>
+      
+      <div class="contacts-details">
+        <div class="contact" *ngFor="let contact of contacts">
+          <ng-container *ngIf="contact.type === 'phone'">
+            <app-icons class="contact__icon" icon="phone"></app-icons>
+          </ng-container>
+          <ng-container *ngIf="contact.type === 'email'">
+            <app-icons class="contact__icon" icon="email"></app-icons>
+          </ng-container>
+          
+          <span 
+            class="contact__value" 
+            [class.link]="contact.type !== 'address'" 
+            [innerHTML]="contact.value"
+          ></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="contacts__item">
+      <h2 class="page-title">Реквизиты</h2>
+
+      <div class="requisite">
+        <span class="requisite__detail">ТОО «Колледж им. Д.А. Кунаева»</span>
+        <span class="requisite__detail">Адрес: г. Алматы, Ауэзовский район, ул. Толе би 303</span>
+        <span class="requisite__detail">РНН 600 300 610 563</span>
+        <span class="requisite__detail">БИН 130 240 029 070</span>
+        <span class="requisite__detail">АГФ АО «АО Банк Центр Кредит»</span>
+        <span class="requisite__detail">ИИК KZ198560000005782015</span>
+        <span class="requisite__detail">БИК KCJBKZKX</span>
+        <span class="requisite__detail">Кбе 17</span>       
+      </div>
+    </div>
+  </div>
+
+  <div class="map">
+    <div id="map" class="ymap" #yaMap></div>
+  </div>
+</div>

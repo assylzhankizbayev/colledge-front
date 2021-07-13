@@ -109,6 +109,7 @@ export class LayoutComponent implements OnInit {
       }
     }
   };
+  
   map: any;
   @ViewChild('yaMap', {static: true}) yaMap: ElementRef;
 
