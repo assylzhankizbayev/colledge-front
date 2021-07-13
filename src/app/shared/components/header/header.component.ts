@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IMenu } from '../../../modules/landing/interface';
+import { IMenu } from '../../../modules/main/interface';
 
 @Component({
   selector: 'app-header',

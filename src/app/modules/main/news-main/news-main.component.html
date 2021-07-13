@@ -1,0 +1,8 @@
+<div class="news">
+  <div class="container">
+    <h2 class="news-header">Новости</h2>
+    <div class="news-list">
+      <app-news-card class="news-list__item" *ngFor="let newsItem of news" [newsItem]="newsItem"></app-news-card>
+    </div>
+  </div>
+</div>

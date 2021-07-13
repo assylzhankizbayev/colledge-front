@@ -1,0 +1,18 @@
+<div class="programs">
+  <div class="container">
+    <h2 class="programs-title">Программы</h2>
+    <div class="programs-list">
+      <div 
+        class="programs-list__item" 
+        *ngFor="let program of programs"
+        [style.backgroundImage]="'url(../../../../assets/pics/' + (program.img ? program.img : 'finance.jpg') +  ')'"
+      >
+        <span class="programs-list__title">{{ program.title }}</span>
+        <span class="programs-list__more">
+          Подробнее
+          <app-icons class="programs-list__icon" icon="arrow"></app-icons>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

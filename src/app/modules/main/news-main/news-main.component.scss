@@ -1,0 +1,14 @@
+.news {
+  margin-bottom: 100px;
+
+  &-header {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 40px;
+  }
+
+  &-list {
+    display: flex;
+    justify-content: space-between;
+  }
+}

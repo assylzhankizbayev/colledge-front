@@ -1,0 +1,23 @@
+<div class="gallery">
+  <div class="container">
+    <h2 class="gallery-title">Студенческая жизнь</h2>
+  
+    <div class="gallery-slides">
+      <div class="slide-prev">
+        <app-icons class="slide-icon" icon="ctrl"></app-icons>
+      </div>
+  
+      <swiper class="swiper" [config]="swiperParams">
+        <ng-container *ngFor="let slide of [].constructor(8); index as i">
+          <ng-template swiperSlide>
+            <img class="swiper-img" src="assets/pics/students/{{ i + 1 }}.jpg" alt="" />
+          </ng-template>
+        </ng-container>
+      </swiper>
+  
+      <div class="slide-next">
+        <app-icons class="slide-icon" icon="ctrl"></app-icons>
+      </div>
+    </div>
+  </div>
+</div>
