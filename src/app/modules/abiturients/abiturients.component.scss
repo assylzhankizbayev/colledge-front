@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+}
+
+.abiturients {
+  &-main {
+    flex: 1;
+    padding-left: 24px;
+  }
+}
+
+.article {
+  &-list {
+    display: flex;
+    flex-direction: column;
+
+    &__item {
+      margin-bottom: 16px;
+    }
+  }
+
+  &-title {
+    color: #4a6d89;
+    font-size: 22px;
+    line-height: 32px;
+  }
+
+  &-more {
+    display: flex;
+    align-items: center;
+
+    &__icon {
+      fill: #000;
+      height: 12px;
+      width: 12px;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  max-width: 280px;
+  width: 100%;
+
+  &__item {
+    border-bottom: 1px solid #005dac;
+    cursor: pointer;
+    padding: 12px;
+    font-size: 14px;
+    transition: 0.2s all;
+
+    &:hover {
+      background-color: #005dac;
+      color: #fff;
+    }
+
+    &:last-child {
+      border: none;
+    }
+  }
+}

@@ -11,13 +11,15 @@ import { NewsCardComponent } from "./components/news-card/news-card.component";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
 import { PageYOffsetDirective } from "./directives/page-y-offset.directive";
 import { SeparatorPipe } from "./pipes/separator.pipe";
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 const components = [
   HeaderComponent,
   FooterComponent,
   IconsComponent,
   PageNotFoundComponent,
-  NewsCardComponent
+  NewsCardComponent,
+  SidebarComponent
 ];
 const pipes = [
   SeparatorPipe

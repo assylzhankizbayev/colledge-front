@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'news',
     loadChildren: () => import('./modules/news/news.module').then(m => m.NewsModule)
+  },
+  {
+    path: 'for-abiturients',
+    loadChildren: () => import('./modules/abiturients/abiturients.module').then(m => m.AbiturientsModule)
   }
 ];
 
