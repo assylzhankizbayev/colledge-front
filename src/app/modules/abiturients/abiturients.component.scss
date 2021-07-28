@@ -3,6 +3,8 @@
 }
 
 .abiturients {
+  margin-top: 24px;
+
   &-main {
     flex: 1;
     padding-left: 24px;
@@ -15,24 +17,67 @@
     flex-direction: column;
 
     &__item {
-      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      padding: 16px;
     }
   }
 
+  &-date {
+    color: #005dac;
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+
   &-title {
-    color: #4a6d89;
-    font-size: 22px;
+    border-bottom: 1px solid #4d4d4d;
+    color: #4d4d4d;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 500;
     line-height: 32px;
+    margin-bottom: 12px;
+    padding-bottom: 4px;
+    width: 100%;
+    transition: 0.2s all;
+
+    &:hover {
+      color: #005dac;
+      border-color: #005dac;
+    }
+  }
+
+  &-desk {
+    color: #5c5c5c;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 12px;
   }
 
   &-more {
     display: flex;
     align-items: center;
+    background-color: #005dac;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 15px 24px;
+    transition: 0.2s all;
+
+    &:hover {
+      background-color: #4d4d4d;
+    }
 
     &__icon {
-      fill: #000;
+      fill: #fff;
       height: 12px;
       width: 12px;
+      margin-left: 4px;
     }
   }
 }
