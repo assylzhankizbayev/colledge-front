@@ -1,14 +1,14 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  max-width: 280px;
-  width: 100%;
+  border-right: 4px solid #005dac;
+  min-width: 290px;
 
   &__item {
-    border-bottom: 1px solid #005dac;
     cursor: pointer;
-    padding: 12px;
+    padding: 10px 12px;
     font-size: 14px;
+    line-height: 20px;
     transition: 0.2s all;
 
     &:hover {
