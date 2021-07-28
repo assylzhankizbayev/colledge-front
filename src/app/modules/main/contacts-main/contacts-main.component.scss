@@ -12,7 +12,7 @@
 
   &-details {
     flex: 0 0 50%;
-    padding: 50px 0 0 70px;
+    padding: 20px 0 0 70px;
 
     &__title {
       color: #4a6d89;
@@ -35,6 +35,10 @@
     align-items: flex-start;
     margin-bottom: 24px;
     text-decoration: none;
+
+    &--fluid {
+      flex: 0 0 100%;
+    }
 
     &__main {
       color: #000;

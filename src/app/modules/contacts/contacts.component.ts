@@ -9,12 +9,19 @@ declare var ymaps: any;
 })
 export class ContactsComponent implements OnInit {
   contacts = [
-    { id: 1, value: '+7 (701) 233-58-88 (call-center)', type: 'phone' },
-    { id: 2, value: '+7 (727) 350-78-88', type: 'phone' },
-    { id: 3, value: '+7 (727) 292-98-77 (факс)', type: 'phone' },
-    { id: 4, value: 'info@test.kz', type: 'email' },
-    { id: 5, value: 'Республика Казахстан, г. Алматы, <br>ул. Курмангазы 107 (уг.ул. Байтурсынова)', type: 'address' }
+    { id: 1, value: '+7 (727) 228-18-97', type: 'phone' },
+    { id: 2, value: '+7 (701) 513-11-55', type: 'phone' },
+    { id: 3, value: '+7 (747) 063-80-10', type: 'phone' },
+    { id: 4, value: 'kunaev_college@mail.ru', type: 'email' },
+    { id: 5, value: 'd.a.konaeva@mail.ru', type: 'email' },
+    { id: 6, value: 'Республика Казахстан, г. Алматы, ул. Толе би, 303', type: 'address' }
   ];
+
+  directorsContacts = [
+    { id: 1, value: '+7 (727) 228-17-52', type: 'phone' },
+    { id: 2, value: '+7 (701) 457-20-94', type: 'phone' }
+  ];
+
   map: any;
   @ViewChild('yaMap', {static: true}) yaMap: ElementRef;
 
@@ -26,7 +33,7 @@ export class ContactsComponent implements OnInit {
         this.map = new ymaps.Map(
           this.yaMap.nativeElement,
           {
-              center: [43.252188, 76.950253],
+              center: [43.242358, 76.842339],
               zoom: 15,
               controls: []
           },

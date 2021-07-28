@@ -20,7 +20,7 @@ export class ContactsMainComponent implements OnInit {
         this.map = new ymaps.Map(
           this.yaMap.nativeElement,
           {
-              center: [43.252188, 76.950253],
+              center: [43.242358, 76.842339],
               zoom: 15,
               controls: []
           },

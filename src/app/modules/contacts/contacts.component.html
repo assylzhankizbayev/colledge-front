@@ -1,10 +1,28 @@
 <div class="container">
   <div class="contacts">
-    <div class="contacts__item">
+    <div class="contacts__item contacts__item--main">
       <h2 class="page-title">Контакты</h2>
       
       <div class="contacts-details">
         <div class="contact" *ngFor="let contact of contacts">
+          <ng-container *ngIf="contact.type === 'phone'">
+            <app-icons class="contact__icon" icon="phone"></app-icons>
+          </ng-container>
+          <ng-container *ngIf="contact.type === 'email'">
+            <app-icons class="contact__icon" icon="email"></app-icons>
+          </ng-container>
+          
+          <span 
+            class="contact__value" 
+            [class.link]="contact.type !== 'address'" 
+            [innerHTML]="contact.value"
+          ></span>
+        </div>
+      </div>
+      
+      <div class="contacts-details contacts-details--directors">
+        <h3 class="block-title">Приемная директора</h3>
+        <div class="contact" *ngFor="let contact of directorsContacts">
           <ng-container *ngIf="contact.type === 'phone'">
             <app-icons class="contact__icon" icon="phone"></app-icons>
           </ng-container>

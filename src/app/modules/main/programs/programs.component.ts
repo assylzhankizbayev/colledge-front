@@ -9,33 +9,33 @@ export class ProgramsComponent implements OnInit {
   programs = [
     { 
       id: 1, 
-      title: 'Правоохранительная деятельность',
-      img: 'security.jpg'
+      title: 'Успешное трудоустройство',
+      img: 'career.png'
     },
     { 
       id: 2, 
-      title: 'Международное право',
-      img: 'international.jpg'
+      title: 'Курсы английского языка, казахского языка',
+      img: 'english.jpg'
     },
     { 
       id: 3, 
-      title: 'Финансы',
-      img: 'finance.jpg'
+      title: 'Спортивные секции, тренажерный зал',
+      img: 'gym.jpg'
     },
     { 
       id: 4, 
-      title: 'Юриспруденция',
+      title: 'Бесплатная юридическая консультация',
       img: 'law.jpg'
     },
     { 
       id: 5, 
-      title: 'Таможенное дело',
-      img: 'express.jpg'
+      title: 'Гибкая система оплаты за обучение',
+      img: 'payment.jpg'
     },
     { 
       id: 6, 
-      title: 'Государственное и местное управление',
-      img: 'team.jpg'
+      title: 'Общежитие',
+      img: 'dormitory.jpg'
     },
   ];
 

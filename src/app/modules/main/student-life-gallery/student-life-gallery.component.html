@@ -8,9 +8,9 @@
       </div>
   
       <swiper class="swiper" [config]="swiperParams">
-        <ng-container *ngFor="let slide of [].constructor(8); index as i">
+        <ng-container *ngFor="let slide of [].constructor(5); index as i">
           <ng-template swiperSlide>
-            <img class="swiper-img" src="assets/pics/students/{{ i + 1 }}.jpg" alt="" />
+            <img class="swiper-img" src="assets/pics/students/{{ i + 1 }}.png" alt="" />
           </ng-template>
         </ng-container>
       </swiper>
