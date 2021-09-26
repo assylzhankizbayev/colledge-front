@@ -9,16 +9,15 @@ declare var ymaps: any;
 })
 export class ContactsComponent implements OnInit {
   contacts = [
-    { id: 1, value: '+7 (727) 228-18-97', type: 'phone' },
-    { id: 2, value: '+7 (701) 513-11-55', type: 'phone' },
-    { id: 3, value: '+7 (747) 063-80-10', type: 'phone' },
+    { id: 1, value: '+7 (727) 238-12-99', type: 'phone' },
+    { id: 3, value: '+7 (747) 380-33-12', type: 'phone' },
     { id: 4, value: 'kunaev_college@mail.ru', type: 'email' },
     { id: 5, value: 'd.a.konaeva@mail.ru', type: 'email' },
     { id: 6, value: 'Республика Казахстан, г. Алматы, ул. Толе би, 303', type: 'address' }
   ];
 
   directorsContacts = [
-    { id: 1, value: '+7 (727) 228-17-52', type: 'phone' },
+    { id: 1, value: '+7 (727) 238-13-04', type: 'phone' },
     { id: 2, value: '+7 (701) 457-20-94', type: 'phone' }
   ];
 

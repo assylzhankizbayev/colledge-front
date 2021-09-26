@@ -10,14 +10,13 @@ export class SidebarComponent implements OnInit {
     { title: 'Главная', route: '' },
     { title: 'Аккредитация', route: '' },
     { title: 'О колледже', route: '' },
-    { title: 'Учебная часть', route: '' },
-    { title: 'Профессиональная практика', route: '' },
-    { title: 'Социально-психологическая служба', route: '' },
-    { title: 'Спорт', route: '' },
-    { title: 'Молодежная политика', route: '' },
+    { title: 'Блог Директора', route: '' },
+    { title: 'Учебно-методологическая работа', route: '' },
+    { title: 'Воспитательная работа', route: '' },
     { title: 'Профориентационная работа', route: '' },
     { title: 'Информация для родителей', route: '' },
-    { title: 'Жас маман', route: '' }
+    { title: 'Профессиональная практика', route: '' },
+    { title: 'Спортивные достижения', route: '' }
   ];
   
   constructor() { }
