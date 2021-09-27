@@ -12,6 +12,8 @@ import { PageNotFoundComponent } from "./components/page-not-found/page-not-foun
 import { PageYOffsetDirective } from "./directives/page-y-offset.directive";
 import { SeparatorPipe } from "./pipes/separator.pipe";
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { NewsSidebarComponent } from './components/news-sidebar/news-sidebar.component';
+import { MatButtonModule } from "@angular/material/button";
 
 const components = [
   HeaderComponent,
@@ -19,7 +21,8 @@ const components = [
   IconsComponent,
   PageNotFoundComponent,
   NewsCardComponent,
-  SidebarComponent
+  SidebarComponent,
+  NewsSidebarComponent
 ];
 const pipes = [
   SeparatorPipe
@@ -33,7 +36,8 @@ const modules = [
   ReactiveFormsModule,
   FormsModule,
   NgxMaskModule,
-  MaterialModule
+  MaterialModule,
+  MatButtonModule
 ];
 
 @NgModule({
@@ -50,3 +54,4 @@ const modules = [
   ]
 })
 export class SharedModule {}
+

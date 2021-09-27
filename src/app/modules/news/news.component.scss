@@ -1,8 +1,18 @@
 .news {
   padding: 80px 0;
 
+  &-body {
+    display: flex;
+    justify-content: space-between;
+  }
+
   &-list {
     display: flex;
     flex-direction: column;
+  }
+
+  &-sidebar {
+    flex: 0 0 350px;
+    margin-left: 32px;
   }
 }

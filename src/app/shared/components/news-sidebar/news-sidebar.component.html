@@ -1,0 +1,39 @@
+<div class="sidebar">
+  <section class="section search">
+    <!-- <h3 class="section__header">Поиск</h3> -->
+    <div class="search-form">
+      <input
+        class="search-form__input"
+        type="button"
+        value="Поиск..."
+      />
+      <button class="search-form__btn">
+
+      </button>
+    </div>
+  </section>
+
+  <section class="section category">
+    <h3 class="section__header">Категории</h3>
+
+    <ul class="categories">
+      <li class="categories__item">Блог Директора</li>
+      <li class="categories__item">Новости</li>
+      <li class="categories__item">Галерея</li>
+      <li class="categories__item">Контакты</li>
+    </ul>
+  </section>
+
+  <section class="section archive">
+    <h3 class="section__header">Архив новостей</h3>
+
+    <div class="archive-list">
+      <div
+        class="archive-list__item"
+        *ngFor="let month of months"
+      >
+        {{ month }} 2021 г.
+      </div>
+    </div>
+  </section>
+</div>
