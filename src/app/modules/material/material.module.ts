@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
+import {MatListModule} from '@angular/material/list';
 
 const modules = [
   MatRippleModule,
@@ -15,7 +16,8 @@ const modules = [
   MatButtonModule,
   MatDialogModule,
   MatProgressSpinnerModule,
-  MatSelectModule
+  MatSelectModule,
+  MatListModule
 ]
 
 @NgModule({

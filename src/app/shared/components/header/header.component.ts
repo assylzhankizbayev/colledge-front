@@ -16,6 +16,13 @@ export class HeaderComponent implements OnInit {
     { id: 5, name: 'Контакты', router: 'contacts', isClick: true },
   ];
 
+  subMenu: IMenu[] = [
+    { id: 1, name: 'Абитуриентам', router: '/for-abiturients', isClick: true },
+    { id: 2, name: 'Специальности', router: '/specialties', isClick: true },
+    { id: 3, name: 'Галерея', router: '', isClick: false },
+    { id: 4, name: 'Новости', router: '/news', isClick: true },
+  ];
+
   constructor() {}
 
   ngOnInit(): void {}

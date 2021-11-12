@@ -4,8 +4,12 @@
       <span class="button button-toggle" [class.transform]="isChecked"></span>
     </div>
 
-    <a href="https://satbayev.university/ru" target="_blank" class="navbar-brand">
-      <img src="./assets/pics/logo.jpg" alt="logo">
+    <a
+      href="https://satbayev.university/ru"
+      target="_blank"
+      class="navbar-brand"
+    >
+      <img src="./assets/pics/logo.jpg" alt="logo" />
       Колледж им. Д.А.Кунаева
     </a>
 
@@ -14,7 +18,12 @@
     </nav>
   </div>
 
-  <nav id="nav-mobile" class="navbar-nav navbar-nav--mobile" (click)="toggle()" [pageYOffset]="'change-bg'">
+  <nav
+    id="nav-mobile"
+    class="navbar-nav navbar-nav--mobile"
+    (click)="toggle()"
+    [pageYOffset]="'change-bg'"
+  >
     <ng-container *ngTemplateOutlet="navItemTemp"></ng-container>
   </nav>
 </div>
@@ -23,10 +32,15 @@
     <nav class="nav">
       <a href="#" class="nav-item">Главная</a>
       <div class="nav-group">
-        <a [routerLink]="['/for-abiturients']" class="nav-item">Абитуриентам</a>
-        <a [routerLink]="['/specialties']" class="nav-item">Специальности</a>
-        <a href="#" class="nav-item">Галерея</a>
-        <a [routerLink]="['/news']" class="nav-item">Новости</a>
+        <a
+          class="nav-item"
+          *ngFor="let menu of subMenu"
+          routerLinkActive="active"
+          routerLink="{{ menu.router }}"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          {{ menu.name }}
+        </a>
       </div>
     </nav>
   </div>
@@ -37,9 +51,9 @@
     class="nav-item"
     [class.click]="m?.isClick"
     *ngFor="let m of menu"
-    [routerLink]="['/'+m?.router]"
+    [routerLink]="['/' + m?.router]"
     routerLinkActive="active"
   >
-    {{m?.name}}
+    {{ m?.name }}
   </a>
 </ng-template>

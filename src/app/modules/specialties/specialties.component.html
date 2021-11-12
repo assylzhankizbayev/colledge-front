@@ -1,0 +1,23 @@
+<div class="specialties">
+  <div class="container">
+    <app-sidebar></app-sidebar>
+
+    <div class="specialties-main">
+      <h2 class="page-title">Специальности</h2>
+
+      <h4 class="article-title">
+        Колледж имени Д.А.Кунаева на 2021-2022 учебный год открывают новые
+        специальности:
+      </h4>
+
+      <mat-selection-list #shoes [multiple]="false">
+        <mat-list-option
+          *ngFor="let spec of specialties; index as i"
+          [value]="spec"
+        >
+          {{ i + 1 }}) {{ spec }}
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+  </div>
+</div>
