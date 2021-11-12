@@ -1,4 +1,4 @@
-<div class="navbar" [class.checked]="isChecked" id="navbar">  
+<div class="navbar" [class.checked]="isChecked" id="navbar">
   <div class="container">
     <div class="toggle-container" (click)="toggle()">
       <span class="button button-toggle" [class.transform]="isChecked"></span>
@@ -8,7 +8,7 @@
       <img src="./assets/pics/logo.jpg" alt="logo">
       Колледж им. Д.А.Кунаева
     </a>
-    
+
     <nav class="navbar-nav navbar-nav--desktop">
       <ng-container *ngTemplateOutlet="navItemTemp"></ng-container>
     </nav>
@@ -23,8 +23,8 @@
     <nav class="nav">
       <a href="#" class="nav-item">Главная</a>
       <div class="nav-group">
-        <a href="#" class="nav-item">Поступление</a>
-        <a href="#" class="nav-item">Специальные программы</a>
+        <a [routerLink]="['/for-abiturients']" class="nav-item">Абитуриентам</a>
+        <a [routerLink]="['/specialties']" class="nav-item">Специальности</a>
         <a href="#" class="nav-item">Галерея</a>
         <a [routerLink]="['/news']" class="nav-item">Новости</a>
       </div>
@@ -33,12 +33,12 @@
 </div>
 
 <ng-template #navItemTemp>
-  <a 
-    class="nav-item" 
+  <a
+    class="nav-item"
     [class.click]="m?.isClick"
-    *ngFor="let m of menu" 
-    [routerLink]="['/'+m?.router]" 
-    routerLinkActive="active" 
+    *ngFor="let m of menu"
+    [routerLink]="['/'+m?.router]"
+    routerLinkActive="active"
   >
     {{m?.name}}
   </a>

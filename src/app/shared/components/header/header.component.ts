@@ -10,10 +10,9 @@ export class HeaderComponent implements OnInit {
   isChecked = false;
 
   menu: IMenu[] = [
-    { id: 1, name: 'Об колледже', router: 'about', isClick: true },
-    { id: 2, name: 'Абитуриентам', router: 'for-abiturients', isClick: true },
-    { id: 3, name: 'Специальности', router: 'specialties', isClick: true },
-    // { id: 4, name: 'Кафедры', router: 'cafedras', isClick: true },
+    { id: 1, name: 'О колледже', router: 'about', isClick: true },
+    { id: 2, name: 'Достижения', router: 'achievements', isClick: true },
+    { id: 3, name: 'Лицензии', router: 'licence', isClick: true },
     { id: 5, name: 'Контакты', router: 'contacts', isClick: true },
   ];
 
