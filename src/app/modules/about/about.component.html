@@ -1,0 +1,11 @@
+<div class="about">
+  <div class="container">
+    <app-sidebar></app-sidebar>
+
+    <div class="about-main">
+      <h2 class="page-title" [innerText]="title$ | async"></h2>
+
+      <div class="about-content" [innerHTML]="body$ | async"></div>
+    </div>
+  </div>
+</div>
