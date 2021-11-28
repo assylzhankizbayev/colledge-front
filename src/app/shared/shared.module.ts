@@ -14,6 +14,7 @@ import { SeparatorPipe } from "./pipes/separator.pipe";
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NewsSidebarComponent } from './components/news-sidebar/news-sidebar.component';
 import { MatButtonModule } from "@angular/material/button";
+import { ImgThumbsComponent } from './components/img-thumbs/img-thumbs.component';
 
 const components = [
   HeaderComponent,
@@ -22,7 +23,8 @@ const components = [
   PageNotFoundComponent,
   NewsCardComponent,
   SidebarComponent,
-  NewsSidebarComponent
+  NewsSidebarComponent,
+  ImgThumbsComponent
 ];
 const pipes = [
   SeparatorPipe
@@ -50,7 +52,7 @@ const modules = [
   exports: [
     ...components,
     ...directives,
-    ...pipes
+    ...pipes,
   ]
 })
 export class SharedModule {}
