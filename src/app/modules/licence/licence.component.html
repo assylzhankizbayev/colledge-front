@@ -1,0 +1,17 @@
+<div class="licences">
+  <div class="container">
+    <app-sidebar></app-sidebar>
+
+    <div class="licences-main">
+      <h2 class="page-title" [innerText]="title$ | async"></h2>
+
+      <div class="licences-list" *ngIf="licences$ | async as licences">
+        <app-img-thumbs
+          class="licences-list__item"
+          *ngFor="let licenceImg of licences"
+          [img]="licenceImg"
+        ></app-img-thumbs>
+      </div>
+    </div>
+  </div>
+</div>

@@ -24,6 +24,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/achievements/achievements.module').then(m => m.AchievementsModule)
   },
   {
+    path: 'licence',
+    loadChildren: () => import('./modules/licence/licence.module').then(m => m.LicenceModule)
+  },
+  {
     path: 'for-abiturients',
     loadChildren: () => import('./modules/abiturients/abiturients.module').then(m => m.AbiturientsModule)
   },

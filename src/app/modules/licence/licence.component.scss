@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+}
+
+.licences {
+  margin: 24px 0;
+
+  &-main {
+    flex: 1;
+  }
+
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item {
+      margin-bottom: 1.25rem;
+
+      & + & {
+        margin-left: 1.25rem;
+      }
+    }
+  }
+}
