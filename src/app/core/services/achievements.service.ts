@@ -1,14 +1,17 @@
 import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { Inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { IEnvironment } from "../models/environments.model";
+import { ENV } from "../../app.token";
 
 @Injectable()
 export class AchievementsService {
-  private readonly host = 'http://localhost:3000';
-
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    @Inject(ENV) private env: IEnvironment
+  ) {}
 
   getAchievements(): Observable<any[]> {
-    return this.http.get<any[]>(this.host + '/achievements');
+    return this.http.get<any[]>(this.env.host + '/achievements');
   }
 }

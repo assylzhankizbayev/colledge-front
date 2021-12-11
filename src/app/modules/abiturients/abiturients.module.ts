@@ -4,7 +4,7 @@ import { AbiturientsComponent } from './abiturients.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
 import { FormsModule } from '@angular/forms';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { SharedModule } from '../../../app/shared/shared.module';
 
 const routes: Routes = [
   { path: '', component: AbiturientsComponent }
@@ -17,8 +17,6 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    // ReactiveFormsModule,
-    // SwiperModule,
     MaterialModule,
     FormsModule,
     SharedModule,

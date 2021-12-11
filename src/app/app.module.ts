@@ -8,6 +8,8 @@ import { MaterialModule } from './modules/material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
+import { environment } from '../environments/environment';
+import { ENV } from './app.token';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,7 @@ import { SharedModule } from './shared/shared.module';
     ReactiveFormsModule,
     SharedModule
   ],
-  providers: [],
+  providers: [{ provide: ENV, useValue: environment }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
