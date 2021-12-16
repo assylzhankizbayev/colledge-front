@@ -47,10 +47,16 @@ html.cdk-global-scrollblock body {
   line-height: 16px;
 }
 
-.page-title {
-  font-size: 28px;
+.page-title, h2 {
+  font-size: 1.75rem;
   font-weight: 400;
-  margin-bottom: 12px;
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 0.75rem;
 }
 
 .article-title {

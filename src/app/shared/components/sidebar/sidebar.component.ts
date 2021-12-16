@@ -9,7 +9,7 @@ export class SidebarComponent implements OnInit {
   links = [
     { title: 'Главная', route: '' },
     { title: 'Аккредитация', route: '' },
-    { title: 'О колледже', route: '' },
+    { title: 'О колледже', route: '/about' },
     { title: 'Блог Директора', route: '' },
     { title: 'Учебно-методологическая работа', route: '' },
     { title: 'Воспитательная работа', route: '' },
@@ -18,7 +18,7 @@ export class SidebarComponent implements OnInit {
     { title: 'Профессиональная практика', route: '' },
     { title: 'Спортивные достижения', route: '' }
   ];
-  
+
   constructor() { }
 
   ngOnInit(): void {

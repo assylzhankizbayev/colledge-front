@@ -2,8 +2,15 @@
   margin-bottom: 100px;
 }
 
+.container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
 .feedback-form {
   display: flex;
+  flex-direction: column;
 
   &__text {
     flex: 2;
@@ -19,22 +26,21 @@
     flex-direction: column;
     box-shadow: 0 5px 30px #5792c033;
     padding: 50px 42px;
+    min-width: 450px;
   }
 
   .form-label {
-    font-size: 13px;
-    margin-bottom: 6px;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
   }
 
   .form-text {
     color: #5792c0;
     font-weight: bold;
-    font-size: 35px;
-    margin-bottom: 12px;
-    padding-right: 30px;
+    font-size: 2rem;
 
     &:last-child {
-      margin: 0;
+      margin-bottom: 1.5rem;
     }
   }
 

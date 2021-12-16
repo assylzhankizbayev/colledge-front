@@ -9,12 +9,15 @@
   min-width: 290px;
 
   &__item {
+    color: #000;
     cursor: pointer;
     padding: 10px 12px;
     font-size: 14px;
     line-height: 20px;
     transition: 0.2s all;
+    text-decoration: none;
 
+    &.active,
     &:hover {
       background-color: #005dac;
       color: #fff;
