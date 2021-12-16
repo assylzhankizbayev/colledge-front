@@ -2,23 +2,30 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 declare var ymaps: any;
 
+enum ContactTypes {
+  Tel = 'tel',
+  Email = 'email',
+  Address = 'address'
+}
+
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.scss']
 })
 export class ContactsComponent implements OnInit {
+  CONTACT_TYPES = ContactTypes;
   contacts = [
-    { id: 1, value: '+7 (727) 238-12-99', type: 'phone' },
-    { id: 3, value: '+7 (747) 380-33-12', type: 'phone' },
-    { id: 4, value: 'kunaev_college@mail.ru', type: 'email' },
-    { id: 5, value: 'd.a.konaeva@mail.ru', type: 'email' },
-    { id: 6, value: 'Республика Казахстан, г. Алматы, ул. Толе би, 303', type: 'address' }
+    { id: 1, value: '+7 (727) 238-12-99', type: ContactTypes.Tel },
+    { id: 3, value: '+7 (747) 380-33-12', type: ContactTypes.Tel },
+    { id: 4, value: 'kunaev_college@mail.ru', type: ContactTypes.Email },
+    { id: 5, value: 'd.a.konaeva@mail.ru', type: ContactTypes.Email },
+    { id: 6, value: 'Республика Казахстан, г. Алматы, ул. Толе би, 303', type: ContactTypes.Address }
   ];
 
   directorsContacts = [
-    { id: 1, value: '+7 (727) 238-13-04', type: 'phone' },
-    { id: 2, value: '+7 (701) 457-20-94', type: 'phone' }
+    { id: 1, value: '+7 (727) 238-13-04', type: ContactTypes.Tel },
+    { id: 2, value: '+7 (701) 457-20-94', type: ContactTypes.Tel }
   ];
 
   map: any;

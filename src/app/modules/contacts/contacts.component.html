@@ -2,39 +2,17 @@
   <div class="contacts">
     <div class="contacts__item contacts__item--main">
       <h2 class="page-title">Контакты</h2>
-      
+
       <div class="contacts-details">
         <div class="contact" *ngFor="let contact of contacts">
-          <ng-container *ngIf="contact.type === 'phone'">
-            <app-icons class="contact__icon" icon="phone"></app-icons>
-          </ng-container>
-          <ng-container *ngIf="contact.type === 'email'">
-            <app-icons class="contact__icon" icon="email"></app-icons>
-          </ng-container>
-          
-          <span 
-            class="contact__value" 
-            [class.link]="contact.type !== 'address'" 
-            [innerHTML]="contact.value"
-          ></span>
+          <ng-container *ngTemplateOutlet="contactTemp; context: { contact: contact }"></ng-container>
         </div>
       </div>
-      
+
       <div class="contacts-details contacts-details--directors">
         <h3 class="block-title">Приемная директора</h3>
         <div class="contact" *ngFor="let contact of directorsContacts">
-          <ng-container *ngIf="contact.type === 'phone'">
-            <app-icons class="contact__icon" icon="phone"></app-icons>
-          </ng-container>
-          <ng-container *ngIf="contact.type === 'email'">
-            <app-icons class="contact__icon" icon="email"></app-icons>
-          </ng-container>
-          
-          <span 
-            class="contact__value" 
-            [class.link]="contact.type !== 'address'" 
-            [innerHTML]="contact.value"
-          ></span>
+          <ng-container *ngTemplateOutlet="contactTemp; context: { contact: contact }"></ng-container>
         </div>
       </div>
     </div>
@@ -44,13 +22,15 @@
 
       <div class="requisite">
         <span class="requisite__detail">ТОО «Колледж им. Д.А. Кунаева»</span>
-        <span class="requisite__detail">Адрес: г. Алматы, Ауэзовский район, ул. Толе би 303</span>
+        <span class="requisite__detail"
+          >Адрес: г. Алматы, Ауэзовский район, ул. Толе би 303</span
+        >
         <span class="requisite__detail">РНН 600 300 610 563</span>
         <span class="requisite__detail">БИН 130 240 029 070</span>
         <span class="requisite__detail">АГФ АО «АО Банк Центр Кредит»</span>
         <span class="requisite__detail">ИИК KZ198560000005782015</span>
         <span class="requisite__detail">БИК KCJBKZKX</span>
-        <span class="requisite__detail">Кбе 17</span>       
+        <span class="requisite__detail">Кбе 17</span>
       </div>
     </div>
   </div>
@@ -59,3 +39,35 @@
     <div id="map" class="ymap" #yaMap></div>
   </div>
 </div>
+
+<ng-template #contactTemp let-contact="contact">
+  <app-icons
+    *ngIf="contact.type === CONTACT_TYPES.Tel"
+    class="contact__icon"
+    icon="phone"
+  ></app-icons>
+
+  <app-icons
+    *ngIf="contact.type === CONTACT_TYPES.Email"
+    class="contact__icon"
+    icon="email"
+  ></app-icons>
+
+  <a
+    *ngIf="contact.type === CONTACT_TYPES.Tel"
+    class="contact__value link"
+    href="tel:{{ contact.value }}"
+  >{{ contact.value }}</a>
+
+  <a
+    *ngIf="contact.type === CONTACT_TYPES.Email"
+    class="contact__value link"
+    href="mailto:{{ contact.value }}"
+  >{{ contact.value }}</a>
+
+  <span
+    *ngIf="contact.type === CONTACT_TYPES.Address"
+    class="contact__value"
+    [innerHTML]="contact.value"
+  >{{ contact.value }}</span>
+</ng-template>
