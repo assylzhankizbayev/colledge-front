@@ -1,7 +1,5 @@
 <div class="carousel">
 
-  <app-title class="carousel__header" [text]="'Что используется'" [verySmall]="true"></app-title>
-
   <div class="swiper swiper--mobile">
     <swiper
       [slidesPerView]="'auto'"
@@ -12,7 +10,6 @@
     >
       <ng-container *ngFor="let item of data">
         <ng-template swiperSlide>
-          <app-equipment-card [equipment]="item"></app-equipment-card>
         </ng-template>
       </ng-container>
     </swiper>
@@ -26,7 +23,6 @@
     <swiper [config]="swiperParams">
       <ng-container *ngFor="let item of data">
         <ng-template swiperSlide>
-          <app-equipment-card [equipment]="item"></app-equipment-card>
         </ng-template>
       </ng-container>
     </swiper>
