@@ -1,0 +1,10 @@
+<div class="achievement-list">
+  <div class="achievement-list__item" *ngFor="let achievement of achievements">
+    <h3 class="achievement-title">{{ achievement.title }}</h3>
+    <img
+      class="achievement-img"
+      [src]="achievement.src"
+      [alt]="achievement.title"
+    />
+  </div>
+</div>

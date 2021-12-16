@@ -6,11 +6,13 @@ import { AchievementsComponent } from './achievements.component';
 import { SharedModule } from '../../shared/shared.module';
 import { AchievementsService } from '../../core/services/achievements.service';
 import { AchievementsFacade } from '../../core/facade/achievements.facade';
+import { AchevementsPicsComponent } from './achevements-pics/achevements-pics.component';
 
 
 @NgModule({
   declarations: [
-    AchievementsComponent
+    AchievementsComponent,
+    AchevementsPicsComponent
   ],
   imports: [
     CommonModule,
