@@ -1,7 +1,18 @@
-<div class="img-thumb">
-  <img class="img-thumb__img" [src]="img?.src" [alt]="img?.title" />
-  <!-- <span class="img-thumb__title">{{ img?.title }}</span> -->
+<div
+  class="img-thumb"
+  [ngStyle]="{ cursor: enableZoom ? 'pointer' : 'default' }"
+>
+  <img
+    class="img-thumb__img"
+    [src]="img?.src"
+    [alt]="img?.title"
+    (click)="enableZoom ? zoom() : null"
+  />
+
+  <span class="img-thumb__title" *ngIf="showTitle">{{ img?.title }}</span>
+
   <button
+    *ngIf="enableDownload"
     class="img-thumb__btn"
     type="button"
     mat-raised-button

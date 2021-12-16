@@ -1,0 +1,24 @@
+
+.zoom-img {
+  display: flex;
+  overflow-y: auto;
+  position: relative;
+
+  &__img {
+    width: 100%;
+    height: auto;
+  }
+
+  &__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0.5rem;
+    width: 40px;
+    height: 40px;
+  }
+}
+
