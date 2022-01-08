@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IMenu } from '../../../modules/main/interface';
+import { IMenu } from 'src/app/core/models/menu.model';
+import { MenuFacade } from '../../../core/facade/menu.facade';
 
 @Component({
   selector: 'app-header',
@@ -8,31 +9,16 @@ import { IMenu } from '../../../modules/main/interface';
 })
 export class HeaderComponent implements OnInit {
   isChecked = false;
-
-  menu: IMenu[] = [
-    {
-      name: 'О колледже',
-      router: '/about',
-      isClick: true,
-      subMenu: [
-        // {
-        //   name: 'Структура', router: '/college-structure', isClick: true
-        // }
-      ],
-    },
-    { name: 'Достижения', router: '/achievements', isClick: true },
-    { name: 'Лицензии', router: '/licence', isClick: true },
-    { name: 'Контакты', router: '/contacts', isClick: true },
-  ];
+  menu$ = this.menuFacade.headerMenu;
 
   subMenu: IMenu[] = [
-    { name: 'Абитуриентам', router: '/for-abiturients', isClick: true },
-    { name: 'Специальности', router: '/specialties', isClick: true },
-    { name: 'Галерея', router: '', isClick: false },
-    { name: 'Новости', router: '/news', isClick: true },
+    { title: 'Абитуриентам', route: '/for-abiturients' },
+    { title: 'Специальности', route: '/specialties' },
+    { title: 'Галерея', route: '' },
+    { title: 'Новости', route: '/news' },
   ];
 
-  constructor() {}
+  constructor(private menuFacade: MenuFacade) {}
 
   ngOnInit(): void {}
 

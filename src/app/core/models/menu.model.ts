@@ -14,6 +14,9 @@ export interface IMenuItem {
 }
 
 export interface IMenu {
+  id?: number;
   title: string;
   route: string;
+  subMenu?: any[];
 }
+

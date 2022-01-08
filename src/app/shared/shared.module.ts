@@ -16,6 +16,7 @@ import { NewsSidebarComponent } from './components/news-sidebar/news-sidebar.com
 import { MatButtonModule } from '@angular/material/button';
 import { ImgThumbsComponent } from './components/img-thumbs/img-thumbs.component';
 import { ZoomImgModalComponent } from './components/img-thumbs/zoom-img-modal/zoom-img-modal.component';
+import { MenuFacade } from '../core/facade/menu.facade';
 
 const components = [
   HeaderComponent,
@@ -39,10 +40,12 @@ const modules = [
   MaterialModule,
   MatButtonModule,
 ];
+const facades = [MenuFacade];
 
 @NgModule({
   declarations: [...components, ...directives, ...pipes],
   imports: [...modules],
   exports: [...components, ...directives, ...pipes],
+  providers: [...facades],
 })
 export class SharedModule {}

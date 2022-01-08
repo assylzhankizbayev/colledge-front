@@ -1,19 +1,23 @@
-<div class="navbar" [class.checked]="isChecked" id="navbar">
+<div
+  *ngIf="menu$ | async as menu"
+  id="navbar"
+  class="navbar"
+  [class.checked]="isChecked"
+>
   <div class="container">
     <div class="toggle-container" (click)="toggle()">
       <span class="button button-toggle" [class.transform]="isChecked"></span>
     </div>
 
-    <a
-      class="navbar-brand"
-      routerLink="/"
-    >
+    <a class="navbar-brand" routerLink="/">
       <img src="./assets/pics/logo.jpg" alt="logo" />
       Колледж им. Д.А.Кунаева
     </a>
 
     <nav class="navbar-nav navbar-nav--desktop">
-      <ng-container *ngTemplateOutlet="navItemTemp"></ng-container>
+      <ng-container
+        *ngTemplateOutlet="navItemTemp; context: { menu: menu }"
+      ></ng-container>
     </nav>
   </div>
 
@@ -23,9 +27,12 @@
     (click)="toggle()"
     [pageYOffset]="'change-bg'"
   >
-    <ng-container *ngTemplateOutlet="navItemTemp"></ng-container>
+    <ng-container
+      *ngTemplateOutlet="navItemTemp; context: { menu: menu }"
+    ></ng-container>
   </nav>
 </div>
+
 <div class="sub-navbar" [pageYOffset]="'fixed'">
   <div class="container">
     <nav class="nav">
@@ -35,24 +42,32 @@
           class="nav-item"
           *ngFor="let menu of subMenu"
           routerLinkActive="active"
-          routerLink="{{ menu.router }}"
+          routerLink="{{ menu.route }}"
           [routerLinkActiveOptions]="{ exact: true }"
         >
-          {{ menu.name }}
+          {{ menu.title }}
         </a>
       </div>
     </nav>
   </div>
 </div>
 
-<ng-template #navItemTemp>
+<ng-template #navItemTemp let-menu="menu">
   <a
     class="nav-item"
-    [class.click]="m?.isClick"
     *ngFor="let m of menu"
-    [routerLink]="m.router"
+    [routerLink]="m.route"
     routerLinkActive="active"
   >
-    {{ m?.name }}
+    {{ m?.title }}
+    <div class="nav-item__sub" *ngIf="m?.subMenu?.length">
+      <a
+        class="sub-nav-item"
+        *ngFor="let menu of m.subMenu"
+        [routerLink]="menu.route"
+      >
+        {{ menu.title }}
+      </a>
+    </div>
   </a>
 </ng-template>
