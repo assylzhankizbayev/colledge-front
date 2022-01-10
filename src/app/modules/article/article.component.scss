@@ -2,11 +2,16 @@
   display: flex;
 }
 
-.about {
+.article {
   margin: 24px 0;
 
   &-main {
     flex: 1;
+  }
+
+  &-content {
+    font-size: 1rem;
+    text-align: justify;
   }
 
   &-structure {

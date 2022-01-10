@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GeneralCarouselComponent } from './general-carousel.component';
+import { ArticlePostComponent } from './article-post.component';
 
-describe('GeneralCarouselComponent', () => {
-  let component: GeneralCarouselComponent;
-  let fixture: ComponentFixture<GeneralCarouselComponent>;
+describe('ArticlePostComponent', () => {
+  let component: ArticlePostComponent;
+  let fixture: ComponentFixture<ArticlePostComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GeneralCarouselComponent ]
+      declarations: [ ArticlePostComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GeneralCarouselComponent);
+    fixture = TestBed.createComponent(ArticlePostComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

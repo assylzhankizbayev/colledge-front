@@ -13,7 +13,7 @@ import { ENV } from './app.token';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

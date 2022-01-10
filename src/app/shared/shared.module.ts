@@ -17,6 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { ImgThumbsComponent } from './components/img-thumbs/img-thumbs.component';
 import { ZoomImgModalComponent } from './components/img-thumbs/zoom-img-modal/zoom-img-modal.component';
 import { MenuFacade } from '../core/facade/menu.facade';
+import { RouteLinkPipe } from './pipes/route-link.pipe';
 
 const components = [
   HeaderComponent,
@@ -29,7 +30,7 @@ const components = [
   ImgThumbsComponent,
   ZoomImgModalComponent,
 ];
-const pipes = [SeparatorPipe];
+const pipes = [SeparatorPipe, RouteLinkPipe];
 const directives = [PageYOffsetDirective];
 const modules = [
   CommonModule,

@@ -18,7 +18,7 @@ export class MenuFacade {
   }
 
   get secondaryMenu(): Observable<IMenu[]> {
-    return this.menuServce.getMenuItemsById(2).pipe(
+    return this.menuServce.getMenuItemsById(6).pipe(
       filter((res) => res?.success),
       map((res) => this.generateMenu(res.result)),
       catchError(() => of([])),
@@ -33,6 +33,7 @@ export class MenuFacade {
         id: menuItem.id,
         title: menuItem.title,
         route: menuItem.route,
+        articleId: menuItem.article_id,
         subMenu: [] as IMenu[],
       }));
 
@@ -47,6 +48,7 @@ export class MenuFacade {
           parent.subMenu.push({
             title: menuItem.title,
             route: menuItem.route,
+            articleId: menuItem.article_id,
           });
         }
       });

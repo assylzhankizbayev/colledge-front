@@ -9,13 +9,13 @@ import { MenuFacade } from '../../../core/facade/menu.facade';
 })
 export class HeaderComponent implements OnInit {
   isChecked = false;
-  menu$ = this.menuFacade.headerMenu;
-
-  subMenu: IMenu[] = [
-    { title: 'Абитуриентам', route: '/for-abiturients' },
-    { title: 'Специальности', route: '/specialties' },
-    { title: 'Галерея', route: '' },
-    { title: 'Новости', route: '/news' },
+  headerMenu$ = this.menuFacade.headerMenu;
+  secondaryMenu$ = this.menuFacade.secondaryMenu;
+  rootLink: IMenu[] = [
+    {
+      title: 'Главная',
+      route: '/',
+    },
   ];
 
   constructor(private menuFacade: MenuFacade) {}

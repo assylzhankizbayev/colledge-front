@@ -1,5 +1,5 @@
 <div
-  *ngIf="menu$ | async as menu"
+  *ngIf="headerMenu$ | async as headerMenu"
   id="navbar"
   class="navbar"
   [class.checked]="isChecked"
@@ -16,7 +16,7 @@
 
     <nav class="navbar-nav navbar-nav--desktop">
       <ng-container
-        *ngTemplateOutlet="navItemTemp; context: { menu: menu }"
+        *ngTemplateOutlet="navItemTemp; context: { menu: headerMenu }"
       ></ng-container>
     </nav>
   </div>
@@ -28,46 +28,51 @@
     [pageYOffset]="'change-bg'"
   >
     <ng-container
-      *ngTemplateOutlet="navItemTemp; context: { menu: menu }"
+      *ngTemplateOutlet="navItemTemp; context: { menu: headerMenu }"
     ></ng-container>
   </nav>
 </div>
 
-<div class="sub-navbar" [pageYOffset]="'fixed'">
+<div
+  *ngIf="secondaryMenu$ | async as secondaryMenu"
+  class="sub-navbar"
+  [pageYOffset]="'fixed'"
+>
   <div class="container">
     <nav class="nav">
-      <a href="#" class="nav-item">Главная</a>
+      <ng-container
+        *ngTemplateOutlet="
+          navItemTemp;
+          context: { menu: rootLink, isExactMatch: true }
+        "
+      ></ng-container>
       <div class="nav-group">
-        <a
-          class="nav-item"
-          *ngFor="let menu of subMenu"
-          routerLinkActive="active"
-          routerLink="{{ menu.route }}"
-          [routerLinkActiveOptions]="{ exact: true }"
-        >
-          {{ menu.title }}
-        </a>
+        <ng-container
+          *ngTemplateOutlet="navItemTemp; context: { menu: secondaryMenu }"
+        ></ng-container>
       </div>
     </nav>
   </div>
 </div>
 
-<ng-template #navItemTemp let-menu="menu">
-  <a
-    class="nav-item"
-    *ngFor="let m of menu"
-    [routerLink]="m.route"
-    routerLinkActive="active"
-  >
-    {{ m?.title }}
+<ng-template #navItemTemp let-menu="menu" let-isExactMatch="isExactMatch">
+  <div class="nav-item" *ngFor="let m of menu">
+    <a
+      class="nav-item__link"
+      [routerLink]="m | routeLink"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: isExactMatch != null }"
+    >
+      {{ m?.title }}
+    </a>
     <div class="nav-item__sub" *ngIf="m?.subMenu?.length">
       <a
         class="sub-nav-item"
         *ngFor="let menu of m.subMenu"
-        [routerLink]="menu.route"
+        [routerLink]="menu | routeLink"
       >
         {{ menu.title }}
       </a>
     </div>
-  </a>
+  </div>
 </ng-template>

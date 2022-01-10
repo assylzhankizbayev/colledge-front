@@ -3,6 +3,11 @@ export interface IArticlePostsRes {
   result: IArticle[];
 }
 
+export interface IArticlePostRes {
+  success: boolean;
+  result: IArticle;
+}
+
 export interface IArticle {
   id: number
   title: string;
