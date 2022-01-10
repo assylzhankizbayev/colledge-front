@@ -6,28 +6,28 @@ declare var ymaps: any;
 @Component({
   selector: 'app-contacts-main',
   templateUrl: './contacts-main.component.html',
-  styleUrls: ['./contacts-main.component.scss']
+  styleUrls: ['./contacts-main.component.scss'],
 })
 export class ContactsMainComponent implements OnInit {
   map: any;
-  @ViewChild('yaMap', {static: true}) yaMap: ElementRef;
-  
-  constructor() { }
+  @ViewChild('yaMap', { static: true }) yaMap: ElementRef;
+
+  constructor() {}
 
   ngOnInit(): void {
-    ymaps.ready()
+    ymaps
+      .ready()
       .then(() => {
         this.map = new ymaps.Map(
           this.yaMap.nativeElement,
           {
-              center: [43.242358, 76.842339],
-              zoom: 15,
-              controls: []
+            center: [43.242358, 76.842339],
+            zoom: 15,
+            controls: [],
           },
-          {searchControlProvider: 'yandex#search'}
-      );
+          { searchControlProvider: 'yandex#search' }
+        );
       })
       .catch(() => console.log('Failed to load Yandex Maps'));
   }
-
 }

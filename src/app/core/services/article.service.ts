@@ -18,7 +18,7 @@ export class ArticleService {
     return this.http.get<IArticlePostsRes>(this.url + `/category/${id}`);
   }
 
-  getArticlesById(id: number): Observable<IArticlePostRes> {
+  getArticleById(id: number): Observable<IArticlePostRes> {
     return this.http.get<IArticlePostRes>(this.url + `/${id}`);
   }
 }

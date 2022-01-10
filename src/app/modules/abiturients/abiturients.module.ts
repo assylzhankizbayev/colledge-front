@@ -5,14 +5,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../../../app/shared/shared.module';
+import { AbiturientsDetailsComponent } from './abiturients-details/abiturients-details.component';
 
 const routes: Routes = [
-  { path: '', component: AbiturientsComponent }
+  { path: '', component: AbiturientsComponent },
+  { path: ':id', component: AbiturientsDetailsComponent },
 ];
 
 @NgModule({
   declarations: [
-    AbiturientsComponent
+    AbiturientsComponent,
+    AbiturientsDetailsComponent,
   ],
   imports: [
     CommonModule,

@@ -5,10 +5,14 @@
     <div class="abiturients-main">
       <div class="article-list">
         <div class="article-list__item" *ngFor="let article of articles">
-          <span class="article-date">{{ article.created_at | date: 'dd.MM.YYYY г.' }}</span>
-          <h2 class="article-title">{{ article.title }}</h2>
+          <span class="article-date">
+            {{ article.created_at | date: "dd.MM.YYYY г." }}
+          </span>
+          <h2 class="article-title" [routerLink]="['/abiturients', 'posts', article.id]">
+            {{ article.title }}
+          </h2>
           <p class="article-desk">{{ article.body }}</p>
-          <span class="article-more">
+          <span class="article-more" [routerLink]="['/abiturients', 'posts', article.id]">
             Подробнее
             <app-icons class="article-more__icon" icon="arrow"></app-icons>
           </span>

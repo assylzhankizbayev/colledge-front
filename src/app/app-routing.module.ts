@@ -28,7 +28,7 @@ const routes: Routes = [
     loadChildren: () => import('./modules/licence/licence.module').then(m => m.LicenceModule)
   },
   {
-    path: 'for-abiturients',
+    path: 'abiturients/posts',
     loadChildren: () => import('./modules/abiturients/abiturients.module').then(m => m.AbiturientsModule)
   },
   {

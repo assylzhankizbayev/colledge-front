@@ -23,7 +23,7 @@ export class ArticlePostComponent implements OnInit {
       .pipe(
         mergeMap((params: ParamMap) => {
           const id = params.get('id');
-          return id ? this.articleService.getArticlesById(+id) : of(null);
+          return id ? this.articleService.getArticleById(+id) : of(null);
         }),
         tap((res) => {
           if (res) {
