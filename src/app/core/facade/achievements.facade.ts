@@ -1,19 +1,14 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { take, tap } from 'rxjs/operators';
-import { AchievementsService } from '../services/achievements.service';
+import { ArticleService } from '../services/article.service';
 
 @Injectable()
 export class AchievementsFacade {
-  private post$ = new BehaviorSubject<any>([]);
   private title$ = new BehaviorSubject<string | null>(null);
   private body$ = new BehaviorSubject<string | null>(null);
 
-  constructor(private achievementsService: AchievementsService) {}
-
-  get post() {
-    return this.post$.asObservable();
-  }
+  constructor(private articleService: ArticleService) {}
 
   get title() {
     return this.title$.asObservable();
@@ -28,13 +23,12 @@ export class AchievementsFacade {
   }
 
   private getAchievements(): Observable<any> {
-    return this.achievementsService.getAchievements().pipe(
+    return this.articleService.getArticleById(14).pipe(
       take(1),
       tap((post: any) => {
-        if (post.success && post.result?.length) {
-          this.post$.next(post.result);
-          this.title$.next(post.result[0]?.title);
-          this.body$.next(post.result[0]?.body);
+        if (post.success) {
+          this.title$.next(post.result?.title);
+          this.body$.next(post.result?.body);
         }
       })
     );
