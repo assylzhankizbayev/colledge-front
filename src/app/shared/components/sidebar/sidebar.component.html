@@ -2,7 +2,7 @@
   <a
     class="sidebar__item"
     *ngFor="let link of links"
-    [routerLink]="link.route"
+    [routerLink]="link | routeLink"
     routerLinkActive="active"
     [routerLinkActiveOptions]="{ exact: true }"
   >

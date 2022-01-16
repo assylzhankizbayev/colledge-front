@@ -8,18 +8,7 @@ import { MenuService } from 'src/app/core/services/menu.service';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
-  links: IMenu[] = [
-    // { title: 'Главная', route: '' },
-    // { title: 'Аккредитация', route: '' },
-    // { title: 'О колледже', route: '/about' },
-    // { title: 'Блог Директора', route: '' },
-    // { title: 'Учебно-методологическая работа', route: '' },
-    // { title: 'Воспитательная работа', route: '' },
-    // { title: 'Профориентационная работа', route: '' },
-    // { title: 'Информация для родителей', route: '' },
-    // { title: 'Профессиональная практика', route: '' },
-    // { title: 'Спортивные достижения', route: '' },
-  ];
+  links: IMenu[] = [];
 
   constructor(private menuService: MenuService) {}
 
@@ -29,6 +18,7 @@ export class SidebarComponent implements OnInit {
         this.links = res.result.map((item) => ({
           title: item.title,
           route: item.route || '',
+          articleId: item.article_id,
         }));
       }
     });
