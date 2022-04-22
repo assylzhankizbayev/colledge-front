@@ -1,0 +1,14 @@
+<section class="category">
+  <button
+    type="button"
+    class="btn btn-primary mb-3"
+    (click)="addCategoryItem()"
+  >
+    Добавить новый пункт категорию
+  </button>
+
+  <app-table
+    [dataSource]="categoryItems$ | async"
+    [displayedColumns]="displayedColumns"
+  ></app-table>
+</section>

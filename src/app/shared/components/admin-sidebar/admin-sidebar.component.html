@@ -1,0 +1,11 @@
+<div class="list-group">
+  <a
+    class="list-group-item list-group-item-action"
+    *ngFor="let route of routes"
+    [routerLink]="route.router"
+    [routerLinkActiveOptions]="{ exact: route.router === '/' }"
+    routerLinkActive="active"
+  >
+    {{ route.title }}
+  </a>
+</div>

@@ -1,0 +1,5 @@
+<app-article-form
+  [formData]="article$ | async"
+  (save)="update($event)"
+  (cancel)="cancel()"
+></app-article-form>

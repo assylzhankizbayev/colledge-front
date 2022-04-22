@@ -1,0 +1,30 @@
+<div class="options-wrapper">
+  <h2 class="options-header">Публикации</h2>
+
+  <div class="options-inner-wrapper">
+    <div class="options">
+      <div
+        class="options__item"
+        [class.selected]="item?.id === selectedId"
+        *ngFor="let item of data?.list; index as i"
+        (click)="selectArticle(item)"
+      >
+        <span class="title">{{ item.title }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="options-controls">
+    <button
+      type="submit"
+      class="btn btn-primary"
+      (click)="select()"
+      [disabled]="selectedId === -1"
+    >
+      Выбрать
+    </button>
+    <button type="button" class="btn btn-danger" (click)="close()">
+      Отмена
+    </button>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+.input-field {
+  max-width: 500px;
+}
+
+.form-controls {
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  & + & {
+    margin-left: 0.5rem;
+  }
+}

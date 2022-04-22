@@ -15,4 +15,14 @@ export class LicenceService {
   getLicences(): Observable<IPostRes> {
     return this.http.get<IPostRes>(this.env.host + '/licence');
   }
+
+  addLicence(data: any): Observable<{ success: boolean }> {
+    const body = new FormData();
+
+    Object.keys(data).forEach(key => {
+      body.append(`${key}`, data[key]);
+    });
+
+    return this.http.post<{ success: boolean }>(this.env.host + '/licence', body);
+  }
 }

@@ -1,0 +1,44 @@
+<form class="form" [formGroup]="form" (ngSubmit)="submit()">
+  <div class="mb-3 input-field">
+    <label for="category-title" class="form-label">Название</label>
+    <input
+      type="text"
+      class="form-control"
+      id="category-title"
+      name="category-title"
+      formControlName="title"
+    />
+  </div>
+
+  <div class="mb-3 input-field">
+    <label for="parent-category-item-id" class="form-label">
+      Родительская категория
+    </label>
+    <input
+      type="text"
+      class="form-control"
+      id="parent-category-item-id"
+      name="parent-category-item-id"
+      formControlName="parentCategoryItemId"
+    />
+  </div>
+
+  <div class="mb-3 input-field">
+    <label for="category-order-idx" class="form-label">
+      Порядок категории
+    </label>
+    <input
+      type="text"
+      class="form-control"
+      id="category-order-idx"
+      name="category-order-idx"
+      formControlName="orderIdx"
+    />
+  </div>
+  <div class="form-controls">
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+    <button type="button" class="btn btn-danger" (click)="close()">
+      Отмена
+    </button>
+  </div>
+</form>

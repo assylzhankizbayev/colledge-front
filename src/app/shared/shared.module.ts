@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgxMaskModule } from 'ngx-mask';
-import { MaterialModule } from '../modules/material/material.module';
+import { EditorModule } from '@tinymce/tinymce-angular';
+import { MaterialModule } from './modules/material/material.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { IconsComponent } from './components/icons/icons.component';
@@ -13,24 +14,42 @@ import { PageYOffsetDirective } from './directives/page-y-offset.directive';
 import { SeparatorPipe } from './pipes/separator.pipe';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NewsSidebarComponent } from './components/news-sidebar/news-sidebar.component';
-import { MatButtonModule } from '@angular/material/button';
 import { ImgThumbsComponent } from './components/img-thumbs/img-thumbs.component';
 import { ZoomImgModalComponent } from './components/img-thumbs/zoom-img-modal/zoom-img-modal.component';
 import { MenuFacade } from '../core/facade/menu.facade';
 import { RouteLinkPipe } from './pipes/route-link.pipe';
+import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.component';
+import { AdminHeaderComponent } from './components/admin-header/admin-header.component';
+import { TitleLinkPipe } from './pipes/title-link.pipe';
+import { AboutFacade } from '../core/facade/about.facade';
+import { AchievementsFacade } from '../core/facade/achievements.facade';
+import { ArticleFacade } from '../core/facade/article.facade';
+import { CategoryFacade } from '../core/facade/category.facade';
+import { LicenceFacade } from '../core/facade/licence.facade';
+import { NewsFacade } from '../core/facade/news.facade';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { SelectComponent } from './components/select/select.component';
+import { TableComponent } from './components/table/table.component';
+import { TinymceEditorComponent } from './components/tinymce-editor/tinymce-editor.component';
 
 const components = [
-  HeaderComponent,
+  AdminHeaderComponent,
+  AdminSidebarComponent,
+  FileUploadComponent,
   FooterComponent,
+  HeaderComponent,
   IconsComponent,
-  PageNotFoundComponent,
-  NewsCardComponent,
-  SidebarComponent,
-  NewsSidebarComponent,
   ImgThumbsComponent,
   ZoomImgModalComponent,
+  NewsCardComponent,
+  NewsSidebarComponent,
+  PageNotFoundComponent,
+  SelectComponent,
+  SidebarComponent,
+  TableComponent,
+  TinymceEditorComponent,
 ];
-const pipes = [SeparatorPipe, RouteLinkPipe];
+const pipes = [SeparatorPipe, RouteLinkPipe, TitleLinkPipe];
 const directives = [PageYOffsetDirective];
 const modules = [
   CommonModule,
@@ -38,15 +57,23 @@ const modules = [
   ReactiveFormsModule,
   FormsModule,
   NgxMaskModule,
+  EditorModule,
   MaterialModule,
-  MatButtonModule,
 ];
-const facades = [MenuFacade];
+const facades = [
+  AboutFacade,
+  AchievementsFacade,
+  ArticleFacade,
+  CategoryFacade,
+  LicenceFacade,
+  MenuFacade,
+  NewsFacade,
+];
 
 @NgModule({
   declarations: [...components, ...directives, ...pipes],
   imports: [...modules],
-  exports: [...components, ...directives, ...pipes],
+  exports: [...components, ...directives, ...pipes, MaterialModule],
   providers: [...facades],
 })
 export class SharedModule {}

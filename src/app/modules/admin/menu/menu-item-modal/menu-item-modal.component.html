@@ -1,0 +1,55 @@
+<form class="form" [formGroup]="form" (ngSubmit)="submit()">
+  <div class="mb-3 input-field">
+    <label for="title" class="form-label">Название меню</label>
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      name="title"
+      placeholder="Заголовок"
+      formControlName="title"
+    />
+  </div>
+
+  <div class="mb-3 input-field">
+    <app-select
+      *ngIf="menuOptions$ | async as menuOptions"
+      title="Родительское меню"
+      [id]="form?.get('parentMenuItemId')?.value"
+      [options]="menuOptions"
+      formControlName="parentMenuItemId"
+    ></app-select>
+  </div>
+
+  <div class="mb-3 input-field" (click)="choseArticle()">
+    <label for="article-id" class="form-label">Ссылка на публикацию</label>
+    <input
+      type="text"
+      class="form-control"
+      id="article-id"
+      name="article-id"
+      placeholder="Выберите материал"
+      formControlName="articleTitle"
+      readonly
+    />
+  </div>
+
+  <div class="mb-3 input-field">
+    <label for="article-route" class="form-label">Ссылка на страницу</label>
+    <input
+      type="text"
+      class="form-control"
+      id="article-route"
+      name="article-route"
+      placeholder="Ссылка страницы"
+      formControlName="route"
+    />
+  </div>
+
+  <div class="form-controls">
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+    <button type="button" class="btn btn-danger" (click)="close()">
+      Отмена
+    </button>
+  </div>
+</form>

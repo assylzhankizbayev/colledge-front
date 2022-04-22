@@ -1,0 +1,32 @@
+<form class="form" [formGroup]="form" (ngSubmit)="onSave()">
+  <div class="mb-3 input-field">
+    <label for="category-title" class="form-label">Название категории</label>
+    <input
+      type="text"
+      class="form-control"
+      id="category-title"
+      name="category-title"
+      placeholder="Введите название категории"
+      formControlName="title"
+    />
+  </div>
+
+  <div class="mb-3 input-field">
+    <div class="form-floating">
+      <textarea
+        id="category-description"
+        class="form-control form-description"
+        placeholder="Описание"
+        formControlName="description"
+      ></textarea>
+      <label for="category-description">Описание категории</label>
+    </div>
+  </div>
+
+  <div class="form-controls">
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+    <button type="button" class="btn btn-danger" (click)="cancel.emit()">
+      Отмена
+    </button>
+  </div>
+</form>

@@ -1,0 +1,21 @@
+<section class="category">
+  <ng-container *ngIf="!isFormToggled">
+    <button type="button" class="btn btn-primary mb-3" (click)="toggleForm()">
+      Добавить новую категорию
+    </button>
+
+    <app-table
+      [dataSource]="categories$ | async"
+      [titleLink]="titleLink"
+      [displayedColumns]="displayedColumns"
+      (edit)="editCategory($event)"
+      (remove)="deleteCategory($event)"
+    ></app-table>
+  </ng-container>
+
+  <app-category-form
+    *ngIf="isFormToggled"
+    (save)="addCategory($event)"
+    (cancel)="toggleForm()"
+  ></app-category-form>
+</section>

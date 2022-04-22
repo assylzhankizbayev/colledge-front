@@ -14,4 +14,14 @@ export class AboutService {
   getAboutPost(): Observable<any[]> {
     return this.http.get<any[]>(this.env.host + '/about');
   }
+
+  addAboutPost(data: any): Observable<{ success: boolean }> {
+    const body = new FormData();
+
+    Object.keys(data).forEach(key => {
+      body.append(`${key}`, data[key]);
+    });
+
+    return this.http.post<{ success: boolean }>(this.env.host + '/about', body);
+  }
 }

@@ -1,0 +1,5 @@
+<app-category-form
+  [formData]="category$ | async"
+  (save)="updateCategory($event)"
+  (cancel)="cancel()"
+></app-category-form>

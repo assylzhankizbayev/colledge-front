@@ -1,0 +1,17 @@
+<section class="menu">
+  <button
+    type="button"
+    class="btn btn-primary mb-3"
+    (click)="addMenuItem()"
+  >
+    Добавить новый пункт меню
+  </button>
+
+  <app-table
+    *ngIf="menuItems$ | async as menuItems"
+    [dataSource]="menuItems"
+    [displayedColumns]="displayedColumns"
+    (edit)="editMenuItem($event, menuItems)"
+    (remove)="deleteMenuItem($event)"
+  ></app-table>
+</section>

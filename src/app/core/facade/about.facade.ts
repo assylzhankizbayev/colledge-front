@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { take, tap } from 'rxjs/operators';
+import { switchMap, take, tap } from 'rxjs/operators';
 import { AboutService } from '../services/about.service';
 
 @Injectable()
@@ -41,9 +41,8 @@ export class AboutFacade {
   }
 
   submit(value: any): Observable<any> {
-    return of(null);
-    // return this.aboutService
-    //   .addAboutPost(value)
-    //   .pipe(switchMap((res) => (res.success ? this.getAboutRes() : of(null))));
+    return this.aboutService
+      .addAboutPost(value)
+      .pipe(switchMap((res) => (res.success ? this.getAboutRes() : of(null))));
   }
 }

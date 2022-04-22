@@ -1,0 +1,49 @@
+table {
+  width: 100%;
+}
+
+.mat-column-title {
+  width: 350px;
+}
+
+.btn {
+  & + & {
+    margin-left: 0.8rem;
+  }
+}
+
+.link {
+  color: rgb(14, 8, 97);
+  cursor: pointer;
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.icon {
+  cursor: pointer;
+  height: 16px;
+  width: 16px;
+
+  &-img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+  }
+
+  & + & {
+    margin-left: 1rem;
+  }
+}
+
+.empty-data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,.12);
+  height: 70px;
+  width: 100%;
+}

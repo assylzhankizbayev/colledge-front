@@ -1,0 +1,20 @@
+<section class="achievements">
+  <ng-container *ngIf="!isFormToggled">
+    <button type="button" class="btn btn-primary mb-3" (click)="toggleForm()">
+      Добавить материал
+    </button>
+
+    <app-table
+      [dataSource]="articles$ | async"
+      [displayedColumns]="displayedColumns"
+      (edit)="edit($event)"
+      (remove)="remove($event)"
+    ></app-table>
+  </ng-container>
+
+  <app-article-form
+    *ngIf="isFormToggled"
+    (save)="addArticle($event)"
+    (cancel)="toggleForm()"
+  ></app-article-form>
+</section>

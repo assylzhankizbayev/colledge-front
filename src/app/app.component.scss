@@ -1,4 +1,4 @@
-@import "./shared/styles/variables";
+@import "../assets/styles/variables";
 
 .page-outlet {
   min-height: calc(100vh - 387px);
@@ -13,5 +13,5 @@
 .top-offset {
   @include breakpoint(desktop) {
     margin-top: 111px;
-  }  
+  }
 }

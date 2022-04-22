@@ -1,0 +1,36 @@
+<form
+  class="form"
+  [formGroup]="form"
+  (ngSubmit)="onSave()"
+>
+  <div class="mb-3 input-field">
+    <label for="title" class="form-label">Название меню</label>
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      name="title"
+      placeholder="Заголовок"
+      formControlName="title"
+    />
+  </div>
+
+  <div class="mb-3 input-field">
+    <div class="form-floating">
+      <textarea
+        id="menu-description"
+        class="form-control form-description"
+        placeholder="Описание"
+        formControlName="description"
+      ></textarea>
+      <label for="menu-description">Описание</label>
+    </div>
+  </div>
+
+  <div class="form-controls">
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+    <button type="button" class="btn btn-danger" (click)="cancel.emit()">
+      Отмена
+    </button>
+  </div>
+</form>

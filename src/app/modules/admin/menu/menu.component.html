@@ -1,0 +1,22 @@
+<section class="news">
+  <ng-container *ngIf="!isFormToggled">
+    <button type="button" class="btn btn-primary mb-3" (click)="toggleForm()">
+      Добавить новое меню
+    </button>
+
+    <app-table
+      *ngIf="menus$ | async as menus"
+      [dataSource]="menus"
+      [titleLink]="titleLink"
+      [displayedColumns]="displayedColumns"
+      (edit)="editMenu($event)"
+      (remove)="deleteMenu($event)"
+    ></app-table>
+  </ng-container>
+
+  <app-menu-form
+    *ngIf="isFormToggled"
+    (save)="addMenu($event)"
+    (cancel)="toggleForm()"
+  ></app-menu-form>
+</section>

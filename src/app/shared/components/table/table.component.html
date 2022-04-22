@@ -1,0 +1,93 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>№</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef>Заголовок</th>
+    <td mat-cell *matCellDef="let element">
+      <ng-container *ngIf="titleLink?.length; else simpleTitleTemp">
+        <span class="link" [routerLink]="element.id | titleLink: titleLink">{{ element.title }}</span>
+      </ng-container>
+      <ng-template #simpleTitleTemp>
+        <span>{{ element.title }}</span>
+      </ng-template>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef>Описание</th>
+    <td
+      mat-cell
+      *matCellDef="let element"
+      [innerHTML]="element?.description != 'null' ? element.description : '-'"
+    ></td>
+  </ng-container>
+
+  <ng-container matColumnDef="articleId">
+    <th mat-header-cell *matHeaderCellDef>ID материала</th>
+    <td mat-cell *matCellDef="let element">{{ element.article_id || "-" }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="route">
+    <th mat-header-cell *matHeaderCellDef>Ссылка на страницу</th>
+    <td mat-cell *matCellDef="let element">{{ element.route || "-" }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="created_at">
+    <th mat-header-cell *matHeaderCellDef>Дата создания</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.created_at | date: "dd.MM.YYYY г. HH:mm" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="parentCategoryItemId">
+    <th mat-header-cell *matHeaderCellDef>Родительская категория</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.parent_category_item_id || "-" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="parentMenuItemId">
+    <th mat-header-cell *matHeaderCellDef>Родительское меню</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.parent_menu_item_id || "-" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="orderIdx">
+    <th mat-header-cell *matHeaderCellDef>Порядок</th>
+    <td mat-cell *matCellDef="let element">{{ element.order_idx || "-" }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="author">
+    <th mat-header-cell *matHeaderCellDef>Автор</th>
+    <td mat-cell *matCellDef="let element">{{ element.author || "-" }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="controls">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <div class="controls">
+        <div class="icon icon--edit" (click)="edit.emit(element.id)">
+          <img class="icon-img" src="/assets/icons/pencil.svg" />
+        </div>
+
+        <div class="icon icon--remove" (click)="remove.emit(element.id)">
+          <img class="icon-img" src="/assets/icons/basket.svg" />
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  <tr mat-row *ngIf="dataSource?.length === 0">
+    <td [colSpan]="displayedColumns.length">Пусто</td>
+  </tr>
+</table>
+
+<div class="empty-data" *ngIf="!dataSource?.length">
+  Пусто
+</div>

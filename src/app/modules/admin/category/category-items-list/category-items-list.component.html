@@ -1,0 +1,17 @@
+<section class="category">
+  <button
+    type="button"
+    class="btn btn-primary mb-3"
+    (click)="addCategoryItem()"
+  >
+    Добавить новый пункт категорию
+  </button>
+
+  <app-table
+    *ngIf="categoryItems$ | async as categoryItems"
+    [dataSource]="categoryItems"
+    [displayedColumns]="displayedColumns"
+    (edit)="updateCategoryItem($event, categoryItems)"
+    (remove)="removeCategoryItem($event)"
+  ></app-table>
+</section>

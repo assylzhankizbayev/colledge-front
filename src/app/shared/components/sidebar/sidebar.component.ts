@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IMenu } from 'src/app/core/models/menu.model';
-import { MenuService } from 'src/app/core/services/menu.service';
+import { IMenu, IMenuItem } from '../../../core/models/menu.model';
+import { MenuService } from '../../../core/services/menu.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -15,7 +15,7 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
     this.menuService.getMenuItemsById(2).subscribe((res) => {
       if (res.success) {
-        this.links = res.result.map((item) => ({
+        this.links = (res.result as IMenuItem[]).map((item) => ({
           title: item.title,
           route: item.route || '',
           articleId: item.article_id,

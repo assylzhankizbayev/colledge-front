@@ -1,6 +1,6 @@
-@import '~src/app/shared/styles/grid';
-@import '~src/app/shared/styles/reset';
-@import '~swiper/swiper-bundle';
+@import "./assets/styles/grid";
+@import "./assets/styles/reset";
+@import "~swiper/swiper-bundle";
 
 .no-data {
   min-height: 600px;
@@ -30,12 +30,13 @@ html.cdk-global-scrollblock body {
   overflow: hidden;
 }
 
-.mat-progress-spinner circle, .mat-spinner circle {
-  stroke: #2F80ED;
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: #2f80ed;
 }
 
 .mat-progress-bar-fill::after {
-  background-color: #2F80ED;
+  background-color: #2f80ed;
 }
 
 .mat-select-panel-wrap {
@@ -47,7 +48,8 @@ html.cdk-global-scrollblock body {
   line-height: 16px;
 }
 
-.page-title, h2 {
+.page-title,
+h2 {
   font-size: 1.75rem;
   font-weight: 400;
   margin-bottom: 0.75rem;
@@ -56,6 +58,11 @@ html.cdk-global-scrollblock body {
 .page-content {
   font-size: 1rem;
   text-align: justify;
+
+  p img {
+    object-fit: contain;
+    width: 100%;
+  }
 }
 
 h3 {

@@ -1,0 +1,5 @@
+<app-menu-form
+  [formData]="menu$ | async"
+  (save)="updateMenu($event)"
+  (cancel)="cancel()"
+></app-menu-form>

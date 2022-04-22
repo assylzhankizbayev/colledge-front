@@ -1,0 +1,9 @@
+<label for="img" class="form-label">{{ title }}</label>
+<input
+  type="file"
+  class="form-control"
+  id="img"
+  name="img"
+  [formControl]="filesControl"
+  observeFiles
+/>
