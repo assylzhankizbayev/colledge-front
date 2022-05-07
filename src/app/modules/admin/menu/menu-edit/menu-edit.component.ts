@@ -38,6 +38,6 @@ export class MenuEditComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigate(['/menu']);
+    this.router.navigate(['/admin/menu']);
   }
 }

@@ -78,7 +78,7 @@ export class CategoryFacade {
     return this.categoryService.updateCategory(id, data).pipe(
       tap((category) => {
         if (category.success) {
-          this.router.navigate(['/category']);
+          this.router.navigate(['/admin/category']);
         }
       }),
       take(1)

@@ -43,7 +43,7 @@ export class ArticleAdminComponent implements OnInit {
   }
 
   edit(id: number): void {
-    this.router.navigate(['/article', id, 'edit']);
+    this.router.navigate(['/admin/article', id, 'edit']);
   }
 
   remove(id: number) {

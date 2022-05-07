@@ -14,7 +14,7 @@ export class MenuComponent implements OnInit {
   menus$ = this.menuFacade.menus;
   isFormToggled = false;
   displayedColumns: string[] = ['title', 'description', 'controls'];
-  titleLink = ['/menu', 'id', 'items'];
+  titleLink = ['/admin', 'menu', 'id', 'items'];
 
   constructor(
     private router: Router,
@@ -31,7 +31,7 @@ export class MenuComponent implements OnInit {
       .pipe(
         tap((res: ISubmitResponse) => {
           if (res.success) {
-            this.router.navigate(['/menu', res.id, 'items']);
+            this.router.navigate(['/admin', 'menu', res.id, 'items']);
           }
         }),
         catchError((err) => {
@@ -44,7 +44,7 @@ export class MenuComponent implements OnInit {
   }
 
   editMenu(id: number) {
-    this.router.navigate(['/menu', id, 'edit']);
+    this.router.navigate(['/admin', 'menu', id, 'edit']);
   }
 
   deleteMenu(id: number) {

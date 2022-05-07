@@ -13,6 +13,13 @@ export interface IPost {
 }
 
 export interface IPostRes {
-  result: IPost[];
+  result?: IPost[];
   success: boolean;
+  error?: any;
+}
+
+export interface IPostSingleRes {
+  result?: IPost;
+  success: boolean;
+  error?: any;
 }

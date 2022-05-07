@@ -7,13 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AdminSidebarComponent {
   routes = [
-    { title: 'Главная', router: '/' },
-    { title: 'Категории', router: '/category' },
-    { title: 'Меню', router: '/menu' },
-    { title: 'Материалы', router: '/article' },
-    { title: 'О колледже', router: '/about' },
-    { title: 'Достижения', router: '/achievements' },
-    { title: 'Лицензии', router: '/licence' },
-    { title: 'Новости', router: '/news' },
+    { title: 'Главная', router: '/admin' },
+    { title: 'Категории', router: '/admin/category' },
+    { title: 'Меню', router: '/admin/menu' },
+    { title: 'Материалы', router: '/admin/article' },
+    { title: 'Лицензии', router: '/admin/licence' },
+    { title: 'Новости', router: '/admin/news' },
   ];
 }

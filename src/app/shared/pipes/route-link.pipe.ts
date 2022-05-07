@@ -9,7 +9,7 @@ export class RouteLinkPipe implements PipeTransform {
     let link = '';
 
     if (menu?.articleId) {
-      link = `/article/${menu.articleId}`;
+      link = `/page/article/${menu.articleId}`;
     } else if (menu?.route) {
       link = menu.route;
     } else {

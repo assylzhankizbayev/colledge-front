@@ -5,10 +5,13 @@ import { LicenceRoutingModule } from './licence-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../../shared/shared.module';
 import { LicenceFacade } from '../../../core/facade/licence.facade';
+import { LicenceService } from '../../../core/services/licence.service';
 import { LicenceAdminComponent } from './licence.component';
+import { LicenceEditComponent } from './licence-edit/licence-edit.component';
+import { LicenceFormComponent } from './licence-form/licence-form.component';
 
 @NgModule({
-  declarations: [LicenceAdminComponent],
+  declarations: [LicenceAdminComponent, LicenceEditComponent, LicenceFormComponent],
   imports: [
     CommonModule,
     LicenceRoutingModule,
@@ -16,6 +19,6 @@ import { LicenceAdminComponent } from './licence.component';
     ReactiveFormsModule,
     SharedModule,
   ],
-  providers: [LicenceFacade],
+  providers: [LicenceFacade, LicenceService],
 })
 export class LicenceModule {}

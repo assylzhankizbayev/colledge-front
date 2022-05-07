@@ -4,37 +4,17 @@
       Добавить материал
     </button>
 
-    <app-table [dataSource]="post$ | async"></app-table>
+    <app-table
+      [dataSource]="licences$ | async"
+      (edit)="editLicence($event)"
+      (remove)="removeLicence($event)"
+    ></app-table>
   </ng-container>
 
-  <form
+  <app-licence-form
     *ngIf="isFormToggled"
-    class="form"
-    [formGroup]="form"
-    (ngSubmit)="submit()"
-  >
-    <div class="mb-3 input-field">
-      <label for="title" class="form-label">Заголовок</label>
-      <input
-        type="text"
-        class="form-control"
-        id="title"
-        name="title"
-        aria-describedby="title"
-        formControlName="title"
-      />
-    </div>
-    <div class="mb-3 input-field">
-      <app-file-upload formControlName="file"></app-file-upload>
-    </div>
-    <div class="mb-3">
-      <app-tinymce-editor formControlName="body"></app-tinymce-editor>
-    </div>
-    <div class="form-controls">
-      <button type="submit" class="btn btn-primary">Сохранить</button>
-      <button type="button" class="btn btn-danger" (click)="toggleForm()">
-        Отмена
-      </button>
-    </div>
-  </form>
+    [form]="form"
+    (submit)="submit()"
+    (toggle)="toggleForm()"
+  ></app-licence-form>
 </section>

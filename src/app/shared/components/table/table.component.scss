@@ -6,6 +6,11 @@ table {
   width: 350px;
 }
 
+.mat-cell,
+.mat-header-cell {
+  vertical-align: middle;
+}
+
 .btn {
   & + & {
     margin-left: 0.8rem;

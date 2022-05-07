@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { switchMap, take, tap } from 'rxjs/operators';
 import { AboutService } from '../services/about.service';
+import { ArticleService } from '../services/article.service';
 
 @Injectable()
 export class AboutFacade {
@@ -9,7 +10,10 @@ export class AboutFacade {
   private title$ = new BehaviorSubject<string | null>(null);
   private body$ = new BehaviorSubject<string | null>(null);
 
-  constructor(private aboutService: AboutService) {}
+  constructor(
+    private aboutService: AboutService,
+    private articleService: ArticleService
+  ) {}
 
   get post() {
     return this.post$.asObservable();
@@ -28,14 +32,11 @@ export class AboutFacade {
   }
 
   private getAboutRes(): Observable<any> {
-    return this.aboutService.getAboutPost().pipe(
+    return this.articleService.getArticle(22).pipe(
       take(1),
-      tap((post: any) => {
-        if (post.success && post.result?.length) {
-          this.post$.next(post.result);
-          this.title$.next(post.result[0]?.title);
-          this.body$.next(post.result[0]?.body);
-        }
+      tap((article) => {
+        this.title$.next(article.result?.title);
+        this.body$.next(article.result?.body);
       })
     );
   }

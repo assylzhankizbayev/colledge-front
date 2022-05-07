@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { LicenceFacade } from '../../../core/facade/licence.facade';
@@ -10,28 +11,31 @@ import { LicenceFacade } from '../../../core/facade/licence.facade';
   styleUrls: ['./licence.component.scss'],
 })
 export class LicenceAdminComponent implements OnInit {
-  post$ = this.LicenceFacade.post;
+  licences$ = this.licenceFacade.licences;
   form = this.fb.group({
     title: ['', Validators.required],
-    body: [null, Validators.required],
+    body: ['', Validators.required],
     file: [null],
   });
   isFormToggled = false;
 
-  constructor(private fb: FormBuilder, private LicenceFacade: LicenceFacade) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private licenceFacade: LicenceFacade
+  ) {}
 
   ngOnInit(): void {
-    this.LicenceFacade.init();
+    this.licenceFacade.init();
   }
 
   submit(): void {
-    console.log(this.form.value);
-
-    this.LicenceFacade.submit(this.form.value)
+    this.licenceFacade
+      .submit(this.form.value)
       .pipe(
         tap(() => {
           this.toggleForm();
-          this.form.reset();
+          this.form.patchValue({ title: '', body: '', file: null });
         }),
         catchError((err) => {
           console.log(err);
@@ -44,5 +48,13 @@ export class LicenceAdminComponent implements OnInit {
 
   toggleForm(): void {
     this.isFormToggled = !this.isFormToggled;
+  }
+
+  editLicence(id: number) {
+    this.router.navigate(['/admin/licence', id, 'edit']);
+  }
+
+  removeLicence(id: number) {
+    this.licenceFacade.delete(id).subscribe();
   }
 }

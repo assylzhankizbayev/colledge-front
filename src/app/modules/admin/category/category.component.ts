@@ -11,7 +11,7 @@ export class CategoryComponent implements OnInit {
   categories$ = this.categoryFacade.categories;
   isFormToggled = false;
   displayedColumns: string[] = ['title', 'description', 'controls'];
-  titleLink = ['/category', 'id', 'items'];
+  titleLink = ['/admin', 'category', 'id', 'items'];
 
   constructor(private router: Router, private categoryFacade: CategoryFacade) {}
 
@@ -24,7 +24,7 @@ export class CategoryComponent implements OnInit {
   }
 
   editCategory(id: number) {
-    this.router.navigate(['/category', id, 'edit']);
+    this.router.navigate(['/admin/category', id, 'edit']);
   }
 
   deleteCategory(id: number) {

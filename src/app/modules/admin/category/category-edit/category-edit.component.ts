@@ -40,6 +40,6 @@ export class CategoryEditComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigate(['/category']);
+    this.router.navigate(['/admin/category']);
   }
 }

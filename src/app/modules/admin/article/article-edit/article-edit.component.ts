@@ -45,7 +45,7 @@ export class ArticleEditComponent implements OnInit, OnDestroy {
         .updateArticle(this.articleId, data)
         .pipe(
           tap(() => {
-            this.router.navigate(['/article']);
+            this.router.navigate(['/admin/article']);
           }),
           catchError((err) => {
             console.log(err);
@@ -59,7 +59,7 @@ export class ArticleEditComponent implements OnInit, OnDestroy {
   }
 
   cancel(): void {
-    this.router.navigate(['/article']);
+    this.router.navigate(['/admin/article']);
   }
 
   ngOnDestroy(): void {

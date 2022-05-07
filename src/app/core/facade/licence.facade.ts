@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { switchMap, take, tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
-import { ILicence } from '../models/licence.model';
-import { IPostRes } from '../models/post.model';
+import { ILicence, ILicenceBody } from '../models/licence.model';
+import { IPostRes, IPostSingleRes } from '../models/post.model';
 import { LicenceService } from '../services/licence.service';
 
 @Injectable()
@@ -13,7 +14,7 @@ export class LicenceFacade {
   private licences$ = new BehaviorSubject<ILicence[] | null>(null);
   host = environment.host;
 
-  constructor(private licenceService: LicenceService) {}
+  constructor(private licenceService: LicenceService, private router: Router) {}
 
   get post() {
     return this.post$.asObservable();
@@ -38,8 +39,9 @@ export class LicenceFacade {
         if (post.success && post.result?.length) {
           this.licences$.next(
             post.result.map((item) => ({
+              id: item.id,
               title: item.title,
-              src: this.host + item.files.path,
+              src: item?.files?.path ? this.host + item.files.path : '',
             }))
           );
         }
@@ -47,11 +49,28 @@ export class LicenceFacade {
     );
   }
 
-  submit(value: any): Observable<any> {
-    return this.licenceService
-      .addLicence(value)
-      .pipe(
-        switchMap((res) => (res.success ? this.getLicences() : of(null)))
-      );
+  getLicence(id: number): Observable<IPostSingleRes> {
+    return this.licenceService.getLicence(id).pipe(take(1));
+  }
+
+  submit(body: ILicenceBody): Observable<IPostRes | null> {
+    return this.licenceService.addLicence(body).pipe(
+      take(1),
+      switchMap((res) => (res.success ? this.getLicences() : of(null)))
+    );
+  }
+
+  update(body: ILicenceBody): Observable<IPostSingleRes> {
+    return this.licenceService.updateLicence(body).pipe(
+      take(1),
+      tap(() => this.router.navigate(['/admin/licence']))
+    );
+  }
+
+  delete(id: number): Observable<IPostRes | null> {
+    return this.licenceService.deleteLicence(id).pipe(
+      take(1),
+      switchMap((res) => (res.success ? this.getLicences() : of(null)))
+    );
   }
 }

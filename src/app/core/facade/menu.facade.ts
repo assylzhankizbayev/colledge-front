@@ -92,7 +92,7 @@ export class MenuFacade {
     return this.menuService.updateMenu(id, data).pipe(
       mergeMap((menu) => {
         if (menu?.success) {
-          this.router.navigate(['/menu']);
+          this.router.navigate(['/admin/menu']);
           return this.getMenus();
         }
         return of(null);
