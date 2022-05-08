@@ -1,0 +1,31 @@
+<form class="login-form" [formGroup]="form">
+  <h3 class="form-title">Авторизация</h3>
+
+  <div class="form-floating mb-3">
+    <input
+      type="tel"
+      class="form-control"
+      id="floatingInput"
+      placeholder="name@example.com"
+      mask="+0 (000) 000 00 00"
+      [showMaskTyped]="true"
+      formControlName="phone"
+    />
+    <label for="floatingInput">Номер телефона</label>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input
+      type="password"
+      class="form-control"
+      id="floatingPassword"
+      placeholder="Password"
+      formControlName="password"
+    />
+    <label for="floatingPassword">Пароль</label>
+  </div>
+
+  <div class="d-grid">
+    <button type="button" class="btn btn-primary btn-lg" (click)="login()">Войти</button>
+  </div>
+</form>
