@@ -8,3 +8,6 @@ export interface ILoginRes {
   refreshToken: string;
 }
 
+export interface IUpdateTokenRes {
+  accessToken: string;
+}
