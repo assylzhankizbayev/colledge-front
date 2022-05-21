@@ -1,0 +1,18 @@
+::ng-deep {
+  .tabs {
+    .mat-tab-label {
+      color: #222;
+      font-size: 1rem;
+      font-weight: 400;
+      opacity: 1;
+    }
+
+    .mat-tab-label-active {
+      color: #005dac;
+    }
+
+    .mat-tab-body-content {
+      padding: 2.5rem 0 0;
+    }
+  }
+}

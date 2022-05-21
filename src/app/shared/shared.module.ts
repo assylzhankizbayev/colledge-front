@@ -31,6 +31,7 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
 import { SelectComponent } from './components/select/select.component';
 import { TableComponent } from './components/table/table.component';
 import { TinymceEditorComponent } from './components/tinymce-editor/tinymce-editor.component';
+import { ClientPageWrapperComponent } from './components/client-page-wrapper/client-page-wrapper.component';
 
 const components = [
   AdminHeaderComponent,
@@ -48,6 +49,7 @@ const components = [
   SidebarComponent,
   TableComponent,
   TinymceEditorComponent,
+  ClientPageWrapperComponent,
 ];
 const pipes = [SeparatorPipe, RouteLinkPipe, TitleLinkPipe];
 const directives = [PageYOffsetDirective];
