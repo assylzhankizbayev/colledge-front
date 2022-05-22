@@ -10,6 +10,9 @@ import { QuestionsComponent } from './questions/questions.component';
 import { BlogDirectoraComponent } from './blog-directora.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { QaCardComponent } from './questions/qa-card/qa-card.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     GreetingComponent,
     QuestionsComponent,
     BlogDirectoraComponent,
+    QaCardComponent,
   ],
   imports: [
     CommonModule,
@@ -25,6 +29,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     SharedModule,
     MatTabsModule,
     MatExpansionModule,
+    MatDialogModule,
+    ReactiveFormsModule
   ],
 })
 export class BlogDirectoraModule {}

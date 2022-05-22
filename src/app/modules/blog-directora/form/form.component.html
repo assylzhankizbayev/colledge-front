@@ -1,1 +1,24 @@
-<p>form works!</p>
+<form class="form" [formGroup]="form">
+  <label for="name" class="form-label">Введите ваше имя *</label>
+  <input type="text" id="name" class="form-input" formControlName="username" />
+
+  <label for="email" class="form-label">Введите ваш email</label>
+  <input type="text" id="email" class="form-input" formControlName="email" />
+
+  <label for="phone" class="form-label">Введите ваш телефон *</label>
+  <input type="text" id="phone" class="form-input" formControlName="phone" />
+
+  <label for="phone" class="form-label">Вопрос</label>
+  <textarea
+    type="text"
+    id="phone"
+    class="form-input"
+    rows="3"
+    formControlName="question"
+  ></textarea>
+
+  <div class="form-controls">
+    <button type="button" class="btn btn-cancel" (click)="cancel()">Отменить</button>
+    <button type="button" class="btn btn-submit" (click)="send()">Отправить</button>
+  </div>
+</form>

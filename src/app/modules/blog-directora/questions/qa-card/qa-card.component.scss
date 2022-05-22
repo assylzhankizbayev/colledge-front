@@ -1,0 +1,111 @@
+::ng-deep {
+  .answer-panel {
+    .mat-expansion-panel-body {
+      padding: 0;
+    }
+  }
+}
+
+.question {
+  display: grid;
+  grid-template-areas:
+    "from . date"
+    "message message message"
+    "answer answer answer"
+    "btn btn btn";
+  background-color: #fff;
+  padding: 1rem 1rem 0;
+  font-weight: 400;
+
+  &-from {
+    grid-area: from;
+    color: #212121;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  &-date {
+    grid-area: date;
+    color: #969594;
+    font-size: 0.875rem;
+  }
+
+  &-message {
+    grid-area: message;
+    color: #212121;
+    font-size: 1rem;
+    margin: 1rem 0 0;
+  }
+}
+
+.answer-panel {
+  grid-area: answer;
+  background-color: #f7f7f9;
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+  margin: 0 -1rem;
+
+  &.expanded {
+    margin-top: 1rem;
+  }
+}
+
+.answer {
+  display: grid;
+  grid-template-areas:
+    "title . ."
+    "amessage amessage amessage"
+    ". . by";
+  padding: 1rem 1rem 0;
+
+  &-title {
+    grid-area: title;
+    color: #212121;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  &-message {
+    grid-area: amessage;
+    color: #212121;
+    font-size: 1rem;
+    margin: 1rem 0;
+  }
+
+  &-by {
+    grid-area: by;
+    display: flex;
+    flex-direction: column;
+
+    &__name {
+      color: #212121;
+      font-size: 1rem;
+      font-weight: 500;
+      margin: 0 0 0.25rem;
+    }
+
+    &__position {
+      color: #969594;
+      font-size: 0.875rem;
+    }
+  }
+}
+
+.btn-toggle-answer {
+  grid-area: btn;
+  background-color: #fff;
+  color: #005dac;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 -1rem;
+  padding: 1rem;
+  width: calc(100% + 2rem);
+  transition: all 0.5s ease-out;
+
+  &.toggled {
+    background-color: #f7f7f9;
+  }
+}
+
