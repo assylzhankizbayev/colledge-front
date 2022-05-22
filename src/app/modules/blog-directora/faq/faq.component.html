@@ -1,1 +1,7 @@
-<p>faq works!</p>
+<mat-accordion>
+  <app-faq-card
+    *ngFor="let question of questions"
+    [question]="question.question"
+    [answer]="question.answer"
+  ></app-faq-card>
+</mat-accordion>

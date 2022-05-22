@@ -13,6 +13,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { QaCardComponent } from './questions/qa-card/qa-card.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FaqCardComponent } from './faq/faq-card/faq-card.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     QuestionsComponent,
     BlogDirectoraComponent,
     QaCardComponent,
+    FaqCardComponent,
   ],
   imports: [
     CommonModule,

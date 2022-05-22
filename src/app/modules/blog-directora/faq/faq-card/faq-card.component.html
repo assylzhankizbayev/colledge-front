@@ -1,0 +1,9 @@
+<mat-expansion-panel class="faq-panel">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <app-icons class="panel-icon" icon="checkmark"></app-icons>
+      {{ question }}
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div [innerHTML]="answer"></div>
+</mat-expansion-panel>
