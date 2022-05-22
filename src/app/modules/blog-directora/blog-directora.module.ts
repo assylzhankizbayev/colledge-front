@@ -9,6 +9,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { QuestionsComponent } from './questions/questions.component';
 import { BlogDirectoraComponent } from './blog-directora.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     BlogDirectoraRoutingModule,
     SharedModule,
     MatTabsModule,
+    MatExpansionModule,
   ],
 })
 export class BlogDirectoraModule {}

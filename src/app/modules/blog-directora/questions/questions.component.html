@@ -1,1 +1,38 @@
-<p>questions works!</p>
+<div class="questions">
+  <div class="question">
+    <span class="question-from">Дархан Маханбетияров</span>
+    <span class="question-date">17 мая 2022</span>
+    <p class="question-message">
+      Здравствуйте, я студент 4 курса,профессия ТДО, у меня 126 кредитов, могу
+      ли я защитить дипломную работу летом. У меня все обязательные предметы
+      есть, только не хватает 1 элективный предмет. Или есть какая-то
+      возможность пропустить меня в дипломную работу. Мне сказали ,что у меня
+      недопуск когда 2 неделя остался до предзащита! Спасибо за внимание!
+    </p>
+    <mat-expansion-panel class="answer-panel" [class.expanded]="toggled" [expanded]="toggled">
+      <div class="answer">
+        <span class="answer-title">Ответ</span>
+        <p class="answer-message">
+          Здравствуйте! Согласно ГОСО МОН РК и правилам КТО выпускник за все время
+          обучения должен освоить дисциплины в объеме 129 (Казахстанского) кредита
+          либо 240 ( ECTS) минимум. Соответственно Вы не можете выйти на защиту в
+          летний период. Вы можете летом освоить необходимое количество кредитов и
+          выйти на защиту осенью
+        </p>
+        <div class="answer-by">
+          <span class="answer-by__name">Бегентаев Мейрам Мухаметрахимович</span>
+          <span class="answer-by__position"
+            >Председатель Правления – Ректор Satbayev University</span
+          >
+        </div>
+      </div>
+    </mat-expansion-panel>
+    <span
+      class="btn-toggle-answer"
+      [class.toggled]="toggled"
+      (click)="toggle()"
+    >
+      {{ toggled ? "Свернуть" : "Читать ответ" }}
+    </span>
+  </div>
+</div>

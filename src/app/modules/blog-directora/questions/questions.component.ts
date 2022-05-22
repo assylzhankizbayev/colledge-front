@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./questions.component.scss']
 })
 export class QuestionsComponent implements OnInit {
+  toggled = false;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  toggle() {
+    this.toggled = !this.toggled;
+  }
 }
