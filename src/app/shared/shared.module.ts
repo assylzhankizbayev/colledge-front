@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgxMaskModule } from 'ngx-mask';
-import { EditorModule } from '@tinymce/tinymce-angular';
+import { EditorModule, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
 import { MaterialModule } from './modules/material/material.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -76,6 +76,9 @@ const facades = [
   declarations: [...components, ...directives, ...pipes],
   imports: [...modules],
   exports: [...components, ...directives, ...pipes, MaterialModule],
-  providers: [...facades],
+  providers: [
+    ...facades,
+    { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' }
+  ],
 })
 export class SharedModule {}
