@@ -12,7 +12,10 @@ table {
   text-align: center;
   width: 160px;
 
-  &.mat-column-id,
+  &.mat-column-id {
+    width: 70px;
+  }
+
   &.mat-column-controls {
     width: 100px;
   }
@@ -21,10 +24,14 @@ table {
     width: auto;
   }
 
+  &:first-of-type {
+    text-align: left;
+  }
+
   &.mat-column-title {
     padding-right: 1rem;
-    width: auto;
     text-align: left;
+    width: auto;
   }
 }
 
