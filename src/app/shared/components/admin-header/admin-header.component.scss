@@ -11,6 +11,8 @@
 }
 
 .files {
+  display: flex;
+  align-items: center;
   position: relative;
 
   &-icon {
@@ -22,7 +24,7 @@
   }
 
   &-list {
-    margin: 10px 0 0;
+    margin: 1rem 0 0;
     position: absolute;
     top: 100%;
     right: 0;

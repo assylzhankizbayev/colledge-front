@@ -1,17 +1,16 @@
+@import "~src/assets/fonts/Roboto/roboto";
+@import "~src/assets/fonts/Rubik/rubik";
 
-@import '~src/assets/fonts/Roboto/roboto';
-@import '~src/assets/fonts/Rubik/rubik';
-
-
-$font-family: 'Roboto', sans-serif;
+$font-family: "Roboto", sans-serif;
 $font-weight-light: 300;
 $font-weight-regular: 400;
 $font-weight-heavy: 700;
 $font-height: 1.5;
 
-$dark-grey: #272D4E;
+$dark-grey: #272d4e;
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -22,8 +21,13 @@ body {
   font-family: $font-family;
   color: $dark-grey;
   // line-height: $font-height;
-  background: #FBFBFB;
-  background: linear-gradient(180deg, #E5EFFF 0%, rgba(229, 239, 255, 0.262661) 83.7%, rgba(229, 239, 255, 0) 100%);
+  background: #fbfbfb;
+  background: linear-gradient(
+    180deg,
+    #e5efff 0%,
+    rgba(229, 239, 255, 0.262661) 83.7%,
+    rgba(229, 239, 255, 0) 100%
+  );
   background-repeat: no-repeat;
 }
 
@@ -108,15 +112,6 @@ $breakpoint-large: 60em; // 960px
   width: 95%;
   margin-left: auto;
   margin-right: auto;
-
-/*   @media only screen and (min-width: $breakpoint-small) {
-    width: 80%;
-  } */
-
-  // @media only screen and (min-width: $breakpoint-large) {
-  //   width: 75%;
-  //   max-width: 60rem;
-  // }
 }
 
 .row {
@@ -124,12 +119,7 @@ $breakpoint-large: 60em; // 960px
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-}
-
-.row [class^="col"] {
-/*   float: left;
-  margin: 0.5rem 2%;
-  min-height: 0.125rem; */
+  margin: 0;
 }
 
 .row::after {
@@ -154,46 +144,93 @@ $breakpoint-large: 60em; // 960px
   width: $width;
 }
 
-
 @mixin make-col($size, $columns: $grid-columns) {
   flex: 0 0 percentage($size / $columns);
   max-width: percentage($size / $columns);
 }
 
-
-.col-1-sm { width:($width / 12) - ($gutter * 11 / 12); }
-.col-2-sm { width: ($width / 6) - ($gutter * 10 / 12); }
-.col-3-sm { width: ($width / 4) - ($gutter * 9 / 12); }
-.col-4-sm { width: ($width / 3) - ($gutter * 8 / 12); }
-.col-5-sm { width: ($width / (12 / 5)) - ($gutter * 7 / 12); }
-.col-6-sm { width: ($width / 2) - ($gutter * 6 / 12); }
-.col-7-sm { width: ($width / (12 / 7)) - ($gutter * 5 / 12); }
-.col-8-sm { width: ($width / (12 / 8)) - ($gutter * 4 / 12); }
-.col-9-sm { width: ($width / (12 / 9)) - ($gutter * 3 / 12); }
-.col-10-sm { width: ($width / (12 / 10)) - ($gutter * 2 / 12); }
-.col-11-sm { width: ($width / (12 / 11)) - ($gutter * 1 / 12); }
-.col-12-sm { width: $width; }
+.col-1-sm {
+  width: ($width / 12) - ($gutter * 11 / 12);
+}
+.col-2-sm {
+  width: ($width / 6) - ($gutter * 10 / 12);
+}
+.col-3-sm {
+  width: ($width / 4) - ($gutter * 9 / 12);
+}
+.col-4-sm {
+  width: ($width / 3) - ($gutter * 8 / 12);
+}
+.col-5-sm {
+  width: ($width / (12 / 5)) - ($gutter * 7 / 12);
+}
+.col-6-sm {
+  width: ($width / 2) - ($gutter * 6 / 12);
+}
+.col-7-sm {
+  width: ($width / (12 / 7)) - ($gutter * 5 / 12);
+}
+.col-8-sm {
+  width: ($width / (12 / 8)) - ($gutter * 4 / 12);
+}
+.col-9-sm {
+  width: ($width / (12 / 9)) - ($gutter * 3 / 12);
+}
+.col-10-sm {
+  width: ($width / (12 / 10)) - ($gutter * 2 / 12);
+}
+.col-11-sm {
+  width: ($width / (12 / 11)) - ($gutter * 1 / 12);
+}
+.col-12-sm {
+  width: $width;
+}
 
 @media only screen and (min-width: $breakpoint-med) {
-  .col-1 { width:($width / 12) - ($gutter * 11 / 12); }
-  .col-2 { width: ($width / 6) - ($gutter * 10 / 12); }
-  .col-3 { width: ($width / 4) - ($gutter * 9 / 12); }
-  .col-4 { @include make-col(4, 12); }
-  .col-5 { width: ($width / (12 / 5)) - ($gutter * 7 / 12); }
-  .col-6 { @include make-col(6, 12); }
-  .col-7 { width: ($width / (12 / 7)) - ($gutter * 5 / 12); }
-  .col-8 { width: ($width / (12 / 8)) - ($gutter * 4 / 12); }
-  .col-9 { width: ($width / (12 / 9)) - ($gutter * 3 / 12); }
-  .col-10 { width: ($width / (12 / 10)) - ($gutter * 2 / 12); }
-  .col-11 { width: ($width / (12 / 11)) - ($gutter * 1 / 12); }
-  .col-12 { width: $width; }
+  .col-1 {
+    width: ($width / 12) - ($gutter * 11 / 12);
+  }
+  .col-2 {
+    width: ($width / 6) - ($gutter * 10 / 12);
+  }
+  .col-3 {
+    width: ($width / 4) - ($gutter * 9 / 12);
+  }
+  .col-4 {
+    @include make-col(4, 12);
+  }
+  .col-5 {
+    width: ($width / (12 / 5)) - ($gutter * 7 / 12);
+  }
+  .col-6 {
+    @include make-col(6, 12);
+  }
+  .col-7 {
+    width: ($width / (12 / 7)) - ($gutter * 5 / 12);
+  }
+  .col-8 {
+    width: ($width / (12 / 8)) - ($gutter * 4 / 12);
+  }
+  .col-9 {
+    width: ($width / (12 / 9)) - ($gutter * 3 / 12);
+  }
+  .col-10 {
+    width: ($width / (12 / 10)) - ($gutter * 2 / 12);
+  }
+  .col-11 {
+    width: ($width / (12 / 11)) - ($gutter * 1 / 12);
+  }
+  .col-12 {
+    width: $width;
+  }
 
   .hidden-sm {
     display: block;
   }
 }
 
-p, li {
+p,
+li {
   padding: 0;
   margin: 0;
 
