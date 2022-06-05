@@ -9,6 +9,23 @@ table {
 .mat-cell,
 .mat-header-cell {
   vertical-align: middle;
+  text-align: center;
+  width: 160px;
+
+  &.mat-column-id,
+  &.mat-column-controls {
+    width: 100px;
+  }
+
+  &.mat-column-description {
+    width: auto;
+  }
+
+  &.mat-column-title {
+    padding-right: 1rem;
+    width: auto;
+    text-align: left;
+  }
 }
 
 .btn {
@@ -48,7 +65,7 @@ table {
   align-items: center;
   justify-content: center;
   background-color: #fff;
-  border: 1px solid rgba(0,0,0,.12);
+  border: 1px solid rgba(0, 0, 0, 0.12);
   height: 70px;
   width: 100%;
 }

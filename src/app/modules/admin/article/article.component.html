@@ -6,7 +6,6 @@
 
     <app-table
       [dataSource]="articles$ | async"
-      [displayedColumns]="displayedColumns"
       (edit)="edit($event)"
       (remove)="remove($event)"
     ></app-table>

@@ -9,3 +9,23 @@
     margin: 0;
   }
 }
+
+.files {
+  position: relative;
+
+  &-icon {
+    cursor: pointer;
+    fill: #fff;
+    margin-right: 1.5rem;
+    height: 30px;
+    width: 30px;
+  }
+
+  &-list {
+    margin: 10px 0 0;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 10;
+  }
+}

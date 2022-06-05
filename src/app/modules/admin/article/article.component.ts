@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { of } from 'rxjs';
 import { catchError, take, tap } from 'rxjs/operators';
 import { CategoryFacade } from '../../../core/facade/category.facade';
 import { ArticleFacade } from '../../../core/facade/article.facade';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-article',
@@ -14,7 +14,6 @@ export class ArticleAdminComponent implements OnInit {
   articles$ = this.articleFacade.articles;
   isFormToggled = false;
   mainCategory = 10;
-  displayedColumns: string[] = ['title', 'created_at', 'author', 'controls'];
 
   constructor(
     private router: Router,
@@ -33,8 +32,6 @@ export class ArticleAdminComponent implements OnInit {
       .pipe(
         tap(() => this.toggleForm()),
         catchError((err) => {
-          console.log(err);
-
           return of(err);
         }),
         take(1)

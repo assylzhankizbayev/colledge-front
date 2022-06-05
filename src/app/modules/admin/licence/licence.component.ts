@@ -38,8 +38,6 @@ export class LicenceAdminComponent implements OnInit {
           this.form.patchValue({ title: '', body: '', file: null });
         }),
         catchError((err) => {
-          console.log(err);
-
           return of(err);
         })
       )

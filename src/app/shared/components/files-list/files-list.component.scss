@@ -1,0 +1,48 @@
+.files {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  box-shadow: 0 5px 10px rgb(0, 0, 0, 0.2);
+  padding: 1rem;
+  width: 400px;
+  height: 80vh;
+
+  &__item {
+    border-bottom: 1px solid #ddd;
+  }
+
+  &-wrapper {
+    flex: 1;
+    position: relative;
+    overflow-y: auto;
+    width: 100%;
+  }
+
+  &-inner-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  &-control {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 40px;
+    color: #0a58ca;
+    font-size: 0.875rem;
+    width: 100%;
+  }
+}
+
+.icon-upload {
+  fill: #0a58ca;
+  margin-right: 0.5rem;
+  height: 16px;
+  width: 16px;
+}

@@ -8,3 +8,8 @@ export interface IFile {
   type: string;
   updated_at: string;
 }
+
+export interface IAllFiles {
+  success: boolean;
+  result: IFile[];
+}

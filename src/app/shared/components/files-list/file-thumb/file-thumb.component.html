@@ -1,0 +1,15 @@
+<div class="file" *ngIf="image">
+  <div class="image" (click)="copyLink(image.path)">
+    <img class="image-source" [src]="host + image.path" [alt]="image.name" />
+    <div class="image-backdrop"></div>
+    <app-icons
+      *ngIf="copied"
+      class="icon-checkmark"
+      icon="checkmark"
+    ></app-icons>
+  </div>
+  <p class="name">{{ image.name }}</p>
+  <div class="delete">
+    <app-icons class="icon" icon="delete"></app-icons>
+  </div>
+</div>

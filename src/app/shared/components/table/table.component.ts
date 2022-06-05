@@ -7,11 +7,9 @@ import { ICategoryItem } from '../../../core/models/category.model';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent {
-  @Input() displayedColumns: string[] = ['id', 'title', 'author', 'created_at', 'controls'];
+  @Input() displayedColumns: string[] = ['title', 'created_at', 'author', 'controls'];
   @Input() dataSource: any | ICategoryItem[] = [];
   @Input() titleLink: string[] = [];
   @Output() edit = new EventEmitter<number>();
   @Output() remove = new EventEmitter<number>();
-
-  constructor() { }
 }

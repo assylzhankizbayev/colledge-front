@@ -5,7 +5,7 @@
     base_url: '/tinymce',
     suffix: '.min',
     height: height,
-    file_picker_callback: this.filePickerCb.bind(this),
+    images_upload_handler: imagesUploadHandler,
     plugins: [
       'advlist autolink lists link image charmap print preview anchor',
       'searchreplace visualblocks code fullscreen',
@@ -17,6 +17,5 @@
        bullist numlist outdent indent | removeformat | help'
   }"
   [formControl]="textControl"
+  (onInit)="onInit($event)"
 ></editor>
-
-<!-- <input name="image" type="file" class="hidden" #upload /> -->

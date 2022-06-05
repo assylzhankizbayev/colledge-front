@@ -1,0 +1,16 @@
+<div class="files">
+  <div class="files-wrapper">
+    <div class="files-inner-wrapper">
+      <app-file-thumb
+        class="files__item"
+        *ngFor="let image of images"
+        [image]="image"
+      ></app-file-thumb>
+    </div>
+  </div>
+
+  <div class="files-control">
+    <app-icons class="icon-upload" icon="upload"></app-icons>
+    Добавить новое изображение
+  </div>
+</div>

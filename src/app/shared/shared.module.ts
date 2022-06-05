@@ -32,6 +32,8 @@ import { SelectComponent } from './components/select/select.component';
 import { TableComponent } from './components/table/table.component';
 import { TinymceEditorComponent } from './components/tinymce-editor/tinymce-editor.component';
 import { ClientPageWrapperComponent } from './components/client-page-wrapper/client-page-wrapper.component';
+import { FilesListComponent } from './components/files-list/files-list.component';
+import { FileThumbComponent } from './components/files-list/file-thumb/file-thumb.component';
 
 const components = [
   AdminHeaderComponent,
@@ -50,18 +52,11 @@ const components = [
   TableComponent,
   TinymceEditorComponent,
   ClientPageWrapperComponent,
+  FilesListComponent,
+  FileThumbComponent,
 ];
 const pipes = [SeparatorPipe, RouteLinkPipe, TitleLinkPipe];
 const directives = [PageYOffsetDirective];
-const modules = [
-  CommonModule,
-  RouterModule,
-  ReactiveFormsModule,
-  FormsModule,
-  NgxMaskModule,
-  EditorModule,
-  MaterialModule,
-];
 const facades = [
   AboutFacade,
   AchievementsFacade,
@@ -74,11 +69,19 @@ const facades = [
 
 @NgModule({
   declarations: [...components, ...directives, ...pipes],
-  imports: [...modules],
+  imports: [
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxMaskModule,
+    EditorModule,
+    MaterialModule,
+  ],
   exports: [...components, ...directives, ...pipes, MaterialModule],
   providers: [
     ...facades,
-    { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' }
+    { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' },
   ],
 })
 export class SharedModule {}

@@ -41,6 +41,7 @@ export class LicenceFacade {
             post.result.map((item) => ({
               id: item.id,
               title: item.title,
+              created_at: item.created_at,
               src: item?.files?.path ? this.host + item.files.path : '',
             }))
           );

@@ -9,6 +9,11 @@ import { AuthService } from '../../../core/services/auth.service';
 })
 export class AdminHeaderComponent {
   constructor(private router: Router, private authService: AuthService) {}
+  toggleFiles = false;
+
+  toggleFilesBlock() {
+    this.toggleFiles = !this.toggleFiles;
+  }
 
   logout(): void {
     this.router.navigate(['/login']);

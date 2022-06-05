@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { IPostRes, IPostSingleRes } from '../models/post.model';
 import { IEnvironment } from '../models/environments.model';
 import { ENV } from '../../app.token';
-import { ILicenceBody } from '../models/licence.model';
 
 @Injectable()
 export class LicenceService {

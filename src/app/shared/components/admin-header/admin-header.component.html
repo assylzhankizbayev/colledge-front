@@ -13,18 +13,22 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <form class="d-flex ms-auto">
-        <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button class="btn btn-outline-light" type="button" (click)="logout()">
-          Выйти
-        </button>
-      </form>
+    <div
+      class="collapse navbar-collapse align-items-center justify-content-end"
+      id="navbarNavAltMarkup"
+    >
+    <div class="files">
+      <app-icons
+        class="files-icon"
+        icon="images"
+        (click)="toggleFilesBlock()"
+      ></app-icons>
+
+      <app-files-list class="files-list" *ngIf="toggleFiles"></app-files-list>
+    </div>
+      <button class="btn btn-outline-light" type="button" (click)="logout()">
+        Выйти
+      </button>
     </div>
   </div>
 </nav>
