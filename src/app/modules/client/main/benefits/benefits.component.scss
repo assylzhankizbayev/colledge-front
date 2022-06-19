@@ -44,16 +44,6 @@
   line-height: 52px;
   margin: 0 0 70px;
 
-  @include breakpoint(ipad) {
-    font-size: 30px;
-    line-height: 1;
-  }
-
-  @include breakpoint(ipad, landscape) {
-    font-size: 30px;
-    line-height: 1;
-  }
-
   @include breakpoint(mobile) {
     font-size: 17px;
     line-height: 1;

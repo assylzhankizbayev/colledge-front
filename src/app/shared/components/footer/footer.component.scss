@@ -1,7 +1,7 @@
 @import "../../../../assets/styles/variables";
 
 .footer {
-  background: #272D4E;
+  background: #272d4e;
   color: #fff;
   padding: 50px 0;
   margin-top: 32px;
@@ -13,10 +13,6 @@
     letter-spacing: 0.1px;
     margin-bottom: 20px;
 
-    @include breakpoint(tablet) {
-      font-size: 18px;
-      margin-bottom: 16px;
-    }
     @include breakpoint(mobile) {
       font-size: 16px;
       margin-bottom: 12px;
@@ -49,15 +45,6 @@
 .icon {
   margin-right: 15px;
 
-  @include breakpoint(tablet) {
-    margin-right: 10px;
-
-    img {
-      width: 28px;
-      height: 28px;
-      object-fit: contain;
-    }
-  }
   @include breakpoint(mobile) {
     margin-right: 7px;
 
@@ -80,10 +67,6 @@
   line-height: 27px;
   color: #fff;
   text-decoration: none;
-
-  @include breakpoint(tablet) {
-    font-size: 14px;
-  }
 }
 
 .quick-links {
@@ -126,15 +109,6 @@
       margin-right: 0;
     }
 
-    @include breakpoint(tablet) {
-      margin-right: 16px;
-
-      img {
-        width: 28px;
-        height: 28px;
-        object-fit: contain;
-      }
-    }
     @include breakpoint(mobile) {
       margin-right: 12px;
 

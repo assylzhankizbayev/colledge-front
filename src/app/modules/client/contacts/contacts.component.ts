@@ -18,7 +18,6 @@ export class ContactsComponent implements OnInit {
   contacts = [
     { id: 1, value: '+7 (727) 238-12-99', type: ContactTypes.Tel },
     { id: 3, value: '+7 (747) 380-33-12', type: ContactTypes.Tel },
-    { id: 4, value: 'kunaev_college@mail.ru', type: ContactTypes.Email },
     { id: 5, value: 'd.a.konaeva@mail.ru', type: ContactTypes.Email },
     {
       id: 6,

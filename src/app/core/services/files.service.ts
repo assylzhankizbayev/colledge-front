@@ -17,4 +17,14 @@ export class FilesService {
   getFiles(): Observable<IAllFiles> {
     return this.http.get<IAllFiles>(this.url + '/files?type=image');
   }
+
+  upload(data: any) {
+    const body = new FormData();
+
+    Object.keys(data).forEach((key) => {
+      body.append(`${key}`, data[key]);
+    });
+
+    return this.http.post(this.url + '/files/upload', body);
+  }
 }

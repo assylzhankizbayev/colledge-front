@@ -10,15 +10,6 @@ $transition-delay: 0.05s;
   position: relative;
   height: 100%;
 
-  @include breakpoint(tablet) {
-    display: flex;
-    align-items: center;
-    margin: 0;
-    padding: 0 20px;
-    height: 100px;
-    width: 100%;
-    z-index: 1;
-  }
   @include breakpoint(mobile) {
     height: 80px;
   }
@@ -30,47 +21,6 @@ $transition-delay: 0.05s;
   background-color: #e6f0ff;
   z-index: 999;
 
-  @include breakpoint(tablet) {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 0;
-    min-height: 100px;
-    width: 100%;
-
-    &.checked {
-      box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
-
-      .container {
-        box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
-      }
-
-      .toggle-container .button-toggle {
-        &:before {
-          transform: translateY(-50%) rotate(45deg) scale(1);
-        }
-
-        &:after {
-          transform: translateY(-50%) rotate(-45deg) scale(1);
-        }
-      }
-
-      .navbar-nav {
-        pointer-events: auto;
-        transform: translateX(0);
-      }
-    }
-  }
-  @include breakpoint(ipad, landscape) {
-    &.checked {
-      box-shadow: none;
-
-      .container {
-        box-shadow: none;
-      }
-    }
-  }
   @include breakpoint(mobile) {
     min-height: 80px;
   }
@@ -97,38 +47,6 @@ $transition-delay: 0.05s;
       height: 64px;
       width: 64px;
     }
-
-    @include breakpoint(tablet) {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      height: 50px;
-    }
-    @include breakpoint(ipad, landscape) {
-      position: relative;
-      top: 0;
-      left: 0;
-      transform: translateX(0);
-      height: auto;
-
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-    @include breakpoint(ipadpro) {
-      position: relative;
-      top: 0;
-      left: 0;
-      transform: translateX(0);
-      height: auto;
-
-      img {
-        width: auto;
-        height: auto;
-      }
-    }
   }
 
   &-nav {
@@ -150,57 +68,6 @@ $transition-delay: 0.05s;
       background-color: #fff;
     }
 
-    @include breakpoint(tablet) {
-      pointer-events: none;
-      transition: all $transition-duration ease-in;
-
-      position: fixed;
-      top: 100px;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      transform: translateX(-100%);
-
-      &--desktop {
-        display: none;
-      }
-
-      &--mobile {
-        display: flex;
-      }
-    }
-    @include breakpoint(ipad, landscape) {
-      position: relative;
-      top: 0;
-      bottom: 0;
-      left: auto;
-      width: auto;
-      transform: translateX(0);
-
-      &--desktop {
-        display: flex;
-      }
-
-      &--mobile {
-        display: none;
-      }
-    }
-    @include breakpoint(ipadpro) {
-      position: relative;
-      top: 0;
-      bottom: 0;
-      left: auto;
-      width: auto;
-      transform: translateX(0);
-
-      &--desktop {
-        display: flex;
-      }
-
-      &--mobile {
-        display: none;
-      }
-    }
     @include breakpoint(mobile) {
       top: 80px;
       padding-top: 16px;
@@ -218,21 +85,6 @@ $transition-delay: 0.05s;
       margin-right: 0;
     }
 
-    @include breakpoint(tablet) {
-      height: 50px;
-      line-height: 50px;
-      margin-right: 16px;
-    }
-    @include breakpoint(ipad, landscape) {
-      height: auto;
-      line-height: 24px;
-      margin-right: 16px;
-    }
-    @include breakpoint(ipadpro) {
-      height: auto;
-      line-height: 24px;
-      margin-right: 16px;
-    }
     @include breakpoint(mobile) {
       border-bottom: 1px solid #e0e5ed;
       font-size: 18px;
@@ -314,17 +166,6 @@ $transition-delay: 0.05s;
   cursor: pointer;
   width: 20px;
   height: 20px;
-
-  @include breakpoint(tablet) {
-    display: block;
-    order: 3;
-  }
-  @include breakpoint(ipad, landscape) {
-    display: none;
-  }
-  @include breakpoint(ipadpro) {
-    display: none;
-  }
 }
 
 .button-toggle {

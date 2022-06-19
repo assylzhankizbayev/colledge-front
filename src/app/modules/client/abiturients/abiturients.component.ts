@@ -20,10 +20,15 @@ export class AbiturientsComponent implements OnInit {
       .pipe(
         tap((next) => {
           if (next?.success) {
-            this.articles = next.result.map(item => ({
-              ...item,
-              body: item.body.replace('<p>', '').replace('</p>', '').slice(0, 270) + '...'
-            }));
+            this.articles = next.result.map((item) => {
+              const body = item.body.replace(/<p>/g, '').replace(/<\/p>/g, '');
+              const tableIndex = body.indexOf('<table');
+              return {
+                ...item,
+                body:
+                  body.slice(0, tableIndex !== -1 ? tableIndex : 270) + '...',
+              };
+            });
           }
         })
       )

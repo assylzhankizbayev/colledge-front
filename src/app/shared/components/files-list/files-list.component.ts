@@ -29,6 +29,20 @@ export class FilesListComponent implements OnInit, OnDestroy {
       .subscribe();
   }
 
+  uploadFile() {
+    const input = document.createElement('input') as HTMLInputElement;
+    input.setAttribute('type', 'file');
+
+    input.onchange = () => {
+      const files = input.files;
+      const file = files?.length ? files[0] : null;
+
+      this.filesService.upload({ file }).subscribe();
+    };
+
+    input.click();
+  }
+
   ngOnDestroy(): void {
     this.destroy$.next(true);
     this.destroy$.complete();
