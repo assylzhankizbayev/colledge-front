@@ -1,0 +1,20 @@
+<section class="faq">
+  <ng-container *ngIf="!isFormToggled">
+    <button type="button" class="btn btn-primary mb-3" (click)="toggleForm()">
+      Добавить новый запись
+    </button>
+
+    <app-table
+      [dataSource]="list"
+      [displayedColumns]="displayedColumns"
+      (edit)="edit($event)"
+      (remove)="remove($event)"
+    ></app-table>
+  </ng-container>
+
+  <app-faq-form
+    *ngIf="isFormToggled"
+    (save)="addArticle($event)"
+    (cancel)="toggleForm()"
+  ></app-faq-form>
+</section>

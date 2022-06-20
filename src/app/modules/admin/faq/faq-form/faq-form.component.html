@@ -1,0 +1,16 @@
+<form class="form" [formGroup]="form">
+  <div class="mb-3">
+    <app-tinymce-editor title="Вопрос" formControlName="question"></app-tinymce-editor>
+  </div>
+  <div class="mb-3">
+    <app-tinymce-editor title="Ответ" formControlName="answer"></app-tinymce-editor>
+  </div>
+  <div class="form-controls">
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">
+      Сохранить
+    </button>
+    <button type="button" class="btn btn-danger" (click)="cancel.emit()">
+      Отмена
+    </button>
+  </div>
+</form>

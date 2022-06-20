@@ -1,0 +1,7 @@
+<h2 class="header">Редактирование</h2>
+<app-faq-form
+  *ngIf="faq$ | async as faq"
+  [formData]="faq"
+  (save)="update($event)"
+  (cancel)="cancel()"
+></app-faq-form>
