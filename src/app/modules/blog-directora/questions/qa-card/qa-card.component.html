@@ -2,13 +2,17 @@
   <span class="question-from">Дархан Маханбетияров</span>
   <span class="question-date">17 мая 2022</span>
   <p class="question-message">
-    Здравствуйте, я студент 4 курса,профессия ТДО, у меня 126 кредитов, могу
-    ли я защитить дипломную работу летом. У меня все обязательные предметы
-    есть, только не хватает 1 элективный предмет. Или есть какая-то
-    возможность пропустить меня в дипломную работу. Мне сказали ,что у меня
-    недопуск когда 2 неделя остался до предзащита! Спасибо за внимание!
+    Здравствуйте, я студент 4 курса,профессия ТДО, у меня 126 кредитов, могу ли
+    я защитить дипломную работу летом. У меня все обязательные предметы есть,
+    только не хватает 1 элективный предмет. Или есть какая-то возможность
+    пропустить меня в дипломную работу. Мне сказали ,что у меня недопуск когда 2
+    неделя остался до предзащита! Спасибо за внимание!
   </p>
-  <mat-expansion-panel class="answer-panel" [class.expanded]="toggled" [expanded]="toggled">
+  <mat-expansion-panel
+    class="answer-panel"
+    [class.expanded]="toggled"
+    [expanded]="toggled"
+  >
     <div class="answer">
       <span class="answer-title">Ответ</span>
       <p class="answer-message">
@@ -19,18 +23,11 @@
         выйти на защиту осенью
       </p>
       <div class="answer-by">
-        <span class="answer-by__name">Бегентаев Мейрам Мухаметрахимович</span>
-        <span class="answer-by__position"
-          >Председатель Правления – Ректор Satbayev University</span
-        >
+        <span class="answer-by__position"> Булекбаева Райхан Чантовна </span>
       </div>
     </div>
   </mat-expansion-panel>
-  <span
-    class="btn-toggle-answer"
-    [class.toggled]="toggled"
-    (click)="toggle()"
-  >
+  <span class="btn-toggle-answer" [class.toggled]="toggled" (click)="toggle()">
     {{ toggled ? "Свернуть" : "Читать ответ" }}
   </span>
 </div>
