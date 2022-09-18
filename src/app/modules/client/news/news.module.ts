@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { NewsClientComponent } from './news.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { SharedModule } from '../../../shared/shared.module';
+import { NewsService } from '../../../core/services/news.service';
 
 const routes: Routes = [{ path: '', component: NewsClientComponent }];
 
@@ -16,5 +17,6 @@ const routes: Routes = [{ path: '', component: NewsClientComponent }];
     FormsModule,
     SharedModule,
   ],
+  providers: [NewsService]
 })
 export class NewsModule {}

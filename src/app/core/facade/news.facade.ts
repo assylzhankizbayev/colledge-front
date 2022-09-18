@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { switchMap, take, tap } from 'rxjs/operators';
-import { NewService } from '../services/news.service';
+import { NewsService } from '../services/news.service';
 
 @Injectable()
 export class NewsFacade {
   private news$ = new BehaviorSubject<any>([]);
 
-  constructor(private newsService: NewService) {}
+  constructor(private newsService: NewsService) {}
 
   get news() {
     return this.news$.asObservable();

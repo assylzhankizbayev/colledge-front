@@ -11,7 +11,7 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 1.5;
-    padding: 24px;
+    padding: 0 24px;
   }
 
   &-card {
@@ -22,7 +22,7 @@
     min-height: 300px;
     width: 280px;
     transition: 0.2s all;
-    
+
     &:hover {
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 

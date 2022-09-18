@@ -3,16 +3,17 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ENV } from '../../app.token';
 import { IEnvironment } from '../models/environments.model';
+import { INewsResponse } from '../models/news.model';
 
-@Injectable({ providedIn: 'root' })
-export class NewService {
+@Injectable()
+export class NewsService {
   constructor(
     private http: HttpClient,
     @Inject(ENV) private env: IEnvironment
   ) {}
 
-  getNews(): Observable<any[]> {
-    return this.http.get<any[]>(this.env.host + '/news');
+  getNews(): Observable<INewsResponse> {
+    return this.http.get<INewsResponse>(this.env.host + '/news');
   }
 
   addNews(data: any): Observable<{ success: boolean }> {
