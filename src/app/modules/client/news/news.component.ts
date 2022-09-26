@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, tap } from 'rxjs/operators';
+import { INews } from '../../../core/models/news.model';
 import { NewsService } from '../../../core/services/news.service';
 
 @Component({
@@ -9,35 +10,25 @@ import { NewsService } from '../../../core/services/news.service';
   styleUrls: ['./news.component.scss'],
 })
 export class NewsClientComponent implements OnInit, OnDestroy {
-  news = [
-    {
-      id: 1,
-      title:
-        'Колледж им. Д.А. Кунаева вошел в рейтинг The Times Higher Education',
-    },
-    {
-      id: 2,
-      title:
-        'Колледж им. Д.А. Кунаева продолжает расти в рейтинге QS World University Rankings',
-    },
-    {
-      id: 3,
-      title:
-        'Колледж им. Д.А. Кунаева предлагает дополнительные льготы для вакцинированных студентов и сотрудников',
-    },
-    {
-      id: 4,
-      title:
-        'Колледж им. Д.А. Кунаева – открытая дверь в мир новых возможностей',
-    },
-  ];
+  news: INews[] = [];
   destroy$ = new Subject();
 
   constructor(private newsService: NewsService) {}
 
   ngOnInit(): void {
-    this.newsService.getNews().pipe(takeUntil(this.destroy$)).subscribe();
+    this.newsService
+      .getNews()
+      .pipe(
+        tap((response) => {
+          this.news = response.result;
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
-  ngOnDestroy(): void {}
+  ngOnDestroy(): void {
+    this.destroy$.next(true);
+    this.destroy$.complete();
+  }
 }

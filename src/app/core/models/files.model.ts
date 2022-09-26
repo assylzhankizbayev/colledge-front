@@ -13,3 +13,8 @@ export interface IAllFiles {
   success: boolean;
   result: IFile[];
 }
+
+export interface IFileUpload {
+  result: IFile;
+  success: boolean;
+}

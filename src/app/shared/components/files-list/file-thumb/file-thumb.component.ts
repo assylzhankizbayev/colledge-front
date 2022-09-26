@@ -1,4 +1,4 @@
-import { Component, Inject, Input } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
 import { ENV } from '../../../../app.token';
 import { IEnvironment } from '../../../../core/models/environments.model';
 import { IFile } from '../../../../core/models/files.model';
@@ -10,6 +10,7 @@ import { IFile } from '../../../../core/models/files.model';
 })
 export class FileThumbComponent {
   @Input() image: IFile | null = null;
+  @Output() deleteFile = new EventEmitter<number>();
   host = this.env.host;
   copied = false;
 
@@ -19,8 +20,6 @@ export class FileThumbComponent {
     this.copied = true;
     navigator.clipboard.writeText(this.host + path);
 
-    setTimeout(() => {
-      this.copied = false;
-    }, 1000);
+    setTimeout(() => (this.copied = false), 1000);
   }
 }

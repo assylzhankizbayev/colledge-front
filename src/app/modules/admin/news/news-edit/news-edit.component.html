@@ -1,1 +1,5 @@
-<p>news-edit works!</p>
+<app-news-form
+  [formData]="news"
+  (save)="update($event)"
+  (cancel)="goBack()"
+></app-news-form>

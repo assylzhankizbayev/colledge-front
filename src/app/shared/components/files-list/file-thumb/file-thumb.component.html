@@ -8,8 +8,17 @@
       icon="checkmark"
     ></app-icons>
   </div>
-  <p class="name">{{ image.name }}</p>
-  <div class="delete">
-    <app-icons class="icon" icon="delete"></app-icons>
+  <div class="description">
+    <p class="name">{{ image.name }}</p>
+    <div class="controls">
+      <span class="copy" (click)="copyLink(image.path)">
+        Скопировать ссылку
+      </span>
+      <app-icons
+        class="icon-delete"
+        icon="delete"
+        (click)="deleteFile.emit(image.id)"
+      ></app-icons>
+    </div>
   </div>
 </div>

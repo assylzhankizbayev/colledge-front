@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
-import { NewsFacade } from '../../../core/facade/news.facade';
+import { Router } from '@angular/router';
+import { take, tap } from 'rxjs/operators';
+import { NewsService } from '../../../core/services/news.service';
 
 @Component({
   selector: 'app-admin-news',
@@ -10,37 +9,41 @@ import { NewsFacade } from '../../../core/facade/news.facade';
   styleUrls: ['./news.component.scss'],
 })
 export class NewsAdminComponent implements OnInit {
-  news$ = this.newsFacade.news;
-  newsForm = this.fb.group({
-    title: ['', Validators.required],
-    body: [null, Validators.required],
-    file: [null],
-  });
-  toggleNewsForm = false;
+  toggled = false;
+  news: any[] = [];
 
-  constructor(private fb: FormBuilder, private newsFacade: NewsFacade) {}
+  constructor(private router: Router, private newsService: NewsService) {}
 
   ngOnInit(): void {
-    this.newsFacade.init();
+    this.getNewsList();
   }
 
-  submit(): void {
-    this.newsFacade
-      .submit(this.newsForm.value)
+  private getNewsList(): void {
+    this.newsService
+      .getNews()
+      .pipe(
+        tap((res) => (this.news = res.result)),
+        take(1)
+      )
+      .subscribe();
+  }
+
+  submit(body: any): void {
+    this.newsService
+      .addNews(body)
       .pipe(
         tap(() => {
           this.toggleForm();
-          this.newsForm.reset();
-        }),
-        catchError((err) => {
-          console.log(err);
-          return of(err);
         })
       )
       .subscribe();
   }
 
+  edit(id: number): void {
+    this.router.navigate(['/admin/news', id, 'edit']);
+  }
+
   toggleForm(): void {
-    this.toggleNewsForm = !this.toggleNewsForm;
+    this.toggled = !this.toggled;
   }
 }

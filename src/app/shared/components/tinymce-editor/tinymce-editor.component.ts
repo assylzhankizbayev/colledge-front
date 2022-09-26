@@ -2,14 +2,18 @@ import {
   Component,
   ElementRef,
   forwardRef,
+  Inject,
   Input,
   OnDestroy,
   OnInit,
   ViewChild,
 } from '@angular/core';
 import { FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { of, Subject } from 'rxjs';
+import { catchError, take, takeUntil, tap } from 'rxjs/operators';
+import { ENV } from '../../../app.token';
+import { IEnvironment } from '../../../core/models/environments.model';
+import { FilesService } from '../../../core/services/files.service';
 
 @Component({
   selector: 'app-tinymce-editor',
@@ -27,6 +31,7 @@ export class TinymceEditorComponent implements OnInit, OnDestroy {
   @Input() height = 400;
   @Input() title = 'Содержимое';
   @ViewChild('upload', { static: true }) upload?: ElementRef;
+  host = this.env.host;
   textControl = new FormControl('');
   destroy$ = new Subject();
   editor: any;
@@ -34,7 +39,10 @@ export class TinymceEditorComponent implements OnInit, OnDestroy {
   onChange = (value: any) => {};
   onTouch = () => {};
 
-  constructor() {}
+  constructor(
+    private filesService: FilesService,
+    @Inject(ENV) private env: IEnvironment
+  ) {}
 
   ngOnInit(): void {
     this.textControl.valueChanges
@@ -44,7 +52,30 @@ export class TinymceEditorComponent implements OnInit, OnDestroy {
       });
   }
 
-  imagesUploadHandler = (blobInfo: any, success: any, failure: any) => {};
+  imagesUploadHandler = (blobInfo: any, success: any, failure: any) => {
+    const file = blobInfo.blob();
+
+    if (file) {
+      this.filesService
+        .upload({ file })
+        .pipe(
+          tap((res) => {
+            if (res.success) {
+              success(this.host + res.result.path);
+            } else {
+              failure(JSON.stringify('Upload Error'));
+            }
+          }),
+          catchError((err) => {
+            failure(JSON.stringify(err));
+            return of(err);
+          }),
+          takeUntil(this.destroy$),
+          take(1)
+        )
+        .subscribe();
+    }
+  };
 
   writeValue(value: any) {
     this.textControl.setValue(value);

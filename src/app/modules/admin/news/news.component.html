@@ -1,40 +1,15 @@
 <section class="news">
-  <ng-container *ngIf="!toggleNewsForm">
+  <ng-container *ngIf="!toggled">
     <button type="button" class="btn btn-primary mb-3" (click)="toggleForm()">
       Добавить новости
     </button>
 
-    <app-table [dataSource]="news$ | async"></app-table>
+    <app-table [dataSource]="news" (edit)="edit($event)"></app-table>
   </ng-container>
 
-  <form
-    *ngIf="toggleNewsForm"
-    class="form"
-    [formGroup]="newsForm"
-    (ngSubmit)="submit()"
-  >
-    <div class="mb-3 input-field">
-      <label for="title" class="form-label">Заголовок</label>
-      <input
-        type="text"
-        class="form-control"
-        id="title"
-        name="title"
-        aria-describedby="title"
-        formControlName="title"
-      />
-    </div>
-    <div class="mb-3 input-field">
-      <app-file-upload formControlName="file"></app-file-upload>
-    </div>
-    <div class="mb-3">
-      <app-tinymce-editor></app-tinymce-editor>
-    </div>
-    <div class="form-controls">
-      <button type="submit" class="btn btn-primary">Сохранить</button>
-      <button type="button" class="btn btn-danger" (click)="toggleForm()">
-        Отмена
-      </button>
-    </div>
-  </form>
+  <app-news-form
+    *ngIf="toggled"
+    (save)="submit($event)"
+    (cancel)="toggleForm()"
+  ></app-news-form>
 </section>

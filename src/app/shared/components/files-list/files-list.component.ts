@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
-import { takeUntil, tap } from 'rxjs/operators';
+import { mergeMap, take, takeUntil, tap } from 'rxjs/operators';
 import { IFile } from '../../../core/models/files.model';
 import { FilesService } from '../../../core/services/files.service';
 
@@ -16,17 +16,17 @@ export class FilesListComponent implements OnInit, OnDestroy {
   constructor(private filesService: FilesService) {}
 
   ngOnInit(): void {
-    this.filesService
-      .getFiles()
-      .pipe(
-        tap((res) => {
-          if (res.success) {
-            this.images = res.result;
-          }
-        }),
-        takeUntil(this.destroy$)
-      )
-      .subscribe();
+    this._getFiles().pipe(takeUntil(this.destroy$), take(1)).subscribe();
+  }
+
+  private _getFiles() {
+    return this.filesService.getFiles().pipe(
+      tap((res) => {
+        if (res.success) {
+          this.images = res.result;
+        }
+      })
+    );
   }
 
   uploadFile() {
@@ -37,10 +37,28 @@ export class FilesListComponent implements OnInit, OnDestroy {
       const files = input.files;
       const file = files?.length ? files[0] : null;
 
-      this.filesService.upload({ file }).subscribe();
+      this.filesService
+        .upload({ file })
+        .pipe(
+          mergeMap(() => this._getFiles()),
+          takeUntil(this.destroy$),
+          take(1)
+        )
+        .subscribe();
     };
 
     input.click();
+  }
+
+  deleteFile(id: number) {
+    this.filesService
+      .delete(id)
+      .pipe(
+        mergeMap(() => this._getFiles()),
+        takeUntil(this.destroy$),
+        take(1)
+      )
+      .subscribe();
   }
 
   ngOnDestroy(): void {

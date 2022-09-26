@@ -5,6 +5,7 @@
         class="files__item"
         *ngFor="let image of images"
         [image]="image"
+        (deleteFile)="deleteFile($event)"
       ></app-file-thumb>
     </div>
   </div>
