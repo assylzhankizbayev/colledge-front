@@ -1,8 +1,14 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  ViewChild,
+} from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { takeUntil, tap } from 'rxjs/operators';
+import { take, takeUntil, tap } from 'rxjs/operators';
 import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
@@ -10,7 +16,8 @@ import { AuthService } from '../../../core/services/auth.service';
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss'],
 })
-export class LoginFormComponent implements OnInit, OnDestroy {
+export class LoginFormComponent implements AfterViewInit, OnDestroy {
+  @ViewChild('phoneNumber') phoneNumberEl: ElementRef;
   form = this.fb.group({
     phone: ['', Validators.required],
     password: ['', Validators.required],
@@ -23,7 +30,9 @@ export class LoginFormComponent implements OnInit, OnDestroy {
     private authService: AuthService
   ) {}
 
-  ngOnInit(): void {}
+  ngAfterViewInit(): void {
+    this.phoneNumberEl.nativeElement.focus();
+  }
 
   login(): void {
     this.authService
@@ -35,7 +44,8 @@ export class LoginFormComponent implements OnInit, OnDestroy {
             this.router.navigate(['/admin']);
           }
         }),
-        takeUntil(this.destroy$)
+        takeUntil(this.destroy$),
+        take(1)
       )
       .subscribe();
   }
