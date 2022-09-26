@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AdminSidebarComponent {
   routes = [
-    { title: 'Главная', router: '/admin' },
     { title: 'Категории', router: '/admin/category' },
     { title: 'Меню', router: '/admin/menu' },
     { title: 'Материалы', router: '/admin/article' },

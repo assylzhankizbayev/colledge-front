@@ -7,6 +7,7 @@ const routes: Routes = [
     path: '',
     component: AdminComponent,
     children: [
+      { path: '', redirectTo: 'category', pathMatch: 'full' },
       {
         path: 'news',
         loadChildren: () =>

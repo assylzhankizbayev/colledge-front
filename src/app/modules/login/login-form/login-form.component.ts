@@ -9,6 +9,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { take, takeUntil, tap } from 'rxjs/operators';
+import { Route } from '../../../core/models/route.model';
 import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
@@ -41,7 +42,7 @@ export class LoginFormComponent implements AfterViewInit, OnDestroy {
         tap((res) => {
           if (res.accessToken) {
             this.form.reset();
-            this.router.navigate(['/admin']);
+            this.router.navigate([Route.Admin]);
           }
         }),
         takeUntil(this.destroy$),
