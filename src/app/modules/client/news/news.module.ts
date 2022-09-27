@@ -5,11 +5,23 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../../shared/shared.module';
 import { NewsService } from '../../../core/services/news.service';
+import { NewsDetailsComponent } from './news-details/news-details.component';
+import { NewsListComponent } from './news-list/news-list.component';
 
-const routes: Routes = [{ path: '', component: NewsClientComponent }];
+const routes: Routes = [
+  {
+    path: '',
+    component: NewsClientComponent,
+    children: [
+      { path: '', redirectTo: 'list', pathMatch: 'full' },
+      { path: 'list', component: NewsListComponent },
+      { path: ':id', component: NewsDetailsComponent },
+    ],
+  },
+];
 
 @NgModule({
-  declarations: [NewsClientComponent],
+  declarations: [NewsClientComponent, NewsDetailsComponent, NewsListComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -17,6 +29,6 @@ const routes: Routes = [{ path: '', component: NewsClientComponent }];
     FormsModule,
     SharedModule,
   ],
-  providers: [NewsService]
+  providers: [NewsService],
 })
 export class NewsModule {}

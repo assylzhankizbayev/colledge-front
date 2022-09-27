@@ -1,0 +1,10 @@
+<div class="news-list">
+  <h2 class="page-title">Новости</h2>
+
+  <app-news-card
+    class="news-list__item"
+    *ngFor="let newsItem of news"
+    [newsItem]="newsItem"
+    direction="row"
+  ></app-news-card>
+</div>

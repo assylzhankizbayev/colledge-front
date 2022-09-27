@@ -53,28 +53,35 @@ export class TinymceEditorComponent implements OnInit, OnDestroy {
   }
 
   imagesUploadHandler = (blobInfo: any, success: any, failure: any) => {
-    const file = blobInfo.blob();
 
-    if (file) {
-      this.filesService
-        .upload({ file })
-        .pipe(
-          tap((res) => {
-            if (res.success) {
-              success(this.host + res.result.path);
-            } else {
-              failure(JSON.stringify('Upload Error'));
-            }
-          }),
-          catchError((err) => {
-            failure(JSON.stringify(err));
-            return of(err);
-          }),
-          takeUntil(this.destroy$),
-          take(1)
-        )
-        .subscribe();
-    }
+    const file = blobInfo.blob();
+    const fileBase64 = blobInfo.base64();
+    const fileName = blobInfo.filename();
+    const name = blobInfo.name();
+    console.log(blobInfo, fileName, name, fileBase64);
+    const mediaType = `data:image/${fileName.includes('png') ? 'png' : 'jpeg'};base64,`
+    success(mediaType + fileBase64);
+
+    // if (file) {
+    //   this.filesService
+    //     .upload({ file })
+    //     .pipe(
+    //       tap((res) => {
+    //         if (res.success) {
+    //           success(this.host + res.result.path);
+    //         } else {
+    //           failure(JSON.stringify('Upload Error'));
+    //         }
+    //       }),
+    //       catchError((err) => {
+    //         failure(JSON.stringify(err));
+    //         return of(err);
+    //       }),
+    //       takeUntil(this.destroy$),
+    //       take(1)
+    //     )
+    //     .subscribe();
+    // }
   };
 
   writeValue(value: any) {

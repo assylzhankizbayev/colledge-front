@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { take, tap } from 'rxjs/operators';
+import { mergeMap, take, tap } from 'rxjs/operators';
 import { NewsService } from '../../../core/services/news.service';
 
 @Component({
@@ -15,17 +15,14 @@ export class NewsAdminComponent implements OnInit {
   constructor(private router: Router, private newsService: NewsService) {}
 
   ngOnInit(): void {
-    this.getNewsList();
+    this.getNewsList().subscribe();
   }
 
-  private getNewsList(): void {
-    this.newsService
-      .getNews()
-      .pipe(
-        tap((res) => (this.news = res.result)),
-        take(1)
-      )
-      .subscribe();
+  private getNewsList() {
+    return this.newsService.getNews().pipe(
+      tap((res) => (this.news = res.result)),
+      take(1)
+    );
   }
 
   submit(body: any): void {
@@ -34,7 +31,8 @@ export class NewsAdminComponent implements OnInit {
       .pipe(
         tap(() => {
           this.toggleForm();
-        })
+        }),
+        mergeMap(() => this.getNewsList())
       )
       .subscribe();
   }

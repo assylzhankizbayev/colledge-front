@@ -10,14 +10,6 @@
       formControlName="title"
     />
   </div>
-  <!-- <div class="mb-3 input-field">
-    <app-select
-      *ngIf="categoryItems$ | async as categories"
-      [id]="form?.get('categoryItemId')?.value"
-      [options]="categories"
-      formControlName="categoryItemId"
-    ></app-select>
-  </div> -->
   <div class="mb-3 input-field">
     <app-file-upload formControlName="file"></app-file-upload>
   </div>
@@ -25,7 +17,7 @@
     <app-tinymce-editor formControlName="body"></app-tinymce-editor>
   </div>
   <div class="form-controls">
-    <button type="submit" class="btn btn-primary" (click)="save.emit()">
+    <button type="submit" class="btn btn-primary" (click)="submitForm()">
       Сохранить
     </button>
     <button type="button" class="btn btn-danger" (click)="cancel.emit()">

@@ -1,17 +1,6 @@
 <div class="container">
   <div class="news">
-    <h2 class="page-title">Новости</h2>
-
-    <div class="news-body">
-      <div class="news-list">
-        <app-news-card
-          class="news-list__item"
-          *ngFor="let newsItem of news"
-          [newsItem]="newsItem"
-          direction="row"
-        ></app-news-card>
-      </div>
-      <app-news-sidebar class="news-sidebar"></app-news-sidebar>
-    </div>
+    <router-outlet></router-outlet>
+    <app-news-sidebar class="sidebar"></app-news-sidebar>
   </div>
 </div>

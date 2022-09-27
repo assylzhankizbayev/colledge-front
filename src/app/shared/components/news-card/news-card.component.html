@@ -1,4 +1,21 @@
 <div class="news-card" [class.news-card--row]="direction === 'row'">
-  <img src="assets/pics/news/news-{{ newsItem.id }}.jpg" alt="" class="news-img">
-  <h4 class="news-title">{{ newsItem.title }}</h4>
+  <img [src]="host + newsItem.file.path" alt="" class="news-img" />
+  <div class="content">
+    <ng-container
+      *ngTemplateOutlet="date; context: { date: newsItem.created_at }"
+    ></ng-container>
+    <ng-container
+      *ngTemplateOutlet="title; context: { title: newsItem.title }"
+    ></ng-container>
+  </div>
 </div>
+
+<ng-template #title let-title="title">
+  <h4 class="news-title" (click)="openNews()">{{ title }}</h4>
+</ng-template>
+
+<ng-template #date let-date="date">
+  <div class="date">
+    <span class="created-at">{{ date | date: "dd.MM.YYYYг. hh:mm" }}</span>
+  </div>
+</ng-template>

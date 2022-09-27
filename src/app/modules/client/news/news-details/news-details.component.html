@@ -1,0 +1,13 @@
+<article class="news-article" *ngIf="news">
+  <h2 class="page-title">{{ news.title }}</h2>
+  <ng-container
+    *ngTemplateOutlet="createdAtTemp; context: { date: news.created_at }"
+  ></ng-container>
+  <div class="body" [innerHTML]="news.body"></div>
+</article>
+
+<ng-template #createdAtTemp let-date="date">
+  <div class="date" *ngIf="date">
+    <span class="created-at">{{ date | date: "dd.MM.YYYYг. hh:mm" }}</span>
+  </div>
+</ng-template>
