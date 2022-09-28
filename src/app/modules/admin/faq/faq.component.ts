@@ -3,7 +3,9 @@ import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil, tap, take, switchMap } from 'rxjs/operators';
 import { IFaq } from '../../../core/models/faq.model';
+import { IBreadcumbRoute } from '../../../core/models/route.model';
 import { FaqService } from '../../../core/services/faq.service';
+import { BreadcrumbsService } from '../../../core/services/breadcrumbs.service';
 
 @Component({
   selector: 'app-faq',
@@ -11,13 +13,23 @@ import { FaqService } from '../../../core/services/faq.service';
   styleUrls: ['./faq.component.scss'],
 })
 export class FaqComponent implements OnInit, OnDestroy {
-  isFormToggled = false;
   mainCategory = 10;
+  isFormToggled = false;
+  destroy$ = new Subject();
   list: IFaq[] = [];
   displayedColumns: string[] = ['question', 'answer', 'controls'];
-  destroy$ = new Subject();
+  routeList: IBreadcumbRoute[] = [
+    { title: 'Главная', route: '/admin' },
+    { title: 'Часто задаваемые вопросы', route: '/admin/faq' },
+  ];
 
-  constructor(private router: Router, private faqService: FaqService) {}
+  constructor(
+    private router: Router,
+    private faqService: FaqService,
+    private breadcrumbsService: BreadcrumbsService
+  ) {
+    this.breadcrumbsService.init(this.routeList);
+  }
 
   ngOnInit(): void {
     this.getFaqList().pipe(takeUntil(this.destroy$), take(1)).subscribe();

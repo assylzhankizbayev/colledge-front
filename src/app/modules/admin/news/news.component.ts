@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { mergeMap, take, takeUntil, tap } from 'rxjs/operators';
+import { INews } from '../../../core/models/news.model';
+import { IBreadcumbRoute } from '../../../core/models/route.model';
 import { NewsService } from '../../../core/services/news.service';
+import { BreadcrumbsService } from '../../../core/services/breadcrumbs.service';
 
 @Component({
   selector: 'app-admin-news',
@@ -11,10 +14,20 @@ import { NewsService } from '../../../core/services/news.service';
 })
 export class NewsAdminComponent implements OnInit {
   toggled = false;
-  news: any[] = [];
+  news: INews[] = [];
   destroy$ = new Subject();
+  routeList: IBreadcumbRoute[] = [
+    { title: 'Главная', route: '/admin' },
+    { title: 'Новости', route: '/admin/news' },
+  ];
 
-  constructor(private router: Router, private newsService: NewsService) {}
+  constructor(
+    private router: Router,
+    private newsService: NewsService,
+    private breadcrumbsService: BreadcrumbsService
+  ) {
+    this.breadcrumbsService.init(this.routeList);
+  }
 
   ngOnInit(): void {
     this.getNewsList().subscribe();

@@ -1,0 +1,16 @@
+<div class="breadcrumbs" *ngIf="breadcrumbs$ | async as breadcrumbs">
+  <div class="list">
+    <a
+      class="link"
+      [class.active]="link.route && !isLast"
+      [routerLink]="link.route"
+      *ngFor="let link of breadcrumbs; index as i, first as isFirst; last as isLast"
+      (click)="deleteLinkFromBreadcrumbs(i)"
+    >
+      <span class="link-text" [class.first]="isFirst" [class.last]="isLast">
+        {{ link.title }}
+      </span>
+      <ng-container *ngIf="!isLast">/</ng-container>
+    </a>
+  </div>
+</div>

@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ENV } from '../../app.token';
 import { IEnvironment } from '../models/environments.model';
-import { INewsDelete, INewsResponse } from '../models/news.model';
+import { INewsDelete, INewsList, INewsById } from '../models/news.model';
 
 @Injectable()
 export class NewsService {
@@ -14,12 +14,12 @@ export class NewsService {
     @Inject(ENV) private env: IEnvironment
   ) {}
 
-  getNews(): Observable<INewsResponse> {
-    return this.http.get<INewsResponse>(this.url);
+  getNews(): Observable<INewsList> {
+    return this.http.get<INewsList>(this.url);
   }
 
-  getNewsById(id: number): Observable<INewsResponse> {
-    return this.http.get<INewsResponse>(this.url + `/${id}`);
+  getNewsById(id: number): Observable<INewsById> {
+    return this.http.get<INewsById>(this.url + `/${id}`);
   }
 
   addNews(data: any): Observable<{ success: boolean }> {

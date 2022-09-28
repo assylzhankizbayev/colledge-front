@@ -1,5 +1,10 @@
-export interface INewsResponse {
+export interface INewsList {
   result: INews[];
+  success: boolean;
+}
+
+export interface INewsById {
+  result: INews;
   success: boolean;
 }
 

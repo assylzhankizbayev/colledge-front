@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { of, Subject } from 'rxjs';
 import { catchError, mergeMap, take, takeUntil, tap } from 'rxjs/operators';
+import { IBreadcumbRoute } from '../../../../core/models/route.model';
+import { BreadcrumbsService } from '../../../../core/services/breadcrumbs.service';
 import { ArticleFacade } from '../../../../core/facade/article.facade';
 import { CategoryFacade } from '../../../../core/facade/category.facade';
 
@@ -15,13 +17,20 @@ export class ArticleEditComponent implements OnInit, OnDestroy {
   readonly article$ = this.articleFacade.article;
   articleId: number | null = null;
   mainCategory = 10;
+  routeList: IBreadcumbRoute[] = [
+    { title: 'Главная', route: '/admin' },
+    { title: 'Материалы', route: '/admin/article' },
+  ];
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private articleFacade: ArticleFacade,
-    private categoryFacade: CategoryFacade
-  ) {}
+    private categoryFacade: CategoryFacade,
+    private breadcrumbsService: BreadcrumbsService
+  ) {
+    this.breadcrumbsService.init(this.routeList);
+  }
 
   ngOnInit(): void {
     this.categoryFacade.initCategoryItems(this.mainCategory);
@@ -33,6 +42,15 @@ export class ArticleEditComponent implements OnInit, OnDestroy {
           this.articleId = id ? +id : null;
 
           return id ? this.articleFacade.getArticle(+id) : of(null);
+        }),
+        tap((res) => {
+          if (res?.success) {
+            const route: IBreadcumbRoute = {
+              title: res.result?.title,
+              route: null,
+            };
+            this.breadcrumbsService.addRoute(route);
+          }
         }),
         takeUntil(this.destroy$)
       )

@@ -34,6 +34,7 @@ import { TinymceEditorComponent } from './components/tinymce-editor/tinymce-edit
 import { ClientPageWrapperComponent } from './components/client-page-wrapper/client-page-wrapper.component';
 import { FilesListComponent } from './components/files-list/files-list.component';
 import { FileThumbComponent } from './components/files-list/file-thumb/file-thumb.component';
+import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
 
 const components = [
   AdminHeaderComponent,
@@ -54,6 +55,7 @@ const components = [
   ClientPageWrapperComponent,
   FilesListComponent,
   FileThumbComponent,
+  BreadcrumbsComponent
 ];
 const pipes = [SeparatorPipe, RouteLinkPipe, TitleLinkPipe];
 const directives = [PageYOffsetDirective];

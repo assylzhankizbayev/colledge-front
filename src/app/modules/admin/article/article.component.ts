@@ -4,22 +4,31 @@ import { of } from 'rxjs';
 import { catchError, take, tap } from 'rxjs/operators';
 import { CategoryFacade } from '../../../core/facade/category.facade';
 import { ArticleFacade } from '../../../core/facade/article.facade';
+import { IBreadcumbRoute } from '../../../core/models/route.model';
+import { BreadcrumbsService } from '../../../core/services/breadcrumbs.service';
 
 @Component({
   selector: 'app-admin-article',
   templateUrl: './article.component.html',
-  styleUrls: ['./article.component.scss']
+  styleUrls: ['./article.component.scss'],
 })
 export class ArticleAdminComponent implements OnInit {
   articles$ = this.articleFacade.articles;
   isFormToggled = false;
   mainCategory = 10;
+  routeList: IBreadcumbRoute[] = [
+    { title: 'Главная', route: '/admin' },
+    { title: 'Материалы', route: '/admin/article' },
+  ];
 
   constructor(
     private router: Router,
     private articleFacade: ArticleFacade,
-    private categoryFacade: CategoryFacade
-  ) { }
+    private categoryFacade: CategoryFacade,
+    private breadcrumbsService: BreadcrumbsService
+  ) {
+    this.breadcrumbsService.init(this.routeList);
+  }
 
   ngOnInit(): void {
     this.articleFacade.init();

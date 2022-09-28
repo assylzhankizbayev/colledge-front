@@ -29,5 +29,18 @@ export interface IMenu {
   route: string;
   articleId?: number;
   subMenu?: any[];
+
+
 }
 
+export interface IMenuParent {
+  id: number;
+  description: string;
+  slug: string;
+  title: string;
+}
+
+export interface IMenuResponse<T> {
+  success: boolean;
+  result: T;
+}

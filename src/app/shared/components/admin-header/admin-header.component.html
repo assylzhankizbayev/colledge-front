@@ -1,8 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/admin/article">
-      Колледж им. Д.А.Кунаева
-    </a>
+    <a class="navbar-brand" routerLink="/admin"> Колледж им. Д.А.Кунаева </a>
+
     <button
       class="navbar-toggler"
       type="button"
@@ -19,6 +18,8 @@
       class="collapse navbar-collapse align-items-center justify-content-end"
       id="navbarNavAltMarkup"
     >
+      <a class="navbar-link" routerLink="/" target="_blank"> Перейти на сайт </a>
+
       <div class="files">
         <app-icons
           class="files-icon"
@@ -28,6 +29,7 @@
 
         <app-files-list class="files-list" *ngIf="toggleFiles"></app-files-list>
       </div>
+
       <button class="btn btn-outline-light" type="button" (click)="logout()">
         Выйти
       </button>

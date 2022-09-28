@@ -3,7 +3,9 @@ import { Router } from '@angular/router';
 import { of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { MenuFacade } from '../../../core/facade/menu.facade';
+import { IBreadcumbRoute } from '../../../core/models/route.model';
 import { ISubmitResponse } from '../../../core/models/common.model';
+import { BreadcrumbsService } from '../../../core/services/breadcrumbs.service';
 
 @Component({
   selector: 'app-menu',
@@ -15,11 +17,18 @@ export class MenuComponent implements OnInit {
   isFormToggled = false;
   displayedColumns: string[] = ['title', 'description', 'controls'];
   titleLink = ['/admin', 'menu', 'id', 'items'];
+  routeList: IBreadcumbRoute[] = [
+    { title: 'Главная', route: '/admin' },
+    { title: 'Меню', route: '/admin/menu' },
+  ];
 
   constructor(
     private router: Router,
-    private menuFacade: MenuFacade
-  ) { }
+    private menuFacade: MenuFacade,
+    private breadcrumbsService: BreadcrumbsService
+  ) {
+    this.breadcrumbsService.init(this.routeList);
+  }
 
   ngOnInit(): void {
     this.menuFacade.initMenus();

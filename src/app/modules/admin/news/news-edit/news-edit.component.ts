@@ -2,7 +2,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { of, Subject } from 'rxjs';
 import { catchError, mergeMap, take, takeUntil, tap } from 'rxjs/operators';
-import { NewsService } from 'src/app/core/services/news.service';
+import { INews } from '../../../../core/models/news.model';
+import { IBreadcumbRoute } from '../../../../core/models/route.model';
+import { BreadcrumbsService } from '../../../../core/services/breadcrumbs.service';
+import { NewsService } from '../../../../core/services/news.service';
 
 @Component({
   selector: 'app-news-edit',
@@ -12,14 +15,21 @@ import { NewsService } from 'src/app/core/services/news.service';
 export class NewsEditComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject();
   newsId: number | null = null;
+  news: INews | null = null;
   mainCategory = 10;
-  news: any;
+  routeList: IBreadcumbRoute[] = [
+    { title: 'Главная', route: '/admin' },
+    { title: 'Новости', route: '/admin/news' },
+  ];
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private newsService: NewsService
-  ) {}
+    private newsService: NewsService,
+    private breadcrumbsService: BreadcrumbsService
+  ) {
+    this.breadcrumbsService.init(this.routeList);
+  }
 
   ngOnInit(): void {
     this.route.paramMap
@@ -34,6 +44,11 @@ export class NewsEditComponent implements OnInit, OnDestroy {
           console.log(res);
           if (res?.success) {
             this.news = res.result;
+            const route: IBreadcumbRoute = {
+              title: this.news?.title,
+              route: null,
+            };
+            this.breadcrumbsService.addRoute(route);
           }
         }),
         takeUntil(this.destroy$)

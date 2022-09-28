@@ -7,6 +7,8 @@ import {
   IMenuItem,
   IMenuItemF,
   IMenuItemRes,
+  IMenuParent,
+  IMenuResponse,
 } from '../models/menu.model';
 import { MenuService } from '../services/menu.service';
 
@@ -53,14 +55,14 @@ export class MenuFacade {
     return this.menuService.addMenu(data);
   }
 
-  getMenu(id: number): Observable<any> {
+  getMenu(id: number): Observable<IMenuResponse<IMenuParent>> {
     return this.menuService.getMenu(id).pipe(
-      take(1),
-      tap((menu: any) => {
+      tap((menu) => {
         if (menu.success) {
           this.menu$.next(menu.result);
         }
-      })
+      }),
+      take(1)
     );
   }
 

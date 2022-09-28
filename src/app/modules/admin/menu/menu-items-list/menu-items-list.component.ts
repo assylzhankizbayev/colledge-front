@@ -4,8 +4,10 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { of } from 'rxjs';
 import { mergeMap, switchMap, take, tap } from 'rxjs/operators';
 import { ISubmitResponse } from '../../../../core/models/common.model';
+import { IBreadcumbRoute } from '../../../../core/models/route.model';
 import { MenuFacade } from '../../../../core/facade/menu.facade';
 import { ArticleFacade } from '../../../../core/facade/article.facade';
+import { BreadcrumbsService } from '../../../../core/services/breadcrumbs.service';
 import { MenuItemModalComponent } from '../menu-item-modal/menu-item-modal.component';
 
 @Component({
@@ -16,6 +18,7 @@ import { MenuItemModalComponent } from '../menu-item-modal/menu-item-modal.compo
 export class MenuItemsListComponent implements OnInit {
   menuId: number | null = null;
   menuItems$ = this.menuFacade.menuItems;
+  articlesList: { id: number; title: string }[] = [];
   displayedColumns: string[] = [
     'title',
     'articleId',
@@ -24,14 +27,20 @@ export class MenuItemsListComponent implements OnInit {
     'orderIdx',
     'controls',
   ];
-  articlesList: { id: number; title: string }[] = [];
+  routeList: IBreadcumbRoute[] = [
+    { title: 'Главная', route: '/admin' },
+    { title: 'Меню', route: '/admin/menu' },
+  ];
 
   constructor(
     private dialog: MatDialog,
     private route: ActivatedRoute,
     private menuFacade: MenuFacade,
-    private articleFacade: ArticleFacade
-  ) {}
+    private articleFacade: ArticleFacade,
+    private breadcrumbsService: BreadcrumbsService
+  ) {
+    this.breadcrumbsService.init(this.routeList);
+  }
 
   ngOnInit(): void {
     this.getArticles();
@@ -43,6 +52,15 @@ export class MenuItemsListComponent implements OnInit {
           this.menuId = menuId ? +menuId : null;
 
           return this.menuId ? this.getMenuItems(this.menuId) : of(undefined);
+        }),
+        tap((res) => {
+          if (res?.success) {
+            const route: IBreadcumbRoute = {
+              title: '...',
+              route: null,
+            };
+            this.breadcrumbsService.addRoute(route);
+          }
         })
       )
       .subscribe();
@@ -56,7 +74,7 @@ export class MenuItemsListComponent implements OnInit {
           if (res?.success) {
             this.articlesList = res.result.map((item: any) => ({
               id: item.id,
-              title: item.title
+              title: item.title,
             }));
           }
         })
@@ -73,7 +91,7 @@ export class MenuItemsListComponent implements OnInit {
       .open(MenuItemModalComponent, {
         panelClass: 'custom-dialog-container',
         data: {
-          articlesList: this.articlesList
+          articlesList: this.articlesList,
         },
         width: '450px',
       })
@@ -103,7 +121,7 @@ export class MenuItemsListComponent implements OnInit {
           panelClass: 'custom-dialog-container',
           data: {
             menuItem,
-            articlesList: this.articlesList
+            articlesList: this.articlesList,
           },
           width: '450px',
         })

@@ -3,7 +3,7 @@ import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ENV } from '../../app.token';
 import { IEnvironment } from '../models/environments.model';
-import { IMenuItemRes } from '../models/menu.model';
+import { IMenuItemRes, IMenuParent, IMenuResponse } from '../models/menu.model';
 
 @Injectable({ providedIn: 'root' })
 export class MenuService {
@@ -21,8 +21,8 @@ export class MenuService {
     return this.http.get<any[]>(this.env.host + '/menu');
   }
 
-  getMenu(id: number): Observable<{ success: boolean }> {
-    return this.http.get<{ success: boolean }>(this.env.host + `/menu/${id}`);
+  getMenu(id: number): Observable<IMenuResponse<IMenuParent>> {
+    return this.http.get<IMenuResponse<IMenuParent>>(this.env.host + `/menu/${id}`);
   }
 
   updateMenu(id: number, data: any): Observable<{ success: boolean }> {

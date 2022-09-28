@@ -8,7 +8,7 @@
   cursor: pointer;
   position: relative;
   height: 80px;
-  width: 150px;
+  flex: 0 0 150px;
 
   &-source {
     object-fit: cover;
@@ -57,6 +57,8 @@
 }
 
 .description {
+  flex: 1;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

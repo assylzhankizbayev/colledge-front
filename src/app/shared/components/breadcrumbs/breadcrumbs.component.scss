@@ -1,0 +1,39 @@
+:host {
+  display: block;
+  margin: 0 0 1rem;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  cursor: default;
+  color: #202020;
+  text-decoration: none;
+  pointer-events: none;
+  transition: 0.2s all ease-out;
+
+  &.active {
+    cursor: pointer;
+    pointer-events: initial;
+
+    &:hover .link-text {
+      color: #210083;
+    }
+  }
+}
+
+.link-text {
+  font-size: 0.875rem;
+  margin: 0 0.5rem;
+
+  &.first {
+    margin-left: 0;
+  }
+
+  &.last {
+    margin-right: 0;
+  }
+}

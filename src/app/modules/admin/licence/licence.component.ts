@@ -3,7 +3,9 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { IBreadcumbRoute } from '../../../core/models/route.model';
 import { LicenceFacade } from '../../../core/facade/licence.facade';
+import { BreadcrumbsService } from '../../../core/services/breadcrumbs.service';
 
 @Component({
   selector: 'app-admin-licence',
@@ -11,19 +13,26 @@ import { LicenceFacade } from '../../../core/facade/licence.facade';
   styleUrls: ['./licence.component.scss'],
 })
 export class LicenceAdminComponent implements OnInit {
+  isFormToggled = false;
   licences$ = this.licenceFacade.licences;
   form = this.fb.group({
     title: ['', Validators.required],
     body: ['', Validators.required],
     file: [null],
   });
-  isFormToggled = false;
+  routeList: IBreadcumbRoute[] = [
+    { title: 'Главная', route: '/admin' },
+    { title: 'Лицензии', route: '/admin/licence' },
+  ];
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private licenceFacade: LicenceFacade
-  ) {}
+    private licenceFacade: LicenceFacade,
+    private breadcrumbsService: BreadcrumbsService
+  ) {
+    this.breadcrumbsService.init(this.routeList);
+  }
 
   ngOnInit(): void {
     this.licenceFacade.init();
