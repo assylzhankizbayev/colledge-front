@@ -9,7 +9,12 @@ export interface INews {
   created_at: string;
   file_id: string;
   id: number;
-  tags: string
-  title: string
-  updated_at: string
+  tags: string;
+  title: string;
+  updated_at: string;
+}
+
+export interface INewsDelete {
+  error: any;
+  success: boolean;
 }

@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ENV } from '../../app.token';
 import { IEnvironment } from '../models/environments.model';
-import { INewsResponse } from '../models/news.model';
+import { INewsDelete, INewsResponse } from '../models/news.model';
 
 @Injectable()
 export class NewsService {
@@ -40,5 +40,9 @@ export class NewsService {
     });
 
     return this.http.put<{ success: boolean }>(this.url + `/${id}`, body);
+  }
+
+  deleteNewsById(id: number): Observable<INewsDelete> {
+    return this.http.delete<INewsDelete>(this.url + `/${id}`);
   }
 }

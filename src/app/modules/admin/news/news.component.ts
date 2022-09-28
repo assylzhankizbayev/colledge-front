@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { mergeMap, take, tap } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { mergeMap, take, takeUntil, tap } from 'rxjs/operators';
 import { NewsService } from '../../../core/services/news.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { NewsService } from '../../../core/services/news.service';
 export class NewsAdminComponent implements OnInit {
   toggled = false;
   news: any[] = [];
+  destroy$ = new Subject();
 
   constructor(private router: Router, private newsService: NewsService) {}
 
@@ -21,6 +23,7 @@ export class NewsAdminComponent implements OnInit {
   private getNewsList() {
     return this.newsService.getNews().pipe(
       tap((res) => (this.news = res.result)),
+      takeUntil(this.destroy$),
       take(1)
     );
   }
@@ -43,5 +46,16 @@ export class NewsAdminComponent implements OnInit {
 
   toggleForm(): void {
     this.toggled = !this.toggled;
+  }
+
+  remove(id: number) {
+    this.newsService
+      .deleteNewsById(id)
+      .pipe(
+        mergeMap(() => this.getNewsList()),
+        takeUntil(this.destroy$),
+        take(1)
+      )
+      .subscribe();
   }
 }

@@ -4,7 +4,11 @@
       Добавить новости
     </button>
 
-    <app-table [dataSource]="news" (edit)="edit($event)"></app-table>
+    <app-table
+      [dataSource]="news"
+      (edit)="edit($event)"
+      (remove)="remove($event)"
+    ></app-table>
   </ng-container>
 
   <app-news-form
