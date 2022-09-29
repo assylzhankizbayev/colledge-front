@@ -1,19 +1,31 @@
 <div class="sidebar">
   <section class="section search">
-    <!-- <h3 class="section__header">Поиск</h3> -->
     <div class="search-form">
-      <input
-        class="search-form__input"
-        type="button"
-        value="Поиск..."
-      />
+      <input class="search-form__input" type="text" placeholder="Поиск" />
       <button class="search-form__btn">
-
+        <app-icons class="icon" icon="search"></app-icons>
       </button>
     </div>
   </section>
 
-  <section class="section category">
+  <section class="section">
+    <h3 class="section__header">Быстрая ссылка</h3>
+
+    <ul class="section-list">
+      <li class="section-list__item" *ngFor="let link of links">
+        <a
+          class="link"
+          [routerLink]="link | routeLink"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          {{ link.title }}
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <!-- <section class="section category">
     <h3 class="section__header">Категории</h3>
 
     <ul class="categories">
@@ -22,18 +34,5 @@
       <li class="categories__item">Галерея</li>
       <li class="categories__item">Контакты</li>
     </ul>
-  </section>
-
-  <section class="section archive">
-    <h3 class="section__header">Архив новостей</h3>
-
-    <div class="archive-list">
-      <div
-        class="archive-list__item"
-        *ngFor="let month of months"
-      >
-        {{ month }} 2021 г.
-      </div>
-    </div>
-  </section>
+  </section> -->
 </div>
