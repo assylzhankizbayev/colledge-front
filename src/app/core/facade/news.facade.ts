@@ -31,6 +31,10 @@ export class NewsFacade {
   submit(value: any): Observable<any> {
     return this.newsService
       .addNews(value)
-      .pipe(switchMap((res) => (res.success ? this.getNewsRes() : of(null))));
+      .pipe(switchMap((res) => (
+        res.success 
+          ? this.getNewsRes() 
+          : of(null)
+      )));
   }
 }
