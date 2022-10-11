@@ -17,8 +17,12 @@
     transition: 0.2s all;
     text-decoration: none;
 
-    &.active,
-    &:hover {
+    &.disabled {
+      cursor: default;
+    }
+
+    &.active:not(.disabled),
+    &:hover:not(.disabled) {
       background-color: #005dac;
       color: #fff;
     }

@@ -1,25 +1,19 @@
 <div class="abiturients">
-  <div class="container">
-    <app-sidebar></app-sidebar>
+  <div class="article">
+    <div class="article-list__item">
+      <span class="article-date" *ngIf="article?.created_at as created_at">
+        {{ created_at | date: "dd.MM.YYYY г." }}
+      </span>
 
-    <div class="abiturients-main">
-      <div class="article">
-        <div class="article-list__item">
-          <span class="article-date" *ngIf="article?.created_at as created_at">
-            {{ created_at | date: "dd.MM.YYYY г." }}
-          </span>
+      <h2 class="page-title" *ngIf="article?.title as title">
+        {{ title }}
+      </h2>
 
-          <h2 class="page-title" *ngIf="article?.title as title">
-            {{ title }}
-          </h2>
-
-          <div
-            class="article-content"
-            *ngIf="article?.body as body"
-            [innerHTML]="body"
-          ></div>
-        </div>
-      </div>
+      <div
+        class="article-content"
+        *ngIf="article?.body as body"
+        [innerHTML]="body"
+      ></div>
     </div>
   </div>
 </div>

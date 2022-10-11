@@ -6,14 +6,14 @@ import { IMenu } from '../../core/models/menu.model';
 })
 export class RouteLinkPipe implements PipeTransform {
   transform(menu: IMenu, ...args: any[]): string | null {
-    let link = '';
+    let link: string | null = '';
 
     if (menu?.articleId) {
       link = `/page/article/${menu.articleId}`;
     } else if (menu?.route) {
       link = menu.route;
     } else {
-      link = '/';
+      link = null;
     }
 
     return link;

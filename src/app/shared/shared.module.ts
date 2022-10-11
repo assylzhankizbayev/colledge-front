@@ -11,16 +11,12 @@ import { IconsComponent } from './components/icons/icons.component';
 import { NewsCardComponent } from './components/news-card/news-card.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { PageYOffsetDirective } from './directives/page-y-offset.directive';
-import { SeparatorPipe } from './pipes/separator.pipe';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NewsSidebarComponent } from './components/news-sidebar/news-sidebar.component';
 import { ImgThumbsComponent } from './components/img-thumbs/img-thumbs.component';
 import { ZoomImgModalComponent } from './components/img-thumbs/zoom-img-modal/zoom-img-modal.component';
 import { MenuFacade } from '../core/facade/menu.facade';
-import { RouteLinkPipe } from './pipes/route-link.pipe';
 import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.component';
 import { AdminHeaderComponent } from './components/admin-header/admin-header.component';
-import { TitleLinkPipe } from './pipes/title-link.pipe';
 import { AboutFacade } from '../core/facade/about.facade';
 import { AchievementsFacade } from '../core/facade/achievements.facade';
 import { ArticleFacade } from '../core/facade/article.facade';
@@ -35,6 +31,7 @@ import { ClientPageWrapperComponent } from './components/client-page-wrapper/cli
 import { FilesListComponent } from './components/files-list/files-list.component';
 import { FileThumbComponent } from './components/files-list/file-thumb/file-thumb.component';
 import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
+import { PipesModule } from './pipes/pipes.module';
 
 const components = [
   AdminHeaderComponent,
@@ -49,7 +46,6 @@ const components = [
   NewsSidebarComponent,
   PageNotFoundComponent,
   SelectComponent,
-  SidebarComponent,
   TableComponent,
   TinymceEditorComponent,
   ClientPageWrapperComponent,
@@ -57,7 +53,6 @@ const components = [
   FileThumbComponent,
   BreadcrumbsComponent
 ];
-const pipes = [SeparatorPipe, RouteLinkPipe, TitleLinkPipe];
 const directives = [PageYOffsetDirective];
 const facades = [
   AboutFacade,
@@ -70,7 +65,7 @@ const facades = [
 ];
 
 @NgModule({
-  declarations: [...components, ...directives, ...pipes],
+  declarations: [...components, ...directives],
   imports: [
     CommonModule,
     RouterModule,
@@ -79,8 +74,9 @@ const facades = [
     NgxMaskModule,
     EditorModule,
     MaterialModule,
+    PipesModule
   ],
-  exports: [...components, ...directives, ...pipes, MaterialModule],
+  exports: [...components, ...directives, MaterialModule],
   providers: [
     ...facades,
     { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' },

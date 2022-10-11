@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { AbiturientsComponent } from './abiturients.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { SharedModule } from '../../../shared/shared.module';
 import { AbiturientsDetailsComponent } from './abiturients-details/abiturients-details.component';
+import { SharedModule } from '../../../shared/shared.module';
+import { SidebarMenuModule } from '../../../shared/components/sidebar-menu/sidebar-menu.module';
 
 const routes: Routes = [
   { path: '', component: AbiturientsComponent },
@@ -12,15 +13,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    AbiturientsComponent,
-    AbiturientsDetailsComponent,
-  ],
+  declarations: [AbiturientsComponent, AbiturientsDetailsComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     FormsModule,
     SharedModule,
-  ]
+    SidebarMenuModule,
+  ],
 })
-export class AbiturientsModule { }
+export class AbiturientsModule {}

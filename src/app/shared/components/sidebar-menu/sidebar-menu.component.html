@@ -1,6 +1,7 @@
 <div class="sidebar">
   <a
     class="sidebar__item"
+    [class.disabled]="!link.articleId && !link.route"
     *ngFor="let link of links"
     [routerLink]="link | routeLink"
     routerLinkActive="active"

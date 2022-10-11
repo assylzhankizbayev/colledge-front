@@ -1,13 +1,7 @@
 <div class="achievements">
-  <div class="container">
-    <app-sidebar></app-sidebar>
+  <h2 class="page-title" [innerText]="title$ | async"></h2>
 
-    <div class="achievements-main">
-      <h2 class="page-title" [innerText]="title$ | async"></h2>
+  <div class="achievements-content" [innerHTML]="body$ | async"></div>
 
-      <div class="achievements-content" [innerHTML]="body$ | async"></div>
-
-      <app-achevements-pics></app-achevements-pics>
-    </div>
-  </div>
+  <app-achevements-pics></app-achevements-pics>
 </div>

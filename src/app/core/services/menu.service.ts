@@ -1,9 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { ENV } from '../../app.token';
 import { IEnvironment } from '../models/environments.model';
-import { IMenuItemRes, IMenuParent, IMenuResponse } from '../models/menu.model';
+import {
+  IMenu,
+  IMenuItem,
+  IMenuItemRes,
+  IMenuParent,
+  IMenuResponse,
+} from '../models/menu.model';
 
 @Injectable({ providedIn: 'root' })
 export class MenuService {
@@ -22,7 +29,9 @@ export class MenuService {
   }
 
   getMenu(id: number): Observable<IMenuResponse<IMenuParent>> {
-    return this.http.get<IMenuResponse<IMenuParent>>(this.env.host + `/menu/${id}`);
+    return this.http.get<IMenuResponse<IMenuParent>>(
+      this.env.host + `/menu/${id}`
+    );
   }
 
   updateMenu(id: number, data: any): Observable<{ success: boolean }> {
@@ -64,6 +73,20 @@ export class MenuService {
   deleteMenuItem(id: number): Observable<{ success: boolean; error: string }> {
     return this.http.delete<{ success: boolean; error: string }>(
       this.env.host + `/menu/item/${id}`
+    );
+  }
+
+  getSidebarMenu() {
+    return this.getMenuItemsById(2).pipe(
+      map((res) => {
+        return res.success
+          ? ((res.result as IMenuItem[]).map((item) => ({
+              title: item.title,
+              route: item.route || '',
+              articleId: item.article_id,
+            })) as IMenu[])
+          : [];
+      })
     );
   }
 }

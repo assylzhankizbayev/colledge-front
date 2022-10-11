@@ -29,8 +29,6 @@ export interface IMenu {
   route: string;
   articleId?: number;
   subMenu?: any[];
-
-
 }
 
 export interface IMenuParent {
