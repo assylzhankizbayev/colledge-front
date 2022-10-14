@@ -5,10 +5,11 @@ import {
   OnDestroy,
   ViewChild,
 } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { take, takeUntil, tap } from 'rxjs/operators';
+import * as bcrypt from 'bcryptjs';
 import { Route } from '../../../core/models/route.model';
 import { AuthService } from '../../../core/services/auth.service';
 
@@ -19,30 +20,35 @@ import { AuthService } from '../../../core/services/auth.service';
 })
 export class LoginFormComponent implements AfterViewInit, OnDestroy {
   @ViewChild('phoneNumber') phoneNumberEl: ElementRef;
-  form = this.fb.group({
-    phone: ['', Validators.required],
-    password: ['', Validators.required],
-  });
+  form: FormGroup;
   destroy$ = new Subject();
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private authService: AuthService
-  ) {}
+  ) {
+    this.form = this.fb.group({
+      phone: ['', Validators.required],
+      password: ['', Validators.required],
+    });
+  }
 
   ngAfterViewInit(): void {
     this.phoneNumberEl.nativeElement.focus();
   }
 
-  login(): void {
+  async login() {
+    const salt = await bcrypt.genSalt(10);
+    const passwordHash = await bcrypt.hash(this.form.value.password, salt);
+
     this.authService
-      .login(this.form.value)
+      .login({ ...this.form.value, password: passwordHash })
       .pipe(
         tap((res) => {
           if (res.accessToken) {
-            this.form.reset();
             this.router.navigate([Route.Admin]);
+            this.form.reset();
           }
         }),
         takeUntil(this.destroy$),

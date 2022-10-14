@@ -1,6 +1,6 @@
-import { IEnvironment } from "../app/core/models/environments.model";
+import { IEnvironment } from '../app/core/models/environments.model';
 
 export const environment: IEnvironment = {
   production: true,
-  host: 'https://api-node.konaev-kolledj.kz'
+  host: 'https://api-node.konaev-kolledj.kz',
 };
