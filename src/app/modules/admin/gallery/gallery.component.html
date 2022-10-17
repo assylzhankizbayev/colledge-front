@@ -1,0 +1,36 @@
+<app-breadcrumbs></app-breadcrumbs>
+
+<section class="gallery">
+  <ng-container *ngIf="!isFormToggled">
+    <button type="button" class="btn btn-primary mb-3" (click)="toggleForm()">
+      Добавить медиа материал
+    </button>
+
+    <div class="gallery-list">
+      <div
+        class="gallery-list__item"
+        *ngFor="let gallery of galleryList; index as i"
+      >
+        <div class="gallery-image">
+          <img class="img" [src]="host + gallery.file.path" [alt]="gallery.file.name" />
+        </div>
+
+        <div class="gallery-details">
+          <span class="title">{{ gallery.title }}</span>
+
+          <div class="gallery-controls">
+            <span class="edit" (click)="edit(gallery.id)">Редактировать</span>
+            <span class="remove" (click)="remove(gallery.id)">Удалить медиа файл</span>
+          </div>
+        </div>
+      </div>
+      <span class="empty" *ngIf="!galleryList?.length">Пусто</span>
+    </div>
+  </ng-container>
+
+  <app-gallery-form
+    *ngIf="isFormToggled"
+    (save)="add($event)"
+    (cancel)="toggleForm()"
+  ></app-gallery-form>
+</section>

@@ -13,5 +13,6 @@ export class AdminSidebarComponent {
     { title: 'Лицензии', router: '/admin/licence' },
     { title: 'Новости', router: '/admin/news' },
     { title: 'Часто задаваемые вопросы', router: '/admin/faq' },
+    { title: 'Галерея', router: '/admin/gallery' },
   ];
 }

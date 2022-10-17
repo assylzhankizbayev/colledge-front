@@ -37,6 +37,11 @@ const routes: Routes = [
         path: 'faq',
         loadChildren: () => import('./faq/faq.module').then((m) => m.FaqModule),
       },
+      {
+        path: 'gallery',
+        loadChildren: () =>
+          import('./gallery/gallery.module').then((m) => m.GalleryModule),
+      },
     ],
   },
 ];

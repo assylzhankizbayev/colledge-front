@@ -1,0 +1,27 @@
+<form class="form" [formGroup]="form">
+  <div class="mb-3 input-field">
+    <label for="title" class="form-label">Заголовок</label>
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      name="title"
+      aria-describedby="title"
+      formControlName="title"
+    />
+  </div>
+
+  <div class="mb-4 input-field">
+    <app-file-upload formControlName="file"></app-file-upload>
+  </div>
+
+  <div class="form-controls">
+    <button type="submit" class="btn btn-primary" (click)="submitForm()">
+      Сохранить
+    </button>
+
+    <button type="button" class="btn btn-danger" (click)="cancelForm()">
+      Отмена
+    </button>
+  </div>
+</form>

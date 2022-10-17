@@ -42,3 +42,8 @@ export interface IMenuResponse<T> {
   success: boolean;
   result: T;
 }
+
+export enum MenuIds {
+  Sidebar = 2,
+  Gallery = 8
+}

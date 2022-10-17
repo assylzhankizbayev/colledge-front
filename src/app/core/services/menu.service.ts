@@ -10,6 +10,7 @@ import {
   IMenuItemRes,
   IMenuParent,
   IMenuResponse,
+  MenuIds,
 } from '../models/menu.model';
 
 @Injectable({ providedIn: 'root' })
@@ -76,17 +77,25 @@ export class MenuService {
     );
   }
 
+  menuItemsMapping = (res: IMenuItemRes) => {
+    return res.success
+      ? ((res.result as IMenuItem[]).map((item) => ({
+          title: item.title,
+          route: item.route || '',
+          articleId: item.article_id,
+        })) as IMenu[])
+      : [];
+  };
+
   getSidebarMenu() {
-    return this.getMenuItemsById(2).pipe(
-      map((res) => {
-        return res.success
-          ? ((res.result as IMenuItem[]).map((item) => ({
-              title: item.title,
-              route: item.route || '',
-              articleId: item.article_id,
-            })) as IMenu[])
-          : [];
-      })
+    return this.getMenuItemsById(MenuIds.Sidebar).pipe(
+      map(this.menuItemsMapping)
+    );
+  }
+
+  getGalleryMenu() {
+    return this.getMenuItemsById(MenuIds.Gallery).pipe(
+      map(this.menuItemsMapping)
     );
   }
 }
