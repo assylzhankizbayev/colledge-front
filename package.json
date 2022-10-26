@@ -5,7 +5,8 @@
     "ng": "ng",
     "start": "ng serve --open",
     "dev": "ng serve --port=9200 --open",
-    "build": "ng build --configuration production",
+    "local": "ng serve --configuration=local --port=9300 --open",
+    "build": "ng build --configuration=production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
