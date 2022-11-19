@@ -3,8 +3,7 @@ import { Router } from '@angular/router';
 import { of } from 'rxjs';
 import { catchError, mergeMap, take, tap } from 'rxjs/operators';
 import { IBreadcumbRoute } from '../../../core/models/route.model';
-import { IGallery } from '../../../core/models/gallery.model';
-import { IFile } from '../../../core/models/files.model';
+import { GalleryFile } from '../../../core/models/gallery.model';
 import { GalleryService } from '../../../core/services/gallery.service';
 import { BreadcrumbsService } from '../../../core/services/breadcrumbs.service';
 import { ENV } from 'src/app/app.token';
@@ -19,7 +18,7 @@ export class GalleryComponent implements OnInit {
   host = this.env.host;
   mainCategory = 10;
   isFormToggled = false;
-  galleryList: IGallery<IFile>[] = [];
+  galleryList: GalleryFile[] = [];
   routeList: IBreadcumbRoute[] = [
     { title: 'Главная', route: '/admin' },
     { title: 'Галерея', route: '/admin/gallery' },
@@ -36,8 +35,6 @@ export class GalleryComponent implements OnInit {
 
   ngOnInit(): void {
     this.getGalleryList().subscribe();
-    // this.articleFacade.init();
-    // this.categoryFacade.initCategoryItems(this.mainCategory);
   }
 
   private getGalleryList() {

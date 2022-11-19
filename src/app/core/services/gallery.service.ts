@@ -4,7 +4,7 @@ import { Observable } from "rxjs";
 import { ENV } from "src/app/app.token";
 import { IEnvironment } from "../models/environments.model";
 import { IFile } from "../models/files.model";
-import { IGallery, IGalleryResponse } from "../models/gallery.model";
+import { GalleryFile, IGallery, IGalleryResponse } from "../models/gallery.model";
 
 @Injectable()
 export class GalleryService {
@@ -32,7 +32,7 @@ export class GalleryService {
     return this.http.put(this.url + `/${data.id}`, body);
   }
 
-  getGalleryList(): Observable<IGalleryResponse<IGallery<IFile>[]>> {
+  getGalleryList(): Observable<IGalleryResponse<GalleryFile[]>> {
     return this.http.get<IGalleryResponse<IGallery<IFile>[]>>(this.url);
   }
 

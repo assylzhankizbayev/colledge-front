@@ -1,4 +1,6 @@
-<div class="zoom-img">
-  <img class="zoom-img__img" [src]="img?.src" [alt]="img?.title" />
-  <img class="zoom-img__close" src="assets/icons/cross.svg" (click)="close()" />
+<div class="zoom-wrapper" [class.scrollable]="scrollable">
+  <div class="zoom-img">
+    <img class="zoom-img__img" [src]="img?.src" [alt]="img?.title" />
+    <img class="zoom-img__close" src="assets/icons/cross.svg" (click)="close()" />
+  </div>
 </div>

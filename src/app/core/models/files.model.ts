@@ -18,3 +18,8 @@ export interface IFileUpload {
   result: IFile;
   success: boolean;
 }
+
+export enum FileTypes {
+  IMG = 'image',
+  PDF = 'pdf'
+}

@@ -1,1 +1,16 @@
-<p>gallery-list works!</p>
+<div class="gallery-list">
+  <div class="gallery" *ngFor="let gallery of galleries">
+    <!-- <img
+      class="gallery-image"
+      [src]="host + gallery.file.path"
+      [alt]="gallery.file.name"
+    /> -->
+    <app-img-thumbs
+      class="gallery-image"
+      [img]="getThumbsParams(gallery)"
+      [enableZoom]="true"
+      [width]="350"
+      [height]="250"
+    ></app-img-thumbs>
+  </div>
+</div>

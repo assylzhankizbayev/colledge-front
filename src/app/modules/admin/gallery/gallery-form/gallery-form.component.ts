@@ -8,11 +8,24 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class GalleryFormComponent {
   form: FormGroup;
-  @Input() set formData(value: any) {
+
+  @Input()
+  set formData(value: any) {
     if (value) {
       this.form.patchValue(value, { emitEvent: false });
     }
   }
+  _file: any;
+
+  @Input()
+  set fileData(value: any) {
+    this._file = value;
+    console.log('file', value);
+  }
+  get fileData() {
+    return this._file;
+  }
+
   @Output() save = new EventEmitter<any>();
   @Output() cancel = new EventEmitter<void>();
 
@@ -20,12 +33,14 @@ export class GalleryFormComponent {
     this.form = this.fb.group({
       id: [null],
       title: [null, Validators.required],
-      file: [null, Validators.required],
+      file: [null, Validators.required]
     });
   }
 
   submitForm(): void {
-    this.save.emit(this.form.value);
+    if (this.form.valid) {
+      this.save.emit(this.form.value);
+    }
   }
 
   cancelForm(): void {

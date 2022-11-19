@@ -1,5 +1,8 @@
-import { Component, ElementRef, forwardRef, HostListener, Input } from '@angular/core';
+import { Component, ElementRef, forwardRef, HostListener, Inject, Input } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ENV } from '../../../app.token';
+import { IFile, FileTypes } from '../../../core/models/files.model';
+import { IEnvironment } from '../../../core/models/environments.model';
 
 @Component({
   selector: 'app-file-upload',
@@ -16,16 +19,22 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/f
 export class FileUploadComponent implements ControlValueAccessor {
   @Input() progress?: any;
   @Input() title = 'Изображение';
+  @Input() fileData: IFile | null = null;
   private file: File | null = null;
   filesControl = new FormControl(null);
-  onChange = (value: any) => {}
+  onChange = (value: any) => { }
+  imgHost = this.env.host;
+  modified = false;
 
   @HostListener('change', ['$event.target.files']) emitFiles(event: FileList) {
     this.file = event && event.item(0);
     this.onChange(this.file);
   }
 
-  constructor(private host: ElementRef<HTMLInputElement>) { }
+  constructor(
+    private host: ElementRef<HTMLInputElement>,
+    @Inject(ENV) private env: IEnvironment
+  ) { }
 
   writeValue(value: any) {
     this.host.nativeElement.value = value;
@@ -37,5 +46,15 @@ export class FileUploadComponent implements ControlValueAccessor {
   }
 
   registerOnTouched(fn: any) {
+  }
+
+  isImage({ type }: IFile) {
+    return type.includes(FileTypes.IMG);
+  }
+
+  remove(): void {
+    this.modified = true;
+    this.fileData = null;
+    this.onChange(null);
   }
 }

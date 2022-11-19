@@ -20,6 +20,7 @@ export class GalleryEditComponent implements OnInit, OnDestroy {
     { title: 'Главная', route: '/admin' },
     { title: 'Материалы', route: '/admin/article' },
   ];
+  file: IFile | null = null;
   private destroy$ = new Subject();
   gallery: IGallery<IFile> | null = null;
 
@@ -44,6 +45,7 @@ export class GalleryEditComponent implements OnInit, OnDestroy {
         tap((res) => {
           if (res?.success && res?.result) {
             this.gallery = res.result;
+            this.file = res.result.file;
 
             const route: IBreadcumbRoute = {
               title: res.result?.title as string,
@@ -58,8 +60,8 @@ export class GalleryEditComponent implements OnInit, OnDestroy {
       .subscribe();
   }
 
-  update(data: any): void {
-    if (this.articleId) {
+  update(data: IGallery<File>): void {
+    if (this.articleId && data.file) {
       this.galleryService
         .updateGallery(data)
         .pipe(

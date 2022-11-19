@@ -1,12 +1,22 @@
+.zoom-wrapper {
+  display: block;
+  position: relative;
+  overflow-y: auto;
+  height: 100%;
+  width: 100%;
+}
 
 .zoom-img {
-  display: flex;
-  overflow-y: auto;
-  position: relative;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
 
   &__img {
+    object-fit: cover;
+    height: 100%;
     width: 100%;
-    height: auto;
   }
 
   &__close {
@@ -20,5 +30,9 @@
     width: 40px;
     height: 40px;
   }
+}
+
+.scrollable .zoom-img {
+  height: auto;
 }
 

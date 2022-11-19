@@ -1,0 +1,22 @@
+:host {
+  width: 100%;
+}
+
+.gallery-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -1rem 0;
+  width: 100%;
+}
+
+.gallery {
+  // height: 250px;
+  // width: 350px;
+  margin: 1rem;
+}
+
+.gallery-image {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}

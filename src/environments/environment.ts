@@ -2,5 +2,5 @@ import { IEnvironment } from '../app/core/models/environments.model';
 
 export const environment: IEnvironment = {
   production: false,
-  host: 'http://localhost:3000',
+  host: 'https://api-dev.konaev-kolledj.kz',
 };

@@ -1,4 +1,4 @@
-export interface ILicence {
+export interface Thumbs {
   id: number;
   title: string;
   src: string;

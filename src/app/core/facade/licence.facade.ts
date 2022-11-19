@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { switchMap, take, tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
-import { ILicence, ILicenceBody } from '../models/licence.model';
+import { Thumbs, ILicenceBody } from '../models/licence.model';
 import { IPostRes, IPostSingleRes } from '../models/post.model';
 import { LicenceService } from '../services/licence.service';
 
@@ -11,7 +11,7 @@ import { LicenceService } from '../services/licence.service';
 export class LicenceFacade {
   private post$ = new BehaviorSubject<any>([]);
   private title$ = new BehaviorSubject<string | null>('Лицензии');
-  private licences$ = new BehaviorSubject<ILicence[] | null>(null);
+  private licences$ = new BehaviorSubject<Thumbs[] | null>(null);
   host = environment.host;
 
   constructor(private licenceService: LicenceService, private router: Router) {}

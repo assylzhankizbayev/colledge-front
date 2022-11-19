@@ -1,9 +1,23 @@
 <label for="img" class="form-label">{{ title }}</label>
-<input
-  type="file"
-  class="form-control"
-  id="img"
-  name="img"
-  [formControl]="filesControl"
-  observeFiles
-/>
+
+<div *ngIf="fileData && isImage(fileData)" class="image-details">
+  <img class="img" [src]="imgHost + fileData.path" [alt]="fileData.name" />
+  <span class="remove" (click)="remove()">Удалить</span>
+</div>
+
+<div *ngIf="!fileData" class="file-group">
+  <input
+    type="file"
+    class="form-control"
+    [class.is-valid]="modified && filesControl.value"
+    [class.is-invalid]="modified && !filesControl.value"
+    id="img"
+    name="img"
+    [formControl]="filesControl"
+    observeFiles
+    required
+  />
+  <div class="invalid-feedback">
+    Обязательное поле
+  </div>
+</div>

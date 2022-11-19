@@ -1,15 +1,18 @@
 <div
+  *ngIf="img"
   class="img-thumb"
   [ngStyle]="{ cursor: enableZoom ? 'pointer' : 'default' }"
 >
   <img
     class="img-thumb__img"
-    [src]="img?.src"
-    [alt]="img?.title"
+    [src]="img.src"
+    [alt]="img.title"
+    [style.width.px]="width"
+    [style.height.px]="height"
     (click)="enableZoom ? zoom() : null"
   />
 
-  <span class="img-thumb__title" *ngIf="showTitle">{{ img?.title }}</span>
+  <span class="img-thumb__title" *ngIf="showTitle">{{ img.title }}</span>
 
   <button
     *ngIf="enableDownload"
