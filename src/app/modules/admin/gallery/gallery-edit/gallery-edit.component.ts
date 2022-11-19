@@ -81,7 +81,7 @@ export class GalleryEditComponent implements OnInit, OnDestroy {
   }
 
   cancel(): void {
-    this.router.navigate(['/admin/article']);
+    this.router.navigate(['/admin/gallery']);
   }
 
   ngOnDestroy(): void {
