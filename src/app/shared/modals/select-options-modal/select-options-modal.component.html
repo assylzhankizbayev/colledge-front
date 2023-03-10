@@ -5,8 +5,8 @@
     <div class="options">
       <div
         class="options__item"
+        *ngFor="let item of list; index as i"
         [class.selected]="item?.id === selectedId"
-        *ngFor="let item of data?.list; index as i"
         (click)="selectArticle(item)"
       >
         <span class="title">{{ item.title }}</span>

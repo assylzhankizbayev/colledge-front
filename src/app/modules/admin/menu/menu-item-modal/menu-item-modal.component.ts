@@ -70,7 +70,6 @@ export class MenuItemModalComponent {
         take(1),
         filter((res) => res != null),
         tap((res) => {
-          console.log(res);
           this.form.patchValue({
             articleId: res?.id,
             articleTitle: res?.title,

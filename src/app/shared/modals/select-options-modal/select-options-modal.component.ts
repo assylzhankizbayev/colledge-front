@@ -1,21 +1,21 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-select-options-modal',
   templateUrl: './select-options-modal.component.html',
-  styleUrls: ['./select-options-modal.component.scss']
+  styleUrls: ['./select-options-modal.component.scss'],
 })
-export class SelectOptionsModalComponent implements OnInit {
+export class SelectOptionsModalComponent {
   selectedId = -1;
   selectedArticle: any;
+  list: IListItem[] = [];
 
   constructor(
     private dialogRef: MatDialogRef<SelectOptionsModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: IData
-  ) { }
-
-  ngOnInit(): void {
+    @Inject(MAT_DIALOG_DATA) private data: IData
+  ) {
+    this.list = data?.list ?? [];
   }
 
   selectArticle(article: any) {
@@ -28,9 +28,8 @@ export class SelectOptionsModalComponent implements OnInit {
   }
 
   close(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(this.selectedArticle);
   }
-
 }
 
 interface IData {

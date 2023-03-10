@@ -32,6 +32,7 @@ import { FilesListComponent } from './components/files-list/files-list.component
 import { FileThumbComponent } from './components/files-list/file-thumb/file-thumb.component';
 import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
 import { PipesModule } from './pipes/pipes.module';
+import { SelectOptionsModalComponent } from './modals/select-options-modal/select-options-modal.component';
 
 const components = [
   AdminHeaderComponent,
@@ -46,12 +47,13 @@ const components = [
   NewsSidebarComponent,
   PageNotFoundComponent,
   SelectComponent,
+  SelectOptionsModalComponent,
   TableComponent,
   TinymceEditorComponent,
   ClientPageWrapperComponent,
   FilesListComponent,
   FileThumbComponent,
-  BreadcrumbsComponent
+  BreadcrumbsComponent,
 ];
 const directives = [PageYOffsetDirective];
 const facades = [
@@ -74,7 +76,7 @@ const facades = [
     NgxMaskModule,
     EditorModule,
     MaterialModule,
-    PipesModule
+    PipesModule,
   ],
   exports: [...components, ...directives, MaterialModule],
   providers: [
